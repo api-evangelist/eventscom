@@ -1,0 +1,62 @@
+generated: '2026-08-04'
+method: probed
+source: https://datagol-mcp.events.com/mcp
+status: published
+gated: true
+server:
+  name: datagol-mcp
+  vendor: Events.com (DataGol)
+  transport: http
+  url: https://datagol-mcp.events.com/
+  transport_paths:
+  - {path: /mcp, note: streamable-http}
+  - {path: /sse, note: server-sent events}
+  - {path: /messages, note: SSE message post-back}
+authentication:
+  style: query-parameters-or-headers
+  required:
+  - {name: workspace_id, description: DataGol workspace identifier}
+  - {name: workbook_id, description: DataGol workbook identifier}
+  - {name: token, description: DataGol bearer/access token}
+  optional:
+  - {name: host, description: API base URL override; defaults from server environment}
+  connect_form: "https://datagol-mcp.events.com/mcp?workspace_id=...&workbook_id=...&token=..."
+  oauth_discovery:
+    well_known_oauth_authorization_server: not-served
+    well_known_oauth_protected_resource: not-served
+tools_discovery:
+  status: gated
+  method_attempted: 'POST {"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+  paths_attempted: [/, /mcp, /sse, /messages]
+  http_status: 400
+  response: >-
+    {"error": true, "message": "Missing required query params (or headers): workspace_id, workbook_id, token.
+    Connect with ...?workspace_id=...&workbook_id=...&token=... (optional: host for API base URL, defaults from
+    env)", "missing": ["workspace_id", "workbook_id", "token"]}
+  note: >-
+    The server rejects the request before the JSON-RPC layer, so no tool names or inputSchemas are observable
+    anonymously. Events.com publishes no llms.txt and no MCP documentation, so there is no published tool list
+    to fall back to. Tool names are therefore NOT recorded here — enumerating the live manifest requires an
+    authenticated workspace/workbook token. See mcp/eventscom-tool-crosswalk.yml for the REST control-plane
+    operations that manage this surface.
+tools: []
+related_rest_surface:
+  note: >-
+    The DataGol Platform API carries a first-class MCP control plane — these are real operations in the
+    harvested OpenAPI, not tools of this server.
+  openapi: openapi/eventscom-datagol-platform-openapi.yml
+  tag_groups:
+  - {tag: Agent MCP, operations: 7}
+  - {tag: MCP Connector Auth, operations: 10}
+  - {tag: agent-mcp-config-controller, operations: 5}
+  - {tag: MCP Connectors, operations: 2}
+  ai_surface:
+    openapi: openapi/eventscom-datagol-ai-openapi.yml
+    operation: list_mcp_tools_ai_api_v2_mcp_tools_post
+    path: POST /ai/api/v2/mcp/tools
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://datagol-mcp.events.com/mcp
+  http_status: 400
+  content_type: application/json
+  discovery: certificate-transparency subdomain enumeration of events.com (api.certspotter.com)

@@ -1,0 +1,37 @@
+generated: '2026-08-04'
+method: generated
+source: openapi/eventscom-datagol-platform-openapi.yml, openapi/eventscom-datagol-ai-openapi.yml
+note: >-
+  Events.com publishes no AGENTS.md, no skill files and no developer documentation of any kind, so these are
+  generated from the harvested OpenAPI. Every operationId referenced in every skill was verified verbatim
+  against the spec before being written; none are invented. Each skill carries the cross-cutting rules from
+  conventions/, errors/ and lifecycle/ — in particular that this API has NO idempotency contract and that 50
+  operations are deprecated with no sunset date.
+skills:
+- file: eventscom-query-workbook-table.md
+  name: Query a DataGol workbook table
+  api: openapi/eventscom-datagol-platform-openapi.yml
+  operations: [getTables, getTable, columnsCatalog, getFilterData, getRow, getStatisticsData, downloadCSV]
+- file: eventscom-manage-table-webhooks.md
+  name: Configure and test a DataGol table webhook
+  api: openapi/eventscom-datagol-platform-openapi.yml
+  operations: [getWebhookList, testWebhook_2, createWebhook, testWebhook, testWebhook_1, updateWebhook, deleteWebhook]
+- file: eventscom-run-ai-conversation.md
+  name: Run a streaming DataGol AI conversation
+  api: openapi/eventscom-datagol-ai-openapi.yml
+  operations:
+  - create_conversation_ai_api_v2_conversations_post
+  - send_message_to_streaming_agent_ai_api_v2_messages_streaming_post
+  - stream_message_events_ai_api_v2_messages_streaming__conversation_id___message_id__get
+  - stop_streaming_agent_run_ai_api_v2_messages__conversation_id___message_id__stop_post
+  - list_active_runs_ai_api_v2_runs_active_get
+  - get_messages_by_conversation_id_ai_api_v2_conversations__conversation_id__messages_get
+  - post_message_feedback_ai_api_v2_feedback_post
+- file: eventscom-connect-mcp-connector.md
+  name: Authorize a DataGol MCP connector and execute a tool
+  api: openapi/eventscom-datagol-platform-openapi.yml
+  operations: [listConnectors, connect, oauthCallback, getConnections, getConnectionById, getToolsForConnection, getMcpServerUrl, executeTool, updateConnectionName, deleteConnection]
+- file: eventscom-train-and-predict-model.md
+  name: Train and predict with a DataGol dashboard ML model
+  api: openapi/eventscom-datagol-ai-openapi.yml
+  operations: [get_model_config, create_model, get_models, get_model, train_model, model_training_history, predict_using_model, update_model, delete_model]

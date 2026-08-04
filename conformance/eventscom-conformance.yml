@@ -1,0 +1,80 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml, openapi/eventscom-datagol-ai-openapi.yml, openapi/eventscom-datagol-python-agent-openapi.yml, live probes
+note: >-
+  Derived from the harvested specs and live probes. Events.com publishes no compliance program, trust center,
+  certification list or standards claim anywhere public, so NO `Compliance` pointer is emitted in apis.yml.
+  Note that trust.events.com and security.events.com both return HTTP 200 — they are DNS-wildcard aliases that
+  serve the marketing homepage, not a trust center. Anyone scoring this domain must content-check, not
+  status-check.
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: openapi/eventscom-datagol-platform-openapi.yml declares openapi 3.0.1 (springdoc)
+- id: openapi-3.1
+  conforms: true
+  evidence: DataGol AI and Python Agent specs declare openapi 3.1.0 (FastAPI)
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No oauth2 securityScheme is declared in any spec. OAuth appears only as an outbound integration concern —
+    /mcpConnectorAuth/api/v1/connect and /connector/api/v1/mcp/credential initiate OAuth against third-party
+    connectors (Composio) rather than exposing an OAuth server of Events.com's own.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every Events.com host
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: components.securitySchemes.s_jwt is type http, scheme bearer, bearerFormat JWT
+- id: rfc7519-jwt
+  conforms: true
+  evidence: s_jwt declares bearerFormat JWT
+- id: rfc9457-problem-details
+  conforms: false
+  partial: true
+  evidence: >-
+    Modelled errors use the proprietary SaasxlResponseDTO envelope, not problem+json. A live 404 from the
+    Spring framework fallback did return application/problem+json ({"type":"about:blank",...}), but it is
+    undeclared in the spec and covers only unrouted requests.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on every Events.com host
+- id: rfc8615-well-known
+  conforms: false
+  evidence: no /.well-known/* document served on any host (see well-known/eventscom-well-known.yml)
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no Sunset or Deprecation response header declared on any of the 50 operations marked deprecated
+- id: rfc9110-idempotency
+  conforms: false
+  evidence: no Idempotency-Key parameter or header on any of 977 operations across the three specs
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404/403 on every host
+- id: mcp
+  conforms: true
+  partial: true
+  evidence: >-
+    Hosted MCP server at datagol-mcp.events.com serving /mcp, /sse and /messages. Transport is live but the
+    JSON-RPC layer is gated on workspace_id + workbook_id + token, and the server does not implement the MCP
+    OAuth discovery documents (/.well-known/oauth-authorization-server, /.well-known/oauth-protected-resource
+    both absent), so it does not follow the MCP authorization spec.
+- id: json-api
+  conforms: false
+  evidence: responses are a bespoke success/version/date/data/error envelope
+- id: odata
+  conforms: false
+- id: scim2
+  conforms: false
+- id: fhir-r4
+  conforms: false
+- id: pci-dss
+  conforms: unknown
+  evidence: >-
+    Events.com processes card payments for ticketing (Stripe.js v2 and v3 are loaded on org.events.com), which
+    implies a PCI obligation, but no compliance attestation is published.
+- id: gdpr
+  conforms: unknown
+  evidence: A privacy policy is published at https://events.com/privacy/ but no DPA, subprocessor list or certification page was found.
+compliance_published: false
+certifications: []

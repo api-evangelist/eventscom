@@ -1,0 +1,36 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DataGol AI API
+  version: 1.0.0
+extends: openapi/eventscom-datagol-ai-openapi.yml
+x-generated: '2026-08-04'
+x-method: generated
+x-note: Additive only. The harvested document in openapi/_original/ is never mutated.
+actions:
+- target: $.info
+  description: Record API Evangelist provenance and the harvest source on the document.
+  update:
+    x-apievangelist-provider: eventscom
+    x-apievangelist-api: DataGol AI API
+    x-apievangelist-harvested: '2026-08-04'
+    x-apievangelist-source: live anonymous fetch of the provider-served spec
+    x-apievangelist-note: Events.com publishes no developer program or API documentation; this contract was discovered
+      by probing production hosts.
+- target: $
+  description: Add the servers[] block the published document omits, set to the host the spec was fetched from.
+  update:
+    servers:
+    - url: https://datagol-ai.events.com/
+      description: Production host the OpenAPI was served from (added by API Evangelist; not declared upstream).
+- target: $.info
+  description: Cross-link the derived artifacts in this repository.
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/eventscom-authentication.yml
+      conventions: conventions/eventscom-conventions.yml
+      errors: errors/eventscom-problem-types.yml
+      lifecycle: lifecycle/eventscom-lifecycle.yml
+      conformance: conformance/eventscom-conformance.yml
+      data_model: data-model/eventscom-data-model.yml
+      agentic_access: agentic-access/eventscom-agentic-access.yml
+      skills: skills/_index.yml

@@ -1,18 +1,132 @@
 aid: eventscom
 name: Events.com
-description: 'Events.com is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 29
+  pass: local-v1
+description: >-
+  Events.com is a La Jolla, California event-technology company founded by Mitch Thrower (co-founder of
+  Active.com / The Active Network) that operates an end-to-end platform for creating, promoting, selling,
+  and discovering events. Its organizer-facing products span ticketing and registration (Sell), digital
+  event marketing (Promote), sponsorship management (Sponsor), on-site check-in and execution (Execute),
+  analytics (Insights), virtual and hybrid events (Virtual), and an embeddable event calendar, alongside a
+  consumer event-discovery destination. Events.com does not publish a public developer program, but its
+  internal DataGol / Saasxl AI and data platform exposes three anonymously reachable OpenAPI 3.x contracts
+  and a hosted Model Context Protocol server on production hosts, covering no-code data tables, ETL and
+  orchestration, BI dashboards, knowledge graphs, custom agents, agent skills, and MCP connectors.
+image: https://events.com/wp-content/uploads/2023/09/events-featured-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/eventscom/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
+specificationVersion: '0.21'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
-- Company
-apis: []
+- event-management
+- ticketing
+- event-registration
+- event-marketing
+- sponsorship
+- event-discovery
+- data-platform
+- business-intelligence
+- artificial-intelligence
+- mcp
+- agent-native
+- no-code
+apis:
+- name: DataGol Platform API (Saasxl)
+  description: >-
+    The Spring Boot backend of Events.com's DataGol data and AI platform, self-documented as "Saasxl-api doc".
+    865 operations across 85 controller groups covering no-code database tables (NoCoDb v1/v2/v3), data
+    sources and connectors, ETL and data pipelines, DAG orchestration, data quality and lineage, BI pages and
+    widgets, alerts and notification history, workflows and triggers, table webhooks, identity (IDP), custom
+    agents, agent skills, and MCP connector configuration. Authenticated with a JWT bearer token.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - data-platform
+  - business-intelligence
+  - no-code
+  - etl
+  - orchestration
+  - workflows
+  - agent-native
+  - mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-datagol-platform-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: Overlay
+    url: overlays/eventscom-datagol-platform-overlay.yaml
+- name: DataGol AI API
+  description: >-
+    FastAPI service exposing Events.com's DataGol AI surface — conversations and messages with streaming
+    agent runs, a SQL parser and dialect converter, dashboard and widget generation, machine-learning model
+    training and prediction, research and PDF export, structured data extraction, knowledge-graph status,
+    BI RAG indexing, Jira issue creation, and an MCP tool listing endpoint. 102 operations, OpenAPI 3.1.0.
+  humanURL: https://datagol-ai.events.com/docs
+  baseURL: https://datagol-ai.events.com/
+  tags:
+  - artificial-intelligence
+  - business-intelligence
+  - machine-learning
+  - agent-native
+  - data-extraction
+  - mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-datagol-ai-openapi.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: Overlay
+    url: overlays/eventscom-datagol-ai-overlay.yaml
+- name: DataGol Python Agent API
+  description: >-
+    FastAPI service running Events.com's sandboxed Python analysis agent — a unified query endpoint, session
+    lifecycle and status, stale-session cleanup, streaming run cancellation, Plotly figure retrieval, and
+    feedback submission. 10 operations, OpenAPI 3.1.0.
+  humanURL: https://datagol-python.events.com/docs
+  baseURL: https://datagol-python.events.com/
+  tags:
+  - artificial-intelligence
+  - agent-native
+  - data-analysis
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-datagol-python-agent-openapi.yml
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+  - type: Overlay
+    url: overlays/eventscom-datagol-python-agent-overlay.yaml
+- name: DataGol MCP Server
+  description: >-
+    Hosted Model Context Protocol server for the DataGol workbook surface, reachable at the /mcp, /sse and
+    /messages transport paths. Connections are gated on workspace_id, workbook_id and token query parameters
+    or headers, so the live tools/list manifest requires authenticated introspection.
+  humanURL: https://datagol-mcp.events.com/
+  baseURL: https://datagol-mcp.events.com/
+  tags:
+  - mcp
+  - agent-native
+  - data-platform
+  properties:
+  - type: MCPServer
+    url: mcp/eventscom-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/eventscom-tool-crosswalk.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +134,48 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/eventscom_stock/
+  url: https://events.com/
+- type: APIReference
+  url: https://datagol-be.events.com/swagger-ui/index.html
+- type: Support
+  url: https://events.com/faq/
+- type: Blog
+  url: https://events.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/edc-core
+- type: Pricing
+  url: https://events.com/pricing/
+- type: SignUp
+  url: https://org.events.com/#/en_US/events/create
+- type: Login
+  url: https://org.events.com/
+- type: TermsOfService
+  url: https://events.com/terms/
+- type: PrivacyPolicy
+  url: https://events.com/privacy/
+- type: MCPServer
+  url: mcp/eventscom-mcp.yml
+- type: Webhooks
+  url: asyncapi/eventscom-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/eventscom-authentication.yml
+- type: Conventions
+  url: conventions/eventscom-conventions.yml
+- type: Conformance
+  url: conformance/eventscom-conformance.yml
+- type: ErrorCatalog
+  url: errors/eventscom-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/eventscom-lifecycle.yml
+- type: DataModel
+  url: data-model/eventscom-data-model.yml
+- type: Packages
+  url: packages/eventscom-packages.yml
+- type: LLMsTxt
+  url: llms/eventscom-llms.txt
+- type: AgenticAccess
+  url: agentic-access/eventscom-agentic-access.yml
+- type: DomainSecurity
+  url: security/eventscom-domain-security.yml

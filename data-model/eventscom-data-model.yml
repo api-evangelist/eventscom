@@ -1,0 +1,116 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml
+note: >-
+  Derived from the 518 component schemas and their $ref graph plus id-reference fields in the harvested
+  Saasxl platform spec. Events.com publishes no object reference, so there are no documented id prefixes and
+  no narrative domain model to search against — every entity and relationship below is read off the spec.
+  Relationships are inferred from `<entity>Id` foreign-key fields; `via` names the exact field.
+scope:
+  api: DataGol Platform API (Saasxl)
+  schemas_total: 518
+  entities_modelled: 24
+tenancy:
+  root: Company
+  note: >-
+    `companyId` is the tenancy discriminator and appears on nearly every top-level entity (UserDTO, TableDTO,
+    DataSourceDTO, DagDTO, AlertDTO, WorkFlowDTO, CustomAgentDTO, BaseWorkSpaceDTO, WorkspaceFileDTO,
+    DataPipelineResponseV2DTO, AnnotationDTO, ElementPermissionsDTO, RequestStatusLogDTO,
+    ExternalEmbeddingConfigDTO). Workspace sits beneath Company and is the container for tables, columns,
+    widgets, BI pages and files.
+entities:
+- {name: Company, schema: CompanyKeysDTO, role: tenant-root}
+- {name: User, schema: UserDTO, refs: 88, fields: [id, companyId, anonymousUserId]}
+- {name: Workspace, schema: BaseWorkSpaceDTO, refs: 9, fields: [id, userId, companyId]}
+- {name: WorkspaceUser, schema: WorkSpaceUsersDTO, refs: 11, fields: [workSpaceId, userId], role: join}
+- {name: Table, schema: TableDTO, refs: 25, fields: [id, workspaceId, companyId, parentId, pipelineId, materializedViewId, lastMilePipelineId, datasourceIds]}
+- {name: Column, schema: ColumnDTO, refs: 20, fields: [id, workspaceId, tableId, parameterIds]}
+- {name: RowData, schema: RowDataDTO, refs: 28, fields: [id, fkId, cellValuesByColumnId]}
+- {name: DataSource, schema: DataSourceDTO, refs: 21, fields: [id, companyId, thirdPartyDataSourceId]}
+- {name: DataSourceTable, schema: DataSourceTableDTO, refs: 13, fields: [id, dataSourceId, workbookId]}
+- {name: Widget, schema: WidgetDTO, refs: 16, fields: [id, tableId, viewId]}
+- {name: WidgetParameter, schema: WidgetParameterDTO, refs: 9, fields: [id, workspaceId]}
+- {name: BIPage, schema: BIPageDTO, refs: 8, fields: [id, workspaceId]}
+- {name: Dag, schema: DagDTO, refs: 9, fields: [id, companyId]}
+- {name: DagNode, schema: DagNodeDTO, refs: 7}
+- {name: DagRun, schema: DagRunDTO, refs: 8, fields: [id, dagId, dagSnapshotId, startFromNodeId, parentId]}
+- {name: DataPipeline, schema: DataPipelineResponseV2DTO, refs: 9, fields: [id, companyId, parentId, clonedParentId, dagRunId]}
+- {name: WorkFlow, schema: WorkFlowDTO, refs: 7, fields: [id, userId, companyId, workspaceId]}
+- {name: Alert, schema: AlertDTO, refs: 8, fields: [id, messageTemplateId, sourceId, companyId, userId]}
+- {name: AlertNotificationHistory, schema: AlertNotificationHistoryDTO, refs: 11, fields: [id, alertId, alertIdHistoryId, alertSourceId]}
+- {name: Annotation, schema: AnnotationDTO, refs: 27, fields: [id, parentAnnotationId, companyId]}
+- {name: ElementLink, schema: ElementLinkDTO, refs: 10, fields: [id, elementId, linkedId]}
+- {name: ElementPermissions, schema: ElementPermissionsDTO, refs: 8, fields: [id, elementId, userId, anonymousUserId, companyId, parentElementId]}
+- {name: CustomAgent, schema: CustomAgentDTO, refs: 9, fields: [id, userId, companyId]}
+- {name: AgentSkill, schema: AgentSkillDTO, refs: 11, fields: [id]}
+- {name: AgentMcp, schema: AgentMcpDTO, refs: 7}
+- {name: WorkspaceFile, schema: WorkspaceFileDTO, refs: 9, fields: [id, parentId, workspaceId, companyId]}
+- {name: LineageGraph, schema: LineageGraphDTO, refs: 8}
+- {name: ExternalEmbeddingConfig, schema: ExternalEmbeddingConfigDTO, refs: 9, fields: [appId, companyId, elementId, userId, serviceAccountId]}
+- {name: Extraction, schema: ExtractionDTO, refs: 7}
+- {name: UnrealEngineConfiguration, schema: UnrealEngineConfigurationDTO, refs: 7}
+relationships:
+- {from: User, to: Company, kind: belongs_to, via: companyId}
+- {from: Workspace, to: Company, kind: belongs_to, via: companyId}
+- {from: Workspace, to: User, kind: belongs_to, via: userId}
+- {from: Workspace, to: User, kind: has_many, via: WorkSpaceUsersDTO.workSpaceId, through: WorkspaceUser}
+- {from: Table, to: Workspace, kind: belongs_to, via: workspaceId}
+- {from: Table, to: Company, kind: belongs_to, via: companyId}
+- {from: Table, to: Table, kind: belongs_to, via: parentId, note: self-referencing hierarchy}
+- {from: Table, to: DataSource, kind: has_many, via: datasourceIds}
+- {from: Table, to: DataPipeline, kind: belongs_to, via: pipelineId}
+- {from: Table, to: DataPipeline, kind: belongs_to, via: lastMilePipelineId}
+- {from: Column, to: Table, kind: belongs_to, via: tableId}
+- {from: Column, to: Workspace, kind: belongs_to, via: workspaceId}
+- {from: Column, to: WidgetParameter, kind: has_many, via: parameterIds}
+- {from: RowData, to: Column, kind: has_many, via: cellValuesByColumnId, note: map keyed by columnId}
+- {from: DataSource, to: Company, kind: belongs_to, via: companyId}
+- {from: DataSourceTable, to: DataSource, kind: belongs_to, via: dataSourceId}
+- {from: DataSourceTable, to: Workspace, kind: belongs_to, via: workbookId, note: "workbook is the user-facing name for workspace"}
+- {from: Widget, to: Table, kind: belongs_to, via: tableId}
+- {from: Widget, to: BIPage, kind: belongs_to, via: viewId, confidence: medium}
+- {from: WidgetParameter, to: Workspace, kind: belongs_to, via: workspaceId}
+- {from: BIPage, to: Workspace, kind: belongs_to, via: workspaceId}
+- {from: Dag, to: Company, kind: belongs_to, via: companyId}
+- {from: DagRun, to: Dag, kind: belongs_to, via: dagId}
+- {from: DagRun, to: DagNode, kind: belongs_to, via: startFromNodeId}
+- {from: DagRun, to: DagRun, kind: belongs_to, via: parentId, note: self-referencing retry/child runs}
+- {from: DataPipeline, to: Company, kind: belongs_to, via: companyId}
+- {from: DataPipeline, to: DagRun, kind: belongs_to, via: dagRunId}
+- {from: DataPipeline, to: DataPipeline, kind: belongs_to, via: parentId}
+- {from: DataPipeline, to: DataPipeline, kind: belongs_to, via: clonedParentId}
+- {from: WorkFlow, to: Workspace, kind: belongs_to, via: workspaceId}
+- {from: WorkFlow, to: User, kind: belongs_to, via: userId}
+- {from: WorkFlow, to: Company, kind: belongs_to, via: companyId}
+- {from: Alert, to: Company, kind: belongs_to, via: companyId}
+- {from: Alert, to: User, kind: belongs_to, via: userId}
+- {from: AlertNotificationHistory, to: Alert, kind: belongs_to, via: alertId}
+- {from: Annotation, to: Annotation, kind: belongs_to, via: parentAnnotationId, note: threaded comments}
+- {from: Annotation, to: Company, kind: belongs_to, via: companyId}
+- {from: ElementLink, to: Element, kind: belongs_to, via: elementId, note: "Element is a polymorphic handle (table/widget/page/agent)"}
+- {from: ElementLink, to: Element, kind: belongs_to, via: linkedId}
+- {from: ElementPermissions, to: Element, kind: belongs_to, via: elementId}
+- {from: ElementPermissions, to: User, kind: belongs_to, via: userId}
+- {from: ElementPermissions, to: ElementPermissions, kind: belongs_to, via: parentElementId}
+- {from: CustomAgent, to: Company, kind: belongs_to, via: companyId}
+- {from: CustomAgent, to: User, kind: belongs_to, via: userId}
+- {from: WorkspaceFile, to: Workspace, kind: belongs_to, via: workspaceId}
+- {from: WorkspaceFile, to: WorkspaceFile, kind: belongs_to, via: parentId, note: folder tree}
+- {from: ExternalEmbeddingConfig, to: Element, kind: belongs_to, via: elementId}
+- {from: ExternalEmbeddingConfig, to: Company, kind: belongs_to, via: companyId}
+- {from: WebhookEvent, to: Table, kind: belongs_to, via: tableId, source: asyncapi/eventscom-webhooks.yml}
+polymorphism:
+  element:
+    note: >-
+      "Element" is a polymorphic identifier used across permissions, links, embedding config and alerts. The
+      element type is carried alongside the id (see `elementType` path parameters such as
+      /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models). The spec declares no enum of element types.
+id_conventions:
+  format: opaque string (UUID-shaped in observed request examples); RowDataDTO.id and WebhookEventDataDTO.id are int64
+  prefixes: none-published
+  note: DataGol uses no Stripe-style typed id prefixes; ids are untyped, so an id alone does not identify its entity.
+render: null
+gaps:
+- No published object reference or ERD.
+- No enum for the polymorphic `elementType`.
+- Id values carry no type discriminator.

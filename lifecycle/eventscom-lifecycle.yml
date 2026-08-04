@@ -1,0 +1,104 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml, openapi/eventscom-datagol-ai-openapi.yml, live probes
+note: >-
+  Events.com publishes no versioning policy, no deprecation policy, no SLA and no status page. Everything below
+  is derived from the harvested specs plus live probes. No `StatusPage` and no `Deprecation` pointer is emitted
+  in apis.yml, because neither page exists — and status.events.com resolving with HTTP 200 is a DNS-wildcard
+  artifact that serves the marketing homepage, not a status page.
+versioning:
+  scheme: uri-path
+  policy_url: null
+  docs: null
+  observed:
+  - api: DataGol Platform API (Saasxl)
+    spec_version: '1.0'
+    path_versions: [v1, v2, v3]
+    note: >-
+      Version lives per resource family, not per API — /noCo/api/v1, /noCo/api/v2 and /noCo/api/v3 coexist, as
+      do /workflow/api/v1 and /workflows/api/v2, and biv-1-controller alongside biv-2-controller. There is no
+      single API version and no published migration guide between the generations.
+  - api: DataGol AI API
+    spec_version: 1.0.36
+    path_versions: [v1, v2]
+  - api: DataGol Python Agent API
+    spec_version: 1.0.36
+    path_versions: [v2]
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    50 operations are flagged `deprecated: true` in the specs, but no Sunset or Deprecation response header is
+    declared on any of them, no removal date is given, and no successor operation is named. An agent reading
+    these specs can tell that an operation is deprecated but cannot tell when it disappears or what to call
+    instead.
+  counts:
+    total: 50
+    platform: 32
+    ai: 18
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+status_page_probe:
+  url_tested: https://status.events.com/
+  http_status: 200
+  verdict: false-positive
+  reason: DNS wildcard; body is byte-identical to the events.com marketing homepage.
+support:
+  help_center: https://events.com/faq/
+  contact: https://events.com/faq/contact-us/
+  email: hello@events.com
+  phone: '+1 (858) 257-2300'
+deprecated_operations:
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getWfById, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: updateWf, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: deleteWfById, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: createWf, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: triggerWf, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: executeWorkFlow, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: listenToSNSMessages, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getByRequestId, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getUserWorkFlowHistoryByUserId, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getCompanyWorkFlowHistoryByUserId, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getDataTypeOperationMapping, group: work-flow-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: modifyBi, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: deleteBI, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getBI, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: addAttachment, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getTableData, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getCursorData, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getCellValues, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: uploadFile, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: csvUpload, group: NoCoDbV2}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: modifyBi_1, group: biv-1-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: deleteBI_1, group: biv-1-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getBI_1, group: biv-1-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getJobs, group: data-pipeline-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getJobErrorLogs, group: data-pipeline-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getLatestJobs, group: data-pipeline-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: cancelJob_1, group: data-pipeline-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getUserConnectorCredentialInfo, group: connector-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getConnectorCredentialByCompanyId, group: connector-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getAIThirdPartyConfig, group: ai-third-party-page-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: excelUpload, group: file-controller}
+- {spec: openapi/eventscom-datagol-platform-openapi.yml, operationId: getConversationById, group: conversation-controller}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: get_conversation_by_id_ai_api_v2_conversations__conversation_id__get, group: Conversation V2}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: run_ai_api_v2_home_chat_agent_run_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: update_message_ai_api_v2_home_chat_agent_update_message_put, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: delete_chat_message_ai_api_v2_home_chat_agent_delete_messages_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: get_conversations_ai_api_v2_home_chat_agent_conversations_get, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: create_conversation_ai_api_v2_home_chat_agent_conversations_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: update_conversation_name_ai_api_v2_home_chat_agent_conversations__thread_id__name_put, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: delete_conversation_ai_api_v2_home_chat_agent_conversations__thread_id__delete, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: get_conversation_state_ai_api_v2_home_chat_agent_state__thread_id__get, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: vector_store_sync_workspace_ai_api_v2_home_chat_agent_vector_store_sync_workspace_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: vector_store_reset_workspace_ai_api_v2_home_chat_agent_vector_store_reset_workspace_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: vector_store_advanced_search_resources_ai_api_v2_home_chat_agent_vector_store_advanced_search_resources_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: hello_world_ai_api_v2_home_chat_agent_hello_world_post, group: Home Chat Agent APIs}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: index_page_ai_api_v2_bi_rag_index_page_post, group: bi_rag}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: index_workspace_ai_api_v2_bi_rag_index_workspace_post, group: bi_rag}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: store_file_ai_api_v2_file_search_store_post, group: Gemini File Search (deprecated)}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: create_store_ai_api_v2_file_search_create_store_get, group: Gemini File Search (deprecated)}
+- {spec: openapi/eventscom-datagol-ai-openapi.yml, operationId: delete_all_stores_ai_api_v2_file_search_stores_all_delete, group: Gemini File Search (deprecated)}

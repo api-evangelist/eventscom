@@ -1,0 +1,70 @@
+generated: '2026-08-04'
+method: probed
+source: live GET of /.well-known/* on every Events.com host in apis.yml
+note: >-
+  No .well-known document was found on any Events.com host. Recorded as a negative probe result rather than
+  omitted, so a later re-run can tell "never checked" from "checked and absent". IMPORTANT: events.com serves a
+  DNS wildcard — any subdomain resolves and the marketing site answers 200 for arbitrary hostnames — so a bare
+  200 on this domain proves nothing. Every result below was content-checked, and every candidate returned either
+  a 404 or the marketing HTML shell.
+found: 0
+documents: []
+probes:
+- host: https://events.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://www.events.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://docs.events.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://org.events.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://my.events.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://discover.events.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 403}
+  - {path: /.well-known/agent.json, status: 403}
+  - {path: /.well-known/api-catalog, status: 404}
+- host: https://api.events.com
+  note: DNS-wildcard alias of the marketing site; not an API host.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://reg-apisvc.prod.events.com
+  results:
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+x-evidence:
+  fetched: '2026-08-04'
+  wildcard_dns_confirmed: true
+  wildcard_test: zzqq-nonexistent-test.events.com resolves to the marketing origin

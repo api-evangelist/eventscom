@@ -1,0 +1,118 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml, openapi/eventscom-datagol-ai-openapi.yml, openapi/eventscom-datagol-python-agent-openapi.yml
+format: proprietary-envelope
+note: >-
+  Events.com publishes no error reference page, so this catalog is derived entirely from the harvested OpenAPI
+  responses plus one live 404 observed on datagol-be.events.com. Two different error contracts are in play: the
+  Spring platform wraps errors in a SaasxlResponseDTO envelope, while the two FastAPI services return the
+  standard FastAPI 422 validation shape. Neither is RFC 9457, with one exception noted below.
+envelopes:
+- name: SaasxlResponseDTO
+  api: DataGol Platform API (Saasxl)
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+  media_type: '*/*'
+  shape:
+    success: boolean
+    version: string
+    date: date-time
+    data: object
+    error:
+      schema: '#/components/schemas/ErrorMessage'
+      fields:
+        statusCode: int32
+        requestId: string
+        message: object
+        details: object
+        errorCodes: array of string
+  note: >-
+    `error.errorCodes[]` is a machine-readable string array and `error.requestId` is a correlation id, but
+    Events.com publishes no registry of the code values, so agents cannot branch on them without observation.
+- name: FastAPI HTTPValidationError
+  api: DataGol AI API, DataGol Python Agent API
+  schema: '#/components/schemas/HTTPValidationError'
+  media_type: application/json
+  shape:
+    detail:
+      - loc: array of string|integer
+        msg: string
+        type: string
+        input: any
+        ctx: object
+- name: RFC 9457 Problem Details
+  api: DataGol Platform API (Saasxl)
+  media_type: application/problem+json
+  observed_only: true
+  note: >-
+    Not declared anywhere in the OpenAPI, but the live framework-level 404 handler emits it. Observed at
+    GET https://datagol-be.events.com/api-docs -> {"type":"about:blank","title":"Not Found","status":404,
+    "detail":"No endpoint GET /api-docs.","instance":"/api-docs"}. This is Spring's default ProblemDetail
+    fallback for unrouted requests, not a modelled application error, so the API is NOT RFC 9457 conformant.
+problems:
+- status: 400
+  title: Bad Request
+  api: DataGol Platform API (Saasxl)
+  operations: 865
+  schema: null
+  note: Declared on every operation with no response schema attached (springdoc default).
+- status: 401
+  title: Unauthorized
+  api: DataGol Platform API (Saasxl)
+  operations: 3
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+  note: >-
+    Declared on only 3 of 865 operations even though a JWT bearer scheme (s_jwt) secures the API and the host
+    returns a bare 401 for unauthenticated calls. The spec under-declares its own auth failure mode.
+- status: 403
+  title: Forbidden
+  api: DataGol Platform API (Saasxl)
+  operations: 865
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+- status: 404
+  title: Not Found
+  api: DataGol Platform API (Saasxl)
+  operations: 276
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+- status: 410
+  title: Gone
+  api: DataGol Platform API (Saasxl)
+  operations: 10
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+- status: 429
+  title: Too Many Requests
+  api: DataGol Platform API (Saasxl)
+  operations: 14
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+  note: >-
+    The only rate-limit signal anywhere in the surface. No Retry-After or RateLimit-* response header is
+    declared, and Events.com publishes no rate-limit documentation.
+- status: 500
+  title: Internal Server Error
+  api: DataGol Platform API (Saasxl)
+  operations: 865
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+- status: 501
+  title: Not Implemented
+  api: DataGol Platform API (Saasxl)
+  operations: 865
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+- status: 503
+  title: Service Unavailable
+  api: DataGol Platform API (Saasxl)
+  operations: 865
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+- status: 422
+  title: Validation Error
+  api: DataGol AI API
+  operations: 95
+  schema: '#/components/schemas/HTTPValidationError'
+- status: 422
+  title: Validation Error
+  api: DataGol Python Agent API
+  operations: 7
+  schema: '#/components/schemas/HTTPValidationError'
+gaps:
+- No published error-code registry for ErrorMessage.errorCodes[].
+- No 4xx responses at all on the FastAPI services other than 422 validation.
+- 400 responses on the platform API carry no schema.
+- No documented retry or backoff guidance for 429/503.

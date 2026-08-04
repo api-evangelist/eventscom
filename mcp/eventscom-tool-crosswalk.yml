@@ -1,0 +1,83 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml, openapi/eventscom-datagol-ai-openapi.yml, https://datagol-mcp.events.com/mcp
+note: >-
+  Events.com runs both a hosted MCP server and three OpenAPI contracts, so this crosswalk is emitted — but the
+  live tools/list manifest is auth-gated (workspace_id + workbook_id + token), and Events.com publishes no
+  llms.txt, no MCP docs and no tool list anywhere public. There is therefore NO published tool name to bind, and
+  crosswalk[] is deliberately empty rather than populated with guesses. What IS observable is the REST control
+  plane that creates, configures and authorizes MCP connectors — recorded below as mcp_control_plane[] so the
+  binding work is a token away rather than a re-discovery.
+surfaces:
+  openapi:
+  - {file: openapi/eventscom-datagol-platform-openapi.yml, title: Saasxl-api doc, operations: 865, gated: false, note: anonymously readable at https://datagol-be.events.com/v3/api-docs}
+  - {file: openapi/eventscom-datagol-ai-openapi.yml, title: DataGol AI, operations: 102, gated: false, note: anonymously readable at https://datagol-ai.events.com/openapi.json}
+  - {file: openapi/eventscom-datagol-python-agent-openapi.yml, title: DataGol AI (python agent), operations: 10, gated: false}
+  graphql:
+    endpoint: null
+    note: No GraphQL surface found on any Events.com host.
+  mcp:
+    url: https://datagol-mcp.events.com/
+    transport_paths: [/mcp, /sse, /messages]
+    gated: true
+    gate: workspace_id + workbook_id + token required before the JSON-RPC layer
+crosswalk: []
+mcp_only: []
+mcp_control_plane:
+- {operationId: getAll_2, method: GET, path: /mcp/api/v1, tag: Agent MCP, summary: List MCP connectors}
+- {operationId: create_5, method: POST, path: /mcp/api/v1, tag: Agent MCP, summary: Create an MCP connector}
+- {operationId: get_3, method: GET, path: '/mcp/api/v1/{mcpId}', tag: Agent MCP}
+- {operationId: update_3, method: PUT, path: '/mcp/api/v1/{mcpId}', tag: Agent MCP}
+- {operationId: delete_5, method: DELETE, path: '/mcp/api/v1/{mcpId}', tag: Agent MCP}
+- {operationId: getToolkits, method: GET, path: '/mcp/api/v1/{mcpId}/toolkits', tag: Agent MCP, summary: Get toolkits for an MCP connector}
+- {operationId: updateToolkits, method: PUT, path: '/mcp/api/v1/{mcpId}/toolkits', tag: Agent MCP, summary: Replace toolkits for an MCP connector}
+- {operationId: listMcpConfigs, method: GET, path: /mcpConfigs/api/v1, tag: agent-mcp-config-controller}
+- {operationId: createMcpConfig, method: POST, path: /mcpConfigs/api/v1, tag: agent-mcp-config-controller}
+- {operationId: getMcpConfig, method: GET, path: '/mcpConfigs/api/v1/{mcpConfigId}', tag: agent-mcp-config-controller}
+- {operationId: updateMcpConfig, method: PUT, path: '/mcpConfigs/api/v1/{mcpConfigId}', tag: agent-mcp-config-controller}
+- {operationId: deleteMcpConfig, method: DELETE, path: '/mcpConfigs/api/v1/{mcpConfigId}', tag: agent-mcp-config-controller}
+- {operationId: listConnectors, method: GET, path: /mcpConnectorAuth/api/v1/connectors, tag: MCP Connector Auth, summary: List all available connectors}
+- {operationId: connect, method: POST, path: /mcpConnectorAuth/api/v1/connect, tag: MCP Connector Auth, summary: Initiate connector OAuth}
+- {operationId: oauthCallback, method: GET, path: /mcpConnectorAuth/api/v1/callback, tag: MCP Connector Auth, summary: OAuth callback from Composio}
+- {operationId: getConnections, method: GET, path: /mcpConnectorAuth/api/v1/connections, tag: MCP Connector Auth, summary: List connections for the current user}
+- {operationId: getConnectionById, method: GET, path: '/mcpConnectorAuth/api/v1/connections/{connectionId}', tag: MCP Connector Auth}
+- {operationId: updateConnectionName, method: PATCH, path: '/mcpConnectorAuth/api/v1/connections/{connectionId}', tag: MCP Connector Auth}
+- {operationId: deleteConnection, method: DELETE, path: '/mcpConnectorAuth/api/v1/connections/{connectionId}', tag: MCP Connector Auth}
+- {operationId: getToolsForConnection, method: GET, path: '/mcpConnectorAuth/api/v1/connections/{connectionId}/tools', tag: MCP Connector Auth, summary: List all Composio tools for a connection's toolkit}
+- {operationId: getMcpServerUrl, method: GET, path: '/mcpConnectorAuth/api/v1/mcpServers/{serverId}/url', tag: MCP Connector Auth, summary: Mint a per-user MCP URL}
+- {operationId: executeTool, method: POST, path: /mcpConnectorAuth/api/v1/tools/execute, tag: MCP Connector Auth, summary: Execute a Composio tool}
+- {operationId: initiateMcpAuth, method: POST, path: /connector/api/v1/mcp/credential, tag: MCP Connectors, summary: Initiate MCP OAuth2 credential registration}
+- {operationId: mcpCallback, method: GET, path: /connector/api/v1/mcp/callback, tag: MCP Connectors, summary: MCP OAuth2 redirect callback}
+- {operationId: list_mcp_tools_ai_api_v2_mcp_tools_post, method: POST, path: /ai/api/v2/mcp/tools, api: DataGol AI, summary: List MCP tools}
+rest_only:
+  note: >-
+    Every REST operation is currently rest_only, because no MCP tool name is observable. Grouped by the largest
+    capability areas in the Saasxl platform spec.
+  groups:
+  - {capability: No-code database tables (NoCoDb v1/v2/v3), operations: 180}
+  - {capability: Data sources, operations: 90}
+  - {capability: Identity provider (IDP), operations: 76}
+  - {capability: ETL, operations: 35}
+  - {capability: Knowledge-base connectors, operations: 32}
+  - {capability: Orchestration and DAGs, operations: 26}
+  - {capability: Connectors, operations: 20}
+  - {capability: Alerts and notification history, operations: 34}
+  - {capability: Data pipelines (v1 + v2), operations: 25}
+  - {capability: Element permissions and sharing, operations: 28}
+  - {capability: Workflows and triggers, operations: 27}
+  - {capability: BI pages and widgets, operations: 36}
+  - {capability: Data quality, operations: 13}
+  - {capability: Custom agents, agent templates, agent skills, operations: 36}
+  - {capability: DataGol AI conversations, messages and streaming runs, operations: 15}
+  - {capability: DataGol AI SQL parser, operations: 6}
+  - {capability: DataGol AI ML models, operations: 10}
+  - {capability: DataGol AI data extraction, operations: 6}
+  - {capability: DataGol Python agent sessions, operations: 10}
+coverage:
+  tools_named: 0
+  tools_bound: 0
+  mcp_only: 0
+  rest_operations_total: 977
+  rest_operations_with_a_tool: 0
+  mcp_control_plane_operations: 25
+  reason_unbound: mcp-tools-list-auth-gated

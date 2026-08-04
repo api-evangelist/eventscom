@@ -1,0 +1,103 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml
+spec_type: Webhooks
+note: >-
+  Events.com publishes NO AsyncAPI document — /asyncapi.yaml and /asyncapi.json were probed on every host and
+  the GitHub org (edc-core) has no event schemas. It does, however, operate a real outbound webhook surface
+  inside the DataGol platform: table-level webhooks with configurable HTTP delivery, plus an alerting and
+  notification-history subsystem. This artifact captures that surface as a webhook catalog, derived from the
+  harvested OpenAPI. Nothing here is fabricated — every operationId and schema field below appears verbatim in
+  the spec.
+asyncapi_document: null
+event_catalog_url: null
+webhooks:
+  model: table-scoped-outbound-http
+  configuration_api:
+    api: DataGol Platform API (Saasxl)
+    tag: NoCoDb
+    operations:
+    - {operationId: getWebhookList, method: GET, path: /noCo/api/v1/tables/webhooks, purpose: List configured webhooks}
+    - {operationId: createWebhook, method: POST, path: /noCo/api/v1/tables/webhooks, purpose: Create a webhook subscription}
+    - {operationId: updateWebhook, method: PUT, path: '/noCo/api/v1/tables/webhooks/{id}', purpose: Update a webhook subscription}
+    - {operationId: deleteWebhook, method: DELETE, path: '/noCo/api/v1/tables/webhooks/{id}', purpose: Delete a webhook subscription}
+    - {operationId: testWebhook, method: POST, path: /noCo/api/v1/tables/webhooks/test, purpose: Send a test delivery}
+    - {operationId: testWebhook_1, method: POST, path: /noCo/api/v1/tables/webhooks/test/payload, purpose: Test with an explicit payload}
+    - {operationId: testWebhook_2, method: GET, path: /noCo/api/v1/tables/webhooks/test/payload, purpose: Retrieve the sample test payload}
+    - {operationId: sendNotification, method: POST, path: /noCo/api/v1/tables/webhooks/notify, purpose: Trigger a notification dispatch}
+  subscription_schema:
+    name: WebhookEventDTO
+    ref: '#/components/schemas/WebhookEventDTO'
+    fields:
+      id: string
+      title: string
+      tableId: string
+      tableName: string
+      eventName: string
+      notificationType: string
+      httpNotificationDetails: '#/components/schemas/HttpNotificationDetails'
+  delivery_schema:
+    name: HttpNotificationDetails
+    ref: '#/components/schemas/HttpNotificationDetails'
+    fields:
+      method: string
+      url: string
+      headerDetails: map
+      parameterDetails: map
+      payload: map
+    note: >-
+      Delivery is fully caller-configured — the subscriber supplies the HTTP method, target URL, headers,
+      query parameters and payload template. This is a generic HTTP-notifier rather than a fixed webhook
+      contract.
+  payload_schema:
+    name: WebhookEventDataDTO
+    ref: '#/components/schemas/WebhookEventDataDTO'
+    fields:
+      id: int64
+      tableId: string
+      tableName: string
+      data: string
+    note: The row payload is delivered as a `data` STRING, not a typed object.
+  event_types:
+    published: false
+    note: >-
+      `eventName` is a free-form string on WebhookEventDTO with no enum and no published list of valid values,
+      so the set of subscribable events cannot be enumerated from the spec. This is the single biggest gap in
+      the event surface.
+  security:
+    signature_header: null
+    verification: none-documented
+    note: No webhook signing secret, HMAC signature header, or replay-window is declared anywhere in the spec.
+  retries:
+    policy: none-documented
+related_event_surfaces:
+- name: Alerts and notification history
+  tags: [alert-controller, alert-notification-history-controller, Alert History]
+  operations: 34
+  examples:
+  - {operationId: getPendingNotifications, path: /api/v1/alerts/notification-history/pending}
+  - {path: '/api/v1/alerts/notification-history/{notificationHistoryId}/mark-sent'}
+  - {path: '/api/v1/alerts/notification-history/{notificationHistoryId}/mark-seen'}
+  - {path: '/alerts/history/api/v1/alert/{alertId}/triggered'}
+  - {path: /alerts/api/v1/unsubscribe}
+  note: >-
+    A poll-based alert/notification subsystem, not a push surface. Consumers read notification history rather
+    than subscribing to a stream.
+- name: Workflow triggers
+  tags: [work-flow-controller, trigger-type-controller, work-flow-v-2-controller]
+  operations: 27
+  note: >-
+    /workflow/api/v1/sns/webhook (operationId listenToSNSMessages) is an INBOUND webhook receiver for AWS SNS,
+    not an outbound event Events.com publishes. It is also marked deprecated.
+- name: Server-sent event streaming
+  api: DataGol AI API
+  operations:
+  - {operationId: stream_message_events_ai_api_v2_messages_streaming__conversation_id___message_id__get, path: '/ai/api/v2/messages/streaming/{conversation_id}/{message_id}'}
+  - {operationId: send_message_to_streaming_agent_ai_api_v2_messages_streaming_post, path: /ai/api/v2/messages/streaming}
+  note: Live agent-run streaming over SSE; a request-scoped stream, not a durable event bus.
+gaps:
+- No AsyncAPI document.
+- No published event-type catalog (eventName has no enum).
+- No webhook signature/verification scheme.
+- No retry or delivery-guarantee policy.
+- No documentation of any kind — the webhook surface is discoverable only by reading the OpenAPI.

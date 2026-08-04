@@ -1,0 +1,107 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/eventscom-datagol-platform-openapi.yml, openapi/eventscom-datagol-ai-openapi.yml, openapi/eventscom-datagol-python-agent-openapi.yml
+note: >-
+  Derived entirely from the harvested OpenAPI. Events.com publishes no developer documentation, so there is no
+  prose source to search against — docs.events.com exists and is branded "Events.com Docs" but is an empty
+  Docusaurus scaffold with zero published pages. No `Idempotency` pointer is emitted in apis.yml: there is no
+  idempotency contract anywhere in this surface (see below).
+authentication:
+  style: bearer-jwt
+  scheme: s_jwt
+  header: 'Authorization: Bearer <jwt>'
+  applies_to: DataGol Platform API (Saasxl)
+  detail: authentication/eventscom-authentication.yml
+  gaps:
+  - The two FastAPI services (DataGol AI, DataGol Python Agent) declare NO securityScheme at all, and their
+    OpenAPI documents are served anonymously.
+  - The platform spec declares s_jwt in components but sets no global `security` block, so the requirement is
+    implied per-operation rather than stated document-wide.
+idempotency:
+  supported: false
+  header: null
+  evidence: >-
+    Zero Idempotency-Key (or equivalent) parameters or headers across all 977 operations in the three specs.
+    Unsafe operations — including POST /workflow/api/v1/run, POST /mcpConnectorAuth/api/v1/tools/execute and the
+    ML training/prediction triggers — carry no replay-protection contract, so an agent that retries a timed-out
+    write has no defined safety guarantee.
+pagination:
+  styles:
+  - style: page-number
+    api: DataGol Platform API (Saasxl)
+    params: [page, size]
+    usage: {page: 15, size: 11}
+    note: Spring Pageable convention.
+  - style: page-size
+    api: DataGol Platform API (Saasxl)
+    params: [pageSize]
+    usage: {pageSize: 6}
+  - style: cursor
+    api: DataGol Platform API (Saasxl)
+    params: [cursor]
+    usage: {cursor: 1}
+    note: >-
+      Used on POST /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}/cursor only, which is itself
+      deprecated.
+  - style: limit
+    api: DataGol Platform API (Saasxl), DataGol AI API
+    params: [limit]
+    usage: {limit: 3}
+  consistency: inconsistent
+  note: >-
+    Four different pagination idioms coexist inside one API and are applied to only ~35 of 865 operations, so
+    the large collection endpoints are mostly unpaginated. No standard response envelope for page metadata
+    (total, next) is declared.
+response_envelope:
+  api: DataGol Platform API (Saasxl)
+  schema: '#/components/schemas/SaasxlResponseDTOObject'
+  fields:
+    success: boolean
+    version: string
+    date: date-time
+    data: object
+    error: '#/components/schemas/ErrorMessage'
+  note: >-
+    A uniform envelope is declared for error responses, but 200 responses are typed directly (array/object/
+    string) rather than wrapped, so success and failure do not share a shape.
+error_envelope:
+  detail: errors/eventscom-problem-types.yml
+  platform: SaasxlResponseDTO with nested ErrorMessage (statusCode, requestId, message, details, errorCodes[])
+  fastapi: HTTPValidationError with detail[] of ValidationError (loc, msg, type, input, ctx)
+  rfc9457: false
+request_tracing:
+  request_id_header: null
+  response_field: error.requestId
+  note: >-
+    A `requestId` is returned inside the error envelope, but no correlation-id request header is documented or
+    declared, so a caller cannot supply its own trace id. ErrorDetailsFromAgentDTO also carries a `traceId`
+    field, but only on the agent error-reporting payload.
+versioning:
+  style: uri-path
+  detail: lifecycle/eventscom-lifecycle.yml
+rate_limiting:
+  documented: false
+  signal: HTTP 429 declared on 14 of 865 platform operations
+  headers: none declared
+  note: No Retry-After, RateLimit-Limit/Remaining/Reset headers anywhere; no published rate-limit policy.
+content_types:
+  platform:
+    request: application/json, multipart/form-data (upload operations)
+    response: '*/*'
+    note: >-
+      865 of 866 platform responses declare the wildcard `*/*` media type rather than application/json — a
+      springdoc default that leaves the actual response content type unspecified for every consumer.
+  ai: application/json
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+  note: No generic metadata/custom-field envelope; custom fields exist as first-class NoCoDb table columns instead.
+webhooks:
+  detail: asyncapi/eventscom-webhooks.yml
+cross_links:
+  authentication: authentication/eventscom-authentication.yml
+  errors: errors/eventscom-problem-types.yml
+  lifecycle: lifecycle/eventscom-lifecycle.yml
+  conformance: conformance/eventscom-conformance.yml
+  data_model: data-model/eventscom-data-model.yml
