@@ -38,84 +38,11 @@ tags:
 - agent-native
 - no-code
 apis:
-- name: DataGol Platform API (Saasxl)
-  description: >-
-    The Spring Boot backend of Events.com's DataGol data and AI platform, self-documented as "Saasxl-api doc".
-    865 operations across 85 controller groups covering no-code database tables (NoCoDb v1/v2/v3), data
-    sources and connectors, ETL and data pipelines, DAG orchestration, data quality and lineage, BI pages and
-    widgets, alerts and notification history, workflows and triggers, table webhooks, identity (IDP), custom
-    agents, agent skills, and MCP connector configuration. Authenticated with a JWT bearer token.
-  humanURL: https://datagol-be.events.com/swagger-ui/index.html
-  baseURL: https://datagol-be.events.com/
-  tags:
-  - data-platform
-  - business-intelligence
-  - no-code
-  - etl
-  - orchestration
-  - workflows
-  - agent-native
-  - mcp
-  properties:
-  - type: OpenAPI
-    url: openapi/eventscom-datagol-platform-openapi.yml
-  - type: APIReference
-    url: https://datagol-be.events.com/swagger-ui/index.html
-  - type: Authentication
-    url: authentication/eventscom-authentication.yml
-  - type: ErrorCatalog
-    url: errors/eventscom-problem-types.yml
-  - type: DataModel
-    url: data-model/eventscom-data-model.yml
-  - type: Webhooks
-    url: asyncapi/eventscom-webhooks.yml
-  - type: Overlay
-    url: overlays/eventscom-datagol-platform-overlay.yaml
-- name: DataGol AI API
-  description: >-
-    FastAPI service exposing Events.com's DataGol AI surface — conversations and messages with streaming
-    agent runs, a SQL parser and dialect converter, dashboard and widget generation, machine-learning model
-    training and prediction, research and PDF export, structured data extraction, knowledge-graph status,
-    BI RAG indexing, Jira issue creation, and an MCP tool listing endpoint. 102 operations, OpenAPI 3.1.0.
-  humanURL: https://datagol-ai.events.com/docs
-  baseURL: https://datagol-ai.events.com/
-  tags:
-  - artificial-intelligence
-  - business-intelligence
-  - machine-learning
-  - agent-native
-  - data-extraction
-  - mcp
-  properties:
-  - type: OpenAPI
-    url: openapi/eventscom-datagol-ai-openapi.yml
-  - type: APIReference
-    url: https://datagol-ai.events.com/docs
-  - type: Overlay
-    url: overlays/eventscom-datagol-ai-overlay.yaml
-- name: DataGol Python Agent API
-  description: >-
-    FastAPI service running Events.com's sandboxed Python analysis agent — a unified query endpoint, session
-    lifecycle and status, stale-session cleanup, streaming run cancellation, Plotly figure retrieval, and
-    feedback submission. 10 operations, OpenAPI 3.1.0.
-  humanURL: https://datagol-python.events.com/docs
-  baseURL: https://datagol-python.events.com/
-  tags:
-  - artificial-intelligence
-  - agent-native
-  - data-analysis
-  properties:
-  - type: OpenAPI
-    url: openapi/eventscom-datagol-python-agent-openapi.yml
-  - type: APIReference
-    url: https://datagol-python.events.com/docs
-  - type: Overlay
-    url: overlays/eventscom-datagol-python-agent-overlay.yaml
 - name: DataGol MCP Server
   description: >-
-    Hosted Model Context Protocol server for the DataGol workbook surface, reachable at the /mcp, /sse and
-    /messages transport paths. Connections are gated on workspace_id, workbook_id and token query parameters
-    or headers, so the live tools/list manifest requires authenticated introspection.
+    Hosted Model Context Protocol server for the DataGol workbook surface, reachable at the /mcp, /sse
+    and /messages transport paths. Connections are gated on workspace_id, workbook_id and token query
+    parameters or headers, so the live tools/list manifest requires authenticated introspection.
   humanURL: https://datagol-mcp.events.com/
   baseURL: https://datagol-mcp.events.com/
   tags:
@@ -127,12 +54,2762 @@ apis:
     url: mcp/eventscom-mcp.yml
   - type: ToolCrosswalk
     url: mcp/eventscom-tool-crosswalk.yml
+- aid: eventscom:eventscom-agent-config-controller-api
+  name: Events.com Agent Config Controller API
+  description: >-
+    The agent-config-controller API from Events.com — 3 operation(s) for agent-config-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-config-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-config-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-config-migration-controller-api
+  name: Events.com Agent Config Migration Controller API
+  description: >-
+    The agent-config-migration-controller API from Events.com — 1 operation(s) for agent-config-migration-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-config-migration-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-config-migration-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-email-controller-api
+  name: Events.com Agent Email Controller API
+  description: >-
+    The agent-email-controller API from Events.com — 1 operation(s) for agent-email-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-email-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-email-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-job-update-controller-api
+  name: Events.com Agent Job Update Controller API
+  description: >-
+    The agent-job-update-controller API from Events.com — 1 operation(s) for agent-job-update-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-job-update-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-job-update-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-mcp-api
+  name: Events.com Agent MCP API
+  description: Manage company-level MCP servers for custom agents
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Agent MCP
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-mcp-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-mcp-config-controller-api
+  name: Events.com Agent MCP Config Controller API
+  description: >-
+    The agent-mcp-config-controller API from Events.com — 2 operation(s) for agent-mcp-config-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-mcp-config-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-mcp-config-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-memory-api
+  name: Events.com Agent Memory API
+  description: The Agent Memory API from Events.com — 4 operation(s) for agent memory.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Agent Memory
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-memory-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-skill-controller-api
+  name: Events.com Agent Skill Controller API
+  description: >-
+    The agent-skill-controller API from Events.com — 6 operation(s) for agent-skill-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-skill-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-skill-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-agent-template-controller-api
+  name: Events.com Agent Template Controller API
+  description: >-
+    The agent-template-controller API from Events.com — 3 operation(s) for agent-template-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - agent-template-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-agent-template-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-ai-feedback-controller-api
+  name: Events.com AI Feedback Controller API
+  description: >-
+    The ai-feedback-controller API from Events.com — 3 operation(s) for ai-feedback-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - ai-feedback-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-ai-feedback-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-ai-third-party-page-controller-api
+  name: Events.com AI Third Party Page Controller API
+  description: >-
+    The ai-third-party-page-controller API from Events.com — 1 operation(s) for ai-third-party-page-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - ai-third-party-page-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-ai-third-party-page-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-alert-controller-api
+  name: Events.com Alert Controller API
+  description: The alert-controller API from Events.com — 5 operation(s) for alert-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - alert-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-alert-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-alert-history-api
+  name: Events.com Alert History API
+  description: APIs for managing alert execution history
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Alert History
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-alert-history-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-alert-notification-history-controller-api
+  name: Events.com Alert Notification History Controller API
+  description: >-
+    The alert-notification-history-controller API from Events.com — 16 operation(s) for alert-notification-history-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - alert-notification-history-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-alert-notification-history-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-api-post-workflow-test-controller-api
+  name: Events.com API Post Workflow Test Controller API
+  description: >-
+    The api-post-workflow-test-controller API from Events.com — 4 operation(s) for api-post-workflow-test-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - api-post-workflow-test-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-api-post-workflow-test-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-appx-deployment-api
+  name: Events.com AppX Deployment API
+  description: Deploy and manage AppX apps in EKS
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - AppX Deployment
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-appx-deployment-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-bi-page-controller-api
+  name: Events.com Bi Page Controller API
+  description: The bi-page-controller API from Events.com — 9 operation(s) for bi-page-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - bi-page-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-bi-page-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-bi-rag-api
+  name: Events.com Bi Rag API
+  description: The bi_rag API from Events.com — 6 operation(s) for bi_rag.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - bi_rag
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-bi-rag-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-biv-1-controller-api
+  name: Events.com Biv 1 Controller API
+  description: The biv-1-controller API from Events.com — 2 operation(s) for biv-1-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - biv-1-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-biv-1-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-biv-2-controller-api
+  name: Events.com Biv 2 Controller API
+  description: The biv-2-controller API from Events.com — 7 operation(s) for biv-2-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - biv-2-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-biv-2-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-cache-controller-api
+  name: Events.com Cache Controller API
+  description: The cache-controller API from Events.com — 2 operation(s) for cache-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - cache-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-cache-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-catalog-search-controller-api
+  name: Events.com Catalog Search Controller API
+  description: >-
+    The catalog-search-controller API from Events.com — 1 operation(s) for catalog-search-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - catalog-search-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-catalog-search-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-chat-conversation-controller-api
+  name: Events.com Chat Conversation Controller API
+  description: >-
+    The chat-conversation-controller API from Events.com — 2 operation(s) for chat-conversation-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - chat-conversation-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-chat-conversation-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-comment-controller-api
+  name: Events.com Comment Controller API
+  description: The comment-controller API from Events.com — 4 operation(s) for comment-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - comment-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-comment-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-company-ontology-controller-api
+  name: Events.com Company Ontology Controller API
+  description: >-
+    The company-ontology-controller API from Events.com — 3 operation(s) for company-ontology-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - company-ontology-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-company-ontology-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-company-unstructured-data-controller-api
+  name: Events.com Company Unstructured Data Controller API
+  description: >-
+    The company-unstructured-data-controller API from Events.com — 1 operation(s) for company-unstructured-data-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - company-unstructured-data-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-company-unstructured-data-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-config-controller-api
+  name: Events.com Config Controller API
+  description: The config-controller API from Events.com — 3 operation(s) for config-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - config-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-config-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-connector-controller-api
+  name: Events.com Connector Controller API
+  description: The connector-controller API from Events.com — 17 operation(s) for connector-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - connector-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-connector-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-conversation-controller-api
+  name: Events.com Conversation Controller API
+  description: >-
+    The conversation-controller API from Events.com — 3 operation(s) for conversation-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - conversation-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-conversation-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-conversation-file-upload-api
+  name: Events.com Conversation File Upload API
+  description: >-
+    The Conversation File Upload API from Events.com — 6 operation(s) for conversation file upload.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Conversation File Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-conversation-file-upload-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-conversation-message-v2-api
+  name: Events.com Conversation Message V2 API
+  description: >-
+    The Conversation Message V2 API from Events.com — 4 operation(s) for conversation message v2.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Conversation Message V2
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-conversation-message-v2-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-conversation-v2-api
+  name: Events.com Conversation V2 API
+  description: The Conversation V2 API from Events.com — 2 operation(s) for conversation v2.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Conversation V2
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-conversation-v2-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-custom-agents-api
+  name: Events.com Custom Agents API
+  description: Custom agent CRUD, runs, and schedule management
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Custom Agents
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-custom-agents-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-download-api
+  name: Events.com Data Download API
+  description: The Data Download API from Events.com — 1 operation(s) for data download.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Data Download
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-download-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-extraction-api
+  name: Events.com Data Extraction API
+  description: The Data Extraction API from Events.com — 6 operation(s) for data extraction.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Data Extraction
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-extraction-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-pipeline-controller-api
+  name: Events.com Data Pipeline Controller API
+  description: >-
+    The data-pipeline-controller API from Events.com — 13 operation(s) for data-pipeline-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - data-pipeline-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-pipeline-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-pipeline-controller-v2-api
+  name: Events.com Data Pipeline Controller V2 API
+  description: >-
+    The data-pipeline-controller-v2 API from Events.com — 11 operation(s) for data-pipeline-controller-v2.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - data-pipeline-controller-v2
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-pipeline-controller-v2-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-quality-controller-api
+  name: Events.com Data Quality Controller API
+  description: >-
+    The data-quality-controller API from Events.com — 7 operation(s) for data-quality-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - data-quality-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-quality-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-source-migration-controller-api
+  name: Events.com Data Source Migration Controller API
+  description: >-
+    The data-source-migration-controller API from Events.com — 3 operation(s) for data-source-migration-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - data-source-migration-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-source-migration-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-source-tables-controller-api
+  name: Events.com Data Source Tables Controller API
+  description: >-
+    The Data Source Tables Controller API from Events.com — 2 operation(s) for data source tables controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Data Source Tables Controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-source-tables-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-data-sources-controller-api
+  name: Events.com Data Sources Controller API
+  description: >-
+    The data-sources-controller API from Events.com — 55 operation(s) for data-sources-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - data-sources-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-data-sources-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-document-validation-demo-api
+  name: Events.com Document Validation Demo API
+  description: >-
+    The Document Validation Demo API from Events.com — 2 operation(s) for document validation demo.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Document Validation Demo
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-document-validation-demo-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-element-link-controller-api
+  name: Events.com Element Link Controller API
+  description: >-
+    The element-link-controller API from Events.com — 6 operation(s) for element-link-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - element-link-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-element-link-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-element-permissions-api
+  name: Events.com Element Permissions API
+  description: Operations for managing element permissions
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Element Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-element-permissions-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-etl-controller-api
+  name: Events.com Etl Controller API
+  description: The etl-controller API from Events.com — 31 operation(s) for etl-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - etl-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-etl-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-external-controller-api
+  name: Events.com External Controller API
+  description: The external-controller API from Events.com — 1 operation(s) for external-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - external-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-external-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-external-embedding-config-controller-api
+  name: Events.com External Embedding Config Controller API
+  description: >-
+    The external-embedding-config-controller API from Events.com — 7 operation(s) for external-embedding-config-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - external-embedding-config-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-external-embedding-config-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-extraction-controller-api
+  name: Events.com Extraction Controller API
+  description: >-
+    The extraction-controller API from Events.com — 7 operation(s) for extraction-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - extraction-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-extraction-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-file-controller-api
+  name: Events.com File Controller API
+  description: The file-controller API from Events.com — 6 operation(s) for file-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - file-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-file-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-folder-controller-api
+  name: Events.com Folder Controller API
+  description: The folder-controller API from Events.com — 5 operation(s) for folder-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - folder-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-folder-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-formula-processing-controller-api
+  name: Events.com Formula Processing Controller API
+  description: >-
+    The formula-processing-controller API from Events.com — 1 operation(s) for formula-processing-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - formula-processing-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-formula-processing-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-gemini-file-search-deprecated-api
+  name: Events.com Gemini File Search (deprecated) API
+  description: >-
+    The Gemini File Search (deprecated) API from Events.com — 3 operation(s) for gemini file search (deprecated).
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Gemini File Search (deprecated)
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-gemini-file-search-deprecated-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-global-id-api
+  name: Events.com Global ID API
+  description: The Global ID API from Events.com — 1 operation(s) for global id.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Global ID
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-global-id-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-health-check-api
+  name: Events.com health check API
+  description: The health check API from Events.com — 1 operation(s) for health check.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - health check
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-health-check-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-health-check-controller-api
+  name: Events.com Health Check Controller API
+  description: >-
+    The health-check-controller API from Events.com — 2 operation(s) for health-check-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - health-check-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-health-check-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-home-chat-agent-apis-api
+  name: Events.com Home Chat Agent APIs API
+  description: The Home Chat Agent APIs API from Events.com — 11 operation(s) for home chat agent apis.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Home Chat Agent APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-home-chat-agent-apis-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-idp-api
+  name: Events.com IDP API
+  description: The IDP API from Events.com — 65 operation(s) for idp.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - IDP
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-idp-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-internal-api
+  name: Events.com Internal API
+  description: The Internal API from Events.com — 5 operation(s) for internal.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Internal
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-internal-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-internal-company-controller-api
+  name: Events.com Internal Company Controller API
+  description: >-
+    The internal-company-controller API from Events.com — 15 operation(s) for internal-company-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - internal-company-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-internal-company-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-internal-login-and-registration-controller-api
+  name: Events.com Internal Login And Registration Controller API
+  description: >-
+    The internal-login-and-registration-controller API from Events.com — 2 operation(s) for internal-login-and-registration-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - internal-login-and-registration-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-internal-login-and-registration-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-internal-table-controller-api
+  name: Events.com Internal Table Controller API
+  description: >-
+    The internal-table-controller API from Events.com — 4 operation(s) for internal-table-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - internal-table-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-internal-table-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-invoice-controller-api
+  name: Events.com Invoice Controller API
+  description: The invoice-controller API from Events.com — 2 operation(s) for invoice-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - invoice-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-invoice-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-jira-api
+  name: Events.com JIRA API
+  description: The JIRA API from Events.com — 2 operation(s) for jira.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - JIRA
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-jira-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-kb-connectors-api
+  name: Events.com KB Connectors API
+  description: The KB Connectors API from Events.com — 25 operation(s) for kb connectors.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - KB Connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-kb-connectors-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-kb-internal-api
+  name: Events.com KB Internal API
+  description: The KB Internal API from Events.com — 6 operation(s) for kb internal.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - KB Internal
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-kb-internal-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-knowledge-graph-api
+  name: Events.com Knowledge Graph API
+  description: The Knowledge Graph API from Events.com — 2 operation(s) for knowledge graph.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Knowledge Graph
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-knowledge-graph-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-kyuubi-admin-controller-api
+  name: Events.com Kyuubi Admin Controller API
+  description: >-
+    The kyuubi-admin-controller API from Events.com — 1 operation(s) for kyuubi-admin-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - kyuubi-admin-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-kyuubi-admin-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-lineages-controller-api
+  name: Events.com Lineages Controller API
+  description: The lineages-controller API from Events.com — 8 operation(s) for lineages-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - lineages-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-lineages-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-mcp-connector-auth-api
+  name: Events.com MCP Connector Auth API
+  description: >-
+    Unified connect-or-initiate flow for known connectors (Gmail, Google Drive, Calendar) via Composio,
+    with per-company auth mapping and per-user connections.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - MCP Connector Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-mcp-connector-auth-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-mcp-connectors-api
+  name: Events.com MCP Connectors API
+  description: >-
+    Register MCP server OAuth2 credentials via auto-discovery. Supports authorization_code (redirect)
+    and client_credentials (immediate) flows.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - MCP Connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-mcp-connectors-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-memories-api
+  name: Events.com Memories API
+  description: The Memories API from Events.com — 1 operation(s) for memories.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Memories
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-memories-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-message-feedback-api
+  name: Events.com Message Feedback API
+  description: The Message Feedback API from Events.com — 1 operation(s) for message feedback.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Message Feedback
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-message-feedback-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-ml-dashboard-api
+  name: Events.com ML Dashboard API
+  description: The ML-Dashboard API from Events.com — 6 operation(s) for ml-dashboard.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - ML-Dashboard
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-ml-dashboard-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-nocodb-api
+  name: Events.com No Co Db API
+  description: The NoCoDb API from Events.com — 18 operation(s) for nocodb.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - NoCoDb
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-nocodb-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-nocodbv1-api
+  name: Events.com No Co Db V1 API
+  description: The NoCoDbV1 API from Events.com — 1 operation(s) for nocodbv1.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - NoCoDbV1
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-nocodbv1-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-nocodbv2-api
+  name: Events.com No Co Db V2 API
+  description: The NoCoDbV2 API from Events.com — 110 operation(s) for nocodbv2.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - NoCoDbV2
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-nocodbv2-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-nocodbv3-api
+  name: Events.com No Co Db V3 API
+  description: The NoCoDbV3 API from Events.com — 9 operation(s) for nocodbv3.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - NoCoDbV3
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-nocodbv3-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-node-group-config-controller-api
+  name: Events.com Node Group Config Controller API
+  description: >-
+    The node-group-config-controller API from Events.com — 3 operation(s) for node-group-config-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - node-group-config-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-node-group-config-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-orchestration-controller-api
+  name: Events.com Orchestration Controller API
+  description: >-
+    The orchestration-controller API from Events.com — 15 operation(s) for orchestration-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - orchestration-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-orchestration-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-orchestrator-controller-api
+  name: Events.com Orchestrator Controller API
+  description: >-
+    The orchestrator-controller API from Events.com — 4 operation(s) for orchestrator-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - orchestrator-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-orchestrator-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-preference-controller-api
+  name: Events.com Preference Controller API
+  description: >-
+    The preference-controller API from Events.com — 2 operation(s) for preference-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - preference-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-preference-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-python-agent-api
+  name: Events.com Python Agent API
+  description: The Python Agent API from Events.com — 9 operation(s) for python agent.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Python Agent
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-python-agent-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-python-agent-v2-api
+  name: Events.com Python Agent V2 API
+  description: The Python Agent V2 API from Events.com — 4 operation(s) for python agent v2.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Python Agent V2
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-python-agent-v2-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-query-parser-controller-api
+  name: Events.com Query Parser Controller API
+  description: >-
+    The query-parser-controller API from Events.com — 3 operation(s) for query-parser-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - query-parser-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-query-parser-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-research-api
+  name: Events.com Research API
+  description: The Research API from Events.com — 2 operation(s) for research.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Research
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-research-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-search-controller-api
+  name: Events.com Search Controller API
+  description: The search-controller API from Events.com — 1 operation(s) for search-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - search-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-search-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-send-email-controller-api
+  name: Events.com Send Email Controller API
+  description: >-
+    The send-email-controller API from Events.com — 2 operation(s) for send-email-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - send-email-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-send-email-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-shared-item-controller-api
+  name: Events.com Shared Item Controller API
+  description: >-
+    The shared-item-controller API from Events.com — 3 operation(s) for shared-item-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - shared-item-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-shared-item-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-shared-item-email-controller-api
+  name: Events.com Shared Item Email Controller API
+  description: >-
+    The shared-item-email-controller API from Events.com — 1 operation(s) for shared-item-email-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - shared-item-email-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-shared-item-email-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-shared-item-response-controller-api
+  name: Events.com Shared Item Response Controller API
+  description: >-
+    The shared-item-response-controller API from Events.com — 3 operation(s) for shared-item-response-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - shared-item-response-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-shared-item-response-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-shared-permissions-controller-api
+  name: Events.com Shared Permissions Controller API
+  description: >-
+    The shared-permissions-controller API from Events.com — 3 operation(s) for shared-permissions-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - shared-permissions-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-shared-permissions-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-slack-messaging-controller-api
+  name: Events.com Slack Messaging Controller API
+  description: >-
+    The slack-messaging-controller API from Events.com — 1 operation(s) for slack-messaging-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - slack-messaging-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-slack-messaging-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-spark-job-controller-api
+  name: Events.com Spark Job Controller API
+  description: The spark-job-controller API from Events.com — 4 operation(s) for spark-job-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - spark-job-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-spark-job-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-sql-parser-apis-api
+  name: Events.com SQL Parser APIs API
+  description: The SQL Parser APIs API from Events.com — 6 operation(s) for sql parser apis.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - SQL Parser APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-sql-parser-apis-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-table-migration-controller-api
+  name: Events.com Table Migration Controller API
+  description: >-
+    The table-migration-controller API from Events.com — 6 operation(s) for table-migration-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - table-migration-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-table-migration-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-third-party-page-admin-controller-api
+  name: Events.com Third Party Page Admin Controller API
+  description: >-
+    The third-party-page-admin-controller API from Events.com — 1 operation(s) for third-party-page-admin-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - third-party-page-admin-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-third-party-page-admin-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-third-party-pages-api
+  name: Events.com Third Party Pages API
+  description: Resolve embedded page or agent config for third-party integrations
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Third Party Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-third-party-pages-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-trigger-type-controller-api
+  name: Events.com Trigger Type Controller API
+  description: >-
+    The trigger-type-controller API from Events.com — 2 operation(s) for trigger-type-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - trigger-type-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-trigger-type-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-unreal-engine-controller-api
+  name: Events.com Unreal Engine Controller API
+  description: >-
+    The unreal-engine-controller API from Events.com — 7 operation(s) for unreal-engine-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - unreal-engine-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-unreal-engine-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-widget-controller-api
+  name: Events.com Widget Controller API
+  description: The widget-controller API from Events.com — 4 operation(s) for widget-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - widget-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-widget-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-widgetv1-api
+  name: Events.com Widget V1 API
+  description: The WidgetV1 API from Events.com — 7 operation(s) for widgetv1.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - WidgetV1
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-widgetv1-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-work-flow-controller-api
+  name: Events.com Work Flow Controller API
+  description: The work-flow-controller API from Events.com — 9 operation(s) for work-flow-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - work-flow-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-work-flow-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-work-flow-v-2-controller-api
+  name: Events.com Work Flow V 2 Controller API
+  description: >-
+    The work-flow-v-2-controller API from Events.com — 6 operation(s) for work-flow-v-2-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - work-flow-v-2-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-work-flow-v-2-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workbook-agent-api
+  name: Events.com Workbook Agent API
+  description: The Workbook Agent API from Events.com — 6 operation(s) for workbook agent.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Workbook Agent
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workbook-agent-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workbook-ai-generate-api
+  name: Events.com Workbook AI Generate API
+  description: The Workbook AI Generate API from Events.com — 3 operation(s) for workbook ai generate.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Workbook AI Generate
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workbook-ai-generate-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workbook-enrichments-api
+  name: Events.com Workbook Enrichments API
+  description: Configure and run AI enrichments on workbook table rows using Databar
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Workbook Enrichments
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workbook-enrichments-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workbook-generate-dashboard-api
+  name: Events.com Workbook Generate Dashboard API
+  description: >-
+    The Workbook Generate Dashboard API from Events.com — 3 operation(s) for workbook generate dashboard.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Workbook Generate Dashboard
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workbook-generate-dashboard-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workflow-builder-api
+  name: Events.com Workflow Builder API
+  description: The Workflow Builder API from Events.com — 2 operation(s) for workflow builder.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - Workflow Builder
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workflow-builder-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workflow-job-scheduler-controller-api
+  name: Events.com Workflow Job Scheduler Controller API
+  description: >-
+    The workflow-job-scheduler-controller API from Events.com — 2 operation(s) for workflow-job-scheduler-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - workflow-job-scheduler-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workflow-job-scheduler-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workflow-status-controller-api
+  name: Events.com Workflow Status Controller API
+  description: >-
+    The workflow-status-controller API from Events.com — 1 operation(s) for workflow-status-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - workflow-status-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workflow-status-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workflow-template-controller-api
+  name: Events.com Workflow Template Controller API
+  description: >-
+    The workflow-template-controller API from Events.com — 5 operation(s) for workflow-template-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - workflow-template-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workflow-template-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
+- aid: eventscom:eventscom-workspace-template-controller-api
+  name: Events.com Workspace Template Controller API
+  description: >-
+    The workspace-template-controller API from Events.com — 2 operation(s) for workspace-template-controller.
+  humanURL: https://datagol-be.events.com/swagger-ui/index.html
+  baseURL: https://datagol-be.events.com/
+  tags:
+  - workspace-template-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/eventscom-workspace-template-controller-api-openapi.yml
+  - type: APIReference
+    url: https://datagol-be.events.com/swagger-ui/index.html
+  - type: Authentication
+    url: authentication/eventscom-authentication.yml
+  - type: ErrorCatalog
+    url: errors/eventscom-problem-types.yml
+  - type: DataModel
+    url: data-model/eventscom-data-model.yml
+  - type: Webhooks
+    url: asyncapi/eventscom-webhooks.yml
+  - type: APIReference
+    url: https://datagol-ai.events.com/docs
+  - type: APIReference
+    url: https://datagol-python.events.com/docs
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/eventscom-datagol-ai-overlay.yaml
 - type: Website
   url: https://events.com/
 - type: APIReference
