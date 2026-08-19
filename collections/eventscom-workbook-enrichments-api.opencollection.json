@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Workbook Enrichments API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workbook Enrichments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update an existing enrichment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments/:id",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing enrichment configuration"
+        },
+        {
+          "info": {
+            "name": "Delete an enrichment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments/:id",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an enrichment configuration"
+        },
+        {
+          "info": {
+            "name": "List all active enrichment configurations for a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all active enrichment configurations for a table"
+        },
+        {
+          "info": {
+            "name": "Create an enrichment configuration for a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an enrichment configuration for a table"
+        },
+        {
+          "info": {
+            "name": "Run enrichment for a bulk set of rows asynchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments/:id/run",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts an async enrichment job. Poll the tracker endpoint with the returned requestId."
+        },
+        {
+          "info": {
+            "name": "Run enrichment on a single row and write results to output columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments/:id/rows/:rowId/run",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a tracker row on completion. On success, returns enriched input/output data and writes AI result to output columns. On failure, records tracker and returns 500. Optional body field selectedOutputColumns restricts which output columns are written; omit or leave empty to write all configured output columns."
+        },
+        {
+          "info": {
+            "name": "Test an enrichment configuration against a single row",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/tables/:tableId/enrichments/test",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Runs the AI enrichment without persisting results — for validating config."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

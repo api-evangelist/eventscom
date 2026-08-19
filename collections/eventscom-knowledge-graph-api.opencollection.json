@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Knowledge Graph API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Knowledge Graph",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Knowledge Graph Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/knowledge-graph/status",
+            "params": [
+              {
+                "name": "file_id",
+                "value": "",
+                "type": "query",
+                "description": "File ID"
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "query",
+                "description": "Workbook ID"
+              }
+            ]
+          },
+          "docs": "Get Knowledge Graph Status"
+        },
+        {
+          "info": {
+            "name": "Get Knowledge Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/knowledge-graph",
+            "params": [
+              {
+                "name": "file_id",
+                "value": "",
+                "type": "query",
+                "description": "File ID"
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "query",
+                "description": "Workbook ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results"
+              }
+            ]
+          },
+          "docs": "Get Knowledge Graph"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,296 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Biv 2 Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "biv-2-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getWidgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:pageId/widgets",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all widgets for given page"
+        },
+        {
+          "info": {
+            "name": "updateWidgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:pageId/widgets",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to update all widgets for given page"
+        },
+        {
+          "info": {
+            "name": "modifyPage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:id",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deletePage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:id",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getAllPages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all pages for given workspace"
+        },
+        {
+          "info": {
+            "name": "createPage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "detachWidgetToPage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:pageId/widgets/:widgetId/detach",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to detach a widget for given page"
+        },
+        {
+          "info": {
+            "name": "attachWidgetToPage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:pageId/widgets/:widgetId/attach",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to attach a widget for given page"
+        },
+        {
+          "info": {
+            "name": "attachWidgetsToPages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/connectAll",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to attach a list of widgets to their respective pages"
+        },
+        {
+          "info": {
+            "name": "getPageById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/workspaces/:workspaceId/biPage/:pageId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all pages for given workspace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

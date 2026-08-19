@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Bi Rag API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bi_rag",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Index Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/index-page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Index Page"
+        },
+        {
+          "info": {
+            "name": "Index Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/index-workspace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Index Workspace"
+        },
+        {
+          "info": {
+            "name": "Add Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/add-widget",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Widget"
+        },
+        {
+          "info": {
+            "name": "Remove Indexed Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/remove-widget",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove Indexed Widget"
+        },
+        {
+          "info": {
+            "name": "Update Indexed Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/update-widget",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Indexed Widget"
+        },
+        {
+          "info": {
+            "name": "Delete All Widgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/delete-all-widgets",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete All Widgets"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

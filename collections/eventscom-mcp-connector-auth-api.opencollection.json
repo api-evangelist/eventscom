@@ -1,0 +1,214 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc MCP Connector Auth API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MCP Connector Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a Composio tool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/tools/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolves the Composio external user ID from the connection record and proxies tool execution to Composio."
+        },
+        {
+          "info": {
+            "name": "Initiate connector OAuth",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolves authConfigId automatically. Creates a new auth config if none exists for the slug. Set createMcpServer=true to also create an MCP server after OAuth."
+        },
+        {
+          "info": {
+            "name": "Get a connection by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connections/:connectionId",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a connection by ID"
+        },
+        {
+          "info": {
+            "name": "Update connection display name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connections/:connectionId",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update connection display name"
+        },
+        {
+          "info": {
+            "name": "Delete a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connections/:connectionId",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a connection"
+        },
+        {
+          "info": {
+            "name": "Mint a per-user MCP URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/mcpServers/:serverId/url",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generates a streamable MCP URL for an existing Composio MCP server that the agent can connect to."
+        },
+        {
+          "info": {
+            "name": "List all available connectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connectors"
+          },
+          "docs": "Returns connectors with name, description, and logo read from config_property. Metadata is seeded automatically on startup via McpConnectorMetadataSeeder."
+        },
+        {
+          "info": {
+            "name": "List connections for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connections",
+            "params": [
+              {
+                "name": "slugName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List connections for the current user"
+        },
+        {
+          "info": {
+            "name": "List all Composio tools for a connection's toolkit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/connections/:connectionId/tools",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all Composio tools for a connection's toolkit"
+        },
+        {
+          "info": {
+            "name": "OAuth callback from Composio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/mcpConnectorAuth/api/v1/callback",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "connected_account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "auth_config_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Unauthenticated — receives the browser redirect from Composio after user consent, always creates a connection record, and conditionally creates an MCP server if createMcpServer was set in the original request. Redirects to the UI."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

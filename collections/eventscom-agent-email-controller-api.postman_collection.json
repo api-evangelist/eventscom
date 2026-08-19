@@ -1,0 +1,422 @@
+{
+  "item": [
+    {
+      "id": "e5ac2ff5-bd77-47a5-a501-d86785f6edda",
+      "name": "agent-email-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae990c81-23a1-4de7-810b-0048cc3398b9",
+          "name": "send Error Email",
+          "request": {
+            "name": "send Error Email",
+            "description": {},
+            "url": {
+              "path": [
+                "idp",
+                "api",
+                "v1",
+                "internal",
+                "error",
+                "mail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7d3554e-3b08-4ebd-bad5-c0a7edf3ced9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "idp",
+                    "api",
+                    "v1",
+                    "internal",
+                    "error",
+                    "mail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d79d1d2-aa01-4127-9e50-a9e41825c839",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "idp",
+                    "api",
+                    "v1",
+                    "internal",
+                    "error",
+                    "mail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20f4a55d-630d-46f3-854b-2ef63463212b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "idp",
+                    "api",
+                    "v1",
+                    "internal",
+                    "error",
+                    "mail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1970-08-14T21:08:52.097Z\",\n  \"error\": {\n    \"statusCode\": 4817,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c2c09ee-31cf-4f8b-8a0f-1e2dd3beb034",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "idp",
+                    "api",
+                    "v1",
+                    "internal",
+                    "error",
+                    "mail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1974-02-14T04:46:40.478Z\",\n  \"error\": {\n    \"statusCode\": 1658,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d28b7b96-7608-47c8-9da1-2b4a2cff86b8",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "idp",
+                    "api",
+                    "v1",
+                    "internal",
+                    "error",
+                    "mail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1974-02-14T04:46:40.478Z\",\n  \"error\": {\n    \"statusCode\": 1658,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "392cac3e-e722-4b51-9145-bb6a1efa8446",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "idp",
+                    "api",
+                    "v1",
+                    "internal",
+                    "error",
+                    "mail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"httpMethod\": \"<string>\",\n  \"headers\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"traceId\": \"<string>\",\n  \"stackTrace\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1974-02-14T04:46:40.478Z\",\n  \"error\": {\n    \"statusCode\": 1658,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "95b49b98-b35e-4194-826b-981aaa8c88d6",
+    "name": "Saasxl-api doc Agent Email Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

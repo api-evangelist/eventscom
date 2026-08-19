@@ -1,0 +1,22 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Memories API
+  version: 1.0.36
+tags:
+- name: Memories
+paths:
+  /ai/api/v2/memories:
+    get:
+      tags:
+      - Memories
+      summary: Fetch All Memories
+      description: 'Fetch all published memories for the authenticated user''s company and user scope,
+
+        combined into a single list.'
+      operationId: fetch_all_memories_ai_api_v2_memories_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}

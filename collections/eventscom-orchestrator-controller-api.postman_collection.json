@@ -1,0 +1,1568 @@
+{
+  "item": [
+    {
+      "id": "3d497cd9-f1ed-4d17-9041-64b0875b8cb0",
+      "name": "orchestrator-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70178f3b-b9d4-4661-9f0f-647a0553dbb7",
+          "name": "Start a workflow by definition",
+          "request": {
+            "name": "Start a workflow by definition",
+            "description": {
+              "content": "Provide a WorkflowDefinition (name, steps). Each step has stepId, name, request/input. Step names must be unique. userDto is set from @LoggedInUser.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "api",
+                "v1",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\",\n        \"key_2\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eddd4ae6-f5ef-4b87-b847-2d5ca529f244",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24fa3b4f-2b44-4e6f-aeba-2eeace973151",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53e4658f-e8b0-4e38-8455-63dec0abc4cd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1961-10-12T22:17:50.593Z\",\n  \"error\": {\n    \"statusCode\": 6163,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0dce2d30-ceb6-4cc6-9599-34eefc8e75b6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59f8c6bf-8030-4d1c-aba4-fce3ba4557c4",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d56bb843-5cb4-4768-b74b-5060f42d9b82",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3147f408-c44c-4ac7-8c98-06ac7cbf642b",
+          "name": "Cancel a running workflow",
+          "request": {
+            "name": "Cancel a running workflow",
+            "description": {
+              "content": "Sends a cancellation request to Temporal for the given workflowId. Actual cancellation is cooperative and may take some time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "api",
+                "v1",
+                "workflow",
+                ":workflowId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c597c06-a17d-45ef-93f7-98f853911c0c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b97e8355-8184-4ecb-a7c5-dc9fd06a4582",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "240705d8-02a0-464e-887a-2b266f8a4d97",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ec01a50-ec54-4352-8d55-8dbd6c9d44ff",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3780e47b-45f9-4748-bb73-fa8aab37a72b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0af01de-9d2d-4aff-961f-3a5c92e605ea",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "152f05aa-e156-4454-8e98-dc7d7e8f906a",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "204da9da-c4b9-46b3-99ff-6ba04d0e9e8a",
+          "name": "Resume a workflow after failure",
+          "request": {
+            "name": "Resume a workflow after failure",
+            "description": {
+              "content": "Send updated WorkflowDefinition with previousWorkflowId set to the failed run's ID. A new run is started; completed steps are loaded from the previous run and only failed/pending steps execute. userDto is set from @LoggedInUser.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "api",
+                "v1",
+                "workflow",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ef46730-abc3-411d-9591-5a4503af7a38",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f136f7d6-a313-430a-92ea-7b2dc1329e24",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ef76199-8eb0-4f3f-85fd-f589e86564d3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79e61803-584d-44a3-ba61-dc11ee69211a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26e7eeda-3cc2-4202-99db-cb16c02dfa1e",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85d1753d-e940-4e70-891e-34e8b5b9f534",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"steps\": [\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"stepId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"request\": {\n        \"key_0\": \"<object>\",\n        \"key_1\": \"<object>\"\n      },\n      \"dependsOn\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userDto\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"bearerToken\": \"<string>\",\n  \"previousWorkflowId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d1c2c8b-3c0f-4ab8-807d-e8b7707f77d5",
+          "name": "Get workflow status",
+          "request": {
+            "name": "Get workflow status",
+            "description": {
+              "content": "Returns the status of a workflow by its ID (the ID returned from start workflow or resume workflow). Includes overall execution status and per-step status, start/end times. When the workflow or a step has failed, errorMessage fields summarize the failure (no need to set includeOutput).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "api",
+                "v1",
+                "workflow",
+                ":workflowId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeOutput",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6957435-f835-4292-b1d0-cfcb5fbb683b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowName\": \"string\",\n  \"status\": \"string\",\n  \"startTime\": \"1982-10-01T20:49:19.513Z\",\n  \"endTime\": \"2001-03-22T17:03:11.801Z\",\n  \"errorMessage\": \"string\",\n  \"steps\": [\n    {\n      \"stepId\": \"string\",\n      \"status\": \"string\",\n      \"startTime\": \"1979-10-08T14:10:04.195Z\",\n      \"endTime\": \"2018-03-15T05:24:15.144Z\",\n      \"errorMessage\": \"string\",\n      \"output\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"stepId\": \"string\",\n      \"status\": \"string\",\n      \"startTime\": \"1951-04-25T23:42:36.145Z\",\n      \"endTime\": \"2001-09-30T05:40:38.555Z\",\n      \"errorMessage\": \"string\",\n      \"output\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a29386b5-90d6-4cbe-a145-88dfcc86a286",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c12e4f16-de47-4e0b-a950-9ca225df9e28",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7693244-1b93-4f34-bd15-b545bee5f0f1",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31ed53b5-8e19-41ea-a258-f05f539a97af",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f42e098b-14ff-4fbc-bef1-1d1b984a2068",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ff02d02-f0a8-4505-b431-bb0be6473d09",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "api",
+                    "v1",
+                    "workflow",
+                    ":workflowId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeOutput",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1967-12-30T23:04:48.116Z\",\n  \"error\": {\n    \"statusCode\": 3441,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "71673104-2427-4e2e-b99b-7da802af82fe",
+    "name": "Saasxl-api doc Orchestrator Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

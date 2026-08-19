@@ -1,0 +1,238 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Internal API
+  version: 1.0.36
+tags:
+- name: Internal
+paths:
+  /ai/api/v2/internal/{auth_token}/conversation/check-access:
+    get:
+      tags:
+      - Internal
+      summary: Check Conversation Access
+      description: Check if user is the creator of the conversation
+      operationId: check_conversation_access_ai_api_v2_internal__auth_token__conversation_check_access_get
+      parameters:
+      - name: auth_token
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Auth Token
+      - name: user_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          description: User ID
+          title: User Id
+        description: User ID
+      - name: thread_id
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Thread ID
+          title: Thread Id
+        description: Thread ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/internal/{auth_token}/conversation/thread-details:
+    get:
+      tags:
+      - Internal
+      summary: Get Conversation Details
+      description: Get the details of the conversation
+      operationId: get_conversation_details_ai_api_v2_internal__auth_token__conversation_thread_details_get
+      parameters:
+      - name: auth_token
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Auth Token
+      - name: thread_id
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Thread ID
+          title: Thread Id
+        description: Thread ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/internal/{auth_token}/file-search/create-store:
+    post:
+      tags:
+      - Internal
+      summary: Create File Search Store
+      description: Create a file search store
+      operationId: create_file_search_store_ai_api_v2_internal__auth_token__file_search_create_store_post
+      parameters:
+      - name: auth_token
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Auth Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStoreRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/internal/{auth_token}/agent/by-thread:
+    get:
+      tags:
+      - Internal
+      summary: Get Custom Agent For Thread
+      description: Get custom agent details for a thread
+      operationId: get_custom_agent_for_thread_ai_api_v2_internal__auth_token__agent_by_thread_get
+      parameters:
+      - name: auth_token
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Auth Token
+      - name: thread_id
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Thread ID
+          title: Thread Id
+        description: Thread ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/internal/{auth_token}/message/status:
+    get:
+      tags:
+      - Internal
+      summary: Get Message Status
+      description: Get the status of a streaming message
+      operationId: get_message_status_ai_api_v2_internal__auth_token__message_status_get
+      parameters:
+      - name: auth_token
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Auth Token
+      - name: message_id
+        in: query
+        required: true
+        schema:
+          type: integer
+          description: Message ID
+          title: Message Id
+        description: Message ID
+      - name: thread_id
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Thread/Conversation ID
+          title: Thread Id
+        description: Thread/Conversation ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CreateStoreRequest:
+      properties:
+        company_name:
+          type: string
+          title: Company Name
+          description: The company name.
+      type: object
+      required:
+      - company_name
+      title: CreateStoreRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

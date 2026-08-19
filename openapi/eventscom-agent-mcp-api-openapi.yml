@@ -1,0 +1,468 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Agent MCP API
+  version: '1.0'
+  description: Manage company-level MCP servers for custom agents
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: Agent MCP
+  description: Manage company-level MCP servers for custom agents
+paths:
+  /mcp/api/v1/{mcpId}:
+    get:
+      tags:
+      - Agent MCP
+      operationId: get_3
+      parameters:
+      - name: mcpId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentMcpDTO'
+    put:
+      tags:
+      - Agent MCP
+      operationId: update_3
+      parameters:
+      - name: mcpId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentMcpDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentMcpDTO'
+    delete:
+      tags:
+      - Agent MCP
+      operationId: delete_5
+      parameters:
+      - name: mcpId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+  /mcp/api/v1/{mcpId}/toolkits:
+    get:
+      tags:
+      - Agent MCP
+      summary: Get toolkits for an MCP connector
+      operationId: getToolkits
+      parameters:
+      - name: mcpId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: object
+    put:
+      tags:
+      - Agent MCP
+      summary: Replace toolkits for an MCP connector
+      operationId: updateToolkits
+      parameters:
+      - name: mcpId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  type: object
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentMcpDTO'
+  /mcp/api/v1:
+    get:
+      tags:
+      - Agent MCP
+      operationId: getAll_2
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AgentMcpDTO'
+    post:
+      tags:
+      - Agent MCP
+      operationId: create_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentMcpDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentMcpDTO'
+components:
+  schemas:
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    AgentMcpDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        transport:
+          type: string
+        serverType:
+          type: string
+          enum:
+          - CUSTOM
+          - WORKBOOK
+          - CONNECTOR
+          - EXTERNAL
+        companyId:
+          type: integer
+          format: int64
+        authType:
+          type: string
+          enum:
+          - OAUTH2
+          - NO_AUTH
+          - NONE
+        credentialId:
+          type: integer
+          format: int64
+        uiRedirectUri:
+          type: string
+        clientRedirectUri:
+          type: string
+        authorizationUrl:
+          type: string
+          readOnly: true
+        userId:
+          type: integer
+          format: int64
+        slugName:
+          type: string
+        externalUserId:
+          type: string
+        toolkits:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

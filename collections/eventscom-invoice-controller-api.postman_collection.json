@@ -1,0 +1,876 @@
+{
+  "item": [
+    {
+      "id": "dd1ed6ed-16e9-4564-9281-24dd0277e5c4",
+      "name": "invoice-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a247461f-01da-49c3-9b44-e5f0dc3e2517",
+          "name": "generate Invoice",
+          "request": {
+            "name": "generate Invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "customConnector",
+                "api",
+                "v1",
+                "invoice",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f127a427-4dc3-4847-9991-4669c918f003",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"invoiceURL\": \"string\",\n  \"name\": \"string\",\n  \"to\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "204032f6-7588-4775-b6a8-312276a9dc9b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81b5cc6e-81f9-4d7b-8a6f-b781a7443189",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2011-03-18T07:11:07.728Z\",\n  \"error\": {\n    \"statusCode\": 9516,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de84b783-2a4c-4412-9221-87c806f68eb6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d13f1b31-ba09-4771-871c-78835d7d435b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3bae3f4-0ea1-4b80-98ab-4d3a9d34afc0",
+              "name": "Gone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2b9793e-a326-4f79-9da7-d35aab82dcf0",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcb11d25-f276-448c-a779-640d7938ef0e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "823db766-a8f2-4205-a0ce-9f76fb707548",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1aed5db7-1627-4841-96fd-348cfbc7cb58",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"<string>\",\n  \"company\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"customerName\": \"<string>\",\n  \"dueDate\": \"<string>\",\n  \"email\": \"<string>\",\n  \"invoiceId\": \"<long>\",\n  \"phoneNo\": \"<string>\",\n  \"projectName\": \"<string>\",\n  \"totalAmount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3070e6e-adf4-42cd-9566-f8c0f5913b87",
+          "name": "email Invoice",
+          "request": {
+            "name": "email Invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "customConnector",
+                "api",
+                "v1",
+                "invoice",
+                "emailWithCompanyTemplate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ed6bffd-2670-4d80-94f2-4a7f908165c4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "emailWithCompanyTemplate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "641f4fbc-dad3-407d-b22f-231f4018eb78",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "emailWithCompanyTemplate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0421d653-01d4-49b3-abe8-67f7f9cae8a9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "emailWithCompanyTemplate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "865e5f32-a889-41d0-be87-3f66d8a8d481",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "emailWithCompanyTemplate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b567e27-8d77-4a15-aad1-113bee41453b",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "emailWithCompanyTemplate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "837354ad-e48d-4494-b659-60852ad340a6",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customConnector",
+                    "api",
+                    "v1",
+                    "invoice",
+                    "emailWithCompanyTemplate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoiceURL\": \"<string>\",\n  \"name\": \"<string>\",\n  \"to\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1953-07-01T00:06:46.845Z\",\n  \"error\": {\n    \"statusCode\": 5279,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "001bcc7d-188c-4f86-b7c1-bf75c660b882",
+    "name": "Saasxl-api doc Invoice Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

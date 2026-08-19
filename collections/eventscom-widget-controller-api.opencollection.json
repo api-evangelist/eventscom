@@ -1,0 +1,181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Widget Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "widget-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getWidgetById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v1/widgets/:widgetId",
+            "params": [
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "isIncludeTable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "modifyWidgetById",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v1/widgets/:widgetId",
+            "params": [
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteWidgetById",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/noCo/api/v1/widgets/:widgetId",
+            "params": [
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createWidget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v1/widgets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getTableDataByWidgetId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v1/widgets/tableData",
+            "params": [
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createWidgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v1/widgets/multiple",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

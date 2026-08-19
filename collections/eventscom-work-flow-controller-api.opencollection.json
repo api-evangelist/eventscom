@@ -1,0 +1,190 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Work Flow Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "work-flow-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getWfById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/workflow/api/v1/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateWf",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/workflow/api/v1/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteWfById",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/workflow/api/v1/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createWf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/workflow/api/v1",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "triggerWf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/workflow/api/v1/trigger",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "listenToSNSMessages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/workflow/api/v1/sns/webhook",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "executeWorkFlow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/workflow/api/v1/run",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getByRequestId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/workflow/api/v1/status/:requestId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getUserWorkFlowHistoryByUserId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/workflow/api/v1/history",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getCompanyWorkFlowHistoryByUserId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/workflow/api/v1/history/company",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDataTypeOperationMapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/workflow/api/v1/dataTypeOperation"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

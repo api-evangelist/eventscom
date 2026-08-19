@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Python Agent V2 API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Python Agent V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query Agent"
+        },
+        {
+          "info": {
+            "name": "Submit Feedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/submit-feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Feedback"
+        },
+        {
+          "info": {
+            "name": "Get Session Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/session/:session_id/status",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Session Status"
+        },
+        {
+          "info": {
+            "name": "Cleanup Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/session/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cleanup Session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,815 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Workbook Enrichments API
+  version: '1.0'
+  description: Configure and run AI enrichments on workbook table rows using Databar
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: Workbook Enrichments
+  description: Configure and run AI enrichments on workbook table rows using Databar
+paths:
+  /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}/enrichments/{id}:
+    put:
+      tags:
+      - Workbook Enrichments
+      summary: Update an existing enrichment configuration
+      operationId: updateEnrichment
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkbookEnrichmentDTO'
+    delete:
+      tags:
+      - Workbook Enrichments
+      summary: Delete an enrichment configuration
+      operationId: deleteEnrichment
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOVoid'
+  /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}/enrichments:
+    get:
+      tags:
+      - Workbook Enrichments
+      summary: List all active enrichment configurations for a table
+      operationId: getEnrichmentsByTable
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOListWorkbookEnrichmentDTO'
+    post:
+      tags:
+      - Workbook Enrichments
+      summary: Create an enrichment configuration for a table
+      operationId: createEnrichment
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkbookEnrichmentDTO'
+  /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}/enrichments/{id}/run:
+    post:
+      tags:
+      - Workbook Enrichments
+      summary: Run enrichment for a bulk set of rows asynchronously
+      description: Starts an async enrichment job. Poll the tracker endpoint with the returned requestId.
+      operationId: runBulk
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkEnrichmentRunDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOEnrichmentRunDTO'
+  /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}/enrichments/{id}/rows/{rowId}/run:
+    post:
+      tags:
+      - Workbook Enrichments
+      summary: Run enrichment on a single row and write results to output columns
+      description: Creates a tracker row on completion. On success, returns enriched input/output data and writes AI result to output columns. On failure, records tracker and returns 500. Optional body field selectedOutputColumns restricts which output columns are written; omit or leave empty to write all configured output columns.
+      operationId: runSingleRow
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: rowId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleRowEnrichmentRunDTO'
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOMapStringObject'
+  /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}/enrichments/test:
+    post:
+      tags:
+      - Workbook Enrichments
+      summary: Test an enrichment configuration against a single row
+      description: Runs the AI enrichment without persisting results — for validating config.
+      operationId: testEnrichment
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rowId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+        required: true
+      responses:
+        '410':
+          description: Gone
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOMapStringObject'
+components:
+  schemas:
+    SaasxlResponseDTOEnrichmentRunDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/EnrichmentRunDTO'
+    SaasxlResponseDTOMapStringObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    SingleRowEnrichmentRunDTO:
+      type: object
+      properties:
+        selectedOutputColumns:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    LinkRecordDTO:
+      type: object
+      properties:
+        sourceRecordId:
+          type: object
+        destinationRecordId:
+          type: object
+        linkColumnId:
+          type: string
+        columnId:
+          type: string
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+    RowDataDTO:
+      type: object
+      properties:
+        id:
+          type: object
+        position:
+          type: number
+          format: double
+        fkId:
+          type: object
+        cellValues:
+          type: object
+          additionalProperties:
+            type: object
+        cellValuesByColumnId:
+          type: object
+          additionalProperties:
+            type: object
+        linkRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkRecordDTO'
+    WorkbookEnrichmentDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        workspaceId:
+          type: string
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        actionType:
+          type: string
+          enum:
+          - WEB
+          - EMAIL_CAMPAIGN
+          - AI_ENRICHMENT
+          - AI_GENERATE
+        actionId:
+          type: integer
+          format: int64
+        hiddenColumnId:
+          type: string
+        mapping:
+          type: object
+          additionalProperties:
+            type: string
+        outputConfiguration:
+          type: object
+          additionalProperties:
+            type: object
+    BulkEnrichmentRunDTO:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/RowDataDTO'
+        selectAll:
+          type: boolean
+        whereClause:
+          type: string
+        filterParams:
+          type: object
+          additionalProperties:
+            type: string
+        requestId:
+          type: string
+        selectedOutputColumns:
+          type: array
+          items:
+            type: string
+    EnrichmentRunDTO:
+      type: object
+      properties:
+        requestId:
+          type: string
+        status:
+          type: string
+        errorMessage:
+          type: string
+    SaasxlResponseDTOListWorkbookEnrichmentDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+    SaasxlResponseDTOWorkbookEnrichmentDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,334 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Data Extraction API
+  version: 1.0.36
+tags:
+- name: Data Extraction
+paths:
+  /ai/api/v2/extract-data/execute:
+    post:
+      tags:
+      - Data Extraction
+      summary: Execute Data Extraction
+      operationId: execute_data_extraction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataExtractionRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/extract-data/execute-file-upload:
+    post:
+      tags:
+      - Data Extraction
+      summary: Execute Data Extraction File Upload
+      operationId: execute_data_extraction_file_upload
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_execute_data_extraction_file_upload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/extract-data/schema/generate:
+    post:
+      tags:
+      - Data Extraction
+      summary: Generate Data Extraction Schema
+      operationId: generate_data_extraction_schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataExtractionRequestSchemaGenerate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/extract-data/schema/generate-from-content:
+    post:
+      tags:
+      - Data Extraction
+      summary: Generate Data Extraction Schema From Content
+      operationId: generate_data_extraction_schema_from_content
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_generate_data_extraction_schema_from_content'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/extract-data/advanced/execute:
+    post:
+      tags:
+      - Data Extraction
+      summary: Run Data Extraction Test
+      operationId: run_data_extraction_test
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataExtractionTestRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/extract-data/advanced/execute-file-upload:
+    post:
+      tags:
+      - Data Extraction
+      summary: Run Data Extraction Test File Upload
+      operationId: run_data_extraction_test_file_upload
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_run_data_extraction_test_file_upload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Body_generate_data_extraction_schema_from_content:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+        prompt:
+          type: string
+          title: Prompt
+      type: object
+      required:
+      - file
+      - prompt
+      title: Body_generate_data_extraction_schema_from_content
+    SchemaProperty:
+      properties:
+        property_name:
+          type: string
+          title: Property Name
+          description: The name of the property.
+        property_description:
+          type: string
+          title: Property Description
+          description: The description of the property.
+        property_type:
+          type: string
+          title: Property Type
+          description: The type of the property, optional, by default str.
+          default: str
+      type: object
+      required:
+      - property_name
+      - property_description
+      title: SchemaProperty
+    Resource:
+      properties:
+        bucket_name:
+          type: string
+          title: Bucket Name
+          description: The name of the bucket.
+        prefix:
+          type: string
+          title: Prefix
+          description: The prefix for the objects.
+        access_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Access Key
+          description: Optional; GCP/S3 access key; when omitted, config credentials are used.
+        secret_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secret Key
+          description: Optional; GCP/S3 secret key; when omitted, config credentials are used.
+        storage_type:
+          type: string
+          title: Storage Type
+          description: The type of the storage, either 'AWS' or 'GCP'.
+      type: object
+      required:
+      - bucket_name
+      - prefix
+      - storage_type
+      title: Resource
+      description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_run_data_extraction_test_file_upload:
+      properties:
+        schema:
+          title: Schema
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - schema
+      - file
+      title: Body_run_data_extraction_test_file_upload
+    DataExtractionRequest:
+      properties:
+        resource:
+          $ref: '#/components/schemas/Resource'
+        schema:
+          items:
+            $ref: '#/components/schemas/SchemaProperty'
+          type: array
+          title: Schema
+          description: A list of properties defining the structure of the data to be extracted.
+        llm_model:
+          type: string
+          title: Llm Model
+          description: The model to be used for the data extraction.
+          default: gpt-4.1-nano
+        company_id:
+          type: integer
+          title: Company Id
+          description: The company id of the user.
+      type: object
+      required:
+      - resource
+      - schema
+      - company_id
+      title: DataExtractionRequest
+    Body_execute_data_extraction_file_upload:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+        schema:
+          type: string
+          title: Schema
+      type: object
+      required:
+      - file
+      - schema
+      title: Body_execute_data_extraction_file_upload
+    DataExtractionTestRequest:
+      properties:
+        schema:
+          title: Schema
+          description: The schema defining the structure of the data to be extracted.
+        resource:
+          $ref: '#/components/schemas/Resource'
+          description: The storage resource (S3 or GCP) to be used for the data extraction.
+      type: object
+      required:
+      - schema
+      - resource
+      title: DataExtractionTestRequest
+    DataExtractionRequestSchemaGenerate:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: The prompt to be used for the data extraction schema generation.
+        resource:
+          $ref: '#/components/schemas/Resource'
+          description: The storage resource (S3 or GCP) to be used for the data extraction.
+      type: object
+      required:
+      - prompt
+      - resource
+      title: DataExtractionRequestSchemaGenerate
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Agent Email Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "agent-email-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "sendErrorEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/internal/error/mail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

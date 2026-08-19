@@ -1,0 +1,179 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Gemini File Search (deprecated) Gemini File Search (deprecated) API
+  version: 1.0.36
+tags:
+- name: Gemini File Search (deprecated)
+paths:
+  /ai/api/v2/file-search/store:
+    post:
+      tags:
+      - Gemini File Search (deprecated)
+      summary: Store File
+      operationId: store_file_ai_api_v2_file_search_store_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreFileRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  /ai/api/v2/file-search/create-store:
+    get:
+      tags:
+      - Gemini File Search (deprecated)
+      summary: Create Store
+      operationId: create_store_ai_api_v2_file_search_create_store_get
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStoreRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  /ai/api/v2/file-search/stores/all:
+    delete:
+      tags:
+      - Gemini File Search (deprecated)
+      summary: Delete All Stores
+      operationId: delete_all_stores_ai_api_v2_file_search_stores_all_delete
+      deprecated: true
+      parameters:
+      - name: password
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Password
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CreateStoreRequest:
+      properties:
+        company_name:
+          type: string
+          title: Company Name
+          description: The company name.
+      type: object
+      required:
+      - company_name
+      title: CreateStoreRequest
+    StoreFileRequest:
+      properties:
+        aws_access_key:
+          type: string
+          format: password
+          title: Aws Access Key
+          description: The AWS access key.
+          writeOnly: true
+        aws_secret_key:
+          type: string
+          format: password
+          title: Aws Secret Key
+          description: The AWS secret key.
+          writeOnly: true
+        aws_region:
+          type: string
+          title: Aws Region
+          description: The AWS region.
+          default: us-east-1
+        aws_bucket_name:
+          type: string
+          title: Aws Bucket Name
+          description: The AWS bucket name.
+        s3_file_path:
+          type: string
+          title: S3 File Path
+          description: The S3 prefix of the file to upload.
+        workspace_id:
+          type: string
+          title: Workspace Id
+          description: The workspace ID.
+        company_id:
+          type: integer
+          title: Company Id
+          description: The company ID.
+        file_id:
+          type: string
+          title: File Id
+          description: The file ID.
+      type: object
+      required:
+      - aws_access_key
+      - aws_secret_key
+      - aws_bucket_name
+      - s3_file_path
+      - workspace_id
+      - company_id
+      - file_id
+      title: StoreFileRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

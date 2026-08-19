@@ -1,0 +1,143 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Research API
+  version: 1.0.36
+tags:
+- name: Research
+paths:
+  /ai/api/v2/research:
+    post:
+      tags:
+      - Research
+      summary: Research
+      operationId: research_ai_api_v2_research_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyResearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarkdownRequest'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/research/download:
+    post:
+      tags:
+      - Research
+      summary: Download Pdf
+      operationId: download_pdf_ai_api_v2_research_download_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarkdownRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CompanyResearchRequest:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Name of the company to research
+        focus_query:
+          type: string
+          title: Focus Query
+          description: Focus of the research
+        headquarters:
+          type: string
+          title: Headquarters
+          description: Company headquarters location
+        website:
+          type: string
+          title: Website
+          description: Company's website URL
+        industry:
+          type: string
+          title: Industry
+          description: Industry sector the company operates in
+        crunchbaseToggle:
+          type: boolean
+          title: Crunchbasetoggle
+          description: Toggle to include possible Crunchbase data
+          default: false
+        linkedinToggle:
+          type: boolean
+          title: Linkedintoggle
+          description: Toggle to include possible LinkedIn data
+          default: false
+      type: object
+      required:
+      - name
+      - focus_query
+      - headquarters
+      - website
+      - industry
+      title: CompanyResearchRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MarkdownRequest:
+      properties:
+        markdown_content:
+          type: string
+          title: Markdown Content
+          description: Markdown content to be converted to PDF
+      type: object
+      required:
+      - markdown_content
+      title: MarkdownRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

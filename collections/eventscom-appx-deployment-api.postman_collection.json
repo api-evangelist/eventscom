@@ -1,0 +1,3160 @@
+{
+  "item": [
+    {
+      "id": "96b2c9c3-1d0b-4d2b-88ed-9a389ec68447",
+      "name": "AppX Deployment",
+      "description": {
+        "content": "Deploy and manage AppX apps in EKS",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db13619f-7b9c-4f78-a891-a88462853985",
+          "name": "Get an AppX app by ID",
+          "request": {
+            "name": "Get an AppX app by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                "apps",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "798bad5d-2301-4916-b3a1-fdff98f20b83",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2012-09-06T17:37:16.424Z\",\n  \"error\": {\n    \"statusCode\": 1775,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"createdBy\": {\n      \"id\": 6346,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 7667,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1962-05-02T21:16:47.274Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 4929,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"1946-09-19T04:22:21.213Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"modifiedBy\": {\n      \"id\": 181,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 4183,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1998-06-05T14:39:42.391Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 7767,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"1961-05-01T23:20:37.456Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"createDate\": \"1998-11-17T14:48:59.393Z\",\n    \"modiDate\": \"2022-06-19T06:29:17.375Z\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"previewImage\": \"string\",\n    \"appUrl\": \"string\",\n    \"dockerImageTag\": \"string\",\n    \"customDomain\": \"string\",\n    \"customDomainStatus\": \"string\",\n    \"companyId\": 2179,\n    \"requestId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e19c16e0-0f82-416c-8ab4-c2f33e0d39e0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ee641d3-5681-435f-8d62-ba7e7d4d3f79",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee1ce0e0-517f-41be-af50-aaf70104c461",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d640a4a-5e2d-4c20-8367-0b38464b7140",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80706d90-af2c-45eb-a3f7-f442f072e43e",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80690545-9719-4da1-bb33-6d89beea1573",
+          "name": "Update AppX app metadata",
+          "request": {
+            "name": "Update AppX app metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                "apps",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "060244a8-c1a8-4819-8b61-96f5a9a04d14",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1965-11-27T11:27:27.306Z\",\n  \"error\": {\n    \"statusCode\": 9144,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"createdBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"modifiedBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"createDate\": \"<dateTime>\",\n    \"modiDate\": \"<dateTime>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"previewImage\": \"<string>\",\n    \"appUrl\": \"<string>\",\n    \"dockerImageTag\": \"<string>\",\n    \"customDomain\": \"<string>\",\n    \"customDomainStatus\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "834c66f1-5595-44a0-97c7-f53760c6d770",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19e4917f-5b0e-46c8-8769-0604d79500ef",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67e32c39-c81f-4b86-b65e-37d7cac68dd4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10b2600d-ee49-44f6-baea-684f1d9148a1",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90842e54-1e0c-4709-9b2b-60c535de9760",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b34c025-30d9-4472-ba7a-b0ba4e404ffd",
+          "name": "Attach a custom domain to an AppX app",
+          "request": {
+            "name": "Attach a custom domain to an AppX app",
+            "description": {
+              "content": "Starts the custom domain verification flow. Returns the DNS records the user must add in their provider (A record for apex, CNAME for www). Poll the status endpoint with the Refresh button to advance through PENDING_DNS → CERT_PROVISIONING → ACTIVE.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                ":appId",
+                "custom-domain"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) The appId of the deployed AppX app"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f32e0b7-645d-4967-8f25-b52bd4d2eb4c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2018-09-03T03:46:42.673Z\",\n  \"error\": {\n    \"statusCode\": 1509,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"requestId\": \"string\",\n    \"appId\": \"string\",\n    \"apexDomain\": \"string\",\n    \"wwwDomain\": \"string\",\n    \"status\": \"string\",\n    \"apexDnsVerified\": true,\n    \"wwwDnsVerified\": false,\n    \"requiredDnsRecords\": [\n      {\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"apexUrl\": \"string\",\n    \"wwwUrl\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2eca7bd-16a4-446b-a15d-137cb3a33139",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "831f292c-c82e-4944-9395-9eff1f8e560b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a76f8224-749f-4d80-804d-2776f5d51402",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecdfcfaf-fa5b-4c47-a0a4-08f3a3539446",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d2c63dd-4140-4e21-a3a9-83a80ed8a8fe",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apexDomain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "513c9a77-66f1-4ac3-80a3-2524491971e8",
+          "name": "Remove custom domain from an AppX app",
+          "request": {
+            "name": "Remove custom domain from an AppX app",
+            "description": {
+              "content": "Removes the custom domain host rules from the Ingress and cleans up the TLS secret. After this call a new custom domain can be attached.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                ":appId",
+                "custom-domain"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) The appId of the deployed AppX app"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "70bff561-a8e9-4b41-acae-137c6822ff87",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aaf9dc73-a55e-49a9-9585-0d08350fd6a7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "518020c9-135e-4649-8205-922124192a07",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0203a885-af04-4746-905a-7fcf784792a1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4912b10-e31a-4e67-96eb-bfc763055c45",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c06ecb7-1cbd-4cb8-a0e1-ffcbed3e68ce",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5a7652e-6b68-4f27-9512-9e270c9b017f",
+          "name": "Deploy an AppX app",
+          "request": {
+            "name": "Deploy an AppX app",
+            "description": {
+              "content": "Accepts a Docker image, appId, name and optional preview image, starts a durable Temporal workflow that creates a pod in the appx-apps namespace, persists app metadata to the database, and returns the app record. Poll GET noCo/api/v1/requestLog/status/{requestId} to track progress.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                "deploy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbbd5485-f9d8-4c72-ba9c-a90758688114",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1965-11-27T11:27:27.306Z\",\n  \"error\": {\n    \"statusCode\": 9144,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"createdBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"modifiedBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"createDate\": \"<dateTime>\",\n    \"modiDate\": \"<dateTime>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"previewImage\": \"<string>\",\n    \"appUrl\": \"<string>\",\n    \"dockerImageTag\": \"<string>\",\n    \"customDomain\": \"<string>\",\n    \"customDomainStatus\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56cf87d8-f613-4d76-83dd-b6220bb4ccab",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a374e3a6-a596-4389-b391-c92d02ab2df7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47091ee8-0df4-435a-9e31-1335aac05700",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa02cafa-19f5-46a9-ad11-1a102d736634",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "132be22a-d067-43d8-a61d-46f653f5b73a",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"previewImage\": \"<string>\",\n  \"appUrl\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12949921-8180-4a2a-8eee-8d711a9b284c",
+          "name": "Poll custom domain status",
+          "request": {
+            "name": "Poll custom domain status",
+            "description": {
+              "content": "Returns current status (PENDING_DNS / CERT_PROVISIONING / ACTIVE / FAILED) and which DNS records have been verified. Call this from the Refresh button.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                ":appId",
+                "custom-domain",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) The appId of the deployed AppX app"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "761cc737-b942-47ca-8dff-bafe3b18d08e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"2024-03-23T23:56:18.422Z\",\n  \"error\": {\n    \"statusCode\": 9456,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"requestId\": \"string\",\n    \"appId\": \"string\",\n    \"apexDomain\": \"string\",\n    \"wwwDomain\": \"string\",\n    \"status\": \"string\",\n    \"apexDnsVerified\": true,\n    \"wwwDnsVerified\": true,\n    \"requiredDnsRecords\": [\n      {\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"apexUrl\": \"string\",\n    \"wwwUrl\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8028b268-ed92-4c1a-aa5b-9c91e28423ff",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52217ab0-8493-490b-96b8-6c11e1400c27",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "579efd79-7455-4884-90ee-7926723afa8b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d025f232-c8b8-40fb-8a1f-697a20f0f797",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa1cd7d0-8a1e-4e7a-88ad-af6b4bca0398",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId",
+                    "custom-domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId of the deployed AppX app"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "026ad682-6551-415a-99e0-fd2d50979abc",
+          "name": "List all AppX apps for the current tenant",
+          "request": {
+            "name": "List all AppX apps for the current tenant",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f638901e-f8f8-4dd5-97e3-d921dd53a776",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"2006-06-08T17:15:17.120Z\",\n  \"error\": {\n    \"statusCode\": 6672,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"createdBy\": {\n        \"id\": \"<long>\",\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"email\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"companyId\": \"<long>\",\n        \"status\": \"<string>\",\n        \"roles\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"permissions\": [\n          \"<string>\"\n        ],\n        \"joinDate\": \"<dateTime>\",\n        \"mfaEnabled\": \"<boolean>\",\n        \"redirectToMfaFlow\": \"<boolean>\",\n        \"tokenExpiryTime\": \"<long>\",\n        \"isServiceAccount\": \"<boolean>\",\n        \"lastLogin\": \"<dateTime>\",\n        \"signInMethod\": \"<string>\",\n        \"isOnboardingCompleted\": \"<boolean>\",\n        \"role\": \"<string>\",\n        \"department\": \"<string>\",\n        \"anonymousUserId\": \"<string>\",\n        \"thirdPartyUser\": \"<boolean>\"\n      },\n      \"modifiedBy\": {\n        \"id\": \"<long>\",\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"email\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"companyId\": \"<long>\",\n        \"status\": \"<string>\",\n        \"roles\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"permissions\": [\n          \"<string>\"\n        ],\n        \"joinDate\": \"<dateTime>\",\n        \"mfaEnabled\": \"<boolean>\",\n        \"redirectToMfaFlow\": \"<boolean>\",\n        \"tokenExpiryTime\": \"<long>\",\n        \"isServiceAccount\": \"<boolean>\",\n        \"lastLogin\": \"<dateTime>\",\n        \"signInMethod\": \"<string>\",\n        \"isOnboardingCompleted\": \"<boolean>\",\n        \"role\": \"<string>\",\n        \"department\": \"<string>\",\n        \"anonymousUserId\": \"<string>\",\n        \"thirdPartyUser\": \"<boolean>\"\n      },\n      \"createDate\": \"<dateTime>\",\n      \"modiDate\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"previewImage\": \"<string>\",\n      \"appUrl\": \"<string>\",\n      \"dockerImageTag\": \"<string>\",\n      \"customDomain\": \"<string>\",\n      \"customDomainStatus\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"requestId\": \"<string>\"\n    },\n    {\n      \"createdBy\": {\n        \"id\": \"<long>\",\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"email\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"companyId\": \"<long>\",\n        \"status\": \"<string>\",\n        \"roles\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"permissions\": [\n          \"<string>\"\n        ],\n        \"joinDate\": \"<dateTime>\",\n        \"mfaEnabled\": \"<boolean>\",\n        \"redirectToMfaFlow\": \"<boolean>\",\n        \"tokenExpiryTime\": \"<long>\",\n        \"isServiceAccount\": \"<boolean>\",\n        \"lastLogin\": \"<dateTime>\",\n        \"signInMethod\": \"<string>\",\n        \"isOnboardingCompleted\": \"<boolean>\",\n        \"role\": \"<string>\",\n        \"department\": \"<string>\",\n        \"anonymousUserId\": \"<string>\",\n        \"thirdPartyUser\": \"<boolean>\"\n      },\n      \"modifiedBy\": {\n        \"id\": \"<long>\",\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"email\": \"<string>\",\n        \"companyName\": \"<string>\",\n        \"companyId\": \"<long>\",\n        \"status\": \"<string>\",\n        \"roles\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"permissions\": [\n          \"<string>\"\n        ],\n        \"joinDate\": \"<dateTime>\",\n        \"mfaEnabled\": \"<boolean>\",\n        \"redirectToMfaFlow\": \"<boolean>\",\n        \"tokenExpiryTime\": \"<long>\",\n        \"isServiceAccount\": \"<boolean>\",\n        \"lastLogin\": \"<dateTime>\",\n        \"signInMethod\": \"<string>\",\n        \"isOnboardingCompleted\": \"<boolean>\",\n        \"role\": \"<string>\",\n        \"department\": \"<string>\",\n        \"anonymousUserId\": \"<string>\",\n        \"thirdPartyUser\": \"<boolean>\"\n      },\n      \"createDate\": \"<dateTime>\",\n      \"modiDate\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"previewImage\": \"<string>\",\n      \"appUrl\": \"<string>\",\n      \"dockerImageTag\": \"<string>\",\n      \"customDomain\": \"<string>\",\n      \"customDomainStatus\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"requestId\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80abd05a-b2da-4167-a3ab-a229277d7d69",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a62ed0e-422b-4dcd-8e5b-aa3a296a08a4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b766f546-767f-40ba-a553-5f89a8c596ad",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e547fee-3675-4beb-ae02-28c4c45396b7",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c17efa99-7f37-4d9d-b22f-805dc3c73af1",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "705a8125-e88f-4c62-a82f-fc08cdbb3583",
+          "name": "Delete an AppX app",
+          "request": {
+            "name": "Delete an AppX app",
+            "description": {
+              "content": "Deletes the Kubernetes pod and soft-deletes the DB record for the given appId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "appx",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) The appId used when the app was deployed"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68a687e9-6ed9-4dc4-a045-e78170f42f71",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId used when the app was deployed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89c5c081-8a48-4258-bc83-b83763cf26cf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId used when the app was deployed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0aaf9b36-e07a-4e4d-90b3-d146a3aafb5a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId used when the app was deployed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b7c3865-9542-4c04-a7f1-518d511e7d9d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId used when the app was deployed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a2ab3c1-cc67-47e0-a3d5-52d0752542e6",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId used when the app was deployed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f0a761e-f135-46f3-9ad9-3ccf0e4c1b96",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "appx",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) The appId used when the app was deployed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-06-22T04:36:31.794Z\",\n  \"error\": {\n    \"statusCode\": 3262,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b34c0d6e-e343-4253-9a48-4d53f94ca6a6",
+    "name": "Saasxl-api doc AppX Deployment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Deploy and manage AppX apps in EKS",
+      "type": "text/plain"
+    }
+  }
+}

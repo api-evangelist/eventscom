@@ -1,0 +1,760 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc KB Internal API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: KB Internal
+paths:
+  /kb/api/v1/internal/{token}/connectors/{connectorId}/metadata/query:
+    post:
+      tags:
+      - KB Internal
+      summary: Structured metadata query on kb_records (no auth)
+      description: Executes a structured query on kb_records scoped to the given connector. Supports filters, groupBy, aggregations, ordering, and pagination. No raw SQL — all fields are whitelisted.
+      operationId: metadataQuery
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: connectorId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KbMetadataQueryDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/KbMetadataQueryResultDTO'
+  /kb/api/v1/internal/{token}/connectors/metadata:
+    post:
+      tags:
+      - KB Internal
+      summary: Bulk-resolve connector metadata + Qdrant field schema (no auth)
+      operationId: getConnectorMetaData
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+                format: uuid
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConnectorMetaDTO'
+  /kb/api/v1/internal/{token}/connectors/metadata/bySource:
+    post:
+      tags:
+      - KB Internal
+      summary: Bulk-resolve connector metadata by sourceIds + type (no auth)
+      description: Accepts a list of sourceIds (e.g. workspace IDs) and a connector type. Returns the same ConnectorMetaDTO shape as /connectors/metadata.
+      operationId: getConnectorMetaDataBySource
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConnectorMetaDTO'
+  /kb/api/v1/internal/{token}/connector/workbook/search:
+    post:
+      tags:
+      - KB Internal
+      summary: Workbook semantic search by type and sourceId (no auth)
+      operationId: searchWorkbookBySource
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+      - name: sourceId
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KbWorkbookSearchDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/KbWorkbookSearchResultDTO'
+  /kb/api/v1/internal/{token}/connectors/{connectorId}/collection:
+    get:
+      tags:
+      - KB Internal
+      summary: Resolve connectorId → Qdrant collection name (no auth)
+      operationId: getCollection
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: connectorId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /kb/api/v1/internal/{token}/connector:
+    get:
+      tags:
+      - KB Internal
+      summary: Get a KB connector by type and sourceId (no auth)
+      operationId: getConnectorBySource
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+      - name: sourceId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/KbConnectorDTO'
+components:
+  schemas:
+    ConnectorMetaDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+        collectionName:
+          type: string
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataFieldDTO'
+        dbFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/KbDbMetadataFieldDTO'
+    KbWorkbookSearchResultDTO:
+      type: object
+      properties:
+        collectionName:
+          type: string
+        hits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hit'
+    KbMetadataQueryResultDTO:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    KbMetadataQueryDTO:
+      type: object
+      properties:
+        filters:
+          type: object
+          additionalProperties:
+            type: object
+        groupBy:
+          type: string
+        aggregations:
+          type: array
+          items:
+            type: string
+        orderBy:
+          type: string
+        orderDir:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        select:
+          type: array
+          items:
+            type: string
+    KbConnectorStatsDTO:
+      type: object
+      properties:
+        connectorId:
+          type: string
+          format: uuid
+        total:
+          type: integer
+          format: int64
+        queued:
+          type: integer
+          format: int64
+        inProgress:
+          type: integer
+          format: int64
+        completed:
+          type: integer
+          format: int64
+        failed:
+          type: integer
+          format: int64
+        skipped:
+          type: integer
+          format: int64
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    MetadataFieldDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        dataType:
+          type: string
+        description:
+          type: string
+        filterable:
+          type: boolean
+    KbRunDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        connectorId:
+          type: string
+          format: uuid
+        runType:
+          type: string
+          enum:
+          - FULL
+          - INCREMENTAL
+          - MANUAL
+          - REINDEX
+        status:
+          type: string
+          enum:
+          - RUNNING
+          - SUCCESS
+          - FAILED
+          - PARTIAL
+          - CANCELLED
+        temporalWorkflowId:
+          type: string
+        startedAt:
+          type: string
+          format: date-time
+        finishedAt:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        statsJson:
+          type: object
+          additionalProperties:
+            type: object
+        checkpointJson:
+          type: object
+          additionalProperties:
+            type: object
+    KbConfigDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        connectorId:
+          type: string
+          format: uuid
+        credentialId:
+          type: integer
+          format: int64
+        credentialName:
+          type: string
+        credentialStatus:
+          type: string
+        syncJson:
+          type: object
+          additionalProperties:
+            type: object
+        filtersJson:
+          type: object
+          additionalProperties:
+            type: object
+        scheduleJson:
+          type: object
+          additionalProperties:
+            type: object
+        indexJson:
+          type: object
+          additionalProperties:
+            type: object
+        advancedJson:
+          type: object
+          additionalProperties:
+            type: object
+    KbDbMetadataFieldDTO:
+      type: object
+      properties:
+        column:
+          type: string
+        dataType:
+          type: string
+        description:
+          type: string
+        filterable:
+          type: boolean
+        groupable:
+          type: boolean
+    KbWorkbookSearchDTO:
+      type: object
+      properties:
+        query:
+          type: string
+        filters:
+          type: object
+          additionalProperties:
+            type: object
+        limit:
+          type: integer
+          format: int32
+    KbConnectorDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - PAUSED
+          - ERROR
+        lastSyncAt:
+          type: string
+          format: date-time
+        lastSyncStatus:
+          type: string
+        sourceId:
+          type: string
+        credentialId:
+          type: integer
+          format: int64
+        activeConfig:
+          $ref: '#/components/schemas/KbConfigDTO'
+        latestRun:
+          $ref: '#/components/schemas/KbRunDTO'
+        stats:
+          $ref: '#/components/schemas/KbConnectorStatsDTO'
+    Hit:
+      type: object
+      properties:
+        pointId:
+          type: string
+        rowId:
+          type: string
+        pageContent:
+          type: string
+        score:
+          type: number
+          format: float
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

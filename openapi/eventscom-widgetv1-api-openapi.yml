@@ -1,0 +1,1411 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Widget V1 API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: WidgetV1
+paths:
+  /widget/api/v1/table/abstract:
+    post:
+      tags:
+      - WidgetV1
+      operationId: getTableAbstraction
+      parameters:
+      - name: isDataQueryNeeded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: widgetId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartDataAbstractionRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChartAbstractedDataDTO'
+      security:
+      - s_jwt: []
+  /widget/api/v1/map/abstract:
+    post:
+      tags:
+      - WidgetV1
+      operationId: getMapAbstraction
+      parameters:
+      - name: isDataQueryNeeded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MapAbstractionRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MapAbstractedDataDTO'
+      security:
+      - s_jwt: []
+  /widget/api/v1/kpi/abstract:
+    post:
+      tags:
+      - WidgetV1
+      operationId: getKpiAbstraction
+      parameters:
+      - name: isDataQueryNeeded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: widgetId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KpiAbstractionRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChartAbstractedDataDTO'
+      security:
+      - s_jwt: []
+  /widget/api/v1/cohort/abstract:
+    post:
+      tags:
+      - WidgetV1
+      operationId: getCohortAbstraction
+      parameters:
+      - name: isDataQueryNeeded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: widgetId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CohortAbstractionRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChartAbstractedDataDTO'
+      security:
+      - s_jwt: []
+  /widget/api/v1/chart/table:
+    post:
+      tags:
+      - WidgetV1
+      operationId: getChartDataInTable
+      parameters:
+      - name: isDataQueryNeeded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: widgetId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartDataAbstractionRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChartAbstractedDataDTO'
+      security:
+      - s_jwt: []
+  /widget/api/v1/chart/abstract:
+    post:
+      tags:
+      - WidgetV1
+      operationId: getDataAbstraction
+      parameters:
+      - name: isDataQueryNeeded
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: widgetId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartDataAbstractionRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChartAbstractedDataDTO'
+      security:
+      - s_jwt: []
+  /widget/api/v1/cache:
+    get:
+      tags:
+      - WidgetV1
+      operationId: getDataByWidgetId
+      parameters:
+      - name: widgetId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WidgetCacheResponseDTO'
+      security:
+      - s_jwt: []
+components:
+  schemas:
+    MapAbstractedDataDTO:
+      type: object
+      properties:
+        series:
+          type: object
+        columnRecords:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnDTO'
+        tableMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        queries:
+          type: array
+          items:
+            type: string
+    ThirdPartyFilterConfigDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+    MapAbstractionRequestDTO:
+      required:
+      - source
+      type: object
+      properties:
+        latitudeColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        longitudeColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        geoColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        source:
+          type: string
+          enum:
+          - STATE_10M
+          - STATE_50M
+          - WORLD_10M
+          - WORLD_50M
+          - ZIPCODE_US
+          - COUNTIES_US_10M
+          - SELF
+        coordinateType:
+          type: string
+          enum:
+          - POLYGON
+          - CENTROID
+        tableId:
+          type: string
+        viewId:
+          type: string
+        filters:
+          type: string
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        providerType:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        userDTO:
+          $ref: '#/components/schemas/UserDTO'
+        versionId:
+          type: integer
+          format: int64
+    EomProjectionDTO:
+      type: object
+      properties:
+        timestampColumnId:
+          type: string
+        interval:
+          type: integer
+          format: int32
+    ChartDataAbstractionRequestDTO:
+      required:
+      - seriesType
+      type: object
+      properties:
+        tableId:
+          type: string
+        columnX:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        columnGroup:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        columnY:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        pivotRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        pivotCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        pivotVals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        seriesType:
+          type: string
+          enum:
+          - PIE_CHART
+          - HEAT_MAP
+          - LINE_CHART
+          - LINE_CHART_2D
+          - TREE_MAP
+          - KPI
+          - TABLE
+          - CHART_TABLE
+          - PIVOT_TABLE
+          - SUNBURST
+          - COHORT
+        filters:
+          type: string
+        providerType:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        viewId:
+          type: string
+        analysisFilterDTO:
+          $ref: '#/components/schemas/AnalysisFilterDTO'
+        userDTO:
+          $ref: '#/components/schemas/UserDTO'
+        limit:
+          type: integer
+          format: int32
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        having:
+          type: string
+        referencedColumnNames:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        comparison:
+          $ref: '#/components/schemas/ComparisonDTO'
+        comparisonFilters:
+          type: string
+        tableQuery:
+          type: string
+        workspaceId:
+          type: string
+        versionId:
+          type: integer
+          format: int64
+        includeNullValues:
+          type: boolean
+        timezone:
+          type: string
+        cacheable:
+          type: boolean
+    TreeFilterRequestDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        pathIds:
+          type: array
+          items:
+            type: string
+        operand:
+          type: string
+        workbookId:
+          type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+        pathSeparator:
+          type: string
+        useLeafNodesSearch:
+          type: boolean
+        resolvedLeafIds:
+          type: array
+          items:
+            type: string
+    WidgetCacheResponseDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+        widgetQueryResul:
+          type: object
+    ColumnRequestDTO:
+      required:
+      - columnId
+      type: object
+      properties:
+        columnId:
+          type: string
+        aggregationType:
+          type: string
+          enum:
+          - NONE
+          - COUNT
+          - SUM
+          - AVERAGE
+          - MAX
+          - MIN
+          - STANDARD_DEVIATION
+          - VARIANCE
+          - UNIQUE
+          - EMPTY
+          - FILLED
+          - PERCENTAGE
+          - PERCENTAGE_VALUE
+          - POSITIVE_RATE
+          - PERCENTILE
+          - MEDIAN
+          - EOM_PROJECTION
+          - AVERAGE_WINDOW
+        pivotValueAggregation:
+          type: string
+          enum:
+          - NONE
+          - COUNT
+          - SUM
+          - AVERAGE
+          - MAX
+          - MIN
+          - STANDARD_DEVIATION
+          - VARIANCE
+          - UNIQUE
+          - EMPTY
+          - FILLED
+          - PERCENTAGE
+          - PERCENTAGE_VALUE
+          - POSITIVE_RATE
+          - PERCENTILE
+          - MEDIAN
+          - EOM_PROJECTION
+          - AVERAGE_WINDOW
+        percentile:
+          type: number
+          format: double
+        timestampFormat:
+          type: boolean
+        filterValue:
+          type: string
+        individuals:
+          type: boolean
+        timeBucketType:
+          type: string
+          enum:
+          - NONE
+          - YEAR
+          - QUARTER
+          - MONTH
+          - WEEK
+          - DAY
+          - HOUR
+          - MINUTE
+          - SECOND
+          - QUARTER_OF_YEAR
+          - MONTH_OF_YEAR
+          - WEEK_OF_YEAR
+          - DAY_OF_MONTH
+          - HOUR_OF_DAY
+          - DAY_OF_WEEK
+        title:
+          type: string
+        sortingOrder:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        comparison:
+          $ref: '#/components/schemas/ComparisonDTO'
+        eomProjection:
+          $ref: '#/components/schemas/EomProjectionDTO'
+        topNConfig:
+          $ref: '#/components/schemas/TopNConfigDTO'
+        formula:
+          type: string
+        periods:
+          type: array
+          items:
+            type: integer
+            format: int32
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    TopNConfigDTO:
+      type: object
+      properties:
+        rankingColumnId:
+          type: string
+        rankingAggregationType:
+          type: string
+          enum:
+          - NONE
+          - COUNT
+          - SUM
+          - AVERAGE
+          - MAX
+          - MIN
+          - STANDARD_DEVIATION
+          - VARIANCE
+          - UNIQUE
+          - EMPTY
+          - FILLED
+          - PERCENTAGE
+          - PERCENTAGE_VALUE
+          - POSITIVE_RATE
+          - PERCENTILE
+          - MEDIAN
+          - EOM_PROJECTION
+          - AVERAGE_WINDOW
+        limit:
+          type: integer
+          format: int32
+        direction:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        partitionByColumnIds:
+          type: array
+          items:
+            type: string
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    CohortAbstractionRequestDTO:
+      required:
+      - activityColumn
+      - cohortColumn
+      - metric
+      type: object
+      properties:
+        tableId:
+          type: string
+        filters:
+          type: string
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        providerType:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        cohortColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        activityColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        metric:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        rowMetrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        additionalRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        versionId:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        tableQuery:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        includeNullValues:
+          type: boolean
+        timezone:
+          type: string
+    KpiAbstractionRequestDTO:
+      required:
+      - number
+      type: object
+      properties:
+        tableId:
+          type: string
+        filters:
+          type: string
+        providerType:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        timeAxis:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        number:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        viewId:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        comparison:
+          $ref: '#/components/schemas/ComparisonDTO'
+        limit:
+          type: integer
+          format: int32
+        comparisonFilters:
+          type: string
+        versionId:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        tableQuery:
+          type: string
+        includeNullValues:
+          type: boolean
+        timezone:
+          type: string
+    WidgetParameterDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        enumOptions:
+          $ref: '#/components/schemas/EnumOptions'
+        defaultValue:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        showByDefault:
+          type: boolean
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+    ComparisonDTO:
+      type: object
+      properties:
+        periodType:
+          type: string
+          enum:
+          - NONE
+          - YEAR
+          - QUARTER
+          - MONTH
+          - WEEK
+          - DAY
+          - HOUR
+          - MINUTE
+          - SECOND
+          - QUARTER_OF_YEAR
+          - MONTH_OF_YEAR
+          - WEEK_OF_YEAR
+          - DAY_OF_MONTH
+          - HOUR_OF_DAY
+          - DAY_OF_WEEK
+        offset:
+          type: integer
+          format: int32
+        timeAxisColumn:
+          type: string
+        timeAxis:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        number:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        includeAbsoluteChange:
+          type: boolean
+        includePercentageChange:
+          type: boolean
+    ColumnDTO:
+      required:
+      - name
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        name:
+          type: string
+        uiDataType:
+          type: string
+        idType:
+          type: string
+        required:
+          type: boolean
+        description:
+          type: string
+        formulaType:
+          type: string
+        formula:
+          type: string
+        backendDataType:
+          type: string
+        rawFormula:
+          type: string
+        status:
+          type: string
+        eventName:
+          type: string
+        errorMessage:
+          type: string
+        rowLevelFormula:
+          type: string
+        rowLevelFormulaWithParameter:
+          type: string
+        nestedFormula:
+          type: string
+        nestedFormulaWithParameter:
+          type: string
+        nestedRowLevelFormula:
+          type: string
+        nestedRowLevelFormulaWithParameter:
+          type: string
+        workspaceId:
+          type: string
+        isDataEditable:
+          type: boolean
+        isMetaDataEditable:
+          type: boolean
+        isEditable:
+          type: boolean
+        isDataTypeEditable:
+          type: boolean
+        isDeletable:
+          type: boolean
+        isColumnLevelFormula:
+          type: boolean
+        colOptions:
+          type: object
+          additionalProperties:
+            type: object
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        tableId:
+          type: string
+        requestId:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+        parameterIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        isBIFormula:
+          type: boolean
+        isAudit:
+          type: boolean
+        isEnriched:
+          type: boolean
+        isDynamicFormula:
+          type: boolean
+        isSystemGenerated:
+          type: boolean
+        settings:
+          $ref: '#/components/schemas/ColumnSettingsDTO'
+        sourceDatatype:
+          type: string
+    ChartAbstractedDataDTO:
+      type: object
+      properties:
+        series:
+          type: object
+        x_axis:
+          type: object
+        y_axis:
+          type: object
+        groupCategories:
+          type: object
+        x_axis_type:
+          type: string
+        seriesType:
+          type: string
+          enum:
+          - PIE_CHART
+          - HEAT_MAP
+          - LINE_CHART
+          - LINE_CHART_2D
+          - TREE_MAP
+          - KPI
+          - TABLE
+          - CHART_TABLE
+          - PIVOT_TABLE
+          - SUNBURST
+          - COHORT
+        columnRecords:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnDTO'
+        tableMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        request:
+          $ref: '#/components/schemas/ChartDataAbstractionRequestDTO'
+        provider:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        queries:
+          type: array
+          items:
+            type: string
+        dataQuery:
+          type: string
+        seriesMetadata:
+          type: object
+    EnumOptions:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnumOptionValue'
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        sqlQuery:
+          type: string
+        multipleValuesAllowed:
+          type: boolean
+        wrapValuesWithinSingleQuotes:
+          type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    AnalysisFilterDTO:
+      type: object
+      properties:
+        xaxisColumnValues:
+          type: array
+          items:
+            type: string
+        groupColumnValues:
+          type: array
+          items:
+            type: string
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

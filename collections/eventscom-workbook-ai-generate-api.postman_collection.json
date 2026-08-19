@@ -1,0 +1,406 @@
+{
+  "item": [
+    {
+      "id": "a4030f7a-1c56-46f5-9c93-0fe8798556a2",
+      "name": "Workbook AI Generate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d55c35a-771d-41c8-a1fb-800c7ec1e4dc",
+          "name": "Ai Generate Internal",
+          "request": {
+            "name": "Ai Generate Internal",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "ai-generate",
+                "internal",
+                "completion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"row\": {\n    \"key_0\": 9954\n  },\n  \"ai_settings\": {\n    \"prompt\": \"<string>\",\n    \"model\": \"<string>\",\n    \"web_access\": \"<boolean>\",\n    \"web_search_provider\": \"<string>\",\n    \"web_search_provider_key\": \"<string>\"\n  },\n  \"llm_config\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c1563ce-848c-4bb0-8976-58606d9e4e9c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "ai-generate",
+                    "internal",
+                    "completion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"row\": {\n    \"key_0\": \"string\"\n  },\n  \"ai_settings\": {\n    \"prompt\": \"<string>\",\n    \"model\": \"<string>\",\n    \"web_access\": \"<boolean>\",\n    \"web_search_provider\": \"<string>\",\n    \"web_search_provider_key\": \"<string>\"\n  },\n  \"llm_config\": {\n    \"key_0\": 3080,\n    \"key_1\": 912\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82d57d7f-ee70-4f9e-94e6-cf82105da53e",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "ai-generate",
+                    "internal",
+                    "completion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"row\": {\n    \"key_0\": \"string\"\n  },\n  \"ai_settings\": {\n    \"prompt\": \"<string>\",\n    \"model\": \"<string>\",\n    \"web_access\": \"<boolean>\",\n    \"web_search_provider\": \"<string>\",\n    \"web_search_provider_key\": \"<string>\"\n  },\n  \"llm_config\": {\n    \"key_0\": 3080,\n    \"key_1\": 912\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddac2912-b739-48f7-b041-5222482d0114",
+          "name": "Get Databar Enrichment Options",
+          "request": {
+            "name": "Get Databar Enrichment Options",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "ai-generate",
+                "internal",
+                "databar",
+                "get-enrichments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f3ffe68-bff7-4c98-a09a-d2cd7bd4f48f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "ai-generate",
+                    "internal",
+                    "databar",
+                    "get-enrichments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a38c2e73-b3bd-4908-97f5-001b40157872",
+          "name": "Run Databar Enrichment",
+          "request": {
+            "name": "Run Databar Enrichment",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "ai-generate",
+                "internal",
+                "databar",
+                "run-enrichment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enrichment_id\": \"<integer>\",\n  \"params\": {\n    \"key_0\": true,\n    \"key_1\": \"string\",\n    \"key_2\": 5116\n  },\n  \"databar_api_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebd04aa2-5084-4cf7-87c2-7940ad3f1431",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "ai-generate",
+                    "internal",
+                    "databar",
+                    "run-enrichment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrichment_id\": \"<integer>\",\n  \"params\": {\n    \"key_0\": 8828.652303275776,\n    \"key_1\": true\n  },\n  \"databar_api_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8da13309-4e2c-4007-a038-f8d27caf446b",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "ai-generate",
+                    "internal",
+                    "databar",
+                    "run-enrichment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrichment_id\": \"<integer>\",\n  \"params\": {\n    \"key_0\": 8828.652303275776,\n    \"key_1\": true\n  },\n  \"databar_api_key\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0ab01724-2afc-47dc-8d06-8ff6f141f6ab",
+    "name": "DataGol AI Workbook AI Generate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

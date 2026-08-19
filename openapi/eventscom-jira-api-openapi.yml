@@ -1,0 +1,235 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI JIRA API
+  version: 1.0.36
+tags:
+- name: JIRA
+paths:
+  /ai/api/v2/jira/schema:
+    get:
+      tags:
+      - JIRA
+      summary: Get Jira Schema
+      operationId: get_jira_schema
+      parameters:
+      - name: connectorId
+        in: query
+        required: true
+        schema:
+          type: integer
+          description: ID of the jira connector chosen by the user
+          title: Connectorid
+        description: ID of the jira connector chosen by the user
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JiraProjects'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/jira/issues/create:
+    post:
+      tags:
+      - JIRA
+      summary: Create Jira Issue
+      operationId: create_issue
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJiraIssueRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    JiraProjects:
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/JiraProject'
+          type: array
+          title: Projects
+          description: List of Jira projects
+      type: object
+      title: JiraProjects
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    JiraIssueType:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Issue type name
+        fields:
+          $ref: '#/components/schemas/JiraIssueFields'
+          description: Fields associated with this issue type
+      type: object
+      required:
+      - name
+      - fields
+      title: JiraIssueType
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    CreateJiraIssueRequest:
+      properties:
+        connectorId:
+          type: integer
+          title: Connectorid
+          description: User jira connector ID
+        workspaceId:
+          type: string
+          title: Workspaceid
+          descriptioin: Workspace ID where the issue is present
+        workbookId:
+          type: string
+          title: Workbookid
+          description: Workbook ID where the issue is present
+        projectKey:
+          type: string
+          title: Projectkey
+          description: Unique identifier for the Jira project
+        issueType:
+          type: string
+          title: Issuetype
+          description: 'Issue type. Example: Bug, Task, Story'
+        taskColumnId:
+          type: string
+          title: Taskcolumnid
+          description: Jira column name in the workbook
+        mappings:
+          additionalProperties: true
+          type: object
+          title: Mappings
+          description: Required, custom and standard fields for the issue
+          default: {}
+        rowIds:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Rowids
+          description: List of row IDs of the issue
+      type: object
+      required:
+      - connectorId
+      - workspaceId
+      - workbookId
+      - projectKey
+      - issueType
+      - taskColumnId
+      title: CreateJiraIssueRequest
+    JiraIssueFields:
+      properties:
+        requiredFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Requiredfields
+          description: Required fields for the issue type
+        customFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Customfields
+          description: Custom fields available
+        traditionalFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Traditionalfields
+          description: Standard Jira fields
+      type: object
+      title: JiraIssueFields
+    JiraProject:
+      properties:
+        projectKey:
+          type: string
+          title: Projectkey
+          description: Unique identifier for the Jira project
+        projectName:
+          type: string
+          title: Projectname
+          description: Name of the project
+        projectId:
+          type: string
+          title: Projectid
+          description: ID of the project
+        issueTypes:
+          items:
+            $ref: '#/components/schemas/JiraIssueType'
+          type: array
+          title: Issuetypes
+          description: List of issue types and their fields
+      type: object
+      required:
+      - projectKey
+      - projectName
+      - projectId
+      title: JiraProject

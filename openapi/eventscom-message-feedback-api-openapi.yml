@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Message Feedback API
+  version: 1.0.36
+tags:
+- name: Message Feedback
+paths:
+  /ai/api/v2/feedback:
+    post:
+      tags:
+      - Message Feedback
+      summary: Post Message Feedback
+      operationId: post_message_feedback_ai_api_v2_feedback_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomMessageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CustomMessageResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Message from backend service.
+      type: object
+      required:
+      - message
+      title: CustomMessageResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    FeedbackReq:
+      properties:
+        messageId:
+          type: integer
+          title: Messageid
+          description: Message id for this feedback
+        like:
+          type: boolean
+          title: Like
+          description: Like or Dislike the response
+        comment:
+          type: string
+          title: Comment
+          description: Feedback Comment on the response of the LLM
+      type: object
+      required:
+      - messageId
+      - like
+      - comment
+      title: FeedbackReq
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

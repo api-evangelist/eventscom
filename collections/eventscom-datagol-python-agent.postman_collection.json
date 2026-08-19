@@ -1,0 +1,1291 @@
+{
+  "item": [
+    {
+      "id": "b81afee5-a17b-454e-b58c-a40f509a43ff",
+      "name": "health check",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0aeae005-06ef-4488-ab1b-5f0a39c8c657",
+          "name": "Health Check",
+          "request": {
+            "name": "Health Check",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "health-check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa6866dd-2051-473c-a877-21da86325286",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "health-check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "40611343-86b4-447f-9f52-807ea19b6197",
+      "name": "Python Agent",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f646f9d-e54d-4ffd-84f9-51b1dad7691a",
+          "name": "Query Agent Unified",
+          "request": {
+            "name": "Query Agent Unified",
+            "description": {
+              "content": "Single endpoint: ensure session exists using conversationId; then stream query using existing flow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"parameters\": {\n    \"dataProvider\": \"<string>\",\n    \"viewId\": \"<string>\",\n    \"workbookId\": \"<string>\",\n    \"workspaceId\": \"<string>\",\n    \"dataSourceId\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"dataSourceIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"tableId\": \"<string>\",\n    \"fileIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"schemaJson\": {\n      \"key_0\": 2243.701197667013,\n      \"key_1\": 2907.635106099988,\n      \"key_2\": 1445\n    },\n    \"dialect\": \"<string>\",\n    \"toolsSelected\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error\": \"<string>\",\n    \"folderName\": \"<string>\",\n    \"connectorId\": \"<integer>\",\n    \"customAgentId\": \"<string>\",\n    \"sqlQuery\": \"<string>\",\n    \"enableBiHistory\": \"<boolean>\",\n    \"selectedLlmModels\": {\n      \"key_0\": \"string\",\n      \"key_1\": false\n    },\n    \"chainId\": \"<string>\",\n    \"image\": \"<string>\",\n    \"code\": \"<string>\",\n    \"workbookIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"autoApprove\": \"<boolean>\",\n    \"analysisLevel\": \"<string>\"\n  },\n  \"agentType\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"conversationId\": \"<string>\",\n  \"selectedLlmModel\": \"<string>\",\n  \"selectedParser\": \"<string>\",\n  \"workbookIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"callerMessageId\": \"<integer>\",\n  \"callerUserId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e3460a7-6c04-45b6-b9a3-1369922517ea",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"parameters\": {\n    \"dataProvider\": \"string\",\n    \"viewId\": \"string\",\n    \"workbookId\": \"string\",\n    \"workspaceId\": \"string\",\n    \"dataSourceId\": [\n      5142,\n      3559\n    ],\n    \"dataSourceIds\": [\n      4788,\n      540\n    ],\n    \"tableId\": \"string\",\n    \"fileIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schemaJson\": {\n      \"key_0\": 7483.39750963468,\n      \"key_1\": 9755.807454151669\n    },\n    \"dialect\": \"string\",\n    \"toolsSelected\": [\n      \"string\",\n      \"string\"\n    ],\n    \"error\": \"string\",\n    \"folderName\": \"string\",\n    \"connectorId\": 403,\n    \"customAgentId\": \"string\",\n    \"sqlQuery\": \"string\",\n    \"enableBiHistory\": false,\n    \"selectedLlmModels\": {\n      \"key_0\": 8846,\n      \"key_1\": \"string\"\n    },\n    \"chainId\": \"string\",\n    \"image\": \"string\",\n    \"code\": \"string\",\n    \"workbookIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"autoApprove\": false,\n    \"analysisLevel\": \"MODERATE\"\n  },\n  \"agentType\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"conversationId\": \"<string>\",\n  \"selectedLlmModel\": \"<string>\",\n  \"selectedParser\": \"<string>\",\n  \"workbookIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"callerMessageId\": \"<integer>\",\n  \"callerUserId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bac611e-cf3d-4ed4-861b-3075c4ac5f30",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"parameters\": {\n    \"dataProvider\": \"string\",\n    \"viewId\": \"string\",\n    \"workbookId\": \"string\",\n    \"workspaceId\": \"string\",\n    \"dataSourceId\": [\n      5142,\n      3559\n    ],\n    \"dataSourceIds\": [\n      4788,\n      540\n    ],\n    \"tableId\": \"string\",\n    \"fileIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schemaJson\": {\n      \"key_0\": 7483.39750963468,\n      \"key_1\": 9755.807454151669\n    },\n    \"dialect\": \"string\",\n    \"toolsSelected\": [\n      \"string\",\n      \"string\"\n    ],\n    \"error\": \"string\",\n    \"folderName\": \"string\",\n    \"connectorId\": 403,\n    \"customAgentId\": \"string\",\n    \"sqlQuery\": \"string\",\n    \"enableBiHistory\": false,\n    \"selectedLlmModels\": {\n      \"key_0\": 8846,\n      \"key_1\": \"string\"\n    },\n    \"chainId\": \"string\",\n    \"image\": \"string\",\n    \"code\": \"string\",\n    \"workbookIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"autoApprove\": false,\n    \"analysisLevel\": \"MODERATE\"\n  },\n  \"agentType\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"conversationId\": \"<string>\",\n  \"selectedLlmModel\": \"<string>\",\n  \"selectedParser\": \"<string>\",\n  \"workbookIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"callerMessageId\": \"<integer>\",\n  \"callerUserId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c51f0aa5-ab7c-429d-a8ee-3ccdff73490e",
+          "name": "Python Agent Ui",
+          "request": {
+            "name": "Python Agent Ui",
+            "description": {
+              "content": "Serve plain HTML chat UI for python-agent ask/stop flows.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "ui"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e42abaaf-d101-441a-8aae-bb970725da7a",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "ui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1446e4fc-0dae-436a-81f9-1e25cc727a75",
+          "name": "Submit Feedback",
+          "request": {
+            "name": "Submit Feedback",
+            "description": {
+              "content": "Submit feedback and immediately continue streaming for the same session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "submit-feedback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"<string>\",\n  \"feedback\": \"<string>\",\n  \"chain_id\": \"<string>\",\n  \"query_clarification\": \"<string>\",\n  \"context_needed\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79c81234-17d9-43b7-aa3a-734363a2b832",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "submit-feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"session_id\": \"<string>\",\n  \"feedback\": \"<string>\",\n  \"chain_id\": \"<string>\",\n  \"query_clarification\": \"<string>\",\n  \"context_needed\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41f90ce8-b31d-4ac0-9c32-1feb63871d1d",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "submit-feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"session_id\": \"<string>\",\n  \"feedback\": \"<string>\",\n  \"chain_id\": \"<string>\",\n  \"query_clarification\": \"<string>\",\n  \"context_needed\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bab594d-8df3-4594-b3de-f2f04d0e4db6",
+          "name": "Stop Python Agent Run",
+          "request": {
+            "name": "Stop Python Agent Run",
+            "description": {
+              "content": "Stop an active python-agent run by conversation and message id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                ":conversation_id",
+                ":message_id",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversation_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4695dcf-81fb-4048-bbee-c3e442fbf29e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    ":conversation_id",
+                    ":message_id",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversation_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"messageId\": \"string\",\n  \"conversationId\": \"string\",\n  \"agentType\": \"string\",\n  \"disconnectInvoked\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b88a4acb-dcb7-4436-bbb1-3951097b30b6",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    ":conversation_id",
+                    ":message_id",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversation_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfbb0406-3b5a-439c-85c7-f55930480726",
+          "name": "Get Session Info",
+          "request": {
+            "name": "Get Session Info",
+            "description": {
+              "content": "Get the status of a Python agent session",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "session",
+                ":session_id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfd59433-e461-4a3f-9c38-e610d8d0cbe0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "session",
+                    ":session_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": \"success\",\n  \"data\": {\n    \"key_0\": 5532,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a056b508-1094-479f-8f28-d5fcff4ec427",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "session",
+                    ":session_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa3c736e-3df9-465e-80ea-c016384c58d4",
+          "name": "Get All Sessions",
+          "request": {
+            "name": "Get All Sessions",
+            "description": {
+              "content": "Get all active sessions with their stale status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de774b32-8a75-4c8b-8118-62503b8dd938",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": \"success\",\n  \"data\": {\n    \"key_0\": 5532,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "132ffcf3-8149-4778-9b37-0de3bdaf8c1c",
+          "name": "Cleanup Session",
+          "request": {
+            "name": "Cleanup Session",
+            "description": {
+              "content": "Clean up a Python agent session",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "session",
+                ":session_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3af61bd-3ea4-477f-adbe-166f37a1c6a5",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "session",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": \"success\",\n  \"data\": {\n    \"key_0\": 5532,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8dac7b14-9eed-4b37-8421-d90eb25671b3",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "session",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a3b7764-57e2-4d10-8cfe-b5d846b38f72",
+          "name": "Cleanup Stale Sessions",
+          "request": {
+            "name": "Cleanup Stale Sessions",
+            "description": {
+              "content": "Automatically find and cleanup all stale sessions (inactive > 10 minutes).\nRemoves agent instances and frees memory for sessions that meet the stale criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "cleanup-stale-sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Authentication token for cleanup operation"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1eabded8-02bb-4ddd-9684-e473c52b2389",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "cleanup-stale-sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"status\": \"success\",\n  \"data\": {\n    \"key_0\": 5532,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "961c2db1-3193-4f73-8926-630d0c511cdf",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "cleanup-stale-sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74542390-9598-456e-8a79-e564ce6d7cb0",
+          "name": "Get Plotly Json",
+          "request": {
+            "name": "Get Plotly Json",
+            "description": {
+              "content": "Endpoint to retrieve plotly JSON configuration from storage (AWS S3 or GCP).\n\nArgs:\n    key: Storage key path (e.g., \"python_agent/plotly_configs/session_id/message_id/chart.json\")\n\nReturns:\n    JSON: The plotly chart configuration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "python-agent",
+                "get-plotly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) Storage key path to the plotly JSON file"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58f6f365-e639-4d69-9193-b72f7e102f3a",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "get-plotly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a9b397c-7087-4bab-86f1-ed4c5675c6ad",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "python-agent",
+                    "get-plotly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "17bf59f2-dd86-4046-958a-a8965745ce2d",
+    "name": "DataGol AI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "item": [
+    {
+      "id": "cff72d91-1c43-4a76-89e2-6c2c4e5f8102",
+      "name": "Global ID",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd318089-fb1d-4e84-b07f-1113012e49e2",
+          "name": "Execute Global Id Algorithm",
+          "request": {
+            "name": "Execute Global Id Algorithm",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "global-id",
+                "execute"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datasets\": [\n    {\n      \"name\": \"<string>\",\n      \"sourceData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\",\n        \"dataMapping\": {\n          \"crmIdField\": \"<string>\",\n          \"tenantIdField\": \"<string>\",\n          \"emailField\": \"<string>\",\n          \"phoneField\": \"<string>\",\n          \"companyNameField\": \"<string>\"\n        }\n      },\n      \"isCrm\": \"<boolean>\",\n      \"correctedUnmatchedData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"sourceData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\",\n        \"dataMapping\": {\n          \"crmIdField\": \"<string>\",\n          \"tenantIdField\": \"<string>\",\n          \"emailField\": \"<string>\",\n          \"phoneField\": \"<string>\",\n          \"companyNameField\": \"<string>\"\n        }\n      },\n      \"isCrm\": \"<boolean>\",\n      \"correctedUnmatchedData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\"\n      }\n    }\n  ],\n  \"previousGlobalId\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  },\n  \"previousPivotTable\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  },\n  \"fixedUnmatchedData\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c39ca903-f4bf-474e-8ab9-3e2085b116ba",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "global-id",
+                    "execute"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasets\": [\n    {\n      \"name\": \"<string>\",\n      \"sourceData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\",\n        \"dataMapping\": {\n          \"crmIdField\": \"<string>\",\n          \"tenantIdField\": \"<string>\",\n          \"emailField\": \"<string>\",\n          \"phoneField\": \"<string>\",\n          \"companyNameField\": \"<string>\"\n        }\n      },\n      \"isCrm\": \"<boolean>\",\n      \"correctedUnmatchedData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"sourceData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\",\n        \"dataMapping\": {\n          \"crmIdField\": \"<string>\",\n          \"tenantIdField\": \"<string>\",\n          \"emailField\": \"<string>\",\n          \"phoneField\": \"<string>\",\n          \"companyNameField\": \"<string>\"\n        }\n      },\n      \"isCrm\": \"<boolean>\",\n      \"correctedUnmatchedData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\"\n      }\n    }\n  ],\n  \"previousGlobalId\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  },\n  \"previousPivotTable\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  },\n  \"fixedUnmatchedData\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "694e2c45-a2d9-4346-9a52-5820676012e6",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "global-id",
+                    "execute"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasets\": [\n    {\n      \"name\": \"<string>\",\n      \"sourceData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\",\n        \"dataMapping\": {\n          \"crmIdField\": \"<string>\",\n          \"tenantIdField\": \"<string>\",\n          \"emailField\": \"<string>\",\n          \"phoneField\": \"<string>\",\n          \"companyNameField\": \"<string>\"\n        }\n      },\n      \"isCrm\": \"<boolean>\",\n      \"correctedUnmatchedData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"sourceData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\",\n        \"dataMapping\": {\n          \"crmIdField\": \"<string>\",\n          \"tenantIdField\": \"<string>\",\n          \"emailField\": \"<string>\",\n          \"phoneField\": \"<string>\",\n          \"companyNameField\": \"<string>\"\n        }\n      },\n      \"isCrm\": \"<boolean>\",\n      \"correctedUnmatchedData\": {\n        \"workspaceId\": \"<string>\",\n        \"workbookId\": \"<string>\"\n      }\n    }\n  ],\n  \"previousGlobalId\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  },\n  \"previousPivotTable\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  },\n  \"fixedUnmatchedData\": {\n    \"workspaceId\": \"<string>\",\n    \"workbookId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7dfeb923-3d57-4397-8655-77785fd18f44",
+    "name": "DataGol AI Global ID API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Data Download API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Download",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download Agent Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/:agent_type/download-data",
+            "params": [
+              {
+                "name": "agent_type",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unified download endpoint for jira-agent-v2, hubspot-agent-v2, atlassian-agent, fellow-agent-v2,\ncustom-agent, and python-agent.\nDownloads data files as a zip file, or single file directly from S3\n\nArgs:\n    agent_type: \"jira-agent-v2\", \"hubspot-agent-v2\", \"atlassian-agent\", \"fellow-agent-v2\",\n        \"custom-agent\", or \"python-agent\"\n    body: Request containing list of file paths and optional workspaceId"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

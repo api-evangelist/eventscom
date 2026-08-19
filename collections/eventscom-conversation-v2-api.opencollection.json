@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Conversation V2 API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversation V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Conversations By User Element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "query",
+                "description": "Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc."
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the element."
+              },
+              {
+                "name": "secondaryElementType",
+                "value": "",
+                "type": "query",
+                "description": "Type of secondary element where the conversation is being created. WORKBOOK, WORKSPACE, etc."
+              },
+              {
+                "name": "secondaryElementId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the secondary element."
+              },
+              {
+                "name": "agentType",
+                "value": "",
+                "type": "query",
+                "description": "Optional list of agent types. Pass multiple: ?agentType=A&agentType=B"
+              }
+            ]
+          },
+          "docs": "Get the conversations by userId, elementType, and elementId."
+        },
+        {
+          "info": {
+            "name": "Create Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Conversation"
+        },
+        {
+          "info": {
+            "name": "Update Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Conversation"
+        },
+        {
+          "info": {
+            "name": "Get Conversation By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific conversation by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

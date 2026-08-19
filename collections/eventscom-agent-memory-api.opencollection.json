@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Agent Memory API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agent Memory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Memories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the memories to list: company, user, or agent"
+              },
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "query",
+                "description": "Optional agent ID when scope is 'agent'; when omitted, returns all agent-scoped memories for the company"
+              },
+              {
+                "name": "include_drafts",
+                "value": "",
+                "type": "query",
+                "description": "If true, include draft memories in the response."
+              }
+            ]
+          },
+          "docs": "List Memories"
+        },
+        {
+          "info": {
+            "name": "Add Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Memory"
+        },
+        {
+          "info": {
+            "name": "Search Memories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search memories using a JSON body only (no query params).\n\nThe body can contain:\n- query, top_k, metadata\n- user_id, org_id, agent_id, include_drafts"
+        },
+        {
+          "info": {
+            "name": "Update Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/:memory_id",
+            "params": [
+              {
+                "name": "memory_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Memory"
+        },
+        {
+          "info": {
+            "name": "Delete Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/:memory_id",
+            "params": [
+              {
+                "name": "memory_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Memory"
+        },
+        {
+          "info": {
+            "name": "Publish Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/:memory_id/publish",
+            "params": [
+              {
+                "name": "memory_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Publish Memory"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

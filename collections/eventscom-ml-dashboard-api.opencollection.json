@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI ML Dashboard API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ML-Dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models",
+            "params": [
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Models"
+        },
+        {
+          "info": {
+            "name": "Create Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Model"
+        },
+        {
+          "info": {
+            "name": "Get Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Model"
+        },
+        {
+          "info": {
+            "name": "Update Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId",
+            "params": [
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Model"
+        },
+        {
+          "info": {
+            "name": "Delete Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId",
+            "params": [
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Model"
+        },
+        {
+          "info": {
+            "name": "Get Model Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/models/config"
+          },
+          "docs": "Get Model Config"
+        },
+        {
+          "info": {
+            "name": "Trigger Model Training",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId/train",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Trigger Model Training"
+        },
+        {
+          "info": {
+            "name": "Get Model Train History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId/history",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Model Train History"
+        },
+        {
+          "info": {
+            "name": "Trigger Model Prediction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId/predict",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Trigger Model Prediction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

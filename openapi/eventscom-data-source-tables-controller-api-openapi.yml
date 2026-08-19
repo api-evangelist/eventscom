@@ -1,0 +1,179 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Data Source Tables Controller API
+  version: 1.0.36
+tags:
+- name: Data Source Tables Controller
+paths:
+  /ai/api/v2/dataSourceTables/search:
+    post:
+      tags:
+      - Data Source Tables Controller
+      summary: Search Tables
+      operationId: search_tables_ai_api_v2_dataSourceTables_search_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchTablesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchTablesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/dataSourceTables/embeddings:
+    post:
+      tags:
+      - Data Source Tables Controller
+      summary: Create Embeddings
+      operationId: create_embeddings_ai_api_v2_dataSourceTables_embeddings_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEmbeddingsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - additionalProperties: true
+                  type: object
+                - type: string
+                title: Response Create Embeddings Ai Api V2 Datasourcetables Embeddings Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TableDTO:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: Id of the data source table.
+        name:
+          type: string
+          title: Name
+          description: Name of the data source table.
+        dataSourceId:
+          type: integer
+          title: Datasourceid
+          description: Id of the data source.
+      type: object
+      title: TableDTO
+    SearchTablesResponse:
+      properties:
+        tables:
+          items:
+            $ref: '#/components/schemas/TableDTO'
+          type: array
+          title: Tables
+          description: List of tables.
+      type: object
+      title: SearchTablesResponse
+    Metric:
+      type: string
+      enum:
+      - L1
+      - L2
+      - COSINE
+      - NEGATIVE_IP
+      title: Metric
+    CreateEmbeddingsRequest:
+      properties:
+        dataSourceId:
+          type: integer
+          title: Datasourceid
+          description: Id of the data source.
+        tableIds:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Tableids
+          description: A list of table ids.
+        modelId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Modelid
+          description: OpenAI embedding model ID.
+      type: object
+      title: CreateEmbeddingsRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SearchTablesRequest:
+      properties:
+        dataSourceIds:
+          items:
+            type: integer
+          type: array
+          title: Datasourceids
+          description: A list of data source ids.
+        searchQuery:
+          type: string
+          title: Searchquery
+          description: Natural language search query.
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+          description: Limit to show the top n values.
+        metric:
+          anyOf:
+          - $ref: '#/components/schemas/Metric'
+          - type: 'null'
+          description: Distance function to be used.
+      type: object
+      title: SearchTablesRequest

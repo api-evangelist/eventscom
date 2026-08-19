@@ -1,0 +1,441 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Orchestrator Controller API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: orchestrator-controller
+paths:
+  /orchestrator/api/v1/workflow:
+    post:
+      tags:
+      - orchestrator-controller
+      summary: Start a workflow by definition
+      description: Provide a WorkflowDefinition (name, steps). Each step has stepId, name, request/input. Step names must be unique. userDto is set from @LoggedInUser.
+      operationId: startWorkflow
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowDefinition'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StartWorkflowResponse'
+  /orchestrator/api/v1/workflow/{workflowId}/cancel:
+    post:
+      tags:
+      - orchestrator-controller
+      summary: Cancel a running workflow
+      description: Sends a cancellation request to Temporal for the given workflowId. Actual cancellation is cooperative and may take some time.
+      operationId: cancelWorkflow_1
+      parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+  /orchestrator/api/v1/workflow/resume:
+    post:
+      tags:
+      - orchestrator-controller
+      summary: Resume a workflow after failure
+      description: Send updated WorkflowDefinition with previousWorkflowId set to the failed run's ID. A new run is started; completed steps are loaded from the previous run and only failed/pending steps execute. userDto is set from @LoggedInUser.
+      operationId: resumeWorkflow
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowDefinition'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StartWorkflowResponse'
+  /orchestrator/api/v1/workflow/{workflowId}/status:
+    get:
+      tags:
+      - orchestrator-controller
+      summary: Get workflow status
+      description: Returns the status of a workflow by its ID (the ID returned from start workflow or resume workflow). Includes overall execution status and per-step status, start/end times. When the workflow or a step has failed, errorMessage fields summarize the failure (no need to set includeOutput).
+      operationId: getWorkflowStatus
+      parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: includeOutput
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/WorkflowStatusResponse'
+components:
+  schemas:
+    StartWorkflowResponse:
+      type: object
+      properties:
+        workflowId:
+          type: string
+        workflowName:
+          type: string
+    WorkflowDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowStep'
+        userDto:
+          $ref: '#/components/schemas/UserDTO'
+        bearerToken:
+          type: string
+        previousWorkflowId:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    WorkflowStatusResponse:
+      type: object
+      properties:
+        workflowId:
+          type: string
+        workflowName:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/StepStatusSummary'
+    WorkflowStep:
+      type: object
+      properties:
+        stepId:
+          type: string
+          enum:
+          - CREATE_DATA_SOURCE
+          - CREATE_WAREHOUSE
+          - CREATE_PIPELINE
+          - RUN_PIPELINE
+          - CREATE_DAG
+          - CREATE_NODES
+          - CREATE_EDGES
+          - DAG_RUN
+          - CREATE_WORKSPACE
+          - PUBLISH_TO_WORKSPACE
+          - CREATE_BIPAGE
+          - CREATE_WIDGET
+          - LINK_WIDGET_TO_BI_PAGE
+          - SEED_DEMO_DATA
+          - ADD_SINGLE_SELECT
+          - CREATE_FORMULAE_COLUMN
+          - CREATE_BI_PAGE_FILTER
+          - UPDATE_DAG_SCHEDULE_TYPE
+          - LAST_MILE_PIPELINE
+          - ADD_MIGRATION_PROVIDER
+          - ADD_DESTINATION_MIGRATION_PROVIDER
+          - ENABLE_STREAMS
+        name:
+          type: string
+        request:
+          type: object
+          additionalProperties:
+            type: object
+        dependsOn:
+          type: array
+          items:
+            type: string
+    StepStatusSummary:
+      type: object
+      properties:
+        stepId:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        output:
+          type: object
+          additionalProperties:
+            type: object
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

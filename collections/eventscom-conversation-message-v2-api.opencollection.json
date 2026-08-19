@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Conversation Message V2 API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversation Message V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Messages By Conversation Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id/messages",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "query",
+                "description": "App ID"
+              }
+            ]
+          },
+          "docs": "Fetch messages by conversation ID. \nThe `thirdParty` query parameter is OPTIONAL (default is None).\nThe `appId` query parameter is OPTIONAL (default is None)."
+        },
+        {
+          "info": {
+            "name": "Update Message By Conid And Msgid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id/messages/:message_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Message By Conid And Msgid"
+        },
+        {
+          "info": {
+            "name": "Delete Message By Conid And Msgid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id/messages/:message_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Message By Conid And Msgid"
+        },
+        {
+          "info": {
+            "name": "Get Pinned Messages By User Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/messages/pinned",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "query",
+                "description": "Element type, e.g., WORKBOOK"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "query",
+                "description": "Element ID, e.g., workbookId"
+              }
+            ]
+          },
+          "docs": "Get the pinned messages elementType, and elementId. Include elementType and elementId in the request arguments."
+        },
+        {
+          "info": {
+            "name": "Post Completion Generic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages/complete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Post Completion Generic"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

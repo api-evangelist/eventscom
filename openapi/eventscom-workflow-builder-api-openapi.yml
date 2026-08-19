@@ -1,0 +1,144 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Workflow Builder API
+  version: 1.0.36
+tags:
+- name: Workflow Builder
+paths:
+  /ai/api/v1/builder/chat/complete:
+    post:
+      tags:
+      - Workflow Builder
+      summary: Chat Completion
+      operationId: chat_completion_ai_api_v1_builder_chat_complete_post
+      parameters:
+      - name: resourceType
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional resource type (elementType)
+          title: Resourcetype
+        description: Optional resource type (elementType)
+      - name: resourceId
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional resource id (elementId)
+          title: Resourceid
+        description: Optional resource id (elementId)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Body
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                title: Response Chat Completion Ai Api V1 Builder Chat Complete Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v1/builder/chat/complete/stream:
+    post:
+      tags:
+      - Workflow Builder
+      summary: Chat Completion Stream
+      operationId: chat_completion_stream_ai_api_v1_builder_chat_complete_stream_post
+      parameters:
+      - name: resourceType
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional resource type (elementType)
+          title: Resourcetype
+        description: Optional resource type (elementType)
+      - name: resourceId
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional resource id (elementId)
+          title: Resourceid
+        description: Optional resource id (elementId)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Body
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                title: Response Chat Completion Stream Ai Api V1 Builder Chat Complete Stream Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

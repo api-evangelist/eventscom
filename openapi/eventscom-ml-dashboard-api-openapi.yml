@@ -1,0 +1,634 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI ML Dashboard API
+  version: 1.0.36
+tags:
+- name: ML-Dashboard
+paths:
+  /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models:
+    post:
+      tags:
+      - ML-Dashboard
+      summary: Create Model
+      operationId: create_model
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - ML-Dashboard
+      summary: Get Models
+      operationId: get_models
+      parameters:
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Elementid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models/{modelId}:
+    get:
+      tags:
+      - ML-Dashboard
+      summary: Get Model
+      operationId: get_model
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Modelid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - ML-Dashboard
+      summary: Update Model
+      operationId: update_model
+      parameters:
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Elementid
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Modelid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - ML-Dashboard
+      summary: Delete Model
+      operationId: delete_model
+      parameters:
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Elementid
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Modelid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/ml/dashboard/models/config:
+    get:
+      tags:
+      - ML-Dashboard
+      summary: Get Model Config
+      operationId: get_model_config
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models/{modelId}/train:
+    post:
+      tags:
+      - ML-Dashboard
+      summary: Trigger Model Training
+      operationId: train_model
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Modelid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models/{modelId}/history:
+    get:
+      tags:
+      - ML-Dashboard
+      summary: Get Model Train History
+      operationId: model_training_history
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Modelid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models/{modelId}/predict:
+    post:
+      tags:
+      - ML-Dashboard
+      summary: Trigger Model Prediction
+      operationId: predict_using_model
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Modelid
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Elementid
+      - name: workspaceId
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Workspaceid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ARIMAorder:
+      properties:
+        p:
+          type: integer
+          title: P
+        d:
+          type: integer
+          title: D
+        q:
+          type: integer
+          title: Q
+      type: object
+      required:
+      - p
+      - d
+      - q
+      title: ARIMAorder
+    ProphetModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        seasonalityMode:
+          type: string
+          title: Seasonalitymode
+          default: additive
+        growth:
+          type: string
+          title: Growth
+          default: flat
+        capPercentage:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Cappercentage
+          default: 20
+        autoTune:
+          type: boolean
+          title: Autotune
+          default: false
+        excludeWeekends:
+          type: boolean
+          title: Excludeweekends
+          default: false
+        regressorsWithMode:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Regressor'
+            type: array
+          - type: 'null'
+          title: Regressorswithmode
+        dateColumn:
+          type: string
+          title: Datecolumn
+      type: object
+      required:
+      - dateColumn
+      title: ProphetModelProperties
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DataProperties:
+      properties:
+        workbookId:
+          type: string
+          title: Workbookid
+        targetColumn:
+          type: string
+          title: Targetcolumn
+      type: object
+      required:
+      - workbookId
+      - targetColumn
+      title: DataProperties
+    ExponentialSmoothingModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        trend:
+          type: string
+          enum:
+          - additive
+          - multiplicative
+          - none
+          title: Trend
+          default: additive
+        damped:
+          type: boolean
+          title: Damped
+          default: false
+        seasonal:
+          type: string
+          enum:
+          - additive
+          - multiplicative
+          - none
+          title: Seasonal
+          default: additive
+        seasonalPeriods:
+          type: integer
+          title: Seasonalperiods
+          default: 12
+      type: object
+      title: ExponentialSmoothingModelProperties
+    ARIMAModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        order:
+          items:
+            $ref: '#/components/schemas/ARIMAorder'
+          type: array
+          title: Order
+        trend:
+          type: string
+          enum:
+          - n
+          - c
+          - t
+          - ct
+          title: Trend
+          default: n
+        enforceStationarity:
+          type: boolean
+          title: Enforcestationarity
+          default: false
+        enforceInvertibility:
+          type: boolean
+          title: Enforceinvertibility
+          default: false
+        regressorsWithoutMode:
+          items:
+            type: string
+          type: array
+          title: Regressorswithoutmode
+        dateColumn:
+          type: string
+          title: Datecolumn
+      type: object
+      required:
+      - order
+      - regressorsWithoutMode
+      - dateColumn
+      title: ARIMAModelProperties
+    RandomForestModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        nEstimators:
+          type: integer
+          title: Nestimators
+          default: 100
+        criterion:
+          type: string
+          enum:
+          - gini
+          - entropy
+          - log_loss
+          title: Criterion
+          default: gini
+        maxDepth:
+          type: integer
+          title: Maxdepth
+          default: 10
+        minSamplesSplit:
+          type: integer
+          title: Minsamplessplit
+          default: 2
+        minSamplesLeaf:
+          type: integer
+          title: Minsamplesleaf
+          default: 1
+        maxFeatures:
+          type: string
+          enum:
+          - auto
+          - sqrt
+          - log2
+          title: Maxfeatures
+          default: auto
+        includeColumns:
+          items:
+            type: string
+          type: array
+          title: Includecolumns
+      type: object
+      required:
+      - includeColumns
+      title: RandomForestModelProperties
+    LinearRegressionModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        fitIntercept:
+          type: boolean
+          title: Fitintercept
+          default: true
+        positive:
+          type: boolean
+          title: Positive
+          default: false
+        includeColumns:
+          items:
+            type: string
+          type: array
+          title: Includecolumns
+      type: object
+      required:
+      - includeColumns
+      title: LinearRegressionModelProperties
+    CreateModel:
+      properties:
+        id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Id
+        name:
+          type: string
+          title: Name
+        type:
+          type: string
+          enum:
+          - FORECASTING
+          - REGRESSION
+          - CLASSIFICATION
+          title: Type
+        modelType:
+          type: string
+          enum:
+          - FB Prophet
+          - ARIMA
+          - Auto ARIMA
+          - Exponential Smoothing
+          - Linear Regression
+          - Random Forest
+          title: Modeltype
+        dataProperties:
+          $ref: '#/components/schemas/DataProperties'
+        modelProperties:
+          anyOf:
+          - $ref: '#/components/schemas/ProphetModelProperties'
+          - $ref: '#/components/schemas/ARIMAModelProperties'
+          - $ref: '#/components/schemas/AutoARIMAModelProperties'
+          - $ref: '#/components/schemas/ExponentialSmoothingModelProperties'
+          - $ref: '#/components/schemas/LinearRegressionModelProperties'
+          - $ref: '#/components/schemas/RandomForestModelProperties'
+          title: Modelproperties
+        createdBy:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Createdby
+        createdAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Createdat
+      type: object
+      required:
+      - name
+      - type
+      - modelType
+      - dataProperties
+      - modelProperties
+      title: CreateModel
+    AutoARIMAModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        startP:
+          type: integer
+          title: Startp
+          default: 2
+        maxP:
+          type: integer
+          title: Maxp
+          default: 5
+        startQ:
+          type: integer
+          title: Startq
+          default: 2
+        maxQ:
+          type: integer
+          title: Maxq
+          default: 5
+        seasonal:
+          type: boolean
+          title: Seasonal
+          default: true
+        informationCriterion:
+          type: string
+          enum:
+          - aic
+          - bic
+          - hqic
+          - oob
+          title: Informationcriterion
+          default: aic
+        dateColumn:
+          type: string
+          title: Datecolumn
+      type: object
+      required:
+      - dateColumn
+      title: AutoARIMAModelProperties
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Regressor:
+      properties:
+        column:
+          type: string
+          title: Column
+        mode:
+          type: string
+          title: Mode
+          default: additive
+      type: object
+      required:
+      - column
+      title: Regressor

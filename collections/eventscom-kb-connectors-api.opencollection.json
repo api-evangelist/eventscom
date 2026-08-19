@@ -1,0 +1,691 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc KB Connectors API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KB Connectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user-defined tags for a KB record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get user-defined tags for a KB record"
+        },
+        {
+          "info": {
+            "name": "Set user-defined tags for a KB record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set user-defined tags for a KB record"
+        },
+        {
+          "info": {
+            "name": "Get parser override config for a KB record, or null if none set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id/config",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get parser override config for a KB record, or null if none set"
+        },
+        {
+          "info": {
+            "name": "Set parser override config for a KB record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id/config",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Overrides connector-level indexing settings for this specific record. recordLevel > connectorLevel > systemDefault. Set pdfParser=null to clear the override and inherit from connector config."
+        },
+        {
+          "info": {
+            "name": "Get a KB connector by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a KB connector by ID"
+        },
+        {
+          "info": {
+            "name": "Update a KB connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a KB connector"
+        },
+        {
+          "info": {
+            "name": "Delete (soft) a KB connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete (soft) a KB connector"
+        },
+        {
+          "info": {
+            "name": "Get the config for a connector, or null if none exists yet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/config",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the config for a connector, or null if none exists yet"
+        },
+        {
+          "info": {
+            "name": "Create or update the config for a connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/config",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update the config for a connector"
+        },
+        {
+          "info": {
+            "name": "Cancel a running sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/runs/:runId/cancel",
+            "params": [
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a running sync"
+        },
+        {
+          "info": {
+            "name": "Trigger reindex for a KB record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id/reindex",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Trigger reindex for a KB record"
+        },
+        {
+          "info": {
+            "name": "Retry a failed index job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/indexJobs/:id/retry",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retry a failed index job"
+        },
+        {
+          "info": {
+            "name": "Resolve URLs using a credential ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/credentials/resolveUrl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolves share URLs (e.g. Google Drive folder/file links) using a credential directly, without requiring an existing connector. Connector type is derived from the credential."
+        },
+        {
+          "info": {
+            "name": "List KB connectors created by the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List KB connectors created by the current user"
+        },
+        {
+          "info": {
+            "name": "Create a KB connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a KB connector"
+        },
+        {
+          "info": {
+            "name": "Semantic search within a WORKBOOK connector's Qdrant collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/workbook/search",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Collection name is derived as table_<tableId> from the connector's active syncJson. No storage of collection name is needed — it is always recomputable."
+        },
+        {
+          "info": {
+            "name": "Trigger a sync run for a connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/sync",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger a sync run for a connector"
+        },
+        {
+          "info": {
+            "name": "Resolve a list of connector URLs to [{id, name, type}]",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/resolveUrl",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts share URLs (e.g. Google Drive folder/file links) and returns the resolved [{id, name, type}] list ready to be stored in syncConfig.include."
+        },
+        {
+          "info": {
+            "name": "Migrate old RAG workspaces to WORKSPACE_DOCUMENTS connectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/migrate/workspace-documents"
+          },
+          "docs": "Finds all workspaces with isConnectorCreated=true, creates a WORKSPACE_DOCUMENTS connector for each, and triggers a FULL sync. Skips workspaces that already have one."
+        },
+        {
+          "info": {
+            "name": "Semantic search by sourceId + type — looks up the connector then searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/bySource/workbook/search",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolves the connector from (type, sourceId) and performs workbook search. For WORKBOOK type, sourceId is the NocoDB tableId."
+        },
+        {
+          "info": {
+            "name": "Get a run by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/runs/:runId",
+            "params": [
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a run by ID"
+        },
+        {
+          "info": {
+            "name": "List KB records — optionally filtered by group, indexing status, and/or title search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/records",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List KB records — optionally filtered by group, indexing status, and/or title search"
+        },
+        {
+          "info": {
+            "name": "Get a KB record by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a KB record by ID"
+        },
+        {
+          "info": {
+            "name": "Delete a KB record and its vectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/kb/api/v1/records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a KB record and its vectors"
+        },
+        {
+          "info": {
+            "name": "Get the pipeline config UI schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/pipelineConfigSchema"
+          },
+          "docs": "Returns the JSON schema that the UI uses to dynamically render the pipeline settings form (parsing + chunking). Company-scoped overrides take precedence over the system default."
+        },
+        {
+          "info": {
+            "name": "List index jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/indexJobs",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List index jobs"
+        },
+        {
+          "info": {
+            "name": "Get an index job by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/indexJobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an index job by ID"
+        },
+        {
+          "info": {
+            "name": "Get a record group by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a record group by ID"
+        },
+        {
+          "info": {
+            "name": "Get indexing stats for a KB connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/stats",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get indexing stats for a KB connector"
+        },
+        {
+          "info": {
+            "name": "List runs for a connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/runs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List runs for a connector"
+        },
+        {
+          "info": {
+            "name": "List record groups for a connector (Drive roots, mailboxes, buckets, etc.)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/groups",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List record groups for a connector (Drive roots, mailboxes, buckets, etc.)"
+        },
+        {
+          "info": {
+            "name": "Browse folders/files for a connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/connectors/:id/browse",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the children of parentId (root if omitted). Pass nextCursor from the previous response to load more items. Used by the UI folder picker to build the selection tree for syncJson.folders."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

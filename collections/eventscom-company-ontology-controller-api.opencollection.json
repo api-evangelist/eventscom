@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Company Ontology Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "company-ontology-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "findByCompanyOntologyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/companyOntology/api/v1/:companyOntologyId",
+            "params": [
+              {
+                "name": "companyOntologyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a company ontology by company ontology id"
+        },
+        {
+          "info": {
+            "name": "update_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/companyOntology/api/v1/:companyOntologyId",
+            "params": [
+              {
+                "name": "companyOntologyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a company ontology record by company ontology id"
+        },
+        {
+          "info": {
+            "name": "delete_8",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/companyOntology/api/v1/:companyOntologyId",
+            "params": [
+              {
+                "name": "companyOntologyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Soft-delete a company ontology record by company ontology id"
+        },
+        {
+          "info": {
+            "name": "findAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/companyOntology/api/v1",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List company ontology records for the tenant"
+        },
+        {
+          "info": {
+            "name": "create_8",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/companyOntology/api/v1",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a company ontology record"
+        },
+        {
+          "info": {
+            "name": "findAllActiveByCompanyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/companyOntology/api/v1/company",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all active company ontology records for the logged-in user's company"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

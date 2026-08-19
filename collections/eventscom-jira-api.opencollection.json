@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI JIRA API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "JIRA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Jira Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/jira/schema",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the jira connector chosen by the user"
+              }
+            ]
+          },
+          "docs": "Get Jira Schema"
+        },
+        {
+          "info": {
+            "name": "Create Jira Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/jira/issues/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Jira Issue"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

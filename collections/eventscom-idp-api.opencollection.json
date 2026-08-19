@@ -1,0 +1,1210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc IDP API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IDP",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user"
+          }
+        },
+        {
+          "info": {
+            "name": "updateUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/idp/api/v1/user",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company"
+          }
+        },
+        {
+          "info": {
+            "name": "updateCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/idp/api/v1/company",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getThemeById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/theme/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateTheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/theme/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/theme/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "editRootDir",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/editRootDir",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "editKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/editKeys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "verifySignupWithEmailOtp",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/signUp/verifyEmailOtp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resendSignUpEmailOtp",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/signUp/resendEmailOtp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "signUp",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/sign-up",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resetPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/reset-password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resendSignUpEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/resend-sign-up-email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "testPostThirdPaty",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/public/post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "verifyOtp",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/otp/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "sendOtp",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/otp/send"
+          }
+        },
+        {
+          "info": {
+            "name": "login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "forgotPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/forgot-password",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "seedDemoData",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/demoData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "changePassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/change-password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/assign-role",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resendInvite_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/resend-invite",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Join company team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/join-team",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Join company team"
+        },
+        {
+          "info": {
+            "name": "inviteToTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteInvite_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/delete-invite",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "bulkInviteToTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/bulkInvite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getAllThemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/theme",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createTheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/theme",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getAllServiceAccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/serviceAccount"
+          }
+        },
+        {
+          "info": {
+            "name": "serviceAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/serviceAccount",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "Reconcile company setup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/reconcile/setup"
+          },
+          "docs": "Idempotent — re-runs all company registration setup steps (DB, warehouse, LiteLLM, ETL, storage). Safe to call multiple times."
+        },
+        {
+          "info": {
+            "name": "migrationForReadEndPoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/read-ds"
+          }
+        },
+        {
+          "info": {
+            "name": "addNoCoLinkRelation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/noCoLink"
+          }
+        },
+        {
+          "info": {
+            "name": "addModelsToTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/models/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "companyKeysMigration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/keys/migration"
+          }
+        },
+        {
+          "info": {
+            "name": "createDemoDbForAllCompanies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/demoDb"
+          }
+        },
+        {
+          "info": {
+            "name": "createDefaultWareHouseConfigForExistingCompanies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/createDefaultWarehouse"
+          }
+        },
+        {
+          "info": {
+            "name": "verifySignup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/verify",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "signInWithMicrosoft",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/signInWithMicrosoft"
+          }
+        },
+        {
+          "info": {
+            "name": "signInWithGoogle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/sign-in-with-google"
+          }
+        },
+        {
+          "info": {
+            "name": "testThirdParty",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/public",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listApiTokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/apiTokens"
+          }
+        },
+        {
+          "info": {
+            "name": "getOrCreateApiToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/apiToken"
+          }
+        },
+        {
+          "info": {
+            "name": "checkAccountExists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/accountExists/:email",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getTeamMembers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/team"
+          }
+        },
+        {
+          "info": {
+            "name": "getInviteInfo_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/inviteInfo/:hash",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "externalTeamMembers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/external"
+          }
+        },
+        {
+          "info": {
+            "name": "oAuth2Callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/oauth2/:regId/callback",
+            "params": [
+              {
+                "name": "regId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error_description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "slackConnect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/oauth2/:regId/authorize",
+            "params": [
+              {
+                "name": "regId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sourceType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "connectorName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "clientRedirectUri",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "validateSenderEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/validateSenderEmail",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getServiceAccountToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/serviceAccount/:id/token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/serviceAccount/:id/token/reset",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "neverExpires",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSpendLogsByTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/spend/logs",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSpendLogsUIByTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/spend/logs/ui",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customLlmProvider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "requestTags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusFilter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSupportedModelsByCompanyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/models"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteModelByModelName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/models",
+            "params": [
+              {
+                "name": "modelName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getVirtualKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/key"
+          }
+        },
+        {
+          "info": {
+            "name": "getUsageByTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/daily/activity",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDefaultConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/llm/config"
+          }
+        },
+        {
+          "info": {
+            "name": "isCompanySpecificKeyExists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/isCompanySpecificKeyExists"
+          }
+        },
+        {
+          "info": {
+            "name": "fireCompanyRegistration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/internal/registration/event"
+          }
+        },
+        {
+          "info": {
+            "name": "getRootDir",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/getRootDir"
+          }
+        },
+        {
+          "info": {
+            "name": "getKeysByCompanyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/getKeys"
+          }
+        },
+        {
+          "info": {
+            "name": "getDefaultSenderInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/getDefaultSenderInfo"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteApiToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/apiTokens/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Remove team member",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/team/remove-member",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Team member's email to remove from the team"
+              }
+            ]
+          },
+          "docs": "Remove a team member from the currently logged in user's team. Only the user admin can remove team members."
+        },
+        {
+          "info": {
+            "name": "deleteServiceAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/serviceAccount/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTempAndDeletedWarehouses",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/deleteTempFolders/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lastModifiedDays",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteKeysByCompanyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/company/deleteKeys/:keysType",
+            "params": [
+              {
+                "name": "keysType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        },
+        {
+          "info": {
+            "name": "googleDriveConnect_6",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "https://datagol-be.events.com/idp/api/v1/user/googleDriveConnect"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

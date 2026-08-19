@@ -1,0 +1,207 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Home Chat Agent APIs API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Home Chat Agent APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/run",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run"
+        },
+        {
+          "info": {
+            "name": "Update Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/update-message",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Message"
+        },
+        {
+          "info": {
+            "name": "Delete Chat Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/delete-messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete Chat Message"
+        },
+        {
+          "info": {
+            "name": "Get Conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations"
+          },
+          "docs": "Get a list of all conversations for the current user.\n\nArgs:\n    request: FastAPI Request object containing headers\n    \nReturns:\n    List[Dict]: List of conversations with basic details (id, thread_id, name)"
+        },
+        {
+          "info": {
+            "name": "Create Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new conversation.\n\nArgs:\n    request: FastAPI Request object containing headers\n    data: Request body containing thread_id and name\n    \nReturns:\n    Dict containing the created conversation details"
+        },
+        {
+          "info": {
+            "name": "Update Conversation Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations/:thread_id/name",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the name of a conversation.\n\nArgs:\n    request: FastAPI Request object containing headers\n    thread_id: The ID of the conversation thread to update\n    data: Request body containing the new name\n    \nReturns:\n    Dict containing the updated conversation details"
+        },
+        {
+          "info": {
+            "name": "Delete Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations/:thread_id",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a conversation by thread ID.\n\nArgs:\n    request: FastAPI Request object containing headers\n    thread_id: The ID of the conversation thread to delete\n    \nReturns:\n    Dict containing the status of the deletion"
+        },
+        {
+          "info": {
+            "name": "Get Conversation State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/state/:thread_id",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the current state of a chat conversation.\n\nArgs:\n    request: FastAPI Request object containing headers\n    thread_id: The ID of the conversation thread\n    \nReturns:\n    Dict containing the current state of the conversation"
+        },
+        {
+          "info": {
+            "name": "Vector Store Sync Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/vector-store/sync-workspace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sync a specific workspace to the vector store by its workspace_id."
+        },
+        {
+          "info": {
+            "name": "Vector Store Reset Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/vector-store/reset-workspace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reset the vector store by clearing all stored documents."
+        },
+        {
+          "info": {
+            "name": "Vector Store Advanced Search Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/vector-store/advanced-search-resources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Advanced search resources using Vespa with filtering and ranking."
+        },
+        {
+          "info": {
+            "name": "Hello World",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/hello-world",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hello World"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

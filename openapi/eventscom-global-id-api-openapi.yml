@@ -1,0 +1,205 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Global ID API
+  version: 1.0.36
+tags:
+- name: Global ID
+paths:
+  /ai/api/v2/global-id/execute:
+    post:
+      tags:
+      - Global ID
+      summary: Execute Global Id Algorithm
+      operationId: execute_global_id_algorithm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GlobalIdRequest'
+              description: The request body as specified in the example
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    PreviousGlobalIdDataset:
+      properties:
+        workspaceId:
+          type: string
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
+          type: string
+          title: Workbookid
+          description: The workbook ID
+      type: object
+      required:
+      - workspaceId
+      - workbookId
+      title: PreviousGlobalIdDataset
+    GlobalIdDataResource:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: The name of the workbook
+        isCrm:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Iscrm
+          description: Whether the workbook is a CRM workbook
+          default: false
+        sourceData:
+          $ref: '#/components/schemas/SourceData'
+          description: The source data
+        correctedUnmatchedData:
+          anyOf:
+          - $ref: '#/components/schemas/UnmatchedData'
+          - type: 'null'
+          description: The corrected unmatched data. Do not change any field names exported by DataGol.
+      type: object
+      required:
+      - name
+      - sourceData
+      title: GlobalIdDataResource
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    GlobalIdRequest:
+      properties:
+        datasets:
+          items:
+            $ref: '#/components/schemas/GlobalIdDataResource'
+          type: array
+          title: Datasets
+          description: List of dataset resources
+        previousGlobalId:
+          anyOf:
+          - $ref: '#/components/schemas/PreviousGlobalIdDataset'
+          - type: 'null'
+          description: The previous global ID dataset
+        previousPivotTable:
+          anyOf:
+          - $ref: '#/components/schemas/PreviousGlobalIdDataset'
+          - type: 'null'
+          description: The previous pivot table
+        fixedUnmatchedData:
+          anyOf:
+          - $ref: '#/components/schemas/UnmatchedData'
+          - type: 'null'
+          description: The fixed unmatched data. Do not change any field names exported by DataGol.
+      type: object
+      required:
+      - datasets
+      title: GlobalIdRequest
+    SourceData:
+      properties:
+        workspaceId:
+          type: string
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
+          type: string
+          title: Workbookid
+          description: The workbook ID
+        dataMapping:
+          $ref: '#/components/schemas/DataMapping'
+          description: The data mapping
+      type: object
+      required:
+      - workspaceId
+      - workbookId
+      - dataMapping
+      title: SourceData
+    UnmatchedData:
+      properties:
+        workspaceId:
+          type: string
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
+          type: string
+          title: Workbookid
+          description: The workbook ID
+      type: object
+      required:
+      - workspaceId
+      - workbookId
+      title: UnmatchedData
+    DataMapping:
+      properties:
+        crmIdField:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Crmidfield
+          description: The CRM ID field
+        tenantIdField:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tenantidfield
+          description: The product ID field
+        emailField:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Emailfield
+          description: The email field
+        phoneField:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Phonefield
+          description: The phone field
+        companyNameField:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Companynamefield
+          description: The company name field
+      type: object
+      title: DataMapping
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

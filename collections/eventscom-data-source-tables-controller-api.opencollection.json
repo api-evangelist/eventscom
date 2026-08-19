@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Data Source Tables Controller API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Source Tables Controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dataSourceTables/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search Tables"
+        },
+        {
+          "info": {
+            "name": "Create Embeddings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dataSourceTables/embeddings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Embeddings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

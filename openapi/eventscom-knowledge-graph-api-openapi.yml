@@ -1,0 +1,123 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Knowledge Graph API
+  version: 1.0.36
+tags:
+- name: Knowledge Graph
+paths:
+  /ai/api/v2/knowledge-graph/status:
+    get:
+      tags:
+      - Knowledge Graph
+      summary: Get Knowledge Graph Status
+      operationId: get_knowledge_graph_status_ai_api_v2_knowledge_graph_status_get
+      parameters:
+      - name: file_id
+        in: query
+        required: false
+        schema:
+          type: string
+          description: File ID
+          title: File Id
+        description: File ID
+      - name: workbookId
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Workbook ID
+          title: Workbookid
+        description: Workbook ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/knowledge-graph:
+    get:
+      tags:
+      - Knowledge Graph
+      summary: Get Knowledge Graph
+      operationId: get_knowledge_graph_ai_api_v2_knowledge_graph_get
+      parameters:
+      - name: file_id
+        in: query
+        required: false
+        schema:
+          type: string
+          description: File ID
+          title: File Id
+        description: File ID
+      - name: workbookId
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Workbook ID
+          title: Workbookid
+        description: Workbook ID
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          description: Limit the number of results
+          default: 100000
+          title: Limit
+        description: Limit the number of results
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

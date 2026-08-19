@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Custom Agents API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a custom agent by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/:customAgentId",
+            "params": [
+              {
+                "name": "customAgentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "isIncludeConnectorData",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a custom agent by ID"
+        },
+        {
+          "info": {
+            "name": "Update an existing custom agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/:customAgentId",
+            "params": [
+              {
+                "name": "customAgentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an existing custom agent"
+        },
+        {
+          "info": {
+            "name": "Delete a custom agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/:customAgentId",
+            "params": [
+              {
+                "name": "customAgentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a custom agent"
+        },
+        {
+          "info": {
+            "name": "List all custom agents accessible to the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/customAgents/api/v1",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all custom agents accessible to the current user"
+        },
+        {
+          "info": {
+            "name": "Create a new custom agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/customAgents/api/v1",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new custom agent"
+        },
+        {
+          "info": {
+            "name": "Get active public custom agents by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/public/byIds",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get active public custom agents by IDs"
+        },
+        {
+          "info": {
+            "name": "Migrate service accounts for existing custom agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/migrateServiceAccounts",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Migrate service accounts for existing custom agents"
+        },
+        {
+          "info": {
+            "name": "List agent runs for a custom agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/:customAgentId/runs",
+            "params": [
+              {
+                "name": "customAgentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns paginated run history with status, timing, and error details"
+        },
+        {
+          "info": {
+            "name": "Get custom agent config for third-party access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/customAgents/api/v1/thirdParty/:customAgentId",
+            "params": [
+              {
+                "name": "customAgentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get custom agent config for third-party access"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

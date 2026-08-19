@@ -1,0 +1,1369 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Internal Company Controller API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: internal-company-controller
+paths:
+  /idp/api/v1/company/internal/{token}/uploadSkill:
+    post:
+      tags:
+      - internal-company-controller
+      operationId: uploadSkillMarkdown_1
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: enabled
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: s3Prefix
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentSkillDTO'
+  /idp/api/v1/company/internal/{token}/uploadFiles/{tenantId}:
+    post:
+      tags:
+      - internal-company-controller
+      operationId: uploadFiles_1
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: file
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: binary
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BulkFileUploadResponse'
+  /idp/api/v1/company/internal/{token}/updateSkill/{skillId}:
+    post:
+      tags:
+      - internal-company-controller
+      operationId: updateSkillMarkdown_1
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: skillId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: enabled
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: s3Prefix
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentSkillDTO'
+  /idp/api/v1/company/internal/{token}/pipeline/config:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getPipelineConfig
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CompanyPipelineConfigDTO'
+  /idp/api/v1/company/internal/{token}/llm/key:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getVirtualKey_1
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
+  /idp/api/v1/company/internal/{token}/key:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getkeys
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CompanyKeysDTO'
+  /idp/api/v1/company/internal/{token}/gtm/config:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getGtmConfig
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GTMConfigDTO'
+  /idp/api/v1/company/internal/{token}/downloadSkills/{skillId}:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: downloadSkillById
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: skillId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /idp/api/v1/company/internal/{token}/downloadFiles/{tenantId}:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: downloadFolder
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: folderName
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /idp/api/v1/company/internal/{token}/downloadFile/{tenantId}:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: downloadFile_1
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /idp/api/v1/company/internal/{token}/credential/{credentialId}:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getFreshCredential
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: credentialId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserConnectorCredentialDTO'
+  /idp/api/v1/company/internal/{token}/composio/apiKey:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getComposioApiKey
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /idp/api/v1/company/internal/{token}/companyUnstructuredData/{companyId}:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getCompanyUnstructuredDataService
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CompanyUnstructuredDataResponse'
+  /idp/api/v1/company/internal/{token}/agentConfig:
+    get:
+      tags:
+      - internal-company-controller
+      operationId: getAgentConfig
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AgentConfigDTO'
+  /idp/api/v1/company/internal/{token}/permissions/{elementType}/{elementId}:
+    delete:
+      tags:
+      - internal-company-controller
+      operationId: deleteAllElementPermissions
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    AgentSkillDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        s3Url:
+          type: string
+        enabled:
+          type: boolean
+    LiteLLMModelConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        label:
+          type: string
+        llmProvider:
+          type: string
+        defaultKey:
+          type: string
+        icon:
+          type: string
+        maxBudget:
+          type: number
+          format: double
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelMetadata'
+        keyAvailable:
+          type: boolean
+        image:
+          type: boolean
+    CompanyKeysDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        awsAccessKey:
+          type: string
+        awsSecretKey:
+          type: string
+        region:
+          type: string
+        rootDir:
+          type: string
+        azureAccountName:
+          type: string
+        azureAccountKey:
+          type: string
+        storageType:
+          type: string
+          enum:
+          - AWS
+          - AZURE
+          - GCS
+        sendGridApiKey:
+          type: string
+        defaultSenderEmail:
+          type: string
+        defaultSenderIdentity:
+          type: string
+        openAiApiKey:
+          type: string
+        anthropicApiKey:
+          type: string
+        geminiApiKey:
+          type: string
+        groqApiKey:
+          type: string
+        openRouterApiKey:
+          type: string
+        togetherAiApiKey:
+          type: string
+        vertexProject:
+          type: string
+        vertexLocation:
+          type: string
+        vertexCredentials:
+          type: string
+        bedrockAccessKey:
+          type: string
+        bedrockSecretKey:
+          type: string
+        bedrockRegion:
+          type: string
+        slackToken:
+          type: string
+        slackChannel:
+          type: string
+        perplexityApiKey:
+          type: string
+        tavilyApiKey:
+          type: string
+        parallelWebSystemsApiKey:
+          type: string
+        databarApiKey:
+          type: string
+        gcpServiceAccountKey:
+          type: string
+        gcpRegion:
+          type: string
+        gcpAccessKey:
+          type: string
+        gcpSecretKey:
+          type: string
+    UserConnectorCredentialDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        connectorType:
+          type: string
+        credentialType:
+          type: string
+          enum:
+          - QUERY_PARAM
+          - BASIC_AUTH
+          - AUTHORIZATION
+          - ACCESS_TOKEN
+          - BEARER
+          - API_KEY
+          - OAUTH2
+        userId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        tokenType:
+          type: string
+          enum:
+          - B2B
+          - USER
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigDTO'
+    CompanyPipelineConfigDTO:
+      type: object
+      properties:
+        keys:
+          $ref: '#/components/schemas/CompanyKeysDTO'
+        litellmConfig:
+          $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
+        companyName:
+          type: string
+    AgentConfigDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        agentTemplateId:
+          type: string
+        name:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        config:
+          type: object
+          additionalProperties:
+            type: object
+    CompanyLiteLLMConfigDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teamId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        virtualKey:
+          type: string
+        modelConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+    OutputConfigurationDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        createNewWorkbook:
+          type: boolean
+        tableId:
+          type: string
+        title:
+          type: string
+        workspaceId:
+          type: string
+        columnConfiguration:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnConfigurationDTO'
+    ColumnConfigurationDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        tableId:
+          type: string
+        title:
+          type: string
+        workspaceId:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    CompanyUnstructuredDataResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        tenantId:
+          type: string
+        apiKey:
+          type: string
+        modelInitialized:
+          type: boolean
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    BulkFileUploadResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileUploadResult'
+        totalFiles:
+          type: integer
+          format: int32
+        successfulUploads:
+          type: integer
+          format: int32
+        failedUploads:
+          type: integer
+          format: int32
+    FileUploadResult:
+      type: object
+      properties:
+        fileName:
+          type: string
+        key:
+          type: string
+        success:
+          type: boolean
+        errorMessage:
+          type: string
+    ModelMetadata:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: string
+        shortDescription:
+          type: string
+        description:
+          type: string
+        default:
+          type: boolean
+    GTMConfigDTO:
+      type: object
+      properties:
+        prompts:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+        outputConfiguration:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputConfigurationDTO'
+        isDefault:
+          type: boolean
+    ConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

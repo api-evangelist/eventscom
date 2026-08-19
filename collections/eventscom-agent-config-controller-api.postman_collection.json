@@ -1,0 +1,1625 @@
+{
+  "item": [
+    {
+      "id": "3835dc2f-81ad-4a20-b6f2-731f531f3b8b",
+      "name": "agent-config-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8c4f866-52df-475c-a712-5a4ee52bcbdc",
+          "name": "update 8",
+          "request": {
+            "name": "update 8",
+            "description": {},
+            "url": {
+              "path": [
+                "agents",
+                "api",
+                "v1",
+                "config",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5accdd2-5846-4043-835d-b11ca9ee80b7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bff162fc-8d46-4ea8-bd7a-039002631155",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c96268cc-d555-469a-bb9e-580b52bc9133",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1981-02-18T11:42:40.730Z\",\n  \"error\": {\n    \"statusCode\": 9675,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fd68250-b897-4a0a-b390-1013407b4a8d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9099a40d-39b3-4f84-ad7d-b5460812f524",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d276ae5-8cfd-4f24-9e4a-3fd624a6ba57",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4f0367f-cca2-4174-8153-3ca1294389b8",
+          "name": "delete 11",
+          "request": {
+            "name": "delete 11",
+            "description": {},
+            "url": {
+              "path": [
+                "agents",
+                "api",
+                "v1",
+                "config",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9ccaff07-7082-4467-af36-1a714329f860",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "123cbb83-c8e9-476e-87f5-24b007437bfb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae46ba5f-c99d-4f05-a505-811fa5b071c2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "607cbd59-4ba5-4aaf-bdf0-dd0bcd743e96",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7e2263d-d3b3-463b-8856-7cabce5c0060",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2145c704-b6ef-4e3b-97ee-04a06a34b5f4",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "775573fa-6ade-4509-b9e6-b9d1262d7219",
+          "name": "create 11",
+          "request": {
+            "name": "create 11",
+            "description": {},
+            "url": {
+              "path": [
+                "agents",
+                "api",
+                "v1",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae1181be-f9ee-488a-8f65-e0e92422dab2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8a6e06e-7708-4bb9-ade7-af3d81c150cd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0084782-ebc6-40df-8558-d9f59890f895",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7c33f4b-beb9-4c12-8b83-b02c6616ed10",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e502daab-8187-4695-b254-9c1a53ccab14",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98a52cea-fec2-4eb6-859a-ea851eb27a2d",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7b388ba-93a6-4fa9-8b61-85cd62349cb1",
+          "name": "get By Name 1",
+          "request": {
+            "name": "get By Name 1",
+            "description": {},
+            "url": {
+              "path": [
+                "agents",
+                "api",
+                "v1",
+                "config",
+                "byName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "05abbbd7-ca74-4b82-80bc-bf1871b83622",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    "byName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentTemplateId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"companyId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"config\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d69f7fa-6634-488c-bc59-5631d416fbdf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    "byName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72b0511e-240c-4b4e-940a-f591c871dc97",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    "byName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc340ad1-43ed-4183-b413-5ab2813ebdb1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    "byName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5586e65b-a89f-4ebc-81ec-1fd5ae42de90",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    "byName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a564a35-cf9f-4885-ae48-3a1ba5e5b7fb",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "api",
+                    "v1",
+                    "config",
+                    "byName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1969-06-11T15:48:39.217Z\",\n  \"error\": {\n    \"statusCode\": 1935,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e54ee9f8-6b43-407a-bec4-d8af4f32eb32",
+    "name": "Saasxl-api doc Agent Config Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

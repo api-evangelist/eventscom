@@ -1,0 +1,1056 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Element Permissions API
+  version: '1.0'
+  description: Operations for managing element permissions
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: Element Permissions
+  description: Operations for managing element permissions
+paths:
+  /noCo/api/v2/elementPermissions/{id}:
+    put:
+      tags:
+      - Element Permissions
+      summary: Edit element permission
+      description: Edit an existing permission
+      operationId: editElementPermissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditElementPermissionsDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ElementPermissionsDTO'
+      security:
+      - s_jwt: []
+    delete:
+      tags:
+      - Element Permissions
+      summary: Delete element permission
+      description: Delete an existing permission
+      operationId: deleteElementPermission
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/link/{elementType}/{elementId}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Get link-level access for element
+      description: Return the current link-level sharing for an element as scope (RESTRICTED/COMPANY/PUBLIC) and default permission.
+      operationId: getLinkAccess
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LinkAccessResponseDTO'
+      security:
+      - s_jwt: []
+    put:
+      tags:
+      - Element Permissions
+      summary: Set link-level access for element
+      description: 'Configure link-level sharing for an element: RESTRICTED (USER), COMPANY, or PUBLIC.'
+      operationId: setLinkAccess
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkAccessRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LinkAccessResponseDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions:
+    post:
+      tags:
+      - Element Permissions
+      summary: Create element permission
+      description: Create a new permission for an element
+      operationId: createElementPermission
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ElementPermissionsDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ElementPermissionsDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/bulk:
+    post:
+      tags:
+      - Element Permissions
+      summary: Bulk create element permissions
+      description: Create multiple permissions for elements and return failed creations
+      operationId: bulkCreateElementPermissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BulkOperationResponseDTO'
+      security:
+      - s_jwt: []
+    delete:
+      tags:
+      - Element Permissions
+      summary: Bulk delete element permissions
+      description: Delete multiple permissions and return failed deletions
+      operationId: bulkDeleteElementPermissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDeleteRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BulkOperationResponseDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/{elementType}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Get permissions by type
+      description: Get all permissions for a user by element type
+      operationId: getPermissionsByType
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: parentElementType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: parentElementId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ElementPermissionsDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/{elementType}/{elementId}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Get element permissions
+      description: Get all permissions for a specific element
+      operationId: getElementPermissions
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: parentElementType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: parentElementId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ElementPermissionsDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/supported-types:
+    get:
+      tags:
+      - Element Permissions
+      summary: Get supported element types
+      description: Get all supported element types for permissions
+      operationId: getSupportedElementTypes
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/matchedPermission/{elementType}/{elementId}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Get matched permission for user and element
+      description: 'Return the effective permission DTO for the logged-in user on the given element. Resolution order: explicit user permission, anonymous permission, then valid link-level COMPANY/PUBLIC access. Returns 403 if no access.'
+      operationId: getMatchedPermission
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ElementPermissionsDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/inviteInfo/{hash}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Get invite info by hash
+      description: Get invite details by hash. Works for any element type (workspace, pipeline, datasource, agent thread, etc.).
+      operationId: getInviteInfoByHash
+      parameters:
+      - name: hash
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InviteInfoDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/checkAccess/{elementType}/{elementId}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Check user access to element
+      description: Check if the logged-in user has access to a specific element. Returns 200 if access granted, 403 if denied
+      operationId: checkUserAccess
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      security:
+      - s_jwt: []
+  /noCo/api/v2/elementPermissions/checkAccess/{elementType}/{elementId}/{permission}:
+    get:
+      tags:
+      - Element Permissions
+      summary: Check user access to element with required permission
+      description: Check if the logged-in user has at least the specified permission level (CREATOR, EDITOR, VIEWER) for a specific element. Returns 200 if access granted, 403 if denied
+      operationId: checkUserAccessWithPermission
+      parameters:
+      - name: elementType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: elementId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: permission
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      security:
+      - s_jwt: []
+components:
+  schemas:
+    BulkCreateRequestDTO:
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ElementPermissionsDTO'
+    ElementPermissionsDTO:
+      required:
+      - elementId
+      - elementType
+      type: object
+      properties:
+        id:
+          type: string
+        elementId:
+          type: string
+        elementType:
+          type: string
+        permission:
+          type: string
+        email:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        anonymousUserId:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserDTO'
+        elementName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        parentElementType:
+          type: string
+        parentElementId:
+          type: string
+        accessScope:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: object
+        joinedAt:
+          type: string
+          format: date-time
+        element:
+          type: object
+        hidden:
+          type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    BulkOperationResponseDTO:
+      type: object
+      properties:
+        successfulOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ElementPermissionsDTO'
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkOperationFailureDTO'
+        totalProcessed:
+          type: integer
+          format: int32
+        successCount:
+          type: integer
+          format: int32
+        failureCount:
+          type: integer
+          format: int32
+    LinkAccessResponseDTO:
+      type: object
+      properties:
+        scope:
+          type: string
+        permission:
+          type: string
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    LinkAccessRequestDTO:
+      required:
+      - scope
+      type: object
+      properties:
+        scope:
+          type: string
+        permission:
+          type: string
+    InviteInfoDTO:
+      type: object
+      properties:
+        inviteeEmail:
+          type: string
+        inviterName:
+          type: string
+        elementName:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        isInviteValid:
+          type: boolean
+    EditElementPermissionsDTO:
+      required:
+      - permission
+      type: object
+      properties:
+        id:
+          type: string
+        permission:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: object
+    BulkOperationFailureDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        reason:
+          type: string
+    BulkDeleteRequestDTO:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Workbook Agent API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workbook Agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Message To Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Message To Agent"
+        },
+        {
+          "info": {
+            "name": "Stop Streaming Agent Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages/:conversation_id/:message_id/stop",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop Streaming Agent Run"
+        },
+        {
+          "info": {
+            "name": "Send Message To Streaming Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages/streaming",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Message To Streaming Agent"
+        },
+        {
+          "info": {
+            "name": "Stream Message Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/messages/streaming/:conversation_id/:message_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "SSE endpoint: stream agent response chunks for the given message in a conversation.\nClient must pass the message_id returned by POST /messages/streaming to avoid races\nwith \"latest message\" lookups."
+        },
+        {
+          "info": {
+            "name": "List Active Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/runs/active"
+          },
+          "docs": "List Active Runs"
+        },
+        {
+          "info": {
+            "name": "List Mcp Tools",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/mcp/tools"
+          },
+          "docs": "List all tools available from an MCP server configuration.\n\nAccepts the MCP config DTO directly in the request body."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

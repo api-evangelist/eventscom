@@ -1,0 +1,3540 @@
+{
+  "item": [
+    {
+      "id": "450d6fa7-6268-4044-83fe-dab0eaf77d39",
+      "name": "Alert History",
+      "description": {
+        "content": "APIs for managing alert execution history",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "013e3e14-ba94-4959-9761-661d7e55e7f2",
+          "name": "Get alert statistics for company",
+          "request": {
+            "name": "Get alert statistics for company",
+            "description": {
+              "content": "Retrieve alert execution statistics for the user's company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "statistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c40285b1-0310-4ee8-9050-94beba6c86bc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"item1\": \"string\",\n    \"item2\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  {\n    \"item1\": \"string\",\n    \"item2\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a34de3c4-e1ce-42b4-b8b8-d7b1596682e3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "198d1b16-0ba0-4968-b30d-db07a4710ed3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1973-02-28T19:40:12.140Z\",\n  \"error\": {\n    \"statusCode\": 4120,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40e51315-8aad-4c45-a670-8e0eb0fbcb48",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aca32cc3-01a9-48fb-8777-3c470b6d804f",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "431446e9-e460-4429-91a6-e1cf0ff439dc",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d108b1e-d246-4481-9999-756822cf838f",
+          "name": "Get alert history for company",
+          "request": {
+            "name": "Get alert history for company",
+            "description": {
+              "content": "Retrieve all alert execution history for the user's company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f34b5d4-090f-4509-af49-65840e6a404d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"createdBy\": {\n      \"id\": 281,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 402,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"2016-08-27T02:38:11.544Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 4220,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1989-05-11T01:15:41.731Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"modifiedBy\": {\n      \"id\": 6484,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 8407,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"2021-01-16T04:54:05.570Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 4964,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"1961-12-31T04:11:38.037Z\",\n      \"signInMethod\": \"MICROSOFT\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"createDate\": \"1999-01-18T05:38:18.591Z\",\n    \"modiDate\": \"1947-11-03T02:56:31.047Z\",\n    \"id\": \"string\",\n    \"alertId\": \"string\",\n    \"alertName\": \"string\",\n    \"executedAt\": \"1999-05-01T16:10:43.466Z\",\n    \"value\": 7384.527781253768,\n    \"comparisonValue\": 8188.500103565923,\n    \"query\": \"string\",\n    \"executionMetadata\": {\n      \"thresholdOperand\": \"PERCENTAGE_DECREASE_BY\",\n      \"thresholdValue\": 8286.105384461083,\n      \"executionStatus\": \"string\",\n      \"errorMessage\": \"string\",\n      \"triggerMessage\": \"string\",\n      \"executionTimeMs\": 691,\n      \"dataSource\": \"string\",\n      \"tableName\": \"string\",\n      \"columnName\": \"string\",\n      \"aggregationType\": \"string\",\n      \"filters\": \"string\",\n      \"cronExpression\": \"string\",\n      \"jobKey\": \"string\",\n      \"jobGroup\": \"string\"\n    },\n    \"thresholdMet\": false,\n    \"notificationSent\": false,\n    \"alertDescription\": \"string\",\n    \"alertStatus\": \"string\",\n    \"alertSourceType\": \"string\",\n    \"alertSourceId\": \"string\"\n  },\n  {\n    \"createdBy\": {\n      \"id\": 2200,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 267,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"2015-07-03T17:09:01.094Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 1474,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"2005-11-22T20:50:33.890Z\",\n      \"signInMethod\": \"MICROSOFT\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"modifiedBy\": {\n      \"id\": 6321,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 790,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"2024-04-01T11:44:39.708Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 37,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1956-12-17T15:37:41.743Z\",\n      \"signInMethod\": \"MICROSOFT\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"createDate\": \"1983-06-18T07:45:13.264Z\",\n    \"modiDate\": \"1993-12-02T14:14:06.827Z\",\n    \"id\": \"string\",\n    \"alertId\": \"string\",\n    \"alertName\": \"string\",\n    \"executedAt\": \"2017-07-16T03:19:49.967Z\",\n    \"value\": 930.2354439385241,\n    \"comparisonValue\": 6484.450403126532,\n    \"query\": \"string\",\n    \"executionMetadata\": {\n      \"thresholdOperand\": \"NOT_EQUALS\",\n      \"thresholdValue\": 3086.9818980636633,\n      \"executionStatus\": \"string\",\n      \"errorMessage\": \"string\",\n      \"triggerMessage\": \"string\",\n      \"executionTimeMs\": 5193,\n      \"dataSource\": \"string\",\n      \"tableName\": \"string\",\n      \"columnName\": \"string\",\n      \"aggregationType\": \"string\",\n      \"filters\": \"string\",\n      \"cronExpression\": \"string\",\n      \"jobKey\": \"string\",\n      \"jobGroup\": \"string\"\n    },\n    \"thresholdMet\": true,\n    \"notificationSent\": false,\n    \"alertDescription\": \"string\",\n    \"alertStatus\": \"string\",\n    \"alertSourceType\": \"string\",\n    \"alertSourceId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c29d2dce-1451-473a-afcd-9595cd1f7752",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be17db55-5967-4055-95e9-bc0e881a51bf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30b70e3f-4244-49ee-8304-ae34ac3d997c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46b35683-1cba-4e41-861a-5471f0ba4146",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed9aa99b-b8b8-430d-a914-131ac29e1bd5",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73ae7a33-49c8-4300-add7-09579087d2a1",
+          "name": "Get paginated alert history for company",
+          "request": {
+            "name": "Get paginated alert history for company",
+            "description": {
+              "content": "Retrieve paginated alert execution history for the user's company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "company",
+                "paginated"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) Pagination parameters"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "(Required) Pagination parameters"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "description": "(Required) Pagination parameters"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87a5be02-38bf-4c15-a18c-3ccd15cbd26b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"totalPages\": 6637,\n  \"totalElements\": 5717,\n  \"pageable\": {\n    \"offset\": 2395,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": false\n      },\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": false,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      }\n    ],\n    \"pageNumber\": 5650,\n    \"pageSize\": 3943,\n    \"paged\": true,\n    \"unpaged\": false\n  },\n  \"size\": 8587,\n  \"content\": [\n    {\n      \"createdBy\": {\n        \"id\": 4671,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 5113,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"2005-04-26T20:57:10.166Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 1997,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1950-03-02T17:35:39.445Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 328,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 7749,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1957-01-23T07:40:50.388Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 8357,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"2007-08-17T13:39:08.343Z\",\n        \"signInMethod\": \"EMAIL\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"1961-09-19T08:42:23.922Z\",\n      \"modiDate\": \"1985-09-03T04:38:24.601Z\",\n      \"id\": \"string\",\n      \"alertId\": \"string\",\n      \"alertName\": \"string\",\n      \"executedAt\": \"2023-12-13T11:40:09.135Z\",\n      \"value\": 1297.1285739223615,\n      \"comparisonValue\": 7143.989000694295,\n      \"query\": \"string\",\n      \"executionMetadata\": {\n        \"thresholdOperand\": \"IN\",\n        \"thresholdValue\": 7765.482858641583,\n        \"executionStatus\": \"string\",\n        \"errorMessage\": \"string\",\n        \"triggerMessage\": \"string\",\n        \"executionTimeMs\": 544,\n        \"dataSource\": \"string\",\n        \"tableName\": \"string\",\n        \"columnName\": \"string\",\n        \"aggregationType\": \"string\",\n        \"filters\": \"string\",\n        \"cronExpression\": \"string\",\n        \"jobKey\": \"string\",\n        \"jobGroup\": \"string\"\n      },\n      \"thresholdMet\": false,\n      \"notificationSent\": true,\n      \"alertDescription\": \"string\",\n      \"alertStatus\": \"string\",\n      \"alertSourceType\": \"string\",\n      \"alertSourceId\": \"string\"\n    },\n    {\n      \"createdBy\": {\n        \"id\": 3951,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 6072,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1986-12-01T09:05:00.743Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 4346,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"2003-12-13T21:14:13.942Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 1937,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 5307,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1954-08-04T05:53:08.194Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 1642,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"1967-07-22T06:51:37.221Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"1950-04-05T18:54:11.942Z\",\n      \"modiDate\": \"1991-02-25T14:09:32.135Z\",\n      \"id\": \"string\",\n      \"alertId\": \"string\",\n      \"alertName\": \"string\",\n      \"executedAt\": \"2003-07-23T04:56:48.269Z\",\n      \"value\": 8894.585583961574,\n      \"comparisonValue\": 1794.7771791850175,\n      \"query\": \"string\",\n      \"executionMetadata\": {\n        \"thresholdOperand\": \"NOT_EQUALS\",\n        \"thresholdValue\": 679.2546248257769,\n        \"executionStatus\": \"string\",\n        \"errorMessage\": \"string\",\n        \"triggerMessage\": \"string\",\n        \"executionTimeMs\": 7299,\n        \"dataSource\": \"string\",\n        \"tableName\": \"string\",\n        \"columnName\": \"string\",\n        \"aggregationType\": \"string\",\n        \"filters\": \"string\",\n        \"cronExpression\": \"string\",\n        \"jobKey\": \"string\",\n        \"jobGroup\": \"string\"\n      },\n      \"thresholdMet\": false,\n      \"notificationSent\": false,\n      \"alertDescription\": \"string\",\n      \"alertStatus\": \"string\",\n      \"alertSourceType\": \"string\",\n      \"alertSourceId\": \"string\"\n    }\n  ],\n  \"number\": 1034,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": false\n    },\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": false\n    }\n  ],\n  \"first\": false,\n  \"last\": false,\n  \"numberOfElements\": 6818,\n  \"empty\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db2d3c99-203d-473c-a0b9-514ab628f786",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "758b12b8-1f49-4bfd-a937-c7a446f3a262",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "854bdc78-43a1-47b2-98eb-f27910e40686",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60244d62-fa8e-46dc-840c-d6782492a076",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d237db48-0e09-4334-8a2b-ef1b91fd22b3",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65f0ef7b-d569-4a12-a07c-333566a8fe46",
+          "name": "Count triggered alerts for company",
+          "request": {
+            "name": "Count triggered alerts for company",
+            "description": {
+              "content": "Get the count of triggered alerts for the user's company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "company",
+                "count",
+                "triggered"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25669397-b49c-40bd-9afe-e961095c4675",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "count",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"key_0\": 806,\n  \"key_1\": 7175\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be7cc410-8e13-465f-a554-58c7bd5dac7f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "count",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95d6b85c-4c35-41fb-bf35-3bc5c2936863",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "count",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae00ed67-2a39-4536-a6aa-ed701d879c7a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "count",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab830a2d-aca5-41df-9202-424e3d985cc7",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "count",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a23d09d-c3f3-400c-abc6-9347a37f77b5",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "company",
+                    "count",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9380c757-976d-4f33-bebc-518a6686e7da",
+          "name": "Get alert history for a specific alert",
+          "request": {
+            "name": "Get alert history for a specific alert",
+            "description": {
+              "content": "Retrieve all execution history for a specific alert",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "alert",
+                ":alertId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) Alert ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50389e0d-2f83-4e68-81cf-fc10884324fd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"createdBy\": {\n      \"id\": 7217,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 1285,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"2003-03-05T03:18:35.824Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 4736,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1974-09-02T01:59:45.023Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"modifiedBy\": {\n      \"id\": 2569,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 963,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1948-08-24T23:20:00.941Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 3100,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"2014-08-31T04:44:40.648Z\",\n      \"signInMethod\": \"MICROSOFT\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"createDate\": \"2012-06-29T15:28:06.350Z\",\n    \"modiDate\": \"2016-06-06T09:59:42.785Z\",\n    \"id\": \"string\",\n    \"alertId\": \"string\",\n    \"alertName\": \"string\",\n    \"executedAt\": \"1979-09-01T12:35:50.569Z\",\n    \"value\": 6854.806653687278,\n    \"comparisonValue\": 113.37565512231419,\n    \"query\": \"string\",\n    \"executionMetadata\": {\n      \"thresholdOperand\": \"PERCENTAGE_DECREASE_BY\",\n      \"thresholdValue\": 752.6627835088684,\n      \"executionStatus\": \"string\",\n      \"errorMessage\": \"string\",\n      \"triggerMessage\": \"string\",\n      \"executionTimeMs\": 1858,\n      \"dataSource\": \"string\",\n      \"tableName\": \"string\",\n      \"columnName\": \"string\",\n      \"aggregationType\": \"string\",\n      \"filters\": \"string\",\n      \"cronExpression\": \"string\",\n      \"jobKey\": \"string\",\n      \"jobGroup\": \"string\"\n    },\n    \"thresholdMet\": false,\n    \"notificationSent\": true,\n    \"alertDescription\": \"string\",\n    \"alertStatus\": \"string\",\n    \"alertSourceType\": \"string\",\n    \"alertSourceId\": \"string\"\n  },\n  {\n    \"createdBy\": {\n      \"id\": 1756,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 6220,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1987-11-25T15:42:53.912Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 3651,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"2018-11-11T01:19:59.315Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"modifiedBy\": {\n      \"id\": 5602,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 9018,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1948-02-28T04:41:35.978Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 2281,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"1970-07-30T20:16:59.662Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"createDate\": \"1950-06-30T04:46:42.686Z\",\n    \"modiDate\": \"1983-11-18T15:52:35.562Z\",\n    \"id\": \"string\",\n    \"alertId\": \"string\",\n    \"alertName\": \"string\",\n    \"executedAt\": \"1964-04-12T07:27:30.178Z\",\n    \"value\": 8270.92355883011,\n    \"comparisonValue\": 7377.383090944435,\n    \"query\": \"string\",\n    \"executionMetadata\": {\n      \"thresholdOperand\": \"LESS_THAN\",\n      \"thresholdValue\": 9117.439804647063,\n      \"executionStatus\": \"string\",\n      \"errorMessage\": \"string\",\n      \"triggerMessage\": \"string\",\n      \"executionTimeMs\": 5038,\n      \"dataSource\": \"string\",\n      \"tableName\": \"string\",\n      \"columnName\": \"string\",\n      \"aggregationType\": \"string\",\n      \"filters\": \"string\",\n      \"cronExpression\": \"string\",\n      \"jobKey\": \"string\",\n      \"jobGroup\": \"string\"\n    },\n    \"thresholdMet\": true,\n    \"notificationSent\": true,\n    \"alertDescription\": \"string\",\n    \"alertStatus\": \"string\",\n    \"alertSourceType\": \"string\",\n    \"alertSourceId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcbc37c4-1b13-4259-a360-c35c1343664b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcbbeb45-096b-42e1-8519-f6353f7cf7a5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "625e6db5-84d5-4543-85a6-f530780c4377",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5b77f0d-fab7-4ff0-ba84-e81f2c462791",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ce06f08-ba55-4441-972c-a96c160dd66d",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d72bd73-e6ef-47c5-ba3c-c595c02f6a4a",
+          "name": "Delete alert history for specific alert",
+          "request": {
+            "name": "Delete alert history for specific alert",
+            "description": {
+              "content": "Delete all execution history for a specific alert",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "alert",
+                ":alertId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) Alert ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "807953a5-7a2c-4eaf-98d1-389d3aa6487f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "035aca4f-f255-456b-a0b3-5e9626014e12",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48449785-89c0-4e5c-81a8-7314a7706504",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3913a277-d1ed-4499-b2f0-fd5e72ba052c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cff8477d-80cf-4b0c-a2e8-5b7ee4b02963",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5d65956-4ddb-4154-9ccc-a7709aa60fd8",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c30f164-0085-4626-9e6a-9170d6d28ec4",
+          "name": "Get triggered alerts for a specific alert",
+          "request": {
+            "name": "Get triggered alerts for a specific alert",
+            "description": {
+              "content": "Retrieve only triggered alert executions for a specific alert",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "alert",
+                ":alertId",
+                "triggered"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) Alert ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd959a21-d9b1-4c11-83df-881506ea3ea4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"createdBy\": {\n      \"id\": 7217,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 1285,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"2003-03-05T03:18:35.824Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 4736,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1974-09-02T01:59:45.023Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"modifiedBy\": {\n      \"id\": 2569,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 963,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1948-08-24T23:20:00.941Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 3100,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"2014-08-31T04:44:40.648Z\",\n      \"signInMethod\": \"MICROSOFT\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"createDate\": \"2012-06-29T15:28:06.350Z\",\n    \"modiDate\": \"2016-06-06T09:59:42.785Z\",\n    \"id\": \"string\",\n    \"alertId\": \"string\",\n    \"alertName\": \"string\",\n    \"executedAt\": \"1979-09-01T12:35:50.569Z\",\n    \"value\": 6854.806653687278,\n    \"comparisonValue\": 113.37565512231419,\n    \"query\": \"string\",\n    \"executionMetadata\": {\n      \"thresholdOperand\": \"PERCENTAGE_DECREASE_BY\",\n      \"thresholdValue\": 752.6627835088684,\n      \"executionStatus\": \"string\",\n      \"errorMessage\": \"string\",\n      \"triggerMessage\": \"string\",\n      \"executionTimeMs\": 1858,\n      \"dataSource\": \"string\",\n      \"tableName\": \"string\",\n      \"columnName\": \"string\",\n      \"aggregationType\": \"string\",\n      \"filters\": \"string\",\n      \"cronExpression\": \"string\",\n      \"jobKey\": \"string\",\n      \"jobGroup\": \"string\"\n    },\n    \"thresholdMet\": false,\n    \"notificationSent\": true,\n    \"alertDescription\": \"string\",\n    \"alertStatus\": \"string\",\n    \"alertSourceType\": \"string\",\n    \"alertSourceId\": \"string\"\n  },\n  {\n    \"createdBy\": {\n      \"id\": 1756,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 6220,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1987-11-25T15:42:53.912Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 3651,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"2018-11-11T01:19:59.315Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"modifiedBy\": {\n      \"id\": 5602,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 9018,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1948-02-28T04:41:35.978Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 2281,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"1970-07-30T20:16:59.662Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"createDate\": \"1950-06-30T04:46:42.686Z\",\n    \"modiDate\": \"1983-11-18T15:52:35.562Z\",\n    \"id\": \"string\",\n    \"alertId\": \"string\",\n    \"alertName\": \"string\",\n    \"executedAt\": \"1964-04-12T07:27:30.178Z\",\n    \"value\": 8270.92355883011,\n    \"comparisonValue\": 7377.383090944435,\n    \"query\": \"string\",\n    \"executionMetadata\": {\n      \"thresholdOperand\": \"LESS_THAN\",\n      \"thresholdValue\": 9117.439804647063,\n      \"executionStatus\": \"string\",\n      \"errorMessage\": \"string\",\n      \"triggerMessage\": \"string\",\n      \"executionTimeMs\": 5038,\n      \"dataSource\": \"string\",\n      \"tableName\": \"string\",\n      \"columnName\": \"string\",\n      \"aggregationType\": \"string\",\n      \"filters\": \"string\",\n      \"cronExpression\": \"string\",\n      \"jobKey\": \"string\",\n      \"jobGroup\": \"string\"\n    },\n    \"thresholdMet\": true,\n    \"notificationSent\": true,\n    \"alertDescription\": \"string\",\n    \"alertStatus\": \"string\",\n    \"alertSourceType\": \"string\",\n    \"alertSourceId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d48fe129-416d-4909-ada5-dca82ee5a1b4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79cdbeb6-4791-4728-a842-dcdd8d2857b8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cb96499-ccc5-4d1d-8530-cd69c5d0174f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6da4216e-9607-48a6-89d8-52a03a3f1db6",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bdaa943-7b87-4546-b83c-99c3371b3ec9",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "triggered"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94b0b3da-9862-4c55-9060-65ef6525d5e1",
+          "name": "Get paginated alert history for a specific alert",
+          "request": {
+            "name": "Get paginated alert history for a specific alert",
+            "description": {
+              "content": "Retrieve paginated execution history for a specific alert",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "alert",
+                ":alertId",
+                "paginated"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) Pagination parameters"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "(Required) Pagination parameters"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "description": "(Required) Pagination parameters"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) Alert ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1c3785a8-fbd2-4f10-ab19-801548d45060",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"totalPages\": 1831,\n  \"totalElements\": 782,\n  \"pageable\": {\n    \"offset\": 5124,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": false,\n        \"property\": \"string\",\n        \"ignoreCase\": false\n      },\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      }\n    ],\n    \"pageNumber\": 6797,\n    \"pageSize\": 9378,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"size\": 3025,\n  \"content\": [\n    {\n      \"createdBy\": {\n        \"id\": 9739,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 8019,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1973-03-03T01:36:45.803Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 9613,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1988-07-18T04:51:43.908Z\",\n        \"signInMethod\": \"EMAIL\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"modifiedBy\": {\n        \"id\": 2334,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 9174,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1952-02-28T04:44:20.763Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 4611,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"1948-01-03T00:01:02.500Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"createDate\": \"1953-06-15T02:17:42.889Z\",\n      \"modiDate\": \"1977-03-19T02:52:19.613Z\",\n      \"id\": \"string\",\n      \"alertId\": \"string\",\n      \"alertName\": \"string\",\n      \"executedAt\": \"2003-02-23T16:07:16.111Z\",\n      \"value\": 7674.081734244901,\n      \"comparisonValue\": 7384.341790789638,\n      \"query\": \"string\",\n      \"executionMetadata\": {\n        \"thresholdOperand\": \"NOT_BETWEEN\",\n        \"thresholdValue\": 9861.661933683603,\n        \"executionStatus\": \"string\",\n        \"errorMessage\": \"string\",\n        \"triggerMessage\": \"string\",\n        \"executionTimeMs\": 8277,\n        \"dataSource\": \"string\",\n        \"tableName\": \"string\",\n        \"columnName\": \"string\",\n        \"aggregationType\": \"string\",\n        \"filters\": \"string\",\n        \"cronExpression\": \"string\",\n        \"jobKey\": \"string\",\n        \"jobGroup\": \"string\"\n      },\n      \"thresholdMet\": true,\n      \"notificationSent\": false,\n      \"alertDescription\": \"string\",\n      \"alertStatus\": \"string\",\n      \"alertSourceType\": \"string\",\n      \"alertSourceId\": \"string\"\n    },\n    {\n      \"createdBy\": {\n        \"id\": 5682,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 9640,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"2002-05-01T06:02:05.121Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 5375,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"2019-11-16T10:41:08.442Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 3789,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 361,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"2021-12-09T11:33:23.378Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 4845,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"1956-04-10T03:27:31.925Z\",\n        \"signInMethod\": \"EMAIL\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"createDate\": \"1994-11-03T00:55:29.808Z\",\n      \"modiDate\": \"1948-04-25T23:05:08.676Z\",\n      \"id\": \"string\",\n      \"alertId\": \"string\",\n      \"alertName\": \"string\",\n      \"executedAt\": \"1960-10-06T14:46:49.239Z\",\n      \"value\": 9405.317193000661,\n      \"comparisonValue\": 7290.878964316333,\n      \"query\": \"string\",\n      \"executionMetadata\": {\n        \"thresholdOperand\": \"ABSOLUTE_CHANGE\",\n        \"thresholdValue\": 9209.164598650546,\n        \"executionStatus\": \"string\",\n        \"errorMessage\": \"string\",\n        \"triggerMessage\": \"string\",\n        \"executionTimeMs\": 5188,\n        \"dataSource\": \"string\",\n        \"tableName\": \"string\",\n        \"columnName\": \"string\",\n        \"aggregationType\": \"string\",\n        \"filters\": \"string\",\n        \"cronExpression\": \"string\",\n        \"jobKey\": \"string\",\n        \"jobGroup\": \"string\"\n      },\n      \"thresholdMet\": true,\n      \"notificationSent\": true,\n      \"alertDescription\": \"string\",\n      \"alertStatus\": \"string\",\n      \"alertSourceType\": \"string\",\n      \"alertSourceId\": \"string\"\n    }\n  ],\n  \"number\": 9669,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": false\n    },\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    }\n  ],\n  \"first\": false,\n  \"last\": false,\n  \"numberOfElements\": 3129,\n  \"empty\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e21de873-cef8-4084-850d-76531b747c6e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e00ee9d4-77c6-4c28-b6a2-a7c83c4e1d8c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6969f5d1-5297-4ae9-9309-0a872852bb75",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5225a6df-c339-46e2-8008-9e279a522774",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eab9baec-7013-426a-8abb-08c8c96fa92c",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "alert",
+                    ":alertId",
+                    "paginated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) Alert ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ab58c6b-2b04-4d52-bd7f-4c37df7477e4",
+          "name": "Clean up old alert history",
+          "request": {
+            "name": "Clean up old alert history",
+            "description": {
+              "content": "Delete alert history entries older than the specified date",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alerts",
+                "history",
+                "api",
+                "v1",
+                "cleanup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "beforeDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) Before date (ISO format)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5e169c06-0643-494c-9725-7f7adefffbf5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "cleanup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11aaf6fd-e7b1-4954-87c1-06325685a893",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "cleanup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fb8d17a-10d0-43a3-a1d5-ab677ecc8beb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "cleanup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a13f87f-ab82-4d2b-a1e0-e7be7217a068",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "cleanup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71e97652-1162-4986-a788-e7c757cbee90",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "cleanup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed846ee5-1e49-42a5-bcf3-aa961d1e4fa1",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "history",
+                    "api",
+                    "v1",
+                    "cleanup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1962-05-05T10:20:18.602Z\",\n  \"error\": {\n    \"statusCode\": 734,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "77f1fb7c-558f-41e5-97ca-b2c88ba84329",
+    "name": "Saasxl-api doc Alert History API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing alert execution history",
+      "type": "text/plain"
+    }
+  }
+}

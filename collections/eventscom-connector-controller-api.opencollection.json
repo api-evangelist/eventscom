@@ -1,0 +1,336 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Connector Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "connector-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "connectorUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/connector/api/v1/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updates connector-type example jira"
+        },
+        {
+          "info": {
+            "name": "updateUserConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update instance of  connector instance id"
+        },
+        {
+          "info": {
+            "name": "deleteUserConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/connector/api/v1/credential-metadata/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/connector/api/v1/credential-metadata/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "connectorRun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/connector/api/v1/run",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "connectorRegister",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/connector/api/v1/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "creates new connector-type example jira"
+        },
+        {
+          "info": {
+            "name": "registerConnectorByOpenApiSpec",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/connector/api/v1/register/openapi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getAllConnectorsByUserId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance"
+          },
+          "docs": "To get  all instances by userId"
+        },
+        {
+          "info": {
+            "name": "createUserConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "creating instance of existing connector by passing base url and other config and returns the connector instance id"
+        },
+        {
+          "info": {
+            "name": "createConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/connector/api/v1/credential-metadata",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getAllConnectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1"
+          },
+          "docs": "returns all static connector meta data"
+        },
+        {
+          "info": {
+            "name": "getAllConnectNames",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/names"
+          },
+          "docs": "returns all static connector names"
+        },
+        {
+          "info": {
+            "name": "getConnectorMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/metadata/:connectorType",
+            "params": [
+              {
+                "name": "connectorType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "get the meta data of connector, not for the specific instance"
+        },
+        {
+          "info": {
+            "name": "getUserConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance/:connectorType",
+            "params": [
+              {
+                "name": "connectorType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "api to fetch connector instances for given user ,given type"
+        },
+        {
+          "info": {
+            "name": "getUserConnectorCredentialInfo_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance/byId/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "customAgentId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get instance of  connector instance id"
+        },
+        {
+          "info": {
+            "name": "getConnectorCredentialByCompanyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/instance/byCompany"
+          },
+          "docs": "api to fetch connector instances for given company"
+        },
+        {
+          "info": {
+            "name": "getConnectorConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/getByName/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getConnectorCredentialInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/credential-metadata/:connectorType",
+            "params": [
+              {
+                "name": "connectorType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteConnector_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/connector/api/v1/delete/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

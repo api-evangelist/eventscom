@@ -1,0 +1,373 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Element Permissions API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Element Permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Edit element permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Edit an existing permission"
+        },
+        {
+          "info": {
+            "name": "Delete element permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete an existing permission"
+        },
+        {
+          "info": {
+            "name": "Get link-level access for element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/link/:elementType/:elementId",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Return the current link-level sharing for an element as scope (RESTRICTED/COMPANY/PUBLIC) and default permission."
+        },
+        {
+          "info": {
+            "name": "Set link-level access for element",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/link/:elementType/:elementId",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Configure link-level sharing for an element: RESTRICTED (USER), COMPANY, or PUBLIC."
+        },
+        {
+          "info": {
+            "name": "Create element permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new permission for an element"
+        },
+        {
+          "info": {
+            "name": "Bulk create element permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create multiple permissions for elements and return failed creations"
+        },
+        {
+          "info": {
+            "name": "Bulk delete element permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete multiple permissions and return failed deletions"
+        },
+        {
+          "info": {
+            "name": "Get permissions by type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/:elementType",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "parentElementType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parentElementId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all permissions for a user by element type"
+        },
+        {
+          "info": {
+            "name": "Get element permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/:elementType/:elementId",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "parentElementType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parentElementId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all permissions for a specific element"
+        },
+        {
+          "info": {
+            "name": "Get supported element types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/supported-types",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all supported element types for permissions"
+        },
+        {
+          "info": {
+            "name": "Get matched permission for user and element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/matchedPermission/:elementType/:elementId",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Return the effective permission DTO for the logged-in user on the given element. Resolution order: explicit user permission, anonymous permission, then valid link-level COMPANY/PUBLIC access. Returns 403 if no access."
+        },
+        {
+          "info": {
+            "name": "Get invite info by hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/inviteInfo/:hash",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get invite details by hash. Works for any element type (workspace, pipeline, datasource, agent thread, etc.)."
+        },
+        {
+          "info": {
+            "name": "Check user access to element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/checkAccess/:elementType/:elementId",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Check if the logged-in user has access to a specific element. Returns 200 if access granted, 403 if denied"
+        },
+        {
+          "info": {
+            "name": "Check user access to element with required permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/elementPermissions/checkAccess/:elementType/:elementId/:permission",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "permission",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Check if the logged-in user has at least the specified permission level (CREATOR, EDITOR, VIEWER) for a specific element. Returns 200 if access granted, 403 if denied"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

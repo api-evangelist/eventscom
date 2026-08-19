@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Data Download API
+  version: 1.0.36
+tags:
+- name: Data Download
+paths:
+  /ai/api/v2/{agent_type}/download-data:
+    post:
+      tags:
+      - Data Download
+      summary: Download Agent Data
+      description: "Unified download endpoint for jira-agent-v2, hubspot-agent-v2, atlassian-agent, fellow-agent-v2,\n\
+        custom-agent, and python-agent.\nDownloads data files as a zip file, or single file directly from\
+        \ S3\n\nArgs:\n    agent_type: \"jira-agent-v2\", \"hubspot-agent-v2\", \"atlassian-agent\", \"\
+        fellow-agent-v2\",\n        \"custom-agent\", or \"python-agent\"\n    body: Request containing\
+        \ list of file paths and optional workspaceId"
+      operationId: download_agent_data_ai_api_v2__agent_type__download_data_post
+      parameters:
+      - name: agent_type
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Agent Type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataDownloadRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    DataDownloadRequest:
+      properties:
+        data:
+          items:
+            type: string
+          type: array
+          title: Data
+          description: List of file paths to download from S3
+        workspaceId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Workspaceid
+          description: Workspace ID (optional, kept for backward compatibility)
+      type: object
+      required:
+      - data
+      title: DataDownloadRequest
+      description: Request model for downloading data files from S3
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

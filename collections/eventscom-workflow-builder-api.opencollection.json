@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Workflow Builder API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflow Builder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Chat Completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v1/builder/chat/complete",
+            "params": [
+              {
+                "name": "resourceType",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource type (elementType)"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource id (elementId)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat Completion"
+        },
+        {
+          "info": {
+            "name": "Chat Completion Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v1/builder/chat/complete/stream",
+            "params": [
+              {
+                "name": "resourceType",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource type (elementType)"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource id (elementId)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat Completion Stream"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

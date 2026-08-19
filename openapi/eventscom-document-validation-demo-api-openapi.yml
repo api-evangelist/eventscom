@@ -1,0 +1,174 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Document Validation Demo API
+  version: 1.0.36
+tags:
+- name: Document Validation Demo
+paths:
+  /ai/api/v2/demos/document-validation/validate:
+    post:
+      tags:
+      - Document Validation Demo
+      summary: Validate Documents
+      operationId: validate_documents_ai_api_v2_demos_document_validation_validate_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/demos/document-validation/controls:
+    post:
+      tags:
+      - Document Validation Demo
+      summary: Generate Controls
+      operationId: generate_controls_ai_api_v2_demos_document_validation_controls_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_generate_controls_ai_api_v2_demos_document_validation_controls_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Control:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+        description:
+          type: string
+          title: Description
+        priority:
+          type: string
+          title: Priority
+      type: object
+      required:
+      - id
+      - name
+      - description
+      - priority
+      title: Control
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_generate_controls_ai_api_v2_demos_document_validation_controls_post:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - file
+      title: Body_generate_controls_ai_api_v2_demos_document_validation_controls_post
+    ValidationRequest:
+      properties:
+        target_workspace_id:
+          type: string
+          title: Target Workspace Id
+        target_folder_id:
+          type: string
+          title: Target Folder Id
+        base_workspace_id:
+          type: string
+          title: Base Workspace Id
+        base_folder_id:
+          type: string
+          title: Base Folder Id
+        controls:
+          items:
+            $ref: '#/components/schemas/Control'
+          type: array
+          title: Controls
+        save_to_workbook:
+          type: boolean
+          title: Save To Workbook
+          default: false
+        save_to_workspace_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Save To Workspace Id
+        save_to_workbook_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Save To Workbook Id
+        project_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Project Name
+        conversation_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Conversation Id
+      type: object
+      required:
+      - target_workspace_id
+      - target_folder_id
+      - base_workspace_id
+      - base_folder_id
+      - controls
+      title: ValidationRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

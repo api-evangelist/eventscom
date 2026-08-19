@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Internal API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Internal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check Conversation Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/conversation/check-access",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "User ID"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread ID"
+              }
+            ]
+          },
+          "docs": "Check if user is the creator of the conversation"
+        },
+        {
+          "info": {
+            "name": "Get Conversation Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/conversation/thread-details",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread ID"
+              }
+            ]
+          },
+          "docs": "Get the details of the conversation"
+        },
+        {
+          "info": {
+            "name": "Create File Search Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/file-search/create-store",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a file search store"
+        },
+        {
+          "info": {
+            "name": "Get Custom Agent For Thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/agent/by-thread",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread ID"
+              }
+            ]
+          },
+          "docs": "Get custom agent details for a thread"
+        },
+        {
+          "info": {
+            "name": "Get Message Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/message/status",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "query",
+                "description": "Message ID"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread/Conversation ID"
+              }
+            ]
+          },
+          "docs": "Get the status of a streaming message"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1612 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Bi Page Controller API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: bi-page-controller
+paths:
+  /noCo/api/v2/biPage/{pageId}/widgets:
+    get:
+      tags:
+      - bi-page-controller
+      description: to get all widgets for given page
+      operationId: getWidgets_1
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WidgetDTO'
+      security:
+      - s_jwt: []
+    put:
+      tags:
+      - bi-page-controller
+      description: to update all widgets for given page
+      operationId: updateWidgets_1
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WidgetDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WidgetDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/widgets/index:
+    post:
+      tags:
+      - bi-page-controller
+      description: to get all widgets for given page
+      operationId: index
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/treeNodes:
+    post:
+      tags:
+      - bi-page-controller
+      summary: Fetch one level of a hierarchy tree from a reference workbook
+      operationId: fetchTreeLevel
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TreeFetchLevelRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TreeNodeDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/treeNodes/search:
+    post:
+      tags:
+      - bi-page-controller
+      summary: Search all tree nodes by label and return each match with its ancestor path
+      operationId: searchTreeNodes
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TreeSearchRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TreeSearchResultDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/treeNodes/resolvePath:
+    post:
+      tags:
+      - bi-page-controller
+      summary: Restore tree navigation state from a stored path in a single request
+      description: Resolves a saved path array (e.g. ["Electronics", "Phones"]) into the navigation stack, current level nodes, and selected node id so the filter popup can render without sequential per-level fetches.
+      operationId: resolveTreePath
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TreeResolvePathRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TreeResolvePathResponseDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/treeNodes/leafNodes:
+    post:
+      tags:
+      - bi-page-controller
+      summary: Fetch all deep leaf node IDs under a selected branch of a hierarchy tree
+      description: Traverses all descendants of the last node in pathIds and returns their leaf IDs for use in an IN-clause filter. If more than 1000 leaves are found, returns the first 1000 with a warningMessage suggesting a more specific selection.
+      operationId: fetchLeafNodes
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TreeLeafNodesRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TreeLeafNodesResponseDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/filters:
+    post:
+      tags:
+      - bi-page-controller
+      description: to get all widgets for given page
+      operationId: getPageFilters
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterOptionsRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FilterOptionsResponseDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{pageId}/tables:
+    get:
+      tags:
+      - bi-page-controller
+      description: to get all tables for given page
+      operationId: getTablesByPageId
+      parameters:
+      - name: pageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BIPageTableDTO'
+      security:
+      - s_jwt: []
+  /noCo/api/v2/biPage/{id}:
+    get:
+      tags:
+      - bi-page-controller
+      description: to get  page for given id
+      operationId: getPageById_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BIPageDTO'
+      security:
+      - s_jwt: []
+components:
+  schemas:
+    ThirdPartyFilterConfigDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+    TreeSearchRequestDTO:
+      type: object
+      properties:
+        workbookId:
+          type: string
+        query:
+          type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+        labelColumnId:
+          type: string
+    BIPageTableDTO:
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableDTO'
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+    TreeFetchLevelRequestDTO:
+      type: object
+      properties:
+        workbookId:
+          type: string
+        parentId:
+          type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+        labelColumnId:
+          type: string
+    BIPageDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        config:
+          $ref: '#/components/schemas/JsonNode'
+        title:
+          type: string
+        description:
+          type: string
+        mode:
+          type: string
+          enum:
+          - DRAFT
+          - EDIT
+          - PUBLISHED
+        position:
+          type: integer
+          format: int32
+        workspaceId:
+          type: string
+        widgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetDTO'
+    TreeLeafNodesRequestDTO:
+      type: object
+      properties:
+        workbookId:
+          type: string
+        pathIds:
+          type: array
+          items:
+            type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+    FilterConfigDTO:
+      type: object
+      properties:
+        columnDTO:
+          $ref: '#/components/schemas/ColumnDTO'
+        label:
+          type: string
+        type:
+          type: integer
+          format: int32
+        uuid:
+          type: string
+        operand:
+          type: string
+        linkedColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkedColumnDTO'
+        rank:
+          type: integer
+          format: int32
+        options:
+          type: array
+          items:
+            type: string
+        sortingOrder:
+          type: string
+          enum:
+          - ASC
+          - DESC
+    BaseWidgetDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        subTitle:
+          type: string
+    FilterOptionsResponseDTO:
+      type: object
+      properties:
+        filterValues:
+          type: object
+          additionalProperties:
+            type: object
+    TreeLeafNodesResponseDTO:
+      type: object
+      properties:
+        leafIds:
+          type: array
+          items:
+            type: string
+        warningMessage:
+          type: string
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    RuleDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    JoinRequest:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+        name:
+          type: string
+        primaryTableId:
+          type: string
+        joinConditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/JoinConditionDTO'
+    TreeSearchResultDTO:
+      type: object
+      properties:
+        node:
+          $ref: '#/components/schemas/TreeNodeDTO'
+        pathSegments:
+          type: array
+          items:
+            type: string
+        pathLabel:
+          type: string
+    FilterValueDTO:
+      type: object
+      properties:
+        operand:
+          type: string
+          enum:
+          - EQUALS
+          - NOT_EQUALS
+          - GREATER_THAN
+          - GREATER_THAN_EQUALS
+          - LESS_THAN
+          - LESS_THAN_EQUALS
+          - BETWEEN
+          - PERCENTAGE_CHANGE
+          - ABSOLUTE_CHANGE
+          - PERCENTAGE_INCREASE_BY
+          - PERCENTAGE_DECREASE_BY
+          - IN
+          - NOT_IN
+          - CONTAINS
+          - DOES_NOT_CONTAINS
+          - NOT_BETWEEN
+          - STARTS_WITH
+        value:
+          type: object
+        expression:
+          type: string
+    NavigationStackItemDTO:
+      type: object
+      properties:
+        nodeId:
+          type: string
+        label:
+          type: string
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
+    WidgetDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        subTitle:
+          type: string
+        type:
+          type: string
+          enum:
+          - CHART
+          - TABLE
+          - PIVOT_TABLE
+          - KPI
+          - TEXT
+          - METRICS
+          - GEO_MAP
+          - WORKBOOK_VIEW
+          - COHORT
+        config:
+          $ref: '#/components/schemas/JsonNode'
+        tableId:
+          type: string
+        viewId:
+          type: string
+        message:
+          type: string
+        table:
+          $ref: '#/components/schemas/TableDTO'
+        widgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseWidgetDTO'
+        modiDate:
+          type: string
+          format: date-time
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+        indexStatus:
+          type: string
+    ViewDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        isMaster:
+          type: boolean
+        tableId:
+          type: string
+        position:
+          type: number
+          format: double
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        filterOptions:
+          $ref: '#/components/schemas/FilterOptionDTO'
+        groupOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupOptionDTO'
+        sortOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortOptionDTO'
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        filterParams:
+          type: object
+          additionalProperties:
+            type: object
+        whereClause:
+          type: string
+        query:
+          type: string
+        tableName:
+          type: string
+    TreeLevelDTO:
+      type: object
+      properties:
+        parentId:
+          type: string
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeNodeDTO'
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    JoinConditionDTO:
+      type: object
+      properties:
+        targetTableId:
+          type: string
+        joinConditionExpression:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        selectedColumnIds:
+          type: array
+          items:
+            type: string
+    TableDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        workspaceId:
+          type: string
+        position:
+          type: number
+          format: double
+        tableName:
+          type: string
+        description:
+          type: string
+        tableType:
+          type: string
+          enum:
+          - STATIC
+          - DYNAMIC
+          - HYBRID
+        materializedViewId:
+          type: integer
+          format: int64
+        materializedViewQuery:
+          type: string
+        sourceType:
+          type: string
+        storageType:
+          type: string
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDTO'
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        requestId:
+          type: string
+        status:
+          type: string
+        connectionName:
+          type: string
+        systemTableName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        pipelineId:
+          type: integer
+          format: int64
+        allowSwitchStorage:
+          type: boolean
+        dataProvider:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        primaryKeyColumnName:
+          type: string
+        lastSyncTime:
+          type: string
+          format: date-time
+        deleteGuard:
+          type: boolean
+        parentId:
+          type: string
+        isMigrationDone:
+          type: boolean
+        sparkConnectionName:
+          type: string
+        warehouseConnectionName:
+          type: string
+        datasourceIds:
+          type: array
+          items:
+            type: string
+        doesCopyExists:
+          type: boolean
+        lastMilePipelineId:
+          type: integer
+          format: int64
+        positionKeyColumnName:
+          type: string
+        isAthenaEnabled:
+          type: boolean
+        isCloudBigQueryEnabled:
+          type: boolean
+        title:
+          type: string
+        isBIWorkbook:
+          type: boolean
+        isSystemGenerated:
+          type: boolean
+        joinColumnNames:
+          type: array
+          items:
+            type: string
+        foreignKeyColumnName:
+          type: string
+        joinTableName:
+          type: string
+        s3Uri:
+          type: string
+        joinRequest:
+          $ref: '#/components/schemas/JoinRequest'
+        internalTableType:
+          type: string
+          enum:
+          - EXTRACTION
+          - EMAIL_CAMPAIGN
+          - API_POST
+          - TENANT_WORKBOOK
+          - ENRICHMENT
+        tableSizeBytes:
+          type: integer
+          format: int64
+        sourceQueryEngine:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        tenantConfig:
+          type: object
+          additionalProperties:
+            type: string
+        parameterKeys:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/VersionDTO'
+        showVersions:
+          type: boolean
+        views:
+          type: array
+          items:
+            $ref: '#/components/schemas/ViewDTO'
+        latestVersion:
+          $ref: '#/components/schemas/VersionDTO'
+    FilterOptionsRequestDTO:
+      type: object
+      properties:
+        pageId:
+          type: string
+        table:
+          $ref: '#/components/schemas/TableDTO'
+        workspaceId:
+          type: string
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterConfigDTO'
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+        searchTerms:
+          type: object
+          additionalProperties:
+            type: string
+        filterValues:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FilterValueDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        versions:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int64
+        hash:
+          type: string
+    LinkedColumnDTO:
+      type: object
+      properties:
+        tableId:
+          type: string
+        columnId:
+          type: string
+    TreeResolvePathResponseDTO:
+      type: object
+      properties:
+        navigationStack:
+          type: array
+          items:
+            $ref: '#/components/schemas/NavigationStackItemDTO'
+        currentLevelNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeNodeDTO'
+        selectedNodeId:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeLevelDTO'
+    WidgetParameterDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        enumOptions:
+          $ref: '#/components/schemas/EnumOptions'
+        defaultValue:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        showByDefault:
+          type: boolean
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+    GroupOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+    JsonNode:
+      type: object
+    ColumnDTO:
+      required:
+      - name
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        name:
+          type: string
+        uiDataType:
+          type: string
+        idType:
+          type: string
+        required:
+          type: boolean
+        description:
+          type: string
+        formulaType:
+          type: string
+        formula:
+          type: string
+        backendDataType:
+          type: string
+        rawFormula:
+          type: string
+        status:
+          type: string
+        eventName:
+          type: string
+        errorMessage:
+          type: string
+        rowLevelFormula:
+          type: string
+        rowLevelFormulaWithParameter:
+          type: string
+        nestedFormula:
+          type: string
+        nestedFormulaWithParameter:
+          type: string
+        nestedRowLevelFormula:
+          type: string
+        nestedRowLevelFormulaWithParameter:
+          type: string
+        workspaceId:
+          type: string
+        isDataEditable:
+          type: boolean
+        isMetaDataEditable:
+          type: boolean
+        isEditable:
+          type: boolean
+        isDataTypeEditable:
+          type: boolean
+        isDeletable:
+          type: boolean
+        isColumnLevelFormula:
+          type: boolean
+        colOptions:
+          type: object
+          additionalProperties:
+            type: object
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        tableId:
+          type: string
+        requestId:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+        parameterIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        isBIFormula:
+          type: boolean
+        isAudit:
+          type: boolean
+        isEnriched:
+          type: boolean
+        isDynamicFormula:
+          type: boolean
+        isSystemGenerated:
+          type: boolean
+        settings:
+          $ref: '#/components/schemas/ColumnSettingsDTO'
+        sourceDatatype:
+          type: string
+    VersionDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        dagRunId:
+          type: integer
+          format: int64
+        description:
+          type: string
+        isDefaultVersion:
+          type: boolean
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+    EnumOptions:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnumOptionValue'
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        sqlQuery:
+          type: string
+        multipleValuesAllowed:
+          type: boolean
+        wrapValuesWithinSingleQuotes:
+          type: boolean
+    SortOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+        columnNameWithOutQuotes:
+          type: string
+        valueOrder:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    TreeResolvePathRequestDTO:
+      type: object
+      properties:
+        workbookId:
+          type: string
+        pathIds:
+          type: array
+          items:
+            type: string
+        pathLabels:
+          type: array
+          items:
+            type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+        labelColumnId:
+          type: string
+    TreeNodeDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        parentId:
+          type: string
+        label:
+          type: string
+        hasChildren:
+          type: boolean
+    FilterOptionDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

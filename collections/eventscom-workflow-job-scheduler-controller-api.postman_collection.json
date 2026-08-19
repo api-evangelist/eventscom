@@ -1,0 +1,644 @@
+{
+  "item": [
+    {
+      "id": "753f8170-9f0d-47df-834b-5145c26b4a69",
+      "name": "workflow-job-scheduler-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6dfca4a-6ae3-4c85-821f-abe657308d2c",
+          "name": "schedule Job",
+          "request": {
+            "name": "schedule Job",
+            "description": {},
+            "url": {
+              "path": [
+                "workflow",
+                "api",
+                "v1",
+                "scheduleJob"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": \"string\",\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ],\n          \"key_3\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de8f0d19-ff5c-41e0-ac42-6473db94af3e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "scheduleJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": null,\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed2ddadd-9603-47f3-95ee-23af7c2990f6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "scheduleJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": null,\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f065456-f4c6-4125-a2e5-18a3943ba1e3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "scheduleJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": null,\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a718bc0d-77e9-4216-8b09-961c332b473c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "scheduleJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": null,\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f6002fe-ae0d-45ef-bcd9-0b3e5dbe81a3",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "scheduleJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": null,\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "684af840-8e59-47d2-a2f5-8622126955db",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "scheduleJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": {\n    \"currentNode\": \"<string>\",\n    \"destinationNode\": \"<string>\",\n    \"connections\": [\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"node\": \"<string>\",\n        \"nextNodes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"nodes\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": null,\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\",\n              \"key_3\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"relationToPreviousNode\": \"<string>\",\n        \"rule\": {},\n        \"connectorInfos\": [\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<string>\",\n            \"connectorType\": \"<string>\",\n            \"path\": \"<string>\",\n            \"method\": \"<string>\",\n            \"credential\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"operationMetaData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"configJsFn\": \"<string>\",\n            \"responseParserFn\": \"<string>\",\n            \"responseData\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"startConnectorInfo\": \"<string>\",\n        \"status\": \"<string>\",\n        \"startTimeInMillis\": \"<long>\",\n        \"endTimeInMillis\": \"<long>\",\n        \"dataContext\": {\n          \"key_0\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\",\n              \"key_2\": \"<object>\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"key_0\": \"<object>\"\n            },\n            {\n              \"key_0\": \"<object>\",\n              \"key_1\": \"<object>\"\n            }\n          ]\n        },\n        \"errorMessage\": {\n          \"statusCode\": \"<integer>\",\n          \"requestId\": \"<string>\",\n          \"message\": \"<object>\",\n          \"details\": \"<object>\",\n          \"errorCodes\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"waitTimeInSeconds\": \"<long>\"\n      }\n    ],\n    \"workFlowId\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"companyId\": \"<long>\",\n    \"requestId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"startTimeInMillis\": \"<long>\",\n    \"endTimeInMillis\": \"<long>\",\n    \"workspaceId\": \"<string>\"\n  },\n  \"waitTimeInSeconds\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa1ff8c3-5ebe-4371-b516-e32ff452c742",
+          "name": "schedule Job 1",
+          "request": {
+            "name": "schedule Job 1",
+            "description": {},
+            "url": {
+              "path": [
+                "workflow",
+                "api",
+                "v1",
+                "deleteJob"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jobKey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27f8a18d-df28-4964-9d34-3e111f6e103b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "deleteJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5dc5399-28eb-4661-9305-d38f060a9a80",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "deleteJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c99e38d-6179-4961-92df-03b51602b1b0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "deleteJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22b92dbc-379a-4c96-b2cb-d27f80cdc2a7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "deleteJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a41fd6f6-a975-423c-a437-90e3b8011413",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "deleteJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44275606-f6e9-475f-adfc-d7d4daa8ac27",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow",
+                    "api",
+                    "v1",
+                    "deleteJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"2002-08-26T22:17:14.876Z\",\n  \"error\": {\n    \"statusCode\": \"<integer>\",\n    \"requestId\": \"<string>\",\n    \"message\": \"<object>\",\n    \"details\": \"<object>\",\n    \"errorCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6d8cabfe-a4cc-4339-8856-14720d95acf8",
+    "name": "Saasxl-api doc Workflow Job Scheduler Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

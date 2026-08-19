@@ -1,0 +1,289 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Agent Memory API
+  version: 1.0.36
+tags:
+- name: Agent Memory
+paths:
+  /ai/api/v2/agent-memory/memories:
+    get:
+      tags:
+      - Agent Memory
+      summary: List Memories
+      operationId: list_memories_ai_api_v2_agent_memory_memories_get
+      parameters:
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+          description: 'Scope of the memories to list: company, user, or agent'
+          title: Scope
+        description: 'Scope of the memories to list: company, user, or agent'
+      - name: agent_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Optional agent ID when scope is 'agent'; when omitted, returns all agent-scoped
+            memories for the company
+          title: Agent Id
+        description: Optional agent ID when scope is 'agent'; when omitted, returns all agent-scoped memories
+          for the company
+      - name: include_drafts
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: If true, include draft memories in the response.
+          default: false
+          title: Include Drafts
+        description: If true, include draft memories in the response.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+      - Agent Memory
+      summary: Add Memory
+      operationId: add_memory_ai_api_v2_agent_memory_memories_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MemoryRequestUI'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/agent-memory/memories/search:
+    post:
+      tags:
+      - Agent Memory
+      summary: Search Memories
+      description: 'Search memories using a JSON body only (no query params).
+
+
+        The body can contain:
+
+        - query, top_k, metadata
+
+        - user_id, org_id, agent_id, include_drafts'
+      operationId: search_memories_ai_api_v2_agent_memory_memories_search_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchMemoriesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/agent-memory/memories/{memory_id}:
+    put:
+      tags:
+      - Agent Memory
+      summary: Update Memory
+      operationId: update_memory_ai_api_v2_agent_memory_memories__memory_id__put
+      parameters:
+      - name: memory_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Memory Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Payload
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - Agent Memory
+      summary: Delete Memory
+      operationId: delete_memory_ai_api_v2_agent_memory_memories__memory_id__delete
+      parameters:
+      - name: memory_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Memory Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/agent-memory/memories/{memory_id}/publish:
+    post:
+      tags:
+      - Agent Memory
+      summary: Publish Memory
+      operationId: publish_memory_ai_api_v2_agent_memory_memories__memory_id__publish_post
+      parameters:
+      - name: memory_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Memory Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    MemoryRequestUI:
+      properties:
+        scope:
+          type: string
+          title: Scope
+          description: 'Scope of the memory: company, user, or agent'
+        agent_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agent Id
+          description: Agent ID for agent-scoped memories; ignored for other scopes
+        message:
+          type: string
+          title: Message
+          description: Message for the memory
+        metadata:
+          additionalProperties: true
+          type: object
+          title: Metadata
+          description: Metadata of the memory
+        draft:
+          type: boolean
+          title: Draft
+          description: Whether the memory is a draft
+      type: object
+      required:
+      - scope
+      - message
+      - metadata
+      - draft
+      title: MemoryRequestUI
+    SearchMemoriesRequest:
+      properties:
+        query:
+          type: string
+          title: Query
+        top_k:
+          type: integer
+          title: Top K
+          default: 5
+        metadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Metadata
+        agent_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agent Id
+        include_drafts:
+          type: boolean
+          title: Include Drafts
+          default: false
+      type: object
+      required:
+      - query
+      title: SearchMemoriesRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

@@ -1,0 +1,159 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Third Party Pages API
+  version: '1.0'
+  description: Resolve embedded page or agent config for third-party integrations
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: Third Party Pages
+  description: Resolve embedded page or agent config for third-party integrations
+paths:
+  /noCo/api/v1/thirdParty/page:
+    post:
+      tags:
+      - Third Party Pages
+      summary: Resolve embedded page or agent config for a third-party app
+      operationId: getThirdPartyPageConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalEmbeddingConfigDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    ExternalEmbeddingConfigDTO:
+      type: object
+      properties:
+        appId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        enabled:
+          type: boolean
+        elementType:
+          type: string
+        elementId:
+          type: string
+        secretKey:
+          type: string
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+        allowedHosts:
+          type: array
+          items:
+            type: string
+        userToken:
+          type: string
+        baseUrl:
+          type: string
+        userId:
+          type: string
+        origin:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        headerName:
+          type: string
+        httpMethod:
+          type: string
+        isPublic:
+          type: boolean
+        isEmbedded:
+          type: boolean
+        serviceAccountId:
+          type: integer
+          format: int64
+    ThirdPartyFilterConfigDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

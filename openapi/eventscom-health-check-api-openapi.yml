@@ -1,0 +1,25 @@
+openapi: 3.2.0
+info:
+  title: Eventscom health check API
+  version: 1.0.36
+  description: 'Operations tagged health check across 2 of this provider''s published API definitions:
+    eventscom-datagol-ai-openapi.yml, eventscom-datagol-python-agent-openapi.yml. Each path carries the
+    servers of the definition it was published in.'
+tags:
+- name: health check
+paths:
+  /ai/api/v2/health-check:
+    get:
+      tags:
+      - health check
+      summary: Health Check
+      operationId: health_check_ai_api_v2_health_check_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+x-refined-from:
+- eventscom-datagol-ai-openapi.yml
+- eventscom-datagol-python-agent-openapi.yml

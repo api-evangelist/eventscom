@@ -1,0 +1,792 @@
+{
+  "item": [
+    {
+      "id": "3adcd450-321b-435a-a871-c06747fc0d34",
+      "name": "Conversation V2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36f588c2-7510-42c9-9225-4b6a7faa9f70",
+          "name": "Create Conversation",
+          "request": {
+            "name": "Create Conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"elementType\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\",\n  \"agentType\": \"<string>\",\n  \"uiMetadata\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d42286f1-918d-4a01-88dc-0a7a8940ac31",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"elementType\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\",\n  \"agentType\": \"<string>\",\n  \"uiMetadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"scope\": \"string\",\n  \"createdOn\": \"1995-06-23T16:59:28.637Z\",\n  \"active\": true,\n  \"userId\": 1876,\n  \"anonymousUserId\": \"string\",\n  \"elementType\": \"string\",\n  \"elementId\": \"string\",\n  \"secondaryElementType\": \"string\",\n  \"secondaryElementId\": \"string\",\n  \"agentType\": \"string\",\n  \"uiMetadata\": {\n    \"key_0\": 6832,\n    \"key_1\": \"string\",\n    \"key_2\": 7696\n  },\n  \"shared\": false,\n  \"permission\": {\n    \"key_0\": 8663,\n    \"key_1\": false,\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9639c24-bff7-446e-ade3-42f56b18f000",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"elementType\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\",\n  \"agentType\": \"<string>\",\n  \"uiMetadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af5ab027-c400-4935-b78c-1ce76486bd82",
+          "name": "Get All Conversations By User Element",
+          "request": {
+            "name": "Get All Conversations By User Element",
+            "description": {
+              "content": "Get the conversations by userId, elementType, and elementId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "elementType",
+                  "value": "<string>",
+                  "description": "Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc."
+                },
+                {
+                  "disabled": false,
+                  "key": "elementId",
+                  "value": "<string>",
+                  "description": "ID of the element."
+                },
+                {
+                  "disabled": false,
+                  "key": "secondaryElementType",
+                  "value": "<string>",
+                  "description": "Type of secondary element where the conversation is being created. WORKBOOK, WORKSPACE, etc."
+                },
+                {
+                  "disabled": false,
+                  "key": "secondaryElementId",
+                  "value": "<string>",
+                  "description": "ID of the secondary element."
+                },
+                {
+                  "disabled": false,
+                  "key": "agentType",
+                  "value": "<string>",
+                  "description": "Optional list of agent types. Pass multiple: ?agentType=A&agentType=B"
+                },
+                {
+                  "disabled": false,
+                  "key": "agentType",
+                  "value": "<string>",
+                  "description": "Optional list of agent types. Pass multiple: ?agentType=A&agentType=B"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb163cf0-130a-4709-9319-55f813f6a0a6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "elementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "elementId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"scope\": \"string\",\n    \"createdOn\": \"1986-01-07T11:35:53.014Z\",\n    \"active\": false,\n    \"userId\": 6338,\n    \"anonymousUserId\": \"string\",\n    \"elementType\": \"string\",\n    \"elementId\": \"string\",\n    \"secondaryElementType\": \"string\",\n    \"secondaryElementId\": \"string\",\n    \"agentType\": \"string\",\n    \"uiMetadata\": {\n      \"key_0\": 2741\n    },\n    \"shared\": false,\n    \"permission\": {\n      \"key_0\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"scope\": \"string\",\n    \"createdOn\": \"1953-12-13T06:54:39.490Z\",\n    \"active\": true,\n    \"userId\": 8886,\n    \"anonymousUserId\": \"string\",\n    \"elementType\": \"string\",\n    \"elementId\": \"string\",\n    \"secondaryElementType\": \"string\",\n    \"secondaryElementId\": \"string\",\n    \"agentType\": \"string\",\n    \"uiMetadata\": {\n      \"key_0\": 4850,\n      \"key_1\": 9508.144374481546,\n      \"key_2\": \"string\"\n    },\n    \"shared\": false,\n    \"permission\": {\n      \"key_0\": 2011.8707269455028\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cb5f939-73e4-46fa-8efa-b2ec1fd04e3d",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "elementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "elementId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbcf4395-a64a-48f3-af73-df033a800d9d",
+          "name": "Update Conversation",
+          "request": {
+            "name": "Update Conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"createdOn\": \"<dateTime>\",\n  \"active\": \"<boolean>\",\n  \"scope\": \"PRIVATE\",\n  \"elementType\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\",\n  \"uiMetadata\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f0f6150-4f37-4e6f-860c-323e824f31f6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"createdOn\": \"<dateTime>\",\n  \"active\": \"<boolean>\",\n  \"scope\": \"PRIVATE\",\n  \"elementType\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\",\n  \"uiMetadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"scope\": \"string\",\n  \"createdOn\": \"1995-06-23T16:59:28.637Z\",\n  \"active\": true,\n  \"userId\": 1876,\n  \"anonymousUserId\": \"string\",\n  \"elementType\": \"string\",\n  \"elementId\": \"string\",\n  \"secondaryElementType\": \"string\",\n  \"secondaryElementId\": \"string\",\n  \"agentType\": \"string\",\n  \"uiMetadata\": {\n    \"key_0\": 6832,\n    \"key_1\": \"string\",\n    \"key_2\": 7696\n  },\n  \"shared\": false,\n  \"permission\": {\n    \"key_0\": 8663,\n    \"key_1\": false,\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2673ffd8-04a4-4887-8054-d469cdafde85",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userId\": \"<integer>\",\n  \"createdOn\": \"<dateTime>\",\n  \"active\": \"<boolean>\",\n  \"scope\": \"PRIVATE\",\n  \"elementType\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\",\n  \"uiMetadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c10fc8b9-d16a-403a-a051-d9ca050554da",
+          "name": "Get Conversation By Id",
+          "request": {
+            "name": "Get Conversation By Id",
+            "description": {
+              "content": "Get a specific conversation by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "conversations",
+                ":conversation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversation_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ec5f245-dd4c-437d-8563-2067f79a5a99",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations",
+                    ":conversation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversation_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"scope\": \"string\",\n  \"createdOn\": \"1995-06-23T16:59:28.637Z\",\n  \"active\": true,\n  \"userId\": 1876,\n  \"anonymousUserId\": \"string\",\n  \"elementType\": \"string\",\n  \"elementId\": \"string\",\n  \"secondaryElementType\": \"string\",\n  \"secondaryElementId\": \"string\",\n  \"agentType\": \"string\",\n  \"uiMetadata\": {\n    \"key_0\": 6832,\n    \"key_1\": \"string\",\n    \"key_2\": 7696\n  },\n  \"shared\": false,\n  \"permission\": {\n    \"key_0\": 8663,\n    \"key_1\": false,\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87062bab-4b02-4dda-a979-fec00c27bffd",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations",
+                    ":conversation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversation_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3655d83-2122-4e10-bb6d-0a4a2a1d882d",
+          "name": "Delete",
+          "request": {
+            "name": "Delete",
+            "description": {},
+            "url": {
+              "path": [
+                "ai",
+                "api",
+                "v2",
+                "conversations",
+                ":conversation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversation_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b51856e-a50e-45b5-8d46-b67971b941b7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations",
+                    ":conversation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversation_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ef5af06-9f8c-4ebd-80c8-5cd3c082ccb1",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "api",
+                    "v2",
+                    "conversations",
+                    ":conversation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversation_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e300a161-4b4d-4927-8658-f0a607edaa08",
+    "name": "DataGol AI Conversation V2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

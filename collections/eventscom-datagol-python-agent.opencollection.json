@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "health check",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/health-check"
+          },
+          "docs": "Health Check"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Python Agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Agent Unified",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Single endpoint: ensure session exists using conversationId; then stream query using existing flow."
+        },
+        {
+          "info": {
+            "name": "Python Agent Ui",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/ui"
+          },
+          "docs": "Serve plain HTML chat UI for python-agent ask/stop flows."
+        },
+        {
+          "info": {
+            "name": "Submit Feedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/submit-feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit feedback and immediately continue streaming for the same session."
+        },
+        {
+          "info": {
+            "name": "Stop Python Agent Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/:conversation_id/:message_id/stop",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an active python-agent run by conversation and message id."
+        },
+        {
+          "info": {
+            "name": "Get Session Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/session/:session_id/status",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the status of a Python agent session"
+        },
+        {
+          "info": {
+            "name": "Get All Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/sessions"
+          },
+          "docs": "Get all active sessions with their stale status"
+        },
+        {
+          "info": {
+            "name": "Cleanup Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/session/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Clean up a Python agent session"
+        },
+        {
+          "info": {
+            "name": "Cleanup Stale Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/cleanup-stale-sessions",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Authentication token for cleanup operation"
+              }
+            ]
+          },
+          "docs": "Automatically find and cleanup all stale sessions (inactive > 10 minutes).\nRemoves agent instances and frees memory for sessions that meet the stale criteria."
+        },
+        {
+          "info": {
+            "name": "Get Plotly Json",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/get-plotly",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Storage key path to the plotly JSON file"
+              }
+            ]
+          },
+          "docs": "Endpoint to retrieve plotly JSON configuration from storage (AWS S3 or GCP).\n\nArgs:\n    key: Storage key path (e.g., \"python_agent/plotly_configs/session_id/message_id/chart.json\")\n\nReturns:\n    JSON: The plotly chart configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

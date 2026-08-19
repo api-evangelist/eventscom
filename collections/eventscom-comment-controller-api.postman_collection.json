@@ -1,0 +1,3137 @@
+{
+  "item": [
+    {
+      "id": "0ca4c65a-7e61-4c7d-8f92-2c6a859f1af9",
+      "name": "comment-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "578e946f-26b0-46bb-b630-f0c50d71f445",
+          "name": "modify 2",
+          "request": {
+            "name": "modify 2",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                ":authElementType",
+                ":authElementId",
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "123a6bc9-1bb6-4fbe-af26-2848f505f245",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9f80693-aee0-44fb-b35c-125ba04b42ad",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcda31a2-f868-426f-9b84-cb5b641fe7a5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1967-03-02T19:53:28.903Z\",\n  \"error\": {\n    \"statusCode\": 8496,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac9a0d1d-adfe-47b1-a81d-9a6ffc1fd84d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "061b9e3a-ccc2-4a16-9dd6-a2b8b4f57d05",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70f13b23-ebc1-4a06-a549-7d1b49c2a9a5",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93899886-8ddd-4c08-9ceb-fc01c265140a",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a910f0f4-aadb-4bce-a41a-1426c5042875",
+          "name": "delete 3",
+          "request": {
+            "name": "delete 3",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                ":authElementType",
+                ":authElementId",
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f8a6bf89-2c8b-4602-8dbe-60959f17f40f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dce54db6-8817-49a5-8cdb-11334436af1c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42c9f9f0-3d7b-4791-8427-fa25f2041d00",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df6a4662-dc79-4b8f-9821-8c2c56a709f7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9385578-a92e-4d6c-995f-d1321b4cb96e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8130bf0-9e3e-4bbe-8b54-e10fd135c31c",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a016e8fd-d256-4c4f-a6e2-dcd329775948",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5f0fb72-1514-4688-8d7e-6555587e421f",
+          "name": "create 3",
+          "request": {
+            "name": "create 3",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                ":authElementType",
+                ":authElementId",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fdf34090-5348-4485-8047-0ae97a13ed3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "262092ed-1bdf-4415-aabc-7efad806dc2a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "977e4926-b41c-4760-adef-66b11f369003",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2e8bcc3-5de9-4943-8fb3-fed272c9f503",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60ea6c1f-616c-4ebd-8456-fa6417d2ca13",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4587c522-4934-4bb4-bf74-39d1ee9051c7",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b94376e5-d8ce-40ec-aee8-138cddf652d5",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"modifiedBy\": {\n    \"id\": \"<long>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"email\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"companyId\": \"<long>\",\n    \"status\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"joinDate\": \"<dateTime>\",\n    \"mfaEnabled\": \"<boolean>\",\n    \"redirectToMfaFlow\": \"<boolean>\",\n    \"tokenExpiryTime\": \"<long>\",\n    \"isServiceAccount\": \"<boolean>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"signInMethod\": \"<string>\",\n    \"isOnboardingCompleted\": \"<boolean>\",\n    \"role\": \"<string>\",\n    \"department\": \"<string>\",\n    \"anonymousUserId\": \"<string>\",\n    \"thirdPartyUser\": \"<boolean>\"\n  },\n  \"createDate\": \"<dateTime>\",\n  \"modiDate\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"primaryElementType\": \"<string>\",\n  \"primaryElementId\": \"<string>\",\n  \"secondaryElementType\": \"<string>\",\n  \"secondaryElementId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0986eb0-0cf1-40f1-8751-b65a2ff94757",
+          "name": "get Comments",
+          "request": {
+            "name": "get Comments",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                ":authElementType",
+                ":authElementId",
+                "comments",
+                ":primaryElementType",
+                ":primaryElementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "secondaryElementType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "secondaryElementId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "primaryElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "primaryElementId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "41c4cb0c-5466-455d-b33d-97159f201d2f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"createdBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"modifiedBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"createDate\": \"<dateTime>\",\n    \"modiDate\": \"<dateTime>\",\n    \"id\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"primaryElementType\": \"<string>\",\n    \"primaryElementId\": \"<string>\",\n    \"secondaryElementType\": \"<string>\",\n    \"secondaryElementId\": \"<string>\"\n  },\n  {\n    \"createdBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"modifiedBy\": {\n      \"id\": \"<long>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companyId\": \"<long>\",\n      \"status\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"permissions\": [\n        \"<string>\"\n      ],\n      \"joinDate\": \"<dateTime>\",\n      \"mfaEnabled\": \"<boolean>\",\n      \"redirectToMfaFlow\": \"<boolean>\",\n      \"tokenExpiryTime\": \"<long>\",\n      \"isServiceAccount\": \"<boolean>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"signInMethod\": \"<string>\",\n      \"isOnboardingCompleted\": \"<boolean>\",\n      \"role\": \"<string>\",\n      \"department\": \"<string>\",\n      \"anonymousUserId\": \"<string>\",\n      \"thirdPartyUser\": \"<boolean>\"\n    },\n    \"createDate\": \"<dateTime>\",\n    \"modiDate\": \"<dateTime>\",\n    \"id\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"primaryElementType\": \"<string>\",\n    \"primaryElementId\": \"<string>\",\n    \"secondaryElementType\": \"<string>\",\n    \"secondaryElementId\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9c0c120-545b-4a66-a474-187d6d75e192",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43bd7f69-d69b-43fa-95d8-2c6d3034b9dd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0517bab-2011-409b-99c3-19ff581ab064",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2327a5e7-e253-41be-ac09-8b48ed0c7bb7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "509a5670-4b0f-4800-a986-aa0a80a0090f",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2506288b-cde5-4a67-a2f6-fa4c47d24315",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "secondaryElementType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "secondaryElementId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a17cc39-3192-46ae-9327-1435693c4531",
+          "name": "get Number Of Comments",
+          "request": {
+            "name": "get Number Of Comments",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                ":authElementType",
+                ":authElementId",
+                "comments",
+                ":primaryElementType",
+                ":primaryElementId",
+                "commentCount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "authElementId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "primaryElementType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "primaryElementId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b62106c3-441b-43d1-8ef8-32203d90a1ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"primaryElementType\": \"string\",\n  \"primaryElementId\": \"string\",\n  \"counts\": [\n    {\n      \"key_0\": 6109,\n      \"key_1\": 7339,\n      \"key_2\": 3832,\n      \"key_3\": 3321\n    },\n    {\n      \"key_0\": 2487,\n      \"key_1\": 7290,\n      \"key_2\": 983,\n      \"key_3\": 3717,\n      \"key_4\": 6974\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "108f93f2-d727-4f3e-a8a9-7e9fabec7f67",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e48db47-59a4-410b-8ac5-f8afe16f95a5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d55ae24c-626b-4a33-a604-86869bfd338d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "daded2e2-d247-4776-b721-a7c960865e25",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dab2201-75f3-4af7-ad19-33f498ce9c0a",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3383b0a2-68d3-49fe-b15b-24b8cc8342f0",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    ":authElementType",
+                    ":authElementId",
+                    "comments",
+                    ":primaryElementType",
+                    ":primaryElementId",
+                    "commentCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "authElementId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "primaryElementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1957-04-07T01:56:17.903Z\",\n  \"error\": {\n    \"statusCode\": 4625,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dcc1a75d-835a-4e31-9f48-850a3f9aeb92",
+    "name": "Saasxl-api doc Comment Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

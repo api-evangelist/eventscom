@@ -1,0 +1,231 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Conversation Message V2 API
+  version: 1.0.36
+tags:
+- name: Conversation Message V2
+paths:
+  /ai/api/v2/conversations/{conversation_id}/messages:
+    get:
+      tags:
+      - Conversation Message V2
+      summary: Get Messages By Conversation Id
+      description: "Fetch messages by conversation ID. \nThe `thirdParty` query parameter is OPTIONAL\
+        \ (default is None).\nThe `appId` query parameter is OPTIONAL (default is None)."
+      operationId: get_messages_by_conversation_id_ai_api_v2_conversations__conversation_id__messages_get
+      parameters:
+      - name: conversation_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation Id
+      - name: appId
+        in: query
+        required: false
+        schema:
+          type: string
+          description: App ID
+          title: Appid
+        description: App ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                title: Response Get Messages By Conversation Id Ai Api V2 Conversations  Conversation
+                  Id  Messages Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversations/{conversation_id}/messages/{message_id}:
+    put:
+      tags:
+      - Conversation Message V2
+      summary: Update Message By Conid And Msgid
+      operationId: update_message_by_conid_and_msgid_ai_api_v2_conversations__conversation_id__messages__message_id__put
+      parameters:
+      - name: conversation_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation Id
+      - name: message_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Message Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              title: Data
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomMessageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - Conversation Message V2
+      summary: Delete Message By Conid And Msgid
+      operationId: delete_message_by_conid_and_msgid_ai_api_v2_conversations__conversation_id__messages__message_id__delete
+      parameters:
+      - name: conversation_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation Id
+      - name: message_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Message Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomMessageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversations/messages/pinned:
+    get:
+      tags:
+      - Conversation Message V2
+      summary: Get Pinned Messages By User Id
+      description: Get the pinned messages elementType, and elementId. Include elementType and elementId
+        in the request arguments.
+      operationId: get_pinned_messages_by_user_id_ai_api_v2_conversations_messages_pinned_get
+      parameters:
+      - name: elementType
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Element type, e.g., WORKBOOK
+          title: Elementtype
+        description: Element type, e.g., WORKBOOK
+      - name: elementId
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Element ID, e.g., workbookId
+          title: Elementid
+        description: Element ID, e.g., workbookId
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                title: Response Get Pinned Messages By User Id Ai Api V2 Conversations Messages Pinned
+                  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/messages/complete:
+    post:
+      tags:
+      - Conversation Message V2
+      summary: Post Completion Generic
+      operationId: post_completion_generic_ai_api_v2_messages_complete_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Data
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CustomMessageResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Message from backend service.
+      type: object
+      required:
+      - message
+      title: CustomMessageResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

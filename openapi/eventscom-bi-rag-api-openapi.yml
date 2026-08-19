@@ -1,0 +1,258 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Bi Rag API
+  version: 1.0.36
+tags:
+- name: bi_rag
+paths:
+  /ai/api/v2/bi-rag/index-page:
+    post:
+      tags:
+      - bi_rag
+      summary: Index Page
+      operationId: index_page_ai_api_v2_bi_rag_index_page_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndexPageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  /ai/api/v2/bi-rag/index-workspace:
+    post:
+      tags:
+      - bi_rag
+      summary: Index Workspace
+      operationId: index_workspace_ai_api_v2_bi_rag_index_workspace_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndexWorkspaceRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+  /ai/api/v2/bi-rag/add-widget:
+    post:
+      tags:
+      - bi_rag
+      summary: Add Widget
+      operationId: add_widget_ai_api_v2_bi_rag_add_widget_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddWidgetRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/bi-rag/remove-widget:
+    delete:
+      tags:
+      - bi_rag
+      summary: Remove Indexed Widget
+      operationId: remove_indexed_widget_ai_api_v2_bi_rag_remove_widget_delete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteWidgetRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/bi-rag/update-widget:
+    post:
+      tags:
+      - bi_rag
+      summary: Update Indexed Widget
+      operationId: update_indexed_widget_ai_api_v2_bi_rag_update_widget_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWidgetRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/bi-rag/delete-all-widgets:
+    post:
+      tags:
+      - bi_rag
+      summary: Delete All Widgets
+      operationId: delete_all_widgets_ai_api_v2_bi_rag_delete_all_widgets_post
+      parameters:
+      - name: token
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    UpdateWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - widget_id
+      - widget
+      title: UpdateWidgetRequest
+    IndexWorkspaceRequest:
+      properties:
+        workspace_id:
+          type: string
+          title: Workspace Id
+      type: object
+      required:
+      - workspace_id
+      title: IndexWorkspaceRequest
+    DeleteWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+      type: object
+      required:
+      - widget_id
+      title: DeleteWidgetRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    AddWidgetRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+        widget_id:
+          type: string
+          title: Widget Id
+        workspace_id:
+          type: string
+          title: Workspace Id
+        company_id:
+          type: integer
+          title: Company Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - page_id
+      - widget_id
+      - workspace_id
+      - company_id
+      - widget
+      title: AddWidgetRequest
+    IndexPageRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+      type: object
+      required:
+      - page_id
+      title: IndexPageRequest

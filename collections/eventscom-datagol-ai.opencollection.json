@@ -1,0 +1,2037 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "health check",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/health-check"
+          },
+          "docs": "Health Check"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SQL Parser APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sql Parser Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/sqlParser/dataSources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sql Parser Data Source"
+        },
+        {
+          "info": {
+            "name": "Sql Parser Columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/sqlParser/columns",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sql Parser Columns"
+        },
+        {
+          "info": {
+            "name": "Sql Parser Relationships",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/sqlParser/links",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sql Parser Relationships"
+        },
+        {
+          "info": {
+            "name": "Sql Parser Relationships",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/sqlParser/subQueries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sql Parser Relationships"
+        },
+        {
+          "info": {
+            "name": "Remove Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/sqlParser/removeComments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove Comments"
+        },
+        {
+          "info": {
+            "name": "Change Dialect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/sqlParser/changeDialect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change Dialect"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Conversation V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Conversations By User Element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "query",
+                "description": "Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc."
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the element."
+              },
+              {
+                "name": "secondaryElementType",
+                "value": "",
+                "type": "query",
+                "description": "Type of secondary element where the conversation is being created. WORKBOOK, WORKSPACE, etc."
+              },
+              {
+                "name": "secondaryElementId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the secondary element."
+              },
+              {
+                "name": "agentType",
+                "value": "",
+                "type": "query",
+                "description": "Optional list of agent types. Pass multiple: ?agentType=A&agentType=B"
+              }
+            ]
+          },
+          "docs": "Get the conversations by userId, elementType, and elementId."
+        },
+        {
+          "info": {
+            "name": "Create Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Conversation"
+        },
+        {
+          "info": {
+            "name": "Update Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Conversation"
+        },
+        {
+          "info": {
+            "name": "Get Conversation By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific conversation by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Conversation Message V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Messages By Conversation Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id/messages",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "query",
+                "description": "App ID"
+              }
+            ]
+          },
+          "docs": "Fetch messages by conversation ID. \nThe `thirdParty` query parameter is OPTIONAL (default is None).\nThe `appId` query parameter is OPTIONAL (default is None)."
+        },
+        {
+          "info": {
+            "name": "Update Message By Conid And Msgid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id/messages/:message_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Message By Conid And Msgid"
+        },
+        {
+          "info": {
+            "name": "Delete Message By Conid And Msgid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/:conversation_id/messages/:message_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Message By Conid And Msgid"
+        },
+        {
+          "info": {
+            "name": "Get Pinned Messages By User Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversations/messages/pinned",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "query",
+                "description": "Element type, e.g., WORKBOOK"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "query",
+                "description": "Element ID, e.g., workbookId"
+              }
+            ]
+          },
+          "docs": "Get the pinned messages elementType, and elementId. Include elementType and elementId in the request arguments."
+        },
+        {
+          "info": {
+            "name": "Post Completion Generic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages/complete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Post Completion Generic"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workbook Agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Message To Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Message To Agent"
+        },
+        {
+          "info": {
+            "name": "Stop Streaming Agent Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages/:conversation_id/:message_id/stop",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop Streaming Agent Run"
+        },
+        {
+          "info": {
+            "name": "Send Message To Streaming Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/messages/streaming",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Message To Streaming Agent"
+        },
+        {
+          "info": {
+            "name": "Stream Message Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/messages/streaming/:conversation_id/:message_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "SSE endpoint: stream agent response chunks for the given message in a conversation.\nClient must pass the message_id returned by POST /messages/streaming to avoid races\nwith \"latest message\" lookups."
+        },
+        {
+          "info": {
+            "name": "List Active Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/runs/active"
+          },
+          "docs": "List Active Runs"
+        },
+        {
+          "info": {
+            "name": "List Mcp Tools",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/mcp/tools"
+          },
+          "docs": "List all tools available from an MCP server configuration.\n\nAccepts the MCP config DTO directly in the request body."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workbook AI Generate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ai Generate Internal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ai-generate/internal/completion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Ai Generate Internal"
+        },
+        {
+          "info": {
+            "name": "Get Databar Enrichment Options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ai-generate/internal/databar/get-enrichments"
+          },
+          "docs": "Get Databar Enrichment Options"
+        },
+        {
+          "info": {
+            "name": "Run Databar Enrichment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ai-generate/internal/databar/run-enrichment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Databar Enrichment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workflow Builder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Chat Completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v1/builder/chat/complete",
+            "params": [
+              {
+                "name": "resourceType",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource type (elementType)"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource id (elementId)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat Completion"
+        },
+        {
+          "info": {
+            "name": "Chat Completion Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v1/builder/chat/complete/stream",
+            "params": [
+              {
+                "name": "resourceType",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource type (elementType)"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "query",
+                "description": "Optional resource id (elementId)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat Completion Stream"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workbook Generate Dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dashboard/generate-dashboard",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate Dashboard"
+        },
+        {
+          "info": {
+            "name": "Generate Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dashboard/widget/summary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate Summary"
+        },
+        {
+          "info": {
+            "name": "Generate Dashboard Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dashboard/summary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate Dashboard Summary"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Home Chat Agent APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/run",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run"
+        },
+        {
+          "info": {
+            "name": "Update Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/update-message",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Message"
+        },
+        {
+          "info": {
+            "name": "Delete Chat Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/delete-messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete Chat Message"
+        },
+        {
+          "info": {
+            "name": "Get Conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations"
+          },
+          "docs": "Get a list of all conversations for the current user.\n\nArgs:\n    request: FastAPI Request object containing headers\n    \nReturns:\n    List[Dict]: List of conversations with basic details (id, thread_id, name)"
+        },
+        {
+          "info": {
+            "name": "Create Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new conversation.\n\nArgs:\n    request: FastAPI Request object containing headers\n    data: Request body containing thread_id and name\n    \nReturns:\n    Dict containing the created conversation details"
+        },
+        {
+          "info": {
+            "name": "Update Conversation Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations/:thread_id/name",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the name of a conversation.\n\nArgs:\n    request: FastAPI Request object containing headers\n    thread_id: The ID of the conversation thread to update\n    data: Request body containing the new name\n    \nReturns:\n    Dict containing the updated conversation details"
+        },
+        {
+          "info": {
+            "name": "Delete Conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/conversations/:thread_id",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a conversation by thread ID.\n\nArgs:\n    request: FastAPI Request object containing headers\n    thread_id: The ID of the conversation thread to delete\n    \nReturns:\n    Dict containing the status of the deletion"
+        },
+        {
+          "info": {
+            "name": "Get Conversation State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/state/:thread_id",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the current state of a chat conversation.\n\nArgs:\n    request: FastAPI Request object containing headers\n    thread_id: The ID of the conversation thread\n    \nReturns:\n    Dict containing the current state of the conversation"
+        },
+        {
+          "info": {
+            "name": "Vector Store Sync Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/vector-store/sync-workspace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sync a specific workspace to the vector store by its workspace_id."
+        },
+        {
+          "info": {
+            "name": "Vector Store Reset Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/vector-store/reset-workspace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reset the vector store by clearing all stored documents."
+        },
+        {
+          "info": {
+            "name": "Vector Store Advanced Search Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/vector-store/advanced-search-resources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Advanced search resources using Vespa with filtering and ranking."
+        },
+        {
+          "info": {
+            "name": "Hello World",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/home-chat-agent/hello-world",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hello World"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ML-Dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models",
+            "params": [
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Models"
+        },
+        {
+          "info": {
+            "name": "Create Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Model"
+        },
+        {
+          "info": {
+            "name": "Get Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Model"
+        },
+        {
+          "info": {
+            "name": "Update Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId",
+            "params": [
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Model"
+        },
+        {
+          "info": {
+            "name": "Delete Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId",
+            "params": [
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Model"
+        },
+        {
+          "info": {
+            "name": "Get Model Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/models/config"
+          },
+          "docs": "Get Model Config"
+        },
+        {
+          "info": {
+            "name": "Trigger Model Training",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId/train",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Trigger Model Training"
+        },
+        {
+          "info": {
+            "name": "Get Model Train History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId/history",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Model Train History"
+        },
+        {
+          "info": {
+            "name": "Trigger Model Prediction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/ml/dashboard/:elementType/:elementId/models/:modelId/predict",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Trigger Model Prediction"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Message Feedback",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Post Message Feedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Post Message Feedback"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Research",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Research",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/research",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Research"
+        },
+        {
+          "info": {
+            "name": "Download Pdf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/research/download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Download Pdf"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Global ID",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute Global Id Algorithm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/global-id/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Global Id Algorithm"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "JIRA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Jira Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/jira/schema",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the jira connector chosen by the user"
+              }
+            ]
+          },
+          "docs": "Get Jira Schema"
+        },
+        {
+          "info": {
+            "name": "Create Jira Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/jira/issues/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Jira Issue"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data Extraction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute Data Extraction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/extract-data/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Data Extraction"
+        },
+        {
+          "info": {
+            "name": "Execute Data Extraction File Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/extract-data/execute-file-upload",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Execute Data Extraction File Upload"
+        },
+        {
+          "info": {
+            "name": "Generate Data Extraction Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/extract-data/schema/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate Data Extraction Schema"
+        },
+        {
+          "info": {
+            "name": "Generate Data Extraction Schema From Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/extract-data/schema/generate-from-content",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Generate Data Extraction Schema From Content"
+        },
+        {
+          "info": {
+            "name": "Run Data Extraction Test",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/extract-data/advanced/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Data Extraction Test"
+        },
+        {
+          "info": {
+            "name": "Run Data Extraction Test File Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/extract-data/advanced/execute-file-upload",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Run Data Extraction Test File Upload"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Knowledge Graph",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Knowledge Graph Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/knowledge-graph/status",
+            "params": [
+              {
+                "name": "file_id",
+                "value": "",
+                "type": "query",
+                "description": "File ID"
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "query",
+                "description": "Workbook ID"
+              }
+            ]
+          },
+          "docs": "Get Knowledge Graph Status"
+        },
+        {
+          "info": {
+            "name": "Get Knowledge Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/knowledge-graph",
+            "params": [
+              {
+                "name": "file_id",
+                "value": "",
+                "type": "query",
+                "description": "File ID"
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "query",
+                "description": "Workbook ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results"
+              }
+            ]
+          },
+          "docs": "Get Knowledge Graph"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "bi_rag",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Index Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/index-page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Index Page"
+        },
+        {
+          "info": {
+            "name": "Index Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/index-workspace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Index Workspace"
+        },
+        {
+          "info": {
+            "name": "Add Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/add-widget",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Widget"
+        },
+        {
+          "info": {
+            "name": "Remove Indexed Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/remove-widget",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove Indexed Widget"
+        },
+        {
+          "info": {
+            "name": "Update Indexed Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/update-widget",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Indexed Widget"
+        },
+        {
+          "info": {
+            "name": "Delete All Widgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/bi-rag/delete-all-widgets",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete All Widgets"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Python Agent V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query Agent"
+        },
+        {
+          "info": {
+            "name": "Submit Feedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/submit-feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Feedback"
+        },
+        {
+          "info": {
+            "name": "Get Session Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/session/:session_id/status",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Session Status"
+        },
+        {
+          "info": {
+            "name": "Cleanup Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/python-agent/session/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cleanup Session"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data Download",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download Agent Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/:agent_type/download-data",
+            "params": [
+              {
+                "name": "agent_type",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unified download endpoint for jira-agent-v2, hubspot-agent-v2, atlassian-agent, fellow-agent-v2,\ncustom-agent, and python-agent.\nDownloads data files as a zip file, or single file directly from S3\n\nArgs:\n    agent_type: \"jira-agent-v2\", \"hubspot-agent-v2\", \"atlassian-agent\", \"fellow-agent-v2\",\n        \"custom-agent\", or \"python-agent\"\n    body: Request containing list of file paths and optional workspaceId"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Document Validation Demo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/demos/document-validation/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate Documents"
+        },
+        {
+          "info": {
+            "name": "Generate Controls",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/demos/document-validation/controls",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Generate Controls"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data Source Tables Controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dataSourceTables/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search Tables"
+        },
+        {
+          "info": {
+            "name": "Create Embeddings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/dataSourceTables/embeddings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Embeddings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Internal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check Conversation Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/conversation/check-access",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "User ID"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread ID"
+              }
+            ]
+          },
+          "docs": "Check if user is the creator of the conversation"
+        },
+        {
+          "info": {
+            "name": "Get Conversation Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/conversation/thread-details",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread ID"
+              }
+            ]
+          },
+          "docs": "Get the details of the conversation"
+        },
+        {
+          "info": {
+            "name": "Create File Search Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/file-search/create-store",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a file search store"
+        },
+        {
+          "info": {
+            "name": "Get Custom Agent For Thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/agent/by-thread",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread ID"
+              }
+            ]
+          },
+          "docs": "Get custom agent details for a thread"
+        },
+        {
+          "info": {
+            "name": "Get Message Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/internal/:auth_token/message/status",
+            "params": [
+              {
+                "name": "auth_token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "query",
+                "description": "Message ID"
+              },
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "query",
+                "description": "Thread/Conversation ID"
+              }
+            ]
+          },
+          "docs": "Get the status of a streaming message"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gemini File Search (deprecated)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Store File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/file-search/store",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Store File"
+        },
+        {
+          "info": {
+            "name": "Create Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/file-search/create-store",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Store"
+        },
+        {
+          "info": {
+            "name": "Delete All Stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/file-search/stores/all",
+            "params": [
+              {
+                "name": "password",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete All Stores"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Conversation File Upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Post Conversation File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/conversation-files",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Upload a file. Returns immediately with status=INDEXING.\nPoll GET /{conversation_file_id}/status to check progress."
+        },
+        {
+          "info": {
+            "name": "Post Conversation Files Status Bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/conversation-files/status",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Poll indexing status for many files at once. Response order matches the request.\nEach element is either the same shape as GET /{id}/status, or\n{\"conversation_file_id\": \"...\", \"error\": \"not_found\"} for missing or inactive ids."
+        },
+        {
+          "info": {
+            "name": "Get Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversation-files/:conversation_file_id/status",
+            "params": [
+              {
+                "name": "conversation_file_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Poll indexing status. Once status=INDEXED, the response includes\nfilename, s3_key, chunks_indexed, and a presigned download_url."
+        },
+        {
+          "info": {
+            "name": "Post Conversation Files Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/conversation-files/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Answer a question using only the content of the specified uploaded files."
+        },
+        {
+          "info": {
+            "name": "Get Preview Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/conversation-files/:conversation_file_id/view",
+            "params": [
+              {
+                "name": "conversation_file_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a short-lived presigned URL (1 hour) with inline content-disposition\nso the file can be rendered directly in the browser without forcing a download.\nRequires status=INDEXED.\n\nAuth: use Authorization as elsewhere, or pass the same JWT as query param\n``access_token`` (raw token or ``Bearer <token>``) when the client cannot set headers."
+        },
+        {
+          "info": {
+            "name": "Delete Conversation File Route",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/conversation-files/:conversation_file_id",
+            "params": [
+              {
+                "name": "conversation_file_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete all indexed chunks for a conversation file."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agent Memory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Memories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of the memories to list: company, user, or agent"
+              },
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "query",
+                "description": "Optional agent ID when scope is 'agent'; when omitted, returns all agent-scoped memories for the company"
+              },
+              {
+                "name": "include_drafts",
+                "value": "",
+                "type": "query",
+                "description": "If true, include draft memories in the response."
+              }
+            ]
+          },
+          "docs": "List Memories"
+        },
+        {
+          "info": {
+            "name": "Add Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Memory"
+        },
+        {
+          "info": {
+            "name": "Search Memories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search memories using a JSON body only (no query params).\n\nThe body can contain:\n- query, top_k, metadata\n- user_id, org_id, agent_id, include_drafts"
+        },
+        {
+          "info": {
+            "name": "Update Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/:memory_id",
+            "params": [
+              {
+                "name": "memory_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Memory"
+        },
+        {
+          "info": {
+            "name": "Delete Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/:memory_id",
+            "params": [
+              {
+                "name": "memory_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Memory"
+        },
+        {
+          "info": {
+            "name": "Publish Memory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/agent-memory/memories/:memory_id/publish",
+            "params": [
+              {
+                "name": "memory_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Publish Memory"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Memories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch All Memories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai/api/v2/memories"
+          },
+          "docs": "Fetch all published memories for the authenticated user's company and user scope,\ncombined into a single list."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

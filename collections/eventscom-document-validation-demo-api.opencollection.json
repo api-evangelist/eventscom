@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataGol AI Document Validation Demo API",
+    "version": "1.0.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document Validation Demo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/demos/document-validation/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate Documents"
+        },
+        {
+          "info": {
+            "name": "Generate Controls",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/api/v2/demos/document-validation/controls",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Generate Controls"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

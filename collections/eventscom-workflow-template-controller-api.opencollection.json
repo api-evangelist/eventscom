@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Workflow Template Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "workflow-template-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get workflow template by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Loads by id with active=true (soft-deleted templates are not returned). The template must belong to the logged-in user's company."
+        },
+        {
+          "info": {
+            "name": "Update workflow template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update workflow template"
+        },
+        {
+          "info": {
+            "name": "Soft-delete workflow template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Soft-delete workflow template"
+        },
+        {
+          "info": {
+            "name": "Get workflow template by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Name is globally unique. The template must belong to the logged-in user's company."
+        },
+        {
+          "info": {
+            "name": "Create workflow template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "companyId is taken from the logged-in user."
+        },
+        {
+          "info": {
+            "name": "Merge input into template and start orchestrator workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates/:workflowTemplateId/run",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workflowTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Substitutes {{key}} placeholders using inputJson (dot paths for nested objects). Returns the Temporal workflow id and resolved definition JSON."
+        },
+        {
+          "info": {
+            "name": "Run workflow template by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates/run",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Same as POST /{id}/run but resolves the template by its unique name for the user's company. Pass the template name as the query parameter name."
+        },
+        {
+          "info": {
+            "name": "Seed onboarding demo data and run workflow from demo dataset templateName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflowTemplates/run/ONBOARDING_DATASET",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Expects input.request.datasetKeys in the body. Seeds demo tables for those keys, reads templateName from company demo dataset config, then runs that template."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

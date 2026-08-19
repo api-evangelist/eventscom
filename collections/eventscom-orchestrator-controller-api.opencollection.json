@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Orchestrator Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "orchestrator-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start a workflow by definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflow",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provide a WorkflowDefinition (name, steps). Each step has stepId, name, request/input. Step names must be unique. userDto is set from @LoggedInUser."
+        },
+        {
+          "info": {
+            "name": "Cancel a running workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflow/:workflowId/cancel",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sends a cancellation request to Temporal for the given workflowId. Actual cancellation is cooperative and may take some time."
+        },
+        {
+          "info": {
+            "name": "Resume a workflow after failure",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflow/resume",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send updated WorkflowDefinition with previousWorkflowId set to the failed run's ID. A new run is started; completed steps are loaded from the previous run and only failed/pending steps execute. userDto is set from @LoggedInUser."
+        },
+        {
+          "info": {
+            "name": "Get workflow status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/orchestrator/api/v1/workflow/:workflowId/status",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeOutput",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the status of a workflow by its ID (the ID returned from start workflow or resume workflow). Includes overall execution status and per-step status, start/end times. When the workflow or a step has failed, errorMessage fields summarize the failure (no need to set includeOutput)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

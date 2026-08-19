@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc MCP Connectors API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MCP Connectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate MCP OAuth2 credential registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/connector/api/v1/mcp/credential",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Discovers OAuth2 metadata from the MCP URL and auto-detects grant type. Returns authorizationUrl when the MCP server requires authorization_code flow (user must be redirected there). Returns credentialId immediately for client_credentials servers."
+        },
+        {
+          "info": {
+            "name": "MCP OAuth2 redirect callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/connector/api/v1/mcp/callback",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Opaque state linking this callback to the original /credential request"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error_description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error_uri",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Handles the OAuth redirect from the MCP authorization server: OAuth2 error responses (error, error_description, error_uri), or success with authorization code exchange (client_secret_post, client_secret_basic, public client / none), then redirects the browser to the UI."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

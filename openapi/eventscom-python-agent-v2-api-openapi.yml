@@ -1,0 +1,418 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Python Agent V2 API
+  version: 1.0.36
+tags:
+- name: Python Agent V2
+paths:
+  /ai/api/v2/python-agent/query:
+    post:
+      tags:
+      - Python Agent V2
+      summary: Query Agent
+      operationId: query_agent_ai_api_v2_python_agent_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/python-agent/submit-feedback:
+    post:
+      tags:
+      - Python Agent V2
+      summary: Submit Feedback
+      operationId: submit_feedback_ai_api_v2_python_agent_submit_feedback_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/python-agent/session/{session_id}/status:
+    get:
+      tags:
+      - Python Agent V2
+      summary: Get Session Status
+      operationId: get_session_status_ai_api_v2_python_agent_session__session_id__status_get
+      parameters:
+      - name: session_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Session Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/python-agent/session/{session_id}:
+    delete:
+      tags:
+      - Python Agent V2
+      summary: Cleanup Session
+      operationId: cleanup_session_ai_api_v2_python_agent_session__session_id__delete
+      parameters:
+      - name: session_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Session Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AgentRequest:
+      properties:
+        userId:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Userid
+          description: 'ID of the user sending this query. '
+        conversationId:
+          type: string
+          title: Conversationid
+          description: Conversation or thread ID of the query.
+        message:
+          type: string
+          title: Message
+          description: User query or message to the agent.
+        selectedLlmModel:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Selectedllmmodel
+          description: Model to be used to resolve the query.
+        parameters:
+          $ref: '#/components/schemas/Parameters'
+          description: Context for the query
+        agentType:
+          type: string
+          title: Agenttype
+          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent,
+            etc.'
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
+          description: Alias for agentType sent by some UI clients.
+        selectedParser:
+          type: string
+          title: Selectedparser
+          description: 'Type of parser. Example: LLM Sherpa, Llama Parse'
+        workbookIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Workbookids
+          description: List of workbook IDs for additional data sources.
+        uiMetadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Uimetadata
+          description: Optional UI metadata persisted on the message row and returned when loading messages.
+        enableStreamPersistence:
+          type: boolean
+          title: Enablestreampersistence
+          description: When True, chunks are persisted to Redis and the POST response is a JSON status
+            object; clients must connect to GET /messages/streaming/{conversationId}. When False (default),
+            chunks are streamed inline on the POST response.
+          default: false
+      type: object
+      required:
+      - message
+      - parameters
+      - agentType
+      title: AgentRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Parameters:
+      properties:
+        dataProvider:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dataprovider
+          description: Provider if that is the context.
+        viewId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Viewid
+          description: View ID if that is the context.
+        workbookId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Workbookid
+          description: Workbook ID if that is the context.
+        workspaceId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Workspaceid
+          description: Workspace ID if that is the context.
+        dataSourceId:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Datasourceid
+          description: List of Datasource IDs if that is the context.
+        dataSourceIds:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Datasourceids
+          description: List of Datasource IDs if that is the context.
+        tableId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tableid
+          description: Table/Workbook ID if that is the context. BI Agent specific.
+        fileId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Fileid
+          description: File ID for knowledge graph agent.
+        schemaJson:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Schemajson
+          description: Schema of the data source.
+        dialect:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dialect
+          description: 'Dialect of the query. Example: JDBC, SPARK, etc.'
+        toolsSelected:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Toolsselected
+          description: List of tools selected by the user.
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error
+          description: Error message if any.
+        fileIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Fileids
+          description: File IDs if that is the context.
+        folderIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Folderids
+          description: Complete hierarchy of the folder name.
+        connectorId:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Connectorid
+          description: Connector ID of the Jira connector.
+        customAgentId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Customagentid
+          description: Custom Agent ID.
+        sqlQuery:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sqlquery
+          description: SQL query for generating a workbook
+        enableBiHistory:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Enablebihistory
+          description: Enable BI history for the query.
+          default: true
+        selectedLlmModels:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Selectedllmmodels
+          description: Map of selected llm models.
+        chainId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Chainid
+          description: Chain ID of the query.
+        image:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Image
+          description: plolty chart Image.
+        code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Code
+          description: Python code to execute. If provided, no planning/code generation will be done.
+        workbookIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Workbookids
+          description: Selected workbooks in the same workspace as workbookId; first item duplicates workbookId
+            (primary); remaining IDs are auxiliary.
+        autoApprove:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Autoapprove
+          description: When True or omitted, agent does not prompt for plan/code confirmation and proceeds
+            automatically. When False, requires user confirmation.
+        analysisLevel:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Analysislevel
+          description: 'LLM profile: "FAST", "MODERATE", or "DEEP_ANALYSIS".'
+        collections:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Collections
+          description: List of collections to query.
+        pageId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Pageid
+          description: Page ID of the query.
+        sessionId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sessionid
+          description: Session ID for the browser operator.
+        properties:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Properties
+          description: Custom properties.
+        conversationFileIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Conversationfileids
+          description: List of conversation file IDs.
+      type: object
+      title: Parameters
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

@@ -1,0 +1,257 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI SQL Parser APIs API
+  version: 1.0.36
+tags:
+- name: SQL Parser APIs
+paths:
+  /ai/api/v2/sqlParser/dataSources:
+    post:
+      tags:
+      - SQL Parser APIs
+      summary: Sql Parser Data Source
+      operationId: sql_parser_data_source_ai_api_v2_sqlParser_dataSources_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/sqlParser/columns:
+    post:
+      tags:
+      - SQL Parser APIs
+      summary: Sql Parser Columns
+      operationId: sql_parser_columns_ai_api_v2_sqlParser_columns_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParsedSqlColumnsList'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/sqlParser/links:
+    post:
+      tags:
+      - SQL Parser APIs
+      summary: Sql Parser Relationships
+      operationId: sql_parser_relationships_ai_api_v2_sqlParser_links_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/sqlParser/subQueries:
+    post:
+      tags:
+      - SQL Parser APIs
+      summary: Sql Parser Relationships
+      operationId: sql_parser_relationships_ai_api_v2_sqlParser_subQueries_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/sqlParser/removeComments:
+    post:
+      tags:
+      - SQL Parser APIs
+      summary: Remove Comments
+      operationId: remove_comments_ai_api_v2_sqlParser_removeComments_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/sqlParser/changeDialect:
+    post:
+      tags:
+      - SQL Parser APIs
+      summary: Change Dialect
+      operationId: change_dialect_ai_api_v2_sqlParser_changeDialect_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Body
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ParsedSqlColumn:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Name of the column.
+          default: ''
+        sources:
+          items:
+            type: string
+          type: array
+          title: Sources
+          description: List of sources.
+          default: []
+        functions:
+          items:
+            type: string
+          type: array
+          title: Functions
+          description: List of functions.
+          default: []
+        dataType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Datatype
+          description: Data type of the column.
+          default: ''
+      type: object
+      title: ParsedSqlColumn
+    ParsedSqlColumnsList:
+      properties:
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error
+          description: Error message.
+        invalid_columns:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Invalid Columns
+          description: List of invalid columns.
+          default: []
+        columns:
+          items:
+            $ref: '#/components/schemas/ParsedSqlColumn'
+          type: array
+          title: Columns
+          description: List of columns.
+          default: []
+      type: object
+      title: ParsedSqlColumnsList
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

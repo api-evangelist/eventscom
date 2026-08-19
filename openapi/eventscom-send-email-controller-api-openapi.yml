@@ -1,0 +1,214 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Send Email Controller API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: send-email-controller
+paths:
+  /customConnector/api/v1/email/send:
+    post:
+      tags:
+      - send-email-controller
+      operationId: sendEmail_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+  /customConnector/api/v1/email/sendBulkEmails:
+    post:
+      tags:
+      - send-email-controller
+      operationId: sendBulkEmails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkEmailDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+components:
+  schemas:
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    EmailDTO:
+      required:
+      - subject
+      - to
+      type: object
+      properties:
+        from:
+          type: string
+        senderIdentity:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        body:
+          type: string
+        attachmentUrl:
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    BulkEmailDTO:
+      type: object
+      properties:
+        toEmails:
+          type: array
+          items:
+            type: string
+        subject:
+          type: string
+        template:
+          type: string
+        emailTemplateType:
+          type: string
+          enum:
+          - EMAIL_VERIFY
+          - PASSWORD_RESET
+          - WELCOME
+          - WORKSPACE_INVITE
+          - WORKSPACE_SHARED
+          - WORKSPACE_REQUEST
+          - WORKSPACE_REQUEST_APPROVED
+          - MEMBER_JOINED_WORKSPACE
+          - MEMBER_LEFT_WORKSPACE
+          - WORKSPACE_DISCOVERY_SETTING_CHANGED
+          - PIPELINE_INVITE
+          - PIPELINE_STARTED
+          - PIPELINE_COMPLETED_SUCCESS
+          - WAREHOUSE_USED_IN_PIPELINE
+          - PIPELINE_COMPLETED_FAILURE
+          - PIPELINE_COMPLETED_ABORTED
+          - PIPELINE_EDITED
+          - PIPELINE_DELETED
+          - PIPELINE_CANCELLED
+          - DATABASE_SYNC_FAILED
+          - DATABASE_CONFIG_FAILED
+          - DATABASE_DELETED
+          - TABLE_DELETED
+          - PAGE_DELETED
+          - INVOICE
+          - TEAM_INVITE
+          - GENERAL_TEMPLATE
+          - EMAIL_CAMPAIGN_TEST
+          - MFA_EMAIL
+          - EMAIL_INVITE
+          - EMAIL_INVITE_UNREGISTERED
+          - NOTIFY_WORKSPACE_USERS
+          - NEW_USER_INTERNAL_NOTIFICATION
+          - ALERT_THRESHOLD_TRIGGERED
+          - ALERT_COMPARISON_TRIGGERED
+          - ALERT_INFORMATIONAL
+          - USER_ASSIGNED
+          - WELCOME_NEW_USER
+        fromEmail:
+          type: string
+        senderIdentity:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

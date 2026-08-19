@@ -1,0 +1,173 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Workbook AI Generate API
+  version: 1.0.36
+tags:
+- name: Workbook AI Generate
+paths:
+  /ai/api/v2/ai-generate/internal/completion:
+    post:
+      tags:
+      - Workbook AI Generate
+      summary: Ai Generate Internal
+      operationId: ai_generate_internal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIGenerateInternalRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/ai-generate/internal/databar/get-enrichments:
+    get:
+      tags:
+      - Workbook AI Generate
+      summary: Get Databar Enrichment Options
+      operationId: get_databar_enrichment_options
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /ai/api/v2/ai-generate/internal/databar/run-enrichment:
+    post:
+      tags:
+      - Workbook AI Generate
+      summary: Run Databar Enrichment
+      operationId: run_databar_enrichment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunEnrichmentRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AIGenerateInternalSettings:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Prompt for AI Generation
+        model:
+          type: string
+          title: Model
+          description: Model for AI Generation
+        web_access:
+          type: boolean
+          title: Web Access
+          description: Web access for AI Generation
+        web_search_provider:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Web Search Provider
+          description: Provider for web search (required when web_access is true)
+        web_search_provider_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Web Search Provider Key
+          description: Key for provider (required when web_access is true)
+      type: object
+      required:
+      - prompt
+      - model
+      - web_access
+      title: AIGenerateInternalSettings
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    RunEnrichmentRequest:
+      properties:
+        enrichment_id:
+          type: integer
+          title: Enrichment Id
+        params:
+          additionalProperties: true
+          type: object
+          title: Params
+        databar_api_key:
+          type: string
+          title: Databar Api Key
+      type: object
+      required:
+      - enrichment_id
+      - params
+      - databar_api_key
+      title: RunEnrichmentRequest
+    AIGenerateInternalRequest:
+      properties:
+        row:
+          additionalProperties: true
+          type: object
+          title: Row
+          description: Row data for AI Generation
+        ai_settings:
+          $ref: '#/components/schemas/AIGenerateInternalSettings'
+          description: AI settings for AI Generation
+        llm_config:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Llm Config
+          description: LLM configuration parameters
+      type: object
+      title: AIGenerateInternalRequest

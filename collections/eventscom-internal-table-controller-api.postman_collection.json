@@ -1,0 +1,1671 @@
+{
+  "item": [
+    {
+      "id": "c1684fd1-4443-48d2-8946-0249669910fe",
+      "name": "internal-table-controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af136817-5dea-456d-a943-2b8176ffc311",
+          "name": "get Cursor Data 1",
+          "request": {
+            "name": "get Cursor Data 1",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                "tables",
+                "internal",
+                ":token",
+                ":tableId",
+                "cursor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "isBIFormula",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filterOptions\": 6194,\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7672ed7-7164-4258-9c3b-a32315c5a0d8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "cursor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "isBIFormula",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterOptions\": {},\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\",\n    \"key_3\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"pageNumber\": 1104,\n  \"pageSize\": 6372,\n  \"totalNumberOfRecords\": 9874,\n  \"totalNumberOfPages\": 2001,\n  \"rows\": [\n    {\n      \"id\": {},\n      \"position\": 466.0788521433512,\n      \"fkId\": {},\n      \"cellValues\": {\n        \"key_0\": {}\n      },\n      \"cellValuesByColumnId\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"linkRecords\": [\n        {\n          \"sourceRecordId\": {},\n          \"destinationRecordId\": {},\n          \"linkColumnId\": \"string\",\n          \"columnId\": \"string\",\n          \"tableId\": \"string\",\n          \"companyId\": 7619\n        },\n        {\n          \"sourceRecordId\": {},\n          \"destinationRecordId\": {},\n          \"linkColumnId\": \"string\",\n          \"columnId\": \"string\",\n          \"tableId\": \"string\",\n          \"companyId\": 7889\n        }\n      ]\n    },\n    {\n      \"id\": {},\n      \"position\": 4269.106541056344,\n      \"fkId\": {},\n      \"cellValues\": {\n        \"key_0\": {}\n      },\n      \"cellValuesByColumnId\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"linkRecords\": [\n        {\n          \"sourceRecordId\": {},\n          \"destinationRecordId\": {},\n          \"linkColumnId\": \"string\",\n          \"columnId\": \"string\",\n          \"tableId\": \"string\",\n          \"companyId\": 7264\n        },\n        {\n          \"sourceRecordId\": {},\n          \"destinationRecordId\": {},\n          \"linkColumnId\": \"string\",\n          \"columnId\": \"string\",\n          \"tableId\": \"string\",\n          \"companyId\": 8059\n        }\n      ]\n    }\n  ],\n  \"tableName\": \"string\",\n  \"lastCursorValues\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"isLastPage\": true,\n  \"waitTime\": 7599,\n  \"executionTime\": 9289,\n  \"operationId\": \"string\",\n  \"finalQuery\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99ed6f29-9497-41d7-ba78-c36443472b22",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "cursor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "isBIFormula",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterOptions\": {},\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\",\n    \"key_3\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f0897f2-fb3c-4b00-8d79-fc287041a778",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "cursor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "isBIFormula",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterOptions\": {},\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\",\n    \"key_3\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"version\": \"string\",\n  \"date\": \"1997-06-14T20:14:58.214Z\",\n  \"error\": {\n    \"statusCode\": 6829,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d71b6e3-4120-4ffe-abbe-ca28e8c822c5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "cursor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "isBIFormula",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterOptions\": {},\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\",\n    \"key_3\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "426af58e-92df-44af-aa92-88720e4850bb",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "cursor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "isBIFormula",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterOptions\": {},\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\",\n    \"key_3\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e8cb8d3-0ebc-4975-8581-08ef44ad1546",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "cursor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "isBIFormula",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterOptions\": {},\n  \"groupOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\"\n    }\n  ],\n  \"sortOptions\": [\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    },\n    {\n      \"columnId\": \"<string>\",\n      \"direction\": \"<string>\",\n      \"columnName\": \"<string>\",\n      \"columnNameWithOutQuotes\": \"<string>\",\n      \"valueOrder\": [\n        \"<string>\"\n      ]\n    }\n  ],\n  \"requestPageDetails\": {\n    \"pageNumber\": \"<long>\",\n    \"pageSize\": \"<long>\"\n  },\n  \"whereClause\": \"<string>\",\n  \"filterParams\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"dataProvider\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"tableId\": \"<string>\",\n  \"versionId\": \"<long>\",\n  \"dagRunId\": \"<long>\",\n  \"parameters\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\",\n    \"key_3\": \"<object>\"\n  },\n  \"lastCursorValues\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\",\n    \"key_2\": \"<object>\"\n  },\n  \"doWeNeedCountQuery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3442536-850c-4206-8f01-d96f4b48923c",
+          "name": "get Table 1",
+          "request": {
+            "name": "get Table 1",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                "tables",
+                "internal",
+                ":token",
+                ":tableId",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "011ca8c6-b3c1-4b69-8a54-a90c651f45ae",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"createdBy\": {\n    \"id\": 516,\n    \"firstname\": \"string\",\n    \"lastname\": \"string\",\n    \"email\": \"string\",\n    \"companyName\": \"string\",\n    \"companyId\": 3216,\n    \"status\": \"string\",\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"permissions\": [\n      \"string\"\n    ],\n    \"joinDate\": \"1959-11-19T21:42:59.698Z\",\n    \"mfaEnabled\": false,\n    \"redirectToMfaFlow\": true,\n    \"tokenExpiryTime\": 4935,\n    \"isServiceAccount\": true,\n    \"lastLogin\": \"1981-06-13T18:01:42.114Z\",\n    \"signInMethod\": \"GOOGLE\",\n    \"isOnboardingCompleted\": false,\n    \"role\": \"string\",\n    \"department\": \"string\",\n    \"anonymousUserId\": \"string\",\n    \"thirdPartyUser\": true\n  },\n  \"modifiedBy\": {\n    \"id\": 943,\n    \"firstname\": \"string\",\n    \"lastname\": \"string\",\n    \"email\": \"string\",\n    \"companyName\": \"string\",\n    \"companyId\": 9310,\n    \"status\": \"string\",\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"permissions\": [\n      \"string\"\n    ],\n    \"joinDate\": \"2013-04-10T13:32:26.211Z\",\n    \"mfaEnabled\": true,\n    \"redirectToMfaFlow\": true,\n    \"tokenExpiryTime\": 8901,\n    \"isServiceAccount\": true,\n    \"lastLogin\": \"1972-03-09T19:52:40.740Z\",\n    \"signInMethod\": \"EMAIL\",\n    \"isOnboardingCompleted\": false,\n    \"role\": \"string\",\n    \"department\": \"string\",\n    \"anonymousUserId\": \"string\",\n    \"thirdPartyUser\": false\n  },\n  \"createDate\": \"1962-05-28T13:48:12.662Z\",\n  \"modiDate\": \"1967-06-03T10:03:47.758Z\",\n  \"id\": \"string\",\n  \"workspaceId\": \"string\",\n  \"position\": 2150.144487003477,\n  \"tableName\": \"string\",\n  \"description\": \"string\",\n  \"tableType\": \"DYNAMIC\",\n  \"materializedViewId\": 8901,\n  \"materializedViewQuery\": \"string\",\n  \"sourceType\": \"string\",\n  \"storageType\": \"string\",\n  \"columns\": [\n    {\n      \"name\": \"string\",\n      \"createdBy\": {\n        \"id\": 6550,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 7126,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1969-07-12T20:30:07.512Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 5367,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"2024-01-17T23:11:42.103Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"modifiedBy\": {\n        \"id\": 186,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 48,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1983-04-02T19:24:59.384Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 7402,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"1957-07-23T09:49:06.045Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"2024-02-05T06:09:42.297Z\",\n      \"modiDate\": \"1969-02-21T14:19:33.273Z\",\n      \"id\": \"string\",\n      \"uiDataType\": \"string\",\n      \"idType\": \"string\",\n      \"required\": false,\n      \"description\": \"string\",\n      \"formulaType\": \"string\",\n      \"formula\": \"string\",\n      \"backendDataType\": \"string\",\n      \"rawFormula\": \"string\",\n      \"status\": \"string\",\n      \"eventName\": \"string\",\n      \"errorMessage\": \"string\",\n      \"rowLevelFormula\": \"string\",\n      \"rowLevelFormulaWithParameter\": \"string\",\n      \"nestedFormula\": \"string\",\n      \"nestedFormulaWithParameter\": \"string\",\n      \"nestedRowLevelFormula\": \"string\",\n      \"nestedRowLevelFormulaWithParameter\": \"string\",\n      \"workspaceId\": \"string\",\n      \"isDataEditable\": true,\n      \"isMetaDataEditable\": false,\n      \"isEditable\": true,\n      \"isDataTypeEditable\": false,\n      \"isDeletable\": true,\n      \"isColumnLevelFormula\": true,\n      \"colOptions\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      },\n      \"uiMetadata\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"tableId\": \"string\",\n      \"requestId\": \"string\",\n      \"parameters\": [\n        {\n          \"id\": 6316,\n          \"workspaceId\": \"string\",\n          \"name\": \"string\",\n          \"key\": \"string\",\n          \"type\": \"DATE_RANGE\",\n          \"enumOptions\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"DYNAMIC_ENUM\",\n            \"sqlQuery\": \"string\",\n            \"multipleValuesAllowed\": true,\n            \"wrapValuesWithinSingleQuotes\": true\n          },\n          \"defaultValue\": {},\n          \"createdAt\": \"1961-05-05T14:32:57.407Z\",\n          \"showByDefault\": false,\n          \"thirdPartyFilters\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": 8934,\n          \"workspaceId\": \"string\",\n          \"name\": \"string\",\n          \"key\": \"string\",\n          \"type\": \"DATE\",\n          \"enumOptions\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"DYNAMIC_ENUM\",\n            \"sqlQuery\": \"string\",\n            \"multipleValuesAllowed\": false,\n            \"wrapValuesWithinSingleQuotes\": true\n          },\n          \"defaultValue\": {},\n          \"createdAt\": \"2023-02-21T03:27:29.245Z\",\n          \"showByDefault\": true,\n          \"thirdPartyFilters\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"parameterIds\": [\n        4876,\n        6876\n      ],\n      \"isBIFormula\": true,\n      \"isAudit\": true,\n      \"isEnriched\": false,\n      \"isDynamicFormula\": true,\n      \"isSystemGenerated\": true,\n      \"settings\": {\n        \"enableUserAddNotifications\": true,\n        \"aiSettings\": {\n          \"prompt\": \"string\",\n          \"model\": \"string\",\n          \"webAccess\": false,\n          \"enabled\": false,\n          \"webAccessProvider\": \"string\"\n        },\n        \"attachmentSettings\": {\n          \"templateKey\": \"string\",\n          \"templateFileName\": \"string\",\n          \"outputFileName\": \"string\"\n        }\n      },\n      \"sourceDatatype\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"createdBy\": {\n        \"id\": 1723,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 6843,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1985-05-24T21:29:15.501Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 4497,\n        \"isServiceAccount\": true,\n        \"lastLogin\": \"1989-12-16T03:46:25.308Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 6893,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 3527,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1993-09-12T09:31:32.948Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 1371,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1950-09-06T06:03:30.678Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"createDate\": \"1964-10-09T17:58:50.876Z\",\n      \"modiDate\": \"1978-07-08T03:19:35.705Z\",\n      \"id\": \"string\",\n      \"uiDataType\": \"string\",\n      \"idType\": \"string\",\n      \"required\": true,\n      \"description\": \"string\",\n      \"formulaType\": \"string\",\n      \"formula\": \"string\",\n      \"backendDataType\": \"string\",\n      \"rawFormula\": \"string\",\n      \"status\": \"string\",\n      \"eventName\": \"string\",\n      \"errorMessage\": \"string\",\n      \"rowLevelFormula\": \"string\",\n      \"rowLevelFormulaWithParameter\": \"string\",\n      \"nestedFormula\": \"string\",\n      \"nestedFormulaWithParameter\": \"string\",\n      \"nestedRowLevelFormula\": \"string\",\n      \"nestedRowLevelFormulaWithParameter\": \"string\",\n      \"workspaceId\": \"string\",\n      \"isDataEditable\": false,\n      \"isMetaDataEditable\": true,\n      \"isEditable\": true,\n      \"isDataTypeEditable\": false,\n      \"isDeletable\": false,\n      \"isColumnLevelFormula\": true,\n      \"colOptions\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"uiMetadata\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"tableId\": \"string\",\n      \"requestId\": \"string\",\n      \"parameters\": [\n        {\n          \"id\": 6935,\n          \"workspaceId\": \"string\",\n          \"name\": \"string\",\n          \"key\": \"string\",\n          \"type\": \"STATIC_ENUM\",\n          \"enumOptions\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"STATIC_ENUM\",\n            \"sqlQuery\": \"string\",\n            \"multipleValuesAllowed\": false,\n            \"wrapValuesWithinSingleQuotes\": false\n          },\n          \"defaultValue\": {},\n          \"createdAt\": \"2001-12-08T19:56:27.443Z\",\n          \"showByDefault\": true,\n          \"thirdPartyFilters\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": 1837,\n          \"workspaceId\": \"string\",\n          \"name\": \"string\",\n          \"key\": \"string\",\n          \"type\": \"STATIC_ENUM\",\n          \"enumOptions\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"STATIC_ENUM\",\n            \"sqlQuery\": \"string\",\n            \"multipleValuesAllowed\": false,\n            \"wrapValuesWithinSingleQuotes\": false\n          },\n          \"defaultValue\": {},\n          \"createdAt\": \"1964-01-12T06:35:27.768Z\",\n          \"showByDefault\": true,\n          \"thirdPartyFilters\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"required\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"defaultValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"actualValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"parameterIds\": [\n        4865,\n        2782\n      ],\n      \"isBIFormula\": false,\n      \"isAudit\": false,\n      \"isEnriched\": false,\n      \"isDynamicFormula\": false,\n      \"isSystemGenerated\": true,\n      \"settings\": {\n        \"enableUserAddNotifications\": false,\n        \"aiSettings\": {\n          \"prompt\": \"string\",\n          \"model\": \"string\",\n          \"webAccess\": false,\n          \"enabled\": false,\n          \"webAccessProvider\": \"string\"\n        },\n        \"attachmentSettings\": {\n          \"templateKey\": \"string\",\n          \"templateFileName\": \"string\",\n          \"outputFileName\": \"string\"\n        }\n      },\n      \"sourceDatatype\": \"string\"\n    }\n  ],\n  \"uiMetadata\": {\n    \"key_0\": {}\n  },\n  \"requestId\": \"string\",\n  \"status\": \"string\",\n  \"connectionName\": \"string\",\n  \"systemTableName\": \"string\",\n  \"companyId\": 2303,\n  \"pipelineId\": 3241,\n  \"allowSwitchStorage\": false,\n  \"dataProvider\": \"SQL_SERVER\",\n  \"primaryKeyColumnName\": \"string\",\n  \"lastSyncTime\": \"2021-12-16T07:53:06.688Z\",\n  \"deleteGuard\": true,\n  \"parentId\": \"string\",\n  \"isMigrationDone\": false,\n  \"sparkConnectionName\": \"string\",\n  \"warehouseConnectionName\": \"string\",\n  \"datasourceIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"doesCopyExists\": false,\n  \"lastMilePipelineId\": 1096,\n  \"positionKeyColumnName\": \"string\",\n  \"isAthenaEnabled\": true,\n  \"isCloudBigQueryEnabled\": true,\n  \"title\": \"string\",\n  \"isBIWorkbook\": true,\n  \"isSystemGenerated\": true,\n  \"joinColumnNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"foreignKeyColumnName\": \"string\",\n  \"joinTableName\": \"string\",\n  \"s3Uri\": \"string\",\n  \"joinRequest\": {\n    \"workspaceId\": \"string\",\n    \"name\": \"string\",\n    \"primaryTableId\": \"string\",\n    \"joinConditions\": [\n      {\n        \"targetTableId\": \"string\",\n        \"joinConditionExpression\": \"string\",\n        \"uiMetadata\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"selectedColumnIds\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"targetTableId\": \"string\",\n        \"joinConditionExpression\": \"string\",\n        \"uiMetadata\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {},\n          \"key_4\": {}\n        },\n        \"selectedColumnIds\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"internalTableType\": \"EXTRACTION\",\n  \"tableSizeBytes\": 628,\n  \"sourceQueryEngine\": \"SQL_SERVER\",\n  \"tenantConfig\": {\n    \"key_0\": \"string\"\n  },\n  \"parameterKeys\": [\n    \"string\"\n  ],\n  \"versions\": [\n    {\n      \"createdBy\": {\n        \"id\": 8520,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 2584,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1984-09-21T08:38:11.176Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 9993,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1993-07-15T06:46:45.322Z\",\n        \"signInMethod\": \"EMAIL\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 1108,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 264,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1959-09-04T15:26:43.623Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 2020,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"2010-07-08T07:28:07.162Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"2020-11-30T12:50:46.846Z\",\n      \"modiDate\": \"1981-12-17T12:56:44.695Z\",\n      \"id\": 2276,\n      \"name\": \"string\",\n      \"dagRunId\": 1732,\n      \"description\": \"string\",\n      \"isDefaultVersion\": false,\n      \"parameters\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"createdBy\": {\n        \"id\": 3742,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 6592,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1967-01-27T13:07:43.692Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 6831,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"2002-07-04T19:01:10.890Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 2935,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 2164,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1960-04-05T15:48:40.159Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 9689,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"2018-11-28T14:24:50.147Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"createDate\": \"2009-08-29T23:53:17.950Z\",\n      \"modiDate\": \"1982-03-31T11:33:37.338Z\",\n      \"id\": 1768,\n      \"name\": \"string\",\n      \"dagRunId\": 4092,\n      \"description\": \"string\",\n      \"isDefaultVersion\": false,\n      \"parameters\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ],\n  \"showVersions\": true,\n  \"views\": [\n    {\n      \"createdBy\": {\n        \"id\": 5016,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 8469,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"2011-10-18T07:46:48.912Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": false,\n        \"tokenExpiryTime\": 4731,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1995-10-17T19:53:50.808Z\",\n        \"signInMethod\": \"EMAIL\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"modifiedBy\": {\n        \"id\": 9537,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 5230,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1993-08-06T23:30:47.269Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 8042,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1968-07-17T22:16:24.795Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"2013-09-02T00:13:02.114Z\",\n      \"modiDate\": \"1981-11-05T22:18:08.241Z\",\n      \"id\": \"string\",\n      \"isMaster\": true,\n      \"tableId\": \"string\",\n      \"position\": 1568.1376138429725,\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\",\n      \"filterOptions\": \"string\",\n      \"groupOptions\": [\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\"\n        },\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\"\n        }\n      ],\n      \"sortOptions\": [\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\",\n          \"columnNameWithOutQuotes\": \"<string>\",\n          \"valueOrder\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\",\n          \"columnNameWithOutQuotes\": \"<string>\",\n          \"valueOrder\": [\n            \"<string>\"\n          ]\n        }\n      ],\n      \"uiMetadata\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"filterParams\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      },\n      \"whereClause\": \"string\",\n      \"query\": \"string\",\n      \"tableName\": \"string\"\n    },\n    {\n      \"createdBy\": {\n        \"id\": 3858,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 4482,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"2008-05-30T10:48:38.343Z\",\n        \"mfaEnabled\": true,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 6463,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"2019-12-12T05:11:10.982Z\",\n        \"signInMethod\": \"MICROSOFT\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"modifiedBy\": {\n        \"id\": 9691,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 1371,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1993-10-19T20:03:01.237Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 6171,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1994-11-14T02:13:39.330Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"1987-09-19T10:48:49.744Z\",\n      \"modiDate\": \"1977-07-08T15:23:57.294Z\",\n      \"id\": \"string\",\n      \"isMaster\": false,\n      \"tableId\": \"string\",\n      \"position\": 4104.946211220368,\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\",\n      \"filterOptions\": \"string\",\n      \"groupOptions\": [\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\"\n        },\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\"\n        }\n      ],\n      \"sortOptions\": [\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\",\n          \"columnNameWithOutQuotes\": \"<string>\",\n          \"valueOrder\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"columnId\": \"<string>\",\n          \"direction\": \"<string>\",\n          \"columnName\": \"<string>\",\n          \"columnNameWithOutQuotes\": \"<string>\",\n          \"valueOrder\": [\n            \"<string>\"\n          ]\n        }\n      ],\n      \"uiMetadata\": {\n        \"key_0\": {}\n      },\n      \"filterParams\": {\n        \"key_0\": {}\n      },\n      \"whereClause\": \"string\",\n      \"query\": \"string\",\n      \"tableName\": \"string\"\n    }\n  ],\n  \"latestVersion\": {\n    \"createdBy\": {\n      \"id\": 1866,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 6458,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1977-11-15T08:08:45.425Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 8767,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1975-05-23T01:30:38.814Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"modifiedBy\": {\n      \"id\": 8186,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 8856,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1977-11-01T05:21:54.045Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": false,\n      \"tokenExpiryTime\": 1091,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1953-04-10T11:45:58.404Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"createDate\": \"1977-08-31T13:15:30.988Z\",\n    \"modiDate\": \"1997-01-22T08:37:09.719Z\",\n    \"id\": 2615,\n    \"name\": \"string\",\n    \"dagRunId\": 6488,\n    \"description\": \"string\",\n    \"isDefaultVersion\": true,\n    \"parameters\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06d9fe85-c617-46fe-8241-bc4d80fccf68",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d7b4c73-469b-4304-b532-df958ae5859b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f20ac35-30b3-4ea7-802b-16d2a981ad91",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "890da969-4711-4193-bbd2-201c5dbe6720",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "684ca50b-1aa1-4cad-b5b1-4a66a07eb5e2",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e253b59-4521-4f36-a9f8-8f41b3801045",
+          "name": "get Table And Db Details",
+          "request": {
+            "name": "get Table And Db Details",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                "tables",
+                "internal",
+                ":token",
+                ":tableId",
+                "schema",
+                "db"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "398bbd56-943b-4396-bc9e-82187b3c516d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema",
+                    "db"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"table\": {\n    \"createdBy\": {\n      \"id\": 9990,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 5391,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1968-12-03T16:26:44.917Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 9332,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1987-10-04T16:14:30.623Z\",\n      \"signInMethod\": \"GOOGLE\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"modifiedBy\": {\n      \"id\": 6131,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 8427,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1989-02-13T12:59:44.205Z\",\n      \"mfaEnabled\": false,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 3907,\n      \"isServiceAccount\": true,\n      \"lastLogin\": \"2005-08-16T03:56:34.240Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": true,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": true\n    },\n    \"createDate\": \"1947-01-16T15:20:49.859Z\",\n    \"modiDate\": \"1958-04-25T23:29:57.511Z\",\n    \"id\": \"string\",\n    \"workspaceId\": \"string\",\n    \"position\": 1849.9530202481685,\n    \"tableName\": \"string\",\n    \"description\": \"string\",\n    \"tableType\": \"STATIC\",\n    \"materializedViewId\": 6826,\n    \"materializedViewQuery\": \"string\",\n    \"sourceType\": \"string\",\n    \"storageType\": \"string\",\n    \"columns\": [\n      {\n        \"name\": \"string\",\n        \"createdBy\": {\n          \"id\": 8734,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 4312,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"2019-02-04T16:47:37.212Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 7363,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"2011-01-03T17:54:50.927Z\",\n          \"signInMethod\": \"EMAIL\",\n          \"isOnboardingCompleted\": true,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"modifiedBy\": {\n          \"id\": 2949,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 6470,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1986-09-02T20:56:25.684Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": true,\n          \"tokenExpiryTime\": 8458,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"1975-09-16T22:11:18.656Z\",\n          \"signInMethod\": \"GOOGLE\",\n          \"isOnboardingCompleted\": true,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"createDate\": \"2025-12-19T17:41:49.288Z\",\n        \"modiDate\": \"2021-10-13T09:50:50.744Z\",\n        \"id\": \"string\",\n        \"uiDataType\": \"string\",\n        \"idType\": \"string\",\n        \"required\": true,\n        \"description\": \"string\",\n        \"formulaType\": \"string\",\n        \"formula\": \"string\",\n        \"backendDataType\": \"string\",\n        \"rawFormula\": \"string\",\n        \"status\": \"string\",\n        \"eventName\": \"string\",\n        \"errorMessage\": \"string\",\n        \"rowLevelFormula\": \"string\",\n        \"rowLevelFormulaWithParameter\": \"string\",\n        \"nestedFormula\": \"string\",\n        \"nestedFormulaWithParameter\": \"string\",\n        \"nestedRowLevelFormula\": \"string\",\n        \"nestedRowLevelFormulaWithParameter\": \"string\",\n        \"workspaceId\": \"string\",\n        \"isDataEditable\": false,\n        \"isMetaDataEditable\": false,\n        \"isEditable\": false,\n        \"isDataTypeEditable\": true,\n        \"isDeletable\": true,\n        \"isColumnLevelFormula\": true,\n        \"colOptions\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"uiMetadata\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"tableId\": \"string\",\n        \"requestId\": \"string\",\n        \"parameters\": [\n          {\n            \"id\": 6109,\n            \"workspaceId\": \"string\",\n            \"name\": \"string\",\n            \"key\": \"string\",\n            \"type\": \"NUMERIC\",\n            \"enumOptions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"defaultValue\": {},\n            \"createdAt\": \"2018-03-15T09:45:40.426Z\",\n            \"showByDefault\": true,\n            \"thirdPartyFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": 2287,\n            \"workspaceId\": \"string\",\n            \"name\": \"string\",\n            \"key\": \"string\",\n            \"type\": \"STATIC_ENUM\",\n            \"enumOptions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"defaultValue\": {},\n            \"createdAt\": \"2025-03-06T05:17:16.003Z\",\n            \"showByDefault\": true,\n            \"thirdPartyFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"parameterIds\": [\n          4150,\n          8898\n        ],\n        \"isBIFormula\": false,\n        \"isAudit\": true,\n        \"isEnriched\": true,\n        \"isDynamicFormula\": true,\n        \"isSystemGenerated\": true,\n        \"settings\": {\n          \"enableUserAddNotifications\": true,\n          \"aiSettings\": {\n            \"prompt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webAccess\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webAccessProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attachmentSettings\": {\n            \"templateKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateFileName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"outputFileName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sourceDatatype\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"createdBy\": {\n          \"id\": 1095,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 1830,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"2002-11-02T08:53:06.597Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 3043,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"1999-08-19T16:45:34.796Z\",\n          \"signInMethod\": \"GOOGLE\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"modifiedBy\": {\n          \"id\": 453,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 9636,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1957-03-29T01:49:16.256Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": true,\n          \"tokenExpiryTime\": 1478,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"2026-05-14T18:03:08.145Z\",\n          \"signInMethod\": \"EMAIL\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"createDate\": \"1995-01-27T00:46:46.306Z\",\n        \"modiDate\": \"1998-08-29T20:48:14.780Z\",\n        \"id\": \"string\",\n        \"uiDataType\": \"string\",\n        \"idType\": \"string\",\n        \"required\": false,\n        \"description\": \"string\",\n        \"formulaType\": \"string\",\n        \"formula\": \"string\",\n        \"backendDataType\": \"string\",\n        \"rawFormula\": \"string\",\n        \"status\": \"string\",\n        \"eventName\": \"string\",\n        \"errorMessage\": \"string\",\n        \"rowLevelFormula\": \"string\",\n        \"rowLevelFormulaWithParameter\": \"string\",\n        \"nestedFormula\": \"string\",\n        \"nestedFormulaWithParameter\": \"string\",\n        \"nestedRowLevelFormula\": \"string\",\n        \"nestedRowLevelFormulaWithParameter\": \"string\",\n        \"workspaceId\": \"string\",\n        \"isDataEditable\": true,\n        \"isMetaDataEditable\": false,\n        \"isEditable\": true,\n        \"isDataTypeEditable\": false,\n        \"isDeletable\": false,\n        \"isColumnLevelFormula\": false,\n        \"colOptions\": {\n          \"key_0\": {}\n        },\n        \"uiMetadata\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"tableId\": \"string\",\n        \"requestId\": \"string\",\n        \"parameters\": [\n          {\n            \"id\": 4671,\n            \"workspaceId\": \"string\",\n            \"name\": \"string\",\n            \"key\": \"string\",\n            \"type\": \"BOOLEAN\",\n            \"enumOptions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"defaultValue\": {},\n            \"createdAt\": \"1957-03-30T07:40:07.542Z\",\n            \"showByDefault\": true,\n            \"thirdPartyFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": 9767,\n            \"workspaceId\": \"string\",\n            \"name\": \"string\",\n            \"key\": \"string\",\n            \"type\": \"DATETIME\",\n            \"enumOptions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"defaultValue\": {},\n            \"createdAt\": \"2014-09-17T07:12:44.694Z\",\n            \"showByDefault\": true,\n            \"thirdPartyFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"parameterIds\": [\n          9784,\n          5407\n        ],\n        \"isBIFormula\": true,\n        \"isAudit\": false,\n        \"isEnriched\": false,\n        \"isDynamicFormula\": true,\n        \"isSystemGenerated\": true,\n        \"settings\": {\n          \"enableUserAddNotifications\": false,\n          \"aiSettings\": {\n            \"prompt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webAccess\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webAccessProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attachmentSettings\": {\n            \"templateKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateFileName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"outputFileName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sourceDatatype\": \"string\"\n      }\n    ],\n    \"uiMetadata\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"requestId\": \"string\",\n    \"status\": \"string\",\n    \"connectionName\": \"string\",\n    \"systemTableName\": \"string\",\n    \"companyId\": 9511,\n    \"pipelineId\": 7870,\n    \"allowSwitchStorage\": true,\n    \"dataProvider\": \"BIGQUERY\",\n    \"primaryKeyColumnName\": \"string\",\n    \"lastSyncTime\": \"2003-12-15T04:10:27.317Z\",\n    \"deleteGuard\": false,\n    \"parentId\": \"string\",\n    \"isMigrationDone\": false,\n    \"sparkConnectionName\": \"string\",\n    \"warehouseConnectionName\": \"string\",\n    \"datasourceIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"doesCopyExists\": false,\n    \"lastMilePipelineId\": 1419,\n    \"positionKeyColumnName\": \"string\",\n    \"isAthenaEnabled\": false,\n    \"isCloudBigQueryEnabled\": false,\n    \"title\": \"string\",\n    \"isBIWorkbook\": true,\n    \"isSystemGenerated\": true,\n    \"joinColumnNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"foreignKeyColumnName\": \"string\",\n    \"joinTableName\": \"string\",\n    \"s3Uri\": \"string\",\n    \"joinRequest\": {\n      \"workspaceId\": \"string\",\n      \"name\": \"string\",\n      \"primaryTableId\": \"string\",\n      \"joinConditions\": [\n        {\n          \"targetTableId\": \"string\",\n          \"joinConditionExpression\": \"string\",\n          \"uiMetadata\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"selectedColumnIds\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"targetTableId\": \"string\",\n          \"joinConditionExpression\": \"string\",\n          \"uiMetadata\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"selectedColumnIds\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"internalTableType\": \"EXTRACTION\",\n    \"tableSizeBytes\": 2030,\n    \"sourceQueryEngine\": \"ATHENA\",\n    \"tenantConfig\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"parameterKeys\": [\n      \"string\"\n    ],\n    \"versions\": [\n      {\n        \"createdBy\": {\n          \"id\": 3558,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 7240,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1951-10-18T08:52:09.909Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 3681,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"1997-11-07T01:13:52.688Z\",\n          \"signInMethod\": \"MICROSOFT\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"modifiedBy\": {\n          \"id\": 1059,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 4368,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1976-11-23T23:43:07.262Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 6161,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"1966-04-17T05:13:39.010Z\",\n          \"signInMethod\": \"MICROSOFT\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"createDate\": \"1979-08-13T02:58:49.277Z\",\n        \"modiDate\": \"2009-08-12T05:44:01.390Z\",\n        \"id\": 2107,\n        \"name\": \"string\",\n        \"dagRunId\": 7545,\n        \"description\": \"string\",\n        \"isDefaultVersion\": true,\n        \"parameters\": {\n          \"key_0\": {}\n        }\n      },\n      {\n        \"createdBy\": {\n          \"id\": 7858,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 5042,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1953-05-25T05:29:37.879Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 47,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"2025-07-09T00:32:48.056Z\",\n          \"signInMethod\": \"MICROSOFT\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"modifiedBy\": {\n          \"id\": 740,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 8403,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"2014-12-23T00:21:05.748Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 7081,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"1980-01-17T21:13:52.497Z\",\n          \"signInMethod\": \"EMAIL\",\n          \"isOnboardingCompleted\": true,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"createDate\": \"1954-11-10T13:39:22.745Z\",\n        \"modiDate\": \"2026-05-31T08:07:27.718Z\",\n        \"id\": 4403,\n        \"name\": \"string\",\n        \"dagRunId\": 4264,\n        \"description\": \"string\",\n        \"isDefaultVersion\": true,\n        \"parameters\": {\n          \"key_0\": {}\n        }\n      }\n    ],\n    \"showVersions\": true,\n    \"views\": [\n      {\n        \"createdBy\": {\n          \"id\": 6351,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 501,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1963-07-21T00:42:25.352Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": true,\n          \"tokenExpiryTime\": 7924,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"2000-01-05T08:10:29.876Z\",\n          \"signInMethod\": \"GOOGLE\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"modifiedBy\": {\n          \"id\": 2204,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 2356,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"2000-12-04T10:15:05.563Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 8249,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"1981-11-08T15:04:35.628Z\",\n          \"signInMethod\": \"EMAIL\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"createDate\": \"2005-06-29T20:35:48.151Z\",\n        \"modiDate\": \"1996-01-17T12:38:23.738Z\",\n        \"id\": \"string\",\n        \"isMaster\": true,\n        \"tableId\": \"string\",\n        \"position\": 8482.460430250474,\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"description\": \"string\",\n        \"filterOptions\": null,\n        \"groupOptions\": [\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\"\n          },\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\"\n          }\n        ],\n        \"sortOptions\": [\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\",\n            \"columnNameWithOutQuotes\": \"<string>\",\n            \"valueOrder\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\",\n            \"columnNameWithOutQuotes\": \"<string>\",\n            \"valueOrder\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"uiMetadata\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"filterParams\": {\n          \"key_0\": {}\n        },\n        \"whereClause\": \"string\",\n        \"query\": \"string\",\n        \"tableName\": \"string\"\n      },\n      {\n        \"createdBy\": {\n          \"id\": 5115,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 8619,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1997-12-26T23:48:10.510Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 8821,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"1982-06-14T16:16:23.815Z\",\n          \"signInMethod\": \"MICROSOFT\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"modifiedBy\": {\n          \"id\": 7876,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 6018,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1989-04-18T14:13:59.255Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": true,\n          \"tokenExpiryTime\": 9353,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"1999-06-26T21:31:02.308Z\",\n          \"signInMethod\": \"GOOGLE\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": false\n        },\n        \"createDate\": \"2006-10-19T17:29:24.032Z\",\n        \"modiDate\": \"2013-12-30T03:02:31.944Z\",\n        \"id\": \"string\",\n        \"isMaster\": false,\n        \"tableId\": \"string\",\n        \"position\": 8455.158508835599,\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"description\": \"string\",\n        \"filterOptions\": {},\n        \"groupOptions\": [\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\"\n          },\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\"\n          }\n        ],\n        \"sortOptions\": [\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\",\n            \"columnNameWithOutQuotes\": \"<string>\",\n            \"valueOrder\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"columnId\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"columnName\": \"<string>\",\n            \"columnNameWithOutQuotes\": \"<string>\",\n            \"valueOrder\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"uiMetadata\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"filterParams\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"whereClause\": \"string\",\n        \"query\": \"string\",\n        \"tableName\": \"string\"\n      }\n    ],\n    \"latestVersion\": {\n      \"createdBy\": {\n        \"id\": 1565,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 6483,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1988-01-02T05:28:45.233Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 7537,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1951-01-03T15:09:58.278Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": true,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": true\n      },\n      \"modifiedBy\": {\n        \"id\": 9097,\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"email\": \"string\",\n        \"companyName\": \"string\",\n        \"companyId\": 971,\n        \"status\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"permissions\": [\n          \"string\"\n        ],\n        \"joinDate\": \"1972-07-28T20:02:20.020Z\",\n        \"mfaEnabled\": false,\n        \"redirectToMfaFlow\": true,\n        \"tokenExpiryTime\": 3167,\n        \"isServiceAccount\": false,\n        \"lastLogin\": \"1999-07-07T14:45:25.303Z\",\n        \"signInMethod\": \"GOOGLE\",\n        \"isOnboardingCompleted\": false,\n        \"role\": \"string\",\n        \"department\": \"string\",\n        \"anonymousUserId\": \"string\",\n        \"thirdPartyUser\": false\n      },\n      \"createDate\": \"1988-01-05T19:33:26.538Z\",\n      \"modiDate\": \"1999-04-23T19:32:06.587Z\",\n      \"id\": 3867,\n      \"name\": \"string\",\n      \"dagRunId\": 5595,\n      \"description\": \"string\",\n      \"isDefaultVersion\": true,\n      \"parameters\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"dataSource\": {\n    \"id\": 9523,\n    \"name\": \"string\",\n    \"properties\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"username\": \"string\",\n    \"password\": \"string\",\n    \"driverName\": \"string\",\n    \"type\": \"WAREHOUSE\",\n    \"subType\": \"FOLDER\",\n    \"tables\": [\n      {\n        \"createdBy\": {\n          \"id\": 98,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 1735,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1961-01-03T19:40:30.959Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": true,\n          \"tokenExpiryTime\": 4010,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"1976-10-21T10:20:09.497Z\",\n          \"signInMethod\": \"EMAIL\",\n          \"isOnboardingCompleted\": true,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"modifiedBy\": {\n          \"id\": 4519,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 7527,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1979-06-28T15:56:52.021Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 694,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"1981-02-25T06:53:22.302Z\",\n          \"signInMethod\": \"GOOGLE\",\n          \"isOnboardingCompleted\": false,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"createDate\": \"1982-04-15T15:47:14.399Z\",\n        \"modiDate\": \"1992-10-15T19:34:15.983Z\",\n        \"id\": 9903,\n        \"name\": \"string\",\n        \"dataSourceId\": 7913,\n        \"owner\": \"string\",\n        \"alias\": \"string\",\n        \"namespace\": \"string\",\n        \"dataSourceName\": \"string\",\n        \"qualifiedName\": \"string\",\n        \"description\": \"string\",\n        \"columns\": [\n          {\n            \"id\": 3005,\n            \"name\": \"string\",\n            \"table\": {\n              \"value\": \"<Circular reference to #/components/schemas/DataSourceTableDTO detected>\"\n            },\n            \"dataType\": \"string\",\n            \"qualifiedName\": \"string\",\n            \"description\": \"string\",\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"tableId\": 1069,\n            \"datasourceId\": 6941,\n            \"isPartitionCol\": false,\n            \"partitionColSize\": 6934,\n            \"isUniqueCol\": false,\n            \"sourceDataType\": \"string\"\n          },\n          {\n            \"id\": 9405,\n            \"name\": \"string\",\n            \"table\": {\n              \"value\": \"<Circular reference to #/components/schemas/DataSourceTableDTO detected>\"\n            },\n            \"dataType\": \"string\",\n            \"qualifiedName\": \"string\",\n            \"description\": \"string\",\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"tableId\": 520,\n            \"datasourceId\": 5628,\n            \"isPartitionCol\": true,\n            \"partitionColSize\": 1854,\n            \"isUniqueCol\": false,\n            \"sourceDataType\": \"string\"\n          }\n        ],\n        \"annotations\": [\n          {\n            \"id\": 5589,\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"type\": \"GLOSSARY_TERM\",\n            \"parentAnnotationId\": 9105,\n            \"companyId\": 6935,\n            \"uiMetadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": 5817,\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"type\": \"CLASSIFICATION\",\n            \"parentAnnotationId\": 3322,\n            \"companyId\": 1668,\n            \"uiMetadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"owners\": [\n          5442,\n          6847\n        ],\n        \"files\": [\n          {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": \"1992-06-17T23:45:51.163Z\",\n            \"modiDate\": \"1977-09-04T22:49:13.682Z\",\n            \"id\": 4035,\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"tableId\": 4820,\n            \"datasourceId\": 5381,\n            \"byteSize\": 4397\n          },\n          {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": \"2009-11-07T16:56:54.895Z\",\n            \"modiDate\": \"1957-05-02T07:48:12.600Z\",\n            \"id\": 3966,\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"tableId\": 5249,\n            \"datasourceId\": 8197,\n            \"byteSize\": 3327\n          }\n        ],\n        \"workbookId\": \"string\"\n      },\n      {\n        \"createdBy\": {\n          \"id\": 1507,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 3440,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"1960-09-16T21:49:02.130Z\",\n          \"mfaEnabled\": true,\n          \"redirectToMfaFlow\": true,\n          \"tokenExpiryTime\": 8322,\n          \"isServiceAccount\": false,\n          \"lastLogin\": \"2008-12-23T20:19:12.512Z\",\n          \"signInMethod\": \"GOOGLE\",\n          \"isOnboardingCompleted\": true,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"modifiedBy\": {\n          \"id\": 5412,\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"email\": \"string\",\n          \"companyName\": \"string\",\n          \"companyId\": 3333,\n          \"status\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"permissions\": [\n            \"string\"\n          ],\n          \"joinDate\": \"2021-12-19T15:31:06.269Z\",\n          \"mfaEnabled\": false,\n          \"redirectToMfaFlow\": false,\n          \"tokenExpiryTime\": 799,\n          \"isServiceAccount\": true,\n          \"lastLogin\": \"2026-01-16T23:35:18.234Z\",\n          \"signInMethod\": \"EMAIL\",\n          \"isOnboardingCompleted\": true,\n          \"role\": \"string\",\n          \"department\": \"string\",\n          \"anonymousUserId\": \"string\",\n          \"thirdPartyUser\": true\n        },\n        \"createDate\": \"2016-02-29T17:30:59.681Z\",\n        \"modiDate\": \"1986-11-08T20:37:23.391Z\",\n        \"id\": 8501,\n        \"name\": \"string\",\n        \"dataSourceId\": 3949,\n        \"owner\": \"string\",\n        \"alias\": \"string\",\n        \"namespace\": \"string\",\n        \"dataSourceName\": \"string\",\n        \"qualifiedName\": \"string\",\n        \"description\": \"string\",\n        \"columns\": [\n          {\n            \"id\": 8695,\n            \"name\": \"string\",\n            \"table\": {\n              \"value\": \"<Circular reference to #/components/schemas/DataSourceTableDTO detected>\"\n            },\n            \"dataType\": \"string\",\n            \"qualifiedName\": \"string\",\n            \"description\": \"string\",\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"tableId\": 1655,\n            \"datasourceId\": 2921,\n            \"isPartitionCol\": false,\n            \"partitionColSize\": 5440,\n            \"isUniqueCol\": false,\n            \"sourceDataType\": \"string\"\n          },\n          {\n            \"id\": 1477,\n            \"name\": \"string\",\n            \"table\": {\n              \"value\": \"<Circular reference to #/components/schemas/DataSourceTableDTO detected>\"\n            },\n            \"dataType\": \"string\",\n            \"qualifiedName\": \"string\",\n            \"description\": \"string\",\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"tableId\": 8329,\n            \"datasourceId\": 4791,\n            \"isPartitionCol\": false,\n            \"partitionColSize\": 9051,\n            \"isUniqueCol\": false,\n            \"sourceDataType\": \"string\"\n          }\n        ],\n        \"annotations\": [\n          {\n            \"id\": 2214,\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"type\": \"TERM\",\n            \"parentAnnotationId\": 562,\n            \"companyId\": 7982,\n            \"uiMetadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_3\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": 1311,\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"type\": \"CLASSIFICATION\",\n            \"parentAnnotationId\": 8411,\n            \"companyId\": 2471,\n            \"uiMetadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"owners\": [\n          2539,\n          4672\n        ],\n        \"files\": [\n          {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": \"1988-07-08T16:54:43.342Z\",\n            \"modiDate\": \"1991-04-06T18:54:12.898Z\",\n            \"id\": 138,\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"tableId\": 3092,\n            \"datasourceId\": 1516,\n            \"byteSize\": 4163\n          },\n          {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": \"2017-01-19T17:01:07.867Z\",\n            \"modiDate\": \"2020-09-07T01:12:10.687Z\",\n            \"id\": 8616,\n            \"name\": \"string\",\n            \"type\": \"string\",\n            \"tableId\": 630,\n            \"datasourceId\": 8642,\n            \"byteSize\": 6267\n          }\n        ],\n        \"workbookId\": \"string\"\n      }\n    ],\n    \"wareHouseInfo\": {\n      \"parentDataSourceId\": 2621,\n      \"type\": \"DERIVED\"\n    },\n    \"createdBy\": {\n      \"id\": 7267,\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"email\": \"string\",\n      \"companyName\": \"string\",\n      \"companyId\": 743,\n      \"status\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\"\n      ],\n      \"joinDate\": \"1953-10-16T01:17:17.806Z\",\n      \"mfaEnabled\": true,\n      \"redirectToMfaFlow\": true,\n      \"tokenExpiryTime\": 2048,\n      \"isServiceAccount\": false,\n      \"lastLogin\": \"1969-10-18T05:58:43.582Z\",\n      \"signInMethod\": \"EMAIL\",\n      \"isOnboardingCompleted\": false,\n      \"role\": \"string\",\n      \"department\": \"string\",\n      \"anonymousUserId\": \"string\",\n      \"thirdPartyUser\": false\n    },\n    \"createdAt\": \"1997-06-06T19:23:02.953Z\",\n    \"companyId\": 8473,\n    \"isMvDataSource\": false,\n    \"caseSensitive\": false,\n    \"lastSyncedAt\": \"1967-07-02T08:09:22.017Z\",\n    \"lastSyncStatus\": \"string\",\n    \"thirdPartyDataSourceId\": \"string\",\n    \"format\": \"PARQUET\",\n    \"description\": \"string\",\n    \"schemaInfo\": {\n      \"id\": 7088,\n      \"dataSourceId\": 4050,\n      \"data\": {\n        \"schemas\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"catalogName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"catalogName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"catalogs\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"tables\": [\n          {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modiDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"materializedViewId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"materializedViewQuery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storageType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"columns\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiMetadata\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"connectionName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"systemTableName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"companyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pipelineId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowSwitchStorage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primaryKeyColumnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSyncTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleteGuard\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMigrationDone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sparkConnectionName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"warehouseConnectionName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"datasourceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"doesCopyExists\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastMilePipelineId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positionKeyColumnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isAthenaEnabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isCloudBigQueryEnabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isBIWorkbook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isSystemGenerated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"joinColumnNames\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"foreignKeyColumnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"joinTableName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"s3Uri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"joinRequest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"internalTableType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableSizeBytes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceQueryEngine\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenantConfig\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameterKeys\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"versions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"showVersions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"views\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latestVersion\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modiDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"materializedViewId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"materializedViewQuery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storageType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"columns\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiMetadata\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"connectionName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"systemTableName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"companyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pipelineId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowSwitchStorage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"primaryKeyColumnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSyncTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleteGuard\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parentId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMigrationDone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sparkConnectionName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"warehouseConnectionName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"datasourceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"doesCopyExists\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastMilePipelineId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positionKeyColumnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isAthenaEnabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isCloudBigQueryEnabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isBIWorkbook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isSystemGenerated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"joinColumnNames\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"foreignKeyColumnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"joinTableName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"s3Uri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"joinRequest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"internalTableType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableSizeBytes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceQueryEngine\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenantConfig\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameterKeys\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"versions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"showVersions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"views\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latestVersion\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"foreignKeys\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"columns\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"columns\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"indexes\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nonUnique\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"qualifier\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ordinalPosition\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"columnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sortSequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardinality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filterCondition\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nonUnique\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"qualifier\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ordinalPosition\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"columnName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sortSequence\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardinality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filterCondition\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"columns\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modiDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiDataType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"idType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"required\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"formulaType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"formula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"backendDataType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rawFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eventName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"errorMessage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rowLevelFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rowLevelFormulaWithParameter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedFormulaWithParameter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedRowLevelFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedRowLevelFormulaWithParameter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDataEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetaDataEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDataTypeEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDeletable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isColumnLevelFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colOptions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiMetadata\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameterIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isBIFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isAudit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isEnriched\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDynamicFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isSystemGenerated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"settings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceDatatype\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modifiedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"modiDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiDataType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"idType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"required\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"formulaType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"formula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"backendDataType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rawFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eventName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"errorMessage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rowLevelFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rowLevelFormulaWithParameter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedFormulaWithParameter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedRowLevelFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nestedRowLevelFormulaWithParameter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDataEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetaDataEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDataTypeEditable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDeletable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isColumnLevelFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colOptions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiMetadata\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tableId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requestId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameterIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isBIFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isAudit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isEnriched\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isDynamicFormula\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isSystemGenerated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"settings\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceDatatype\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"hash\": \"string\",\n      \"lastSyncedAt\": \"1960-04-21T22:27:14.342Z\"\n    },\n    \"meta\": {\n      \"key_0\": {}\n    },\n    \"storageType\": \"GCS\",\n    \"schema\": \"string\",\n    \"warehouse\": true,\n    \"connCatalog\": \"string\",\n    \"connSchema\": \"string\"\n  },\n  \"selectQuery\": \"string\",\n  \"tableSizeBytes\": 7939\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "abf5f1a6-fa58-4e29-b638-f5b0d951bc3d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema",
+                    "db"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4258d4b4-86c3-47ad-8f35-0fe0558c684c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema",
+                    "db"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00cc92a1-6e89-4546-a201-cd940a88495b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema",
+                    "db"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aec846b8-5c13-4bb3-b33e-77be1b387762",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema",
+                    "db"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f810e417-962f-4ce8-a324-9f5073bb002b",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "schema",
+                    "db"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "124b601d-26f5-4711-9401-2a0bf19e9a61",
+          "name": "download CSV 1",
+          "request": {
+            "name": "download CSV 1",
+            "description": {},
+            "url": {
+              "path": [
+                "noCo",
+                "api",
+                "v1",
+                "tables",
+                "internal",
+                ":token",
+                ":tableId",
+                "downloadCSV"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bac923e-1ee5-43d1-9873-e4cc2f7ba5bf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "downloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ea5c98d-7f5d-4a2f-954b-d4ecffc52af9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "downloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb09f461-cc6c-40b3-bb5c-cfb2854bba87",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "downloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "186112b5-ba4f-4371-971f-5b4939cbc1ed",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "downloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02a0a6bc-f099-43ea-95a3-d760a3b71405",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "downloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42f1dfee-0291-4009-bc48-159a92bd10af",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "noCo",
+                    "api",
+                    "v1",
+                    "tables",
+                    "internal",
+                    ":token",
+                    ":tableId",
+                    "downloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"version\": \"string\",\n  \"date\": \"1960-02-11T12:10:58.508Z\",\n  \"error\": {\n    \"statusCode\": 8724,\n    \"requestId\": \"string\",\n    \"message\": {},\n    \"details\": {},\n    \"errorCodes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://datagol-be.events.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a1804d0b-ec7e-4324-81d3-ed73ff06086c",
+    "name": "Saasxl-api doc Internal Table Controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

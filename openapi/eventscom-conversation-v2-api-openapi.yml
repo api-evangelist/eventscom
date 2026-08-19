@@ -1,0 +1,451 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Conversation V2 API
+  version: 1.0.36
+tags:
+- name: Conversation V2
+paths:
+  /ai/api/v2/conversations:
+    post:
+      tags:
+      - Conversation V2
+      summary: Create Conversation
+      operationId: create_conversation_ai_api_v2_conversations_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateConversation'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateConversationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - Conversation V2
+      summary: Get All Conversations By User Element
+      description: Get the conversations by userId, elementType, and elementId.
+      operationId: get_all_conversations_by_user_element_ai_api_v2_conversations_get
+      parameters:
+      - name: elementType
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+          title: Elementtype
+        description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+      - name: elementId
+        in: query
+        required: false
+        schema:
+          type: string
+          description: ID of the element.
+          title: Elementid
+        description: ID of the element.
+      - name: secondaryElementType
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Type of secondary element where the conversation is being created. WORKBOOK, WORKSPACE,
+            etc.
+          title: Secondaryelementtype
+        description: Type of secondary element where the conversation is being created. WORKBOOK, WORKSPACE,
+          etc.
+      - name: secondaryElementId
+        in: query
+        required: false
+        schema:
+          type: string
+          description: ID of the secondary element.
+          title: Secondaryelementid
+        description: ID of the secondary element.
+      - name: agentType
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: 'Optional list of agent types. Pass multiple: ?agentType=A&agentType=B'
+          title: Agenttype
+        description: 'Optional list of agent types. Pass multiple: ?agentType=A&agentType=B'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreateConversationResponse'
+                title: Response Get All Conversations By User Element Ai Api V2 Conversations Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - Conversation V2
+      summary: Update Conversation
+      operationId: update_conversation_ai_api_v2_conversations_put
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateConversation'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateConversationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversations/{conversation_id}:
+    get:
+      tags:
+      - Conversation V2
+      summary: Get Conversation By Id
+      description: Get a specific conversation by its ID.
+      operationId: get_conversation_by_id_ai_api_v2_conversations__conversation_id__get
+      deprecated: true
+      parameters:
+      - name: conversation_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateConversationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - Conversation V2
+      summary: Delete
+      operationId: delete_ai_api_v2_conversations__conversation_id__delete
+      parameters:
+      - name: conversation_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomMessageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    CustomMessageResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Message from backend service.
+      type: object
+      required:
+      - message
+      title: CustomMessageResponse
+    UpdateConversation:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: ID of the conversation.
+        name:
+          type: string
+          title: Name
+          description: Name of the new conversation.
+        userId:
+          type: integer
+          title: Userid
+          description: User ID of the creator.
+        scope:
+          type: string
+          title: Scope
+          description: Scope of the conversation. By default it will be initialized to PRIVATE.
+          default: PRIVATE
+        elementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Elementtype
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+        elementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Elementid
+          description: ID of the element.
+        secondaryElementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secondaryelementtype
+          description: Secondary element type used when the conversation relates to another entity.
+        secondaryElementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Secondaryelementid
+          description: Secondary element ID associated with the nested or linked entity.
+        createdOn:
+          type: string
+          format: date-time
+          title: Createdon
+          description: Timestamp of the conversation creation.
+        active:
+          type: boolean
+          title: Active
+          description: Conversation active boolean
+        uiMetadata:
+          additionalProperties: true
+          type: object
+          title: Uimetadata
+          description: UI metadata of the conversation
+          default: {}
+      type: object
+      required:
+      - id
+      - name
+      - userId
+      - createdOn
+      - active
+      title: UpdateConversation
+    CreateConversationResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: ID of the conversation created.
+        name:
+          type: string
+          title: Name
+          description: Name of the thread or conversation
+        userId:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Userid
+          description: User ID of the user who created the conversation
+        anonymousUserId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Anonymoususerid
+          description: Anonymous User ID of the user who created the conversation
+        scope:
+          type: string
+          title: Scope
+          description: The scope of the conversation. Default - PRIVATE
+        elementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Elementtype
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+        elementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Elementid
+          description: ID of the element.
+        secondaryElementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secondaryelementtype
+          description: Secondary element type used when the conversation relates to another entity.
+        secondaryElementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Secondaryelementid
+          description: Secondary element ID associated with the nested or linked entity.
+        agentType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agenttype
+          description: Type of agent. RAG, DCA, etc.
+        createdOn:
+          type: string
+          format: date-time
+          title: Createdon
+          description: Timestamp of the conversation creation.
+        active:
+          type: boolean
+          title: Active
+          description: Conversation active boolean
+        uiMetadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Uimetadata
+          description: UI metadata of the conversation
+        shared:
+          type: boolean
+          title: Shared
+          description: If the conversation is shared or not
+          default: false
+        permission:
+          additionalProperties: true
+          type: object
+          title: Permission
+          description: Permission of the conversation
+      type: object
+      required:
+      - id
+      - name
+      - scope
+      - createdOn
+      - active
+      title: CreateConversationResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    CreateConversation:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: ID of the conversation
+        name:
+          type: string
+          title: Name
+          description: Name of the thread or conversation
+        userId:
+          type: integer
+          title: Userid
+          description: User ID of the user who created the conversation
+        scope:
+          type: string
+          title: Scope
+          description: The scope of the conversation. Default - PRIVATE
+        elementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Elementtype
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+        elementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Elementid
+          description: ID of the element.
+        secondaryElementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secondaryelementtype
+          description: Secondary element type used when the conversation relates to another entity.
+        secondaryElementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Secondaryelementid
+          description: Secondary element ID associated with the nested or linked entity.
+        agentType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agenttype
+          description: Type of agent. RAG, DCA, etc.
+        active:
+          type: boolean
+          title: Active
+          description: Conversation active boolean
+        uiMetadata:
+          additionalProperties: true
+          type: object
+          title: Uimetadata
+          description: UI metadata of the conversation
+          default: {}
+      type: object
+      required:
+      - name
+      - scope
+      - active
+      title: CreateConversation

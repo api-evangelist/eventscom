@@ -1,0 +1,177 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc KB Internal API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KB Internal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Structured metadata query on kb_records (no auth)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/internal/:token/connectors/:connectorId/metadata/query",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Executes a structured query on kb_records scoped to the given connector. Supports filters, groupBy, aggregations, ordering, and pagination. No raw SQL — all fields are whitelisted."
+        },
+        {
+          "info": {
+            "name": "Bulk-resolve connector metadata + Qdrant field schema (no auth)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/internal/:token/connectors/metadata",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk-resolve connector metadata + Qdrant field schema (no auth)"
+        },
+        {
+          "info": {
+            "name": "Bulk-resolve connector metadata by sourceIds + type (no auth)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/internal/:token/connectors/metadata/bySource",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts a list of sourceIds (e.g. workspace IDs) and a connector type. Returns the same ConnectorMetaDTO shape as /connectors/metadata."
+        },
+        {
+          "info": {
+            "name": "Workbook semantic search by type and sourceId (no auth)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/kb/api/v1/internal/:token/connector/workbook/search",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Workbook semantic search by type and sourceId (no auth)"
+        },
+        {
+          "info": {
+            "name": "Resolve connectorId → Qdrant collection name (no auth)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/internal/:token/connectors/:connectorId/collection",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resolve connectorId → Qdrant collection name (no auth)"
+        },
+        {
+          "info": {
+            "name": "Get a KB connector by type and sourceId (no auth)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/kb/api/v1/internal/:token/connector",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a KB connector by type and sourceId (no auth)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

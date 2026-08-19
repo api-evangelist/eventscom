@@ -1,0 +1,214 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Alert History API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alert History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get alert statistics for company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/statistics",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve alert execution statistics for the user's company"
+        },
+        {
+          "info": {
+            "name": "Get alert history for company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/company",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve all alert execution history for the user's company"
+        },
+        {
+          "info": {
+            "name": "Get paginated alert history for company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/company/paginated",
+            "params": [
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query",
+                "description": "Pagination parameters"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve paginated alert execution history for the user's company"
+        },
+        {
+          "info": {
+            "name": "Count triggered alerts for company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/company/count/triggered",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the count of triggered alerts for the user's company"
+        },
+        {
+          "info": {
+            "name": "Get alert history for a specific alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/alert/:alertId",
+            "params": [
+              {
+                "name": "alertId",
+                "value": "",
+                "type": "path",
+                "description": "Alert ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve all execution history for a specific alert"
+        },
+        {
+          "info": {
+            "name": "Delete alert history for specific alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/alert/:alertId",
+            "params": [
+              {
+                "name": "alertId",
+                "value": "",
+                "type": "path",
+                "description": "Alert ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete all execution history for a specific alert"
+        },
+        {
+          "info": {
+            "name": "Get triggered alerts for a specific alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/alert/:alertId/triggered",
+            "params": [
+              {
+                "name": "alertId",
+                "value": "",
+                "type": "path",
+                "description": "Alert ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve only triggered alert executions for a specific alert"
+        },
+        {
+          "info": {
+            "name": "Get paginated alert history for a specific alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/alert/:alertId/paginated",
+            "params": [
+              {
+                "name": "alertId",
+                "value": "",
+                "type": "path",
+                "description": "Alert ID"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query",
+                "description": "Pagination parameters"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve paginated execution history for a specific alert"
+        },
+        {
+          "info": {
+            "name": "Clean up old alert history",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/alerts/history/api/v1/cleanup",
+            "params": [
+              {
+                "name": "beforeDate",
+                "value": "",
+                "type": "query",
+                "description": "Before date (ISO format)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete alert history entries older than the specified date"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,987 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Work Flow Controller API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: work-flow-controller
+paths:
+  /workflow/api/v1/{id}:
+    get:
+      tags:
+      - work-flow-controller
+      operationId: getWfById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkFlowDTO'
+      deprecated: true
+    put:
+      tags:
+      - work-flow-controller
+      operationId: updateWf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkFlowDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkFlowDTO'
+      deprecated: true
+    delete:
+      tags:
+      - work-flow-controller
+      operationId: deleteWfById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      deprecated: true
+  /workflow/api/v1:
+    post:
+      tags:
+      - work-flow-controller
+      operationId: createWf
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkFlowDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkFlowDTO'
+      deprecated: true
+  /workflow/api/v1/trigger:
+    post:
+      tags:
+      - work-flow-controller
+      operationId: triggerWf
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TriggerDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      deprecated: true
+  /workflow/api/v1/sns/webhook:
+    post:
+      tags:
+      - work-flow-controller
+      operationId: listenToSNSMessages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+      deprecated: true
+  /workflow/api/v1/run:
+    post:
+      tags:
+      - work-flow-controller
+      operationId: executeWorkFlow
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkFlowDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkFlowResponseDTO'
+      deprecated: true
+  /workflow/api/v1/status/{requestId}:
+    get:
+      tags:
+      - work-flow-controller
+      operationId: getByRequestId
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOWorkFlowExecutionDTO'
+      deprecated: true
+  /workflow/api/v1/history:
+    get:
+      tags:
+      - work-flow-controller
+      operationId: getUserWorkFlowHistoryByUserId
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOUserWorkFlowHistoryDTO'
+      deprecated: true
+  /workflow/api/v1/history/company:
+    get:
+      tags:
+      - work-flow-controller
+      operationId: getCompanyWorkFlowHistoryByUserId
+      parameters:
+      - name: companyId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOUserWorkFlowHistoryDTO'
+      deprecated: true
+  /workflow/api/v1/dataTypeOperation:
+    get:
+      tags:
+      - work-flow-controller
+      operationId: getDataTypeOperationMapping
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+      deprecated: true
+components:
+  schemas:
+    SaasxlResponseDTOWorkFlowResponseDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkFlowResponseDTO'
+    TriggerDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        tableId:
+          type: string
+        tableName:
+          type: string
+        data:
+          type: object
+        subscribeURL:
+          type: string
+    IFNodeContext:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+    CredentialDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - QUERY_PARAM
+          - BASIC_AUTH
+          - AUTHORIZATION
+          - ACCESS_TOKEN
+          - BEARER
+          - API_KEY
+          - OAUTH2
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/Config'
+    ConnectionDTO:
+      type: object
+      properties:
+        node:
+          type: string
+        nextNodes:
+          type: array
+          items:
+            type: string
+    WorkFlowNodeExecutionDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        startTimeInMillis:
+          type: integer
+          format: int64
+        endTimeInMillis:
+          type: integer
+          format: int64
+    WaitNodeContext:
+      type: object
+      properties:
+        waitTimeInSeconds:
+          type: integer
+          format: int64
+    SaasxlResponseDTOUserWorkFlowHistoryDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/UserWorkFlowHistoryDTO'
+    ConnectorInfoDTO:
+      type: object
+      properties:
+        baseUrl:
+          type: string
+        connectorType:
+          type: string
+        path:
+          type: string
+        method:
+          type: string
+        credential:
+          $ref: '#/components/schemas/CredentialDTO'
+        configJsFn:
+          type: string
+        contentType:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParametersDTO'
+    RuleDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    ParametersDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    WorkFlowExecutionDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        wfId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        requestId:
+          type: string
+        startTimeInMillis:
+          type: integer
+          format: int64
+        endTimeInMillis:
+          type: integer
+          format: int64
+        nodeExecutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkFlowNodeExecutionDTO'
+    Config:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    WorkFlowTriggerDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userWorkFlowId:
+          type: integer
+          format: int64
+        tableId:
+          type: string
+        tableName:
+          type: string
+        types:
+          type: array
+          items:
+            type: string
+        triggerName:
+          type: string
+        rule:
+          $ref: '#/components/schemas/RuleDTO'
+        columns:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOWorkFlowDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkFlowDTO'
+    WorkFlowResponseDTO:
+      type: object
+      properties:
+        requestId:
+          type: string
+    SaasxlResponseDTOWorkFlowExecutionDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkFlowExecutionDTO'
+    NodeDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        nodeType:
+          type: string
+        relationToPreviousNode:
+          type: string
+        rule:
+          $ref: '#/components/schemas/RuleDTO'
+        ifNodeContext:
+          $ref: '#/components/schemas/IFNodeContext'
+        triggerNodeContext:
+          $ref: '#/components/schemas/WorkFlowTriggerDTO'
+        waitNodeContext:
+          $ref: '#/components/schemas/WaitNodeContext'
+        connectorInfo:
+          $ref: '#/components/schemas/ConnectorInfoDTO'
+        status:
+          type: string
+        startTimeInMillis:
+          type: integer
+          format: int64
+        endTimeInMillis:
+          type: integer
+          format: int64
+        specificType:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        dataContext:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    UserWorkFlowHistoryDTO:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkFlowHistory'
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    Rule:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    WorkFlowDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        createdBy:
+          type: string
+        currentNode:
+          type: string
+        destinationNode:
+          type: string
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectionDTO'
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeDTO'
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        dataContext:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+        workspaceId:
+          type: string
+    WorkFlowHistory:
+      type: object
+      properties:
+        workFlowId:
+          type: integer
+          format: int64
+        workFlowTitle:
+          type: string
+        workFlowDesc:
+          type: string
+        createdBy:
+          type: string
+        workFlowStatus:
+          type: string
+        lastTimeExecutedAt:
+          type: integer
+          format: int64
+        workFlowExecutionStatus:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        requestId:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

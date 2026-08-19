@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Unreal Engine Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "unreal-engine-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "update_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteById",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations"
+          }
+        },
+        {
+          "info": {
+            "name": "create_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId/executionInstances",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addExecution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId/executionInstances/:instanceId/next",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateExecutionStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId/executionInstances/:instanceId/completed",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getByTypeAndKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:workflowBuilderType/:key",
+            "params": [
+              {
+                "name": "workflowBuilderType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getLatestBlock",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/unRealEngine/api/v1/unrealEngineConfigurations/:configurationId/executionInstances/:instanceId/latestBlock",
+            "params": [
+              {
+                "name": "configurationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

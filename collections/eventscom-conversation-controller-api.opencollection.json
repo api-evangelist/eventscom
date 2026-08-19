@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Conversation Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "conversation-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getAllConversationsByUserElement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/ai/api/v2/conversations",
+            "params": [
+              {
+                "name": "elementType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "elementId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "secondaryElementType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "secondaryElementId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agentType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createConversation_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/ai/api/v2/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateConversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/ai/api/v2/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "migrateConversationPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/ai/api/v2/conversations/migratePermissions"
+          }
+        },
+        {
+          "info": {
+            "name": "getConversationById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/ai/api/v2/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteConversation_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/ai/api/v2/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

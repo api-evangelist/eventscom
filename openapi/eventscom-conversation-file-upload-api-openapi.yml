@@ -1,0 +1,254 @@
+openapi: 3.2.0
+info:
+  title: DataGol AI Conversation File Upload API
+  version: 1.0.36
+tags:
+- name: Conversation File Upload
+paths:
+  /ai/api/v2/conversation-files:
+    post:
+      tags:
+      - Conversation File Upload
+      summary: Post Conversation File
+      description: 'Upload a file. Returns immediately with status=INDEXING.
+
+        Poll GET /{conversation_file_id}/status to check progress.'
+      operationId: post_conversation_file_ai_api_v2_conversation_files_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_post_conversation_file_ai_api_v2_conversation_files_post'
+        required: true
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversation-files/status:
+    post:
+      tags:
+      - Conversation File Upload
+      summary: Post Conversation Files Status Bulk
+      description: 'Poll indexing status for many files at once. Response order matches the request.
+
+        Each element is either the same shape as GET /{id}/status, or
+
+        {"conversation_file_id": "...", "error": "not_found"} for missing or inactive ids.'
+      operationId: post_conversation_files_status_bulk_ai_api_v2_conversation_files_status_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationFileIdsStatusRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversation-files/{conversation_file_id}/status:
+    get:
+      tags:
+      - Conversation File Upload
+      summary: Get Status
+      description: 'Poll indexing status. Once status=INDEXED, the response includes
+
+        filename, s3_key, chunks_indexed, and a presigned download_url.'
+      operationId: get_status_ai_api_v2_conversation_files__conversation_file_id__status_get
+      parameters:
+      - name: conversation_file_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation File Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversation-files/query:
+    post:
+      tags:
+      - Conversation File Upload
+      summary: Post Conversation Files Query
+      description: Answer a question using only the content of the specified uploaded files.
+      operationId: post_conversation_files_query_ai_api_v2_conversation_files_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationFilesQueryRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversation-files/{conversation_file_id}/view:
+    get:
+      tags:
+      - Conversation File Upload
+      summary: Get Preview Url
+      description: 'Return a short-lived presigned URL (1 hour) with inline content-disposition
+
+        so the file can be rendered directly in the browser without forcing a download.
+
+        Requires status=INDEXED.
+
+
+        Auth: use Authorization as elsewhere, or pass the same JWT as query param
+
+        ``access_token`` (raw token or ``Bearer <token>``) when the client cannot set headers.'
+      operationId: get_preview_url_ai_api_v2_conversation_files__conversation_file_id__view_get
+      parameters:
+      - name: conversation_file_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation File Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ai/api/v2/conversation-files/{conversation_file_id}:
+    delete:
+      tags:
+      - Conversation File Upload
+      summary: Delete Conversation File Route
+      description: Delete all indexed chunks for a conversation file.
+      operationId: delete_conversation_file_route_ai_api_v2_conversation_files__conversation_file_id__delete
+      parameters:
+      - name: conversation_file_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Conversation File Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ConversationFilesQueryRequest:
+      properties:
+        query:
+          type: string
+          minLength: 1
+          title: Query
+        conversation_file_ids:
+          items:
+            type: string
+          type: array
+          minItems: 1
+          title: Conversation File Ids
+      type: object
+      required:
+      - query
+      - conversation_file_ids
+      title: ConversationFilesQueryRequest
+    Body_post_conversation_file_ai_api_v2_conversation_files_post:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - file
+      title: Body_post_conversation_file_ai_api_v2_conversation_files_post
+    ConversationFileIdsStatusRequest:
+      properties:
+        conversation_file_ids:
+          items:
+            type: string
+          type: array
+          maxItems: 100
+          minItems: 1
+          title: Conversation File Ids
+      type: object
+      required:
+      - conversation_file_ids
+      title: ConversationFileIdsStatusRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Lineages Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lineages-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getLineageGraph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/lineages/api/v1/lineages",
+            "params": [
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeMetadata",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxDownstreamDepth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxUpstreamDepth",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getLineageGraphMultipleNodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/lineages/api/v1/lineages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "createLineageGraph",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/lineages/api/v1/lineageRelationships",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getImpactedAssets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/lineages/api/v1/impactAnalysis",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "findImpactedPipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/lineages/api/v1/impactAnalysis/summary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getImpactedPipelinesGraph",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/lineages/api/v1/impactAnalysis/graph",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "findRelationships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/lineages/api/v1/relationships"
+          }
+        },
+        {
+          "info": {
+            "name": "getRelationsByNode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/lineages/api/v1/relationships/nodes",
+            "params": [
+              {
+                "name": "lineageVertexKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getRelationsByEdge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/lineages/api/v1/relationships/edge",
+            "params": [
+              {
+                "name": "lineageEdgeKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,3233 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc Orchestration Controller API
+  version: '1.0'
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: orchestration-controller
+paths:
+  /orchestration/api/v1/dags/{dagId}:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getDagById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagDTO'
+    put:
+      tags:
+      - orchestration-controller
+      operationId: updateDagById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagDTO'
+    delete:
+      tags:
+      - orchestration-controller
+      operationId: deleteDagById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagDTO'
+  /orchestration/api/v1/dags/{dagId}/runs/{runId}:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getDagRunById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: runId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagRunDTO'
+    put:
+      tags:
+      - orchestration-controller
+      operationId: updateDagRun
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: runId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagRunDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagRunDTO'
+  /orchestration/api/v1/dags/{dagId}/nodes:
+    put:
+      tags:
+      - orchestration-controller
+      operationId: updateNodes
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseDTODagNodeDTO'
+    post:
+      tags:
+      - orchestration-controller
+      operationId: createNode
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagNodeDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagNodeDTO'
+  /orchestration/api/v1/dags/{dagId}/nodes/{nodeId}:
+    put:
+      tags:
+      - orchestration-controller
+      operationId: updateNodeById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: nodeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagNodeDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagNodeDTO'
+    delete:
+      tags:
+      - orchestration-controller
+      operationId: deleteNodeById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: nodeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagNodeDTO'
+  /orchestration/api/v1/dags/{dagId}/edges/{nodeId}:
+    put:
+      tags:
+      - orchestration-controller
+      operationId: updateEdgeById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: nodeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagEdgeDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagEdgeDTO'
+  /orchestration/api/v1/dags:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getAllDags
+      parameters:
+      - name: pipelineId
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseDTODagDTO'
+    post:
+      tags:
+      - orchestration-controller
+      operationId: createDag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagDTO'
+  /orchestration/api/v1/dags/{dagId}/runs:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getDagRunsByDagId
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: includeJobs
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseDTODagRunDTO'
+    post:
+      tags:
+      - orchestration-controller
+      operationId: createDagRun
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagRunDTO'
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagRunDTO'
+  /orchestration/api/v1/dags/{dagId}/edges:
+    post:
+      tags:
+      - orchestration-controller
+      operationId: createEdge
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagEdgeDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagEdgeDTO'
+  /orchestration/api/v1/dags/search:
+    post:
+      tags:
+      - orchestration-controller
+      summary: Search DAGs by name or ID with pagination
+      operationId: searchDags
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 20
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagSearchDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTODagPaginatedResponseDTO'
+  /orchestration/api/v1/dags/dagRunJobs:
+    post:
+      tags:
+      - orchestration-controller
+      operationId: invokeNextNode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DagRunJobDTO'
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagRunDTO'
+  /orchestration/api/v1/dags/{dagId}/snapshots:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getSnapshotsByDagId
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: snapshotId
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseDTODagDTO'
+  /orchestration/api/v1/dags/{dagId}/pipelines:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getPipelinesByDagId
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: runId
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseDTOCreateDataPipelineResponseDTO'
+  /orchestration/api/v1/dags/{dagId}/pipelinesV2:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: getPipelinesV2ByDagId
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: runId
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseDTODataPipelineResponseV2DTO'
+  /orchestration/api/v1/dags/platformDag/status/email/{token}:
+    get:
+      tags:
+      - orchestration-controller
+      operationId: platformDagStatus
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+  /orchestration/api/v1/dags/{dagId}/edges/{edgeId}:
+    delete:
+      tags:
+      - orchestration-controller
+      operationId: deleteEdgeById
+      parameters:
+      - name: dagId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: edgeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DagEdgeDTO'
+components:
+  schemas:
+    DataPipelineResponseDTO:
+      type: object
+      properties:
+        pipeline:
+          $ref: '#/components/schemas/CreateDataPipelineResponseDTO'
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobDTO'
+        nextFireTimes:
+          type: array
+          items:
+            type: string
+            format: date-time
+    AnnotationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - CLASSIFICATION
+          - GLOSSARY
+          - GLOSSARY_TERM
+          - TERM
+        parentAnnotationId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+    ThirdPartyFilterConfigDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+    KeyInfoDTO:
+      type: object
+      properties:
+        primaryKeyName:
+          type: string
+        primaryKeyTableName:
+          type: string
+        primaryKeyColumnName:
+          type: string
+        foreignKeyName:
+          type: string
+        foreignKeyTableName:
+          type: string
+        foreignKeyColumnName:
+          type: string
+        keySequence:
+          type: string
+        updateRule:
+          type: string
+        deleteRule:
+          type: string
+    CatalogDTO:
+      type: object
+      properties:
+        name:
+          type: string
+    DataPipelineStreamCursorDTO:
+      type: object
+      properties:
+        cursorName:
+          type: string
+        cursorDataType:
+          type: string
+        cursorLastValue:
+          type: string
+    DataSourceSchemaDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        dataSourceId:
+          type: integer
+          format: int64
+        data:
+          $ref: '#/components/schemas/DataSourceSchemaWrapperDTO'
+        hash:
+          type: string
+        lastSyncedAt:
+          type: string
+          format: date-time
+    KeyDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyInfoDTO'
+    DagRunJobDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        dagRunId:
+          type: integer
+          format: int64
+        dagNodeId:
+          type: integer
+          format: int64
+        jobId:
+          type: integer
+          format: int64
+        executionOrder:
+          type: integer
+          format: int32
+        status:
+          type: string
+          enum:
+          - NOT_EXECUTED
+          - PENDING
+          - IN_PROGRESS
+          - COMPLETED
+          - FAILED
+          - CANCELLED
+        job:
+          $ref: '#/components/schemas/DataPipelineJobDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+    CustomDataPipelineResponseDTO:
+      type: object
+      properties:
+        destination:
+          $ref: '#/components/schemas/DataSourceDTO'
+        outputTableName:
+          type: string
+        sqlQuery:
+          type: string
+    LinkRecordDTO:
+      type: object
+      properties:
+        sourceRecordId:
+          type: object
+        destinationRecordId:
+          type: object
+        linkColumnId:
+          type: string
+        columnId:
+          type: string
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+    SaasxlResponseDTODagPaginatedResponseDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/DagPaginatedResponseDTO'
+    PageDTO:
+      type: object
+      properties:
+        pageNumber:
+          type: integer
+          format: int64
+        pageSize:
+          type: integer
+          format: int64
+        totalNumberOfRecords:
+          type: integer
+          format: int64
+        totalNumberOfPages:
+          type: integer
+          format: int64
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/RowDataDTO'
+        tableName:
+          type: string
+        lastCursorValues:
+          type: object
+          additionalProperties:
+            type: object
+        isLastPage:
+          type: boolean
+        waitTime:
+          type: integer
+          format: int64
+        executionTime:
+          type: integer
+          format: int64
+        operationId:
+          type: string
+        finalQuery:
+          type: string
+    DagEdgeDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        dagId:
+          type: integer
+          format: int64
+        fromNodeId:
+          type: integer
+          format: int64
+        toNodeId:
+          type: integer
+          format: int64
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+        createdAt:
+          type: string
+          format: date-time
+    DataSourceColumnDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        table:
+          $ref: '#/components/schemas/DataSourceTableDTO'
+        dataType:
+          type: string
+        qualifiedName:
+          type: string
+        description:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationDTO'
+        tableId:
+          type: integer
+          format: int64
+        datasourceId:
+          type: integer
+          format: int64
+        isPartitionCol:
+          type: boolean
+        partitionColSize:
+          type: integer
+          format: int32
+        isUniqueCol:
+          type: boolean
+        sourceDataType:
+          type: string
+    PageResponseDTOCreateDataPipelineResponseDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateDataPipelineResponseDTO'
+    DagPaginatedResponseDTO:
+      type: object
+      properties:
+        dags:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagDTO'
+        page:
+          $ref: '#/components/schemas/PageDTO'
+    DataPipelineJobProcessDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        pipelineProcessId:
+          type: integer
+          format: int64
+        query:
+          type: string
+        status:
+          type: string
+        rank:
+          type: integer
+          format: int32
+        processName:
+          type: string
+        processType:
+          type: string
+          enum:
+          - PRE
+          - POST
+    DagSearchDTO:
+      type: object
+      properties:
+        searchString:
+          type: string
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    DataPipelineNodeGroupConfig:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        numberOfExecutors:
+          type: integer
+          format: int32
+    RuleDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    DataPipelineJobDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        jobGroupId:
+          type: string
+        status:
+          type: string
+          enum:
+          - QUEUED
+          - STARTED
+          - FAILED
+          - CANCELLED
+          - COMPLETED
+          - PENDING
+          - RUNNING
+          - INCOMPLETE
+          - SUCCEEDED
+          - DELETED
+          - UNKNOWN
+          - PRE_VALIDATION_FAILED
+          - POST_VALIDATION_FAILED
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        startedBy:
+          $ref: '#/components/schemas/UserDTO'
+        cancelledBy:
+          $ref: '#/components/schemas/UserDTO'
+        parentId:
+          type: integer
+          format: int64
+        totalStats:
+          type: string
+        failureReason:
+          type: string
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobStreamDTO'
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobProcessDTO'
+        sparkJobInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/SparkJobDataDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        nodeGroupConfig:
+          type: object
+          additionalProperties:
+            type: string
+    DataPipelineJobStreamDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        query:
+          type: string
+        status:
+          type: string
+        dataPipelineStreamId:
+          type: integer
+          format: int64
+    JoinRequest:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+        name:
+          type: string
+        primaryTableId:
+          type: string
+        joinConditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/JoinConditionDTO'
+    DataPipelineStreamDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        query:
+          type: string
+        outputTableName:
+          type: string
+        syncMode:
+          type: string
+          enum:
+          - FULL_REFRESH
+          - INCREMENTAL_APPEND
+          - INCREMENTAL_APPEND_V2
+          - INCREMENTAL_APPEND_MERGE
+          - INCREMENTAL_APPEND_V2_MERGE
+        tableId:
+          type: integer
+          format: int64
+        cursor:
+          $ref: '#/components/schemas/DataPipelineStreamCursorDTO'
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - PAUSED
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineProcessDTO'
+        pipeline:
+          $ref: '#/components/schemas/DataPipelineLiteDTO'
+        modifiedAt:
+          type: string
+          format: date-time
+        columns:
+          type: array
+          items:
+            type: string
+        uniqueColumns:
+          type: array
+          items:
+            type: string
+        requiredParams:
+          type: array
+          items:
+            type: string
+        lastSyncedAt:
+          type: string
+          format: date-time
+        customQueryDefined:
+          type: boolean
+    DagRunDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        dagId:
+          type: integer
+          format: int64
+        status:
+          type: string
+          enum:
+          - QUEUED
+          - STARTED
+          - FAILED
+          - CANCELLED
+          - COMPLETED
+          - PENDING
+          - RUNNING
+          - INCOMPLETE
+          - SUCCEEDED
+          - DELETED
+          - UNKNOWN
+          - PRE_VALIDATION_FAILED
+          - POST_VALIDATION_FAILED
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        jobMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagRunJobDTO'
+        dagSnapshotId:
+          type: integer
+          format: int64
+        startFromNodeId:
+          type: integer
+          format: int64
+        parentId:
+          type: integer
+          format: int64
+    StandardDataPipelineResponseDTO:
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/DataSourceDTO'
+        destination:
+          $ref: '#/components/schemas/DataSourceDTO'
+        streams:
+          type: object
+          additionalProperties:
+            type: string
+            deprecated: true
+          deprecated: true
+        streamsV2:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineStreamDTO'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineResponseDTO'
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
+    DedupDataPipelineResponseDTO:
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/DataSourceDTO'
+        destination:
+          $ref: '#/components/schemas/DataSourceDTO'
+        pipelines:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineResponseDTO'
+    ViewDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        isMaster:
+          type: boolean
+        tableId:
+          type: string
+        position:
+          type: number
+          format: double
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        filterOptions:
+          $ref: '#/components/schemas/FilterOptionDTO'
+        groupOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupOptionDTO'
+        sortOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortOptionDTO'
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        filterParams:
+          type: object
+          additionalProperties:
+            type: object
+        whereClause:
+          type: string
+        query:
+          type: string
+        tableName:
+          type: string
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    DataSourceFileDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        tableId:
+          type: integer
+          format: int64
+        datasourceId:
+          type: integer
+          format: int64
+        byteSize:
+          type: integer
+          format: int64
+    DagNodeDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        dagId:
+          type: integer
+          format: int64
+        pipelineId:
+          type: integer
+          format: int64
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    IndexDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        nonUnique:
+          type: boolean
+        qualifier:
+          type: string
+        type:
+          type: string
+        ordinalPosition:
+          type: string
+        columnName:
+          type: string
+        sortSequence:
+          type: string
+        cardinality:
+          type: string
+        pages:
+          type: string
+        filterCondition:
+          type: string
+    JoinConditionDTO:
+      type: object
+      properties:
+        targetTableId:
+          type: string
+        joinConditionExpression:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        selectedColumnIds:
+          type: array
+          items:
+            type: string
+    DataPipelineResponseV2DTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        syncNow:
+          type: boolean
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTOM
+          - STANDARD
+          - DEDUP
+        scheduleType:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        schedule:
+          $ref: '#/components/schemas/ScheduleData'
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceDTO'
+        destination:
+          $ref: '#/components/schemas/DataSourceDTO'
+        clonedParentId:
+          type: integer
+          format: int64
+        where:
+          $ref: '#/components/schemas/WhereClause'
+        isMvPipeline:
+          type: boolean
+        isLastMilePipeline:
+          type: boolean
+        parentId:
+          type: integer
+          format: int64
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineProcessDTO'
+        workbookMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineStreamDTO'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineV2DTO'
+        description:
+          type: string
+        queryEngine:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        dagRunId:
+          type: integer
+          format: int64
+        nodeGroupConfig:
+          $ref: '#/components/schemas/DataPipelineNodeGroupConfig'
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobDTO'
+        nextFireTimes:
+          type: array
+          items:
+            type: string
+            format: date-time
+    TableDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        workspaceId:
+          type: string
+        position:
+          type: number
+          format: double
+        tableName:
+          type: string
+        description:
+          type: string
+        tableType:
+          type: string
+          enum:
+          - STATIC
+          - DYNAMIC
+          - HYBRID
+        materializedViewId:
+          type: integer
+          format: int64
+        materializedViewQuery:
+          type: string
+        sourceType:
+          type: string
+        storageType:
+          type: string
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDTO'
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        requestId:
+          type: string
+        status:
+          type: string
+        connectionName:
+          type: string
+        systemTableName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        pipelineId:
+          type: integer
+          format: int64
+        allowSwitchStorage:
+          type: boolean
+        dataProvider:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        primaryKeyColumnName:
+          type: string
+        lastSyncTime:
+          type: string
+          format: date-time
+        deleteGuard:
+          type: boolean
+        parentId:
+          type: string
+        isMigrationDone:
+          type: boolean
+        sparkConnectionName:
+          type: string
+        warehouseConnectionName:
+          type: string
+        datasourceIds:
+          type: array
+          items:
+            type: string
+        doesCopyExists:
+          type: boolean
+        lastMilePipelineId:
+          type: integer
+          format: int64
+        positionKeyColumnName:
+          type: string
+        isAthenaEnabled:
+          type: boolean
+        isCloudBigQueryEnabled:
+          type: boolean
+        title:
+          type: string
+        isBIWorkbook:
+          type: boolean
+        isSystemGenerated:
+          type: boolean
+        joinColumnNames:
+          type: array
+          items:
+            type: string
+        foreignKeyColumnName:
+          type: string
+        joinTableName:
+          type: string
+        s3Uri:
+          type: string
+        joinRequest:
+          $ref: '#/components/schemas/JoinRequest'
+        internalTableType:
+          type: string
+          enum:
+          - EXTRACTION
+          - EMAIL_CAMPAIGN
+          - API_POST
+          - TENANT_WORKBOOK
+          - ENRICHMENT
+        tableSizeBytes:
+          type: integer
+          format: int64
+        sourceQueryEngine:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        tenantConfig:
+          type: object
+          additionalProperties:
+            type: string
+        parameterKeys:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/VersionDTO'
+        showVersions:
+          type: boolean
+        views:
+          type: array
+          items:
+            $ref: '#/components/schemas/ViewDTO'
+        latestVersion:
+          $ref: '#/components/schemas/VersionDTO'
+    PageResponseDTODagRunDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagRunDTO'
+    WareHouseInfo:
+      type: object
+      properties:
+        parentDataSourceId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - EXACT_REPLICA
+          - DERIVED
+    DataSourceSchemaWrapperDTO:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaDTO'
+        catalogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogDTO'
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableDTO'
+        foreignKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyDTO'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDTO'
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDTO'
+    BasicSchedule:
+      type: object
+      properties:
+        timeUnit:
+          type: string
+          enum:
+          - SECOND
+          - MINUTE
+          - HOURS
+          - DAY
+          - MONTH
+        units:
+          type: string
+    DataSourceDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        username:
+          type: string
+        password:
+          type: string
+        driverName:
+          type: string
+        type:
+          type: string
+          enum:
+          - SQL
+          - REST
+          - NO_SQL
+          - WAREHOUSE
+        subType:
+          type: string
+          enum:
+          - FILE
+          - FOLDER
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceTableDTO'
+        wareHouseInfo:
+          $ref: '#/components/schemas/WareHouseInfo'
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        createdAt:
+          type: string
+          format: date-time
+        companyId:
+          type: integer
+          format: int64
+        isMvDataSource:
+          type: boolean
+        caseSensitive:
+          type: boolean
+        lastSyncedAt:
+          type: string
+          format: date-time
+        lastSyncStatus:
+          type: string
+        thirdPartyDataSourceId:
+          type: string
+        format:
+          type: string
+          enum:
+          - PARQUET
+          - ICEBERG
+        description:
+          type: string
+        schemaInfo:
+          $ref: '#/components/schemas/DataSourceSchemaDTO'
+        meta:
+          type: object
+          additionalProperties:
+            type: object
+        storageType:
+          type: string
+          enum:
+          - AWS
+          - AZURE
+          - GCS
+        schema:
+          type: string
+        warehouse:
+          type: boolean
+        connCatalog:
+          type: string
+        connSchema:
+          type: string
+    PageResponseDTODagDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagDTO'
+    DataPipelineProcessDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        query:
+          type: string
+        type:
+          type: string
+          enum:
+          - PRE
+          - POST
+        rank:
+          type: integer
+          format: int32
+    PageResponseDTODataPipelineResponseV2DTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineResponseV2DTO'
+    SchemaDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        catalogName:
+          type: string
+    WidgetParameterDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        enumOptions:
+          $ref: '#/components/schemas/EnumOptions'
+        defaultValue:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        showByDefault:
+          type: boolean
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+    GroupOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+    DataSourceTableDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        dataSourceId:
+          type: integer
+          format: int64
+        owner:
+          type: string
+        alias:
+          type: string
+        namespace:
+          type: string
+        dataSourceName:
+          type: string
+        qualifiedName:
+          type: string
+        description:
+          type: string
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceColumnDTO'
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationDTO'
+        owners:
+          type: array
+          items:
+            type: integer
+            format: int64
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceFileDTO'
+        workbookId:
+          type: string
+    ScheduleData:
+      type: object
+      properties:
+        basicSchedule:
+          $ref: '#/components/schemas/BasicSchedule'
+        cronExpression:
+          type: string
+        cronExpressionValue:
+          type: string
+    DagDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagNodeDTO'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagEdgeDTO'
+        latestRun:
+          $ref: '#/components/schemas/DagRunDTO'
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+        scheduleType:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        schedule:
+          $ref: '#/components/schemas/ScheduleData'
+        defaultParameters:
+          type: object
+          additionalProperties:
+            type: object
+    ColumnDTO:
+      required:
+      - name
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        name:
+          type: string
+        uiDataType:
+          type: string
+        idType:
+          type: string
+        required:
+          type: boolean
+        description:
+          type: string
+        formulaType:
+          type: string
+        formula:
+          type: string
+        backendDataType:
+          type: string
+        rawFormula:
+          type: string
+        status:
+          type: string
+        eventName:
+          type: string
+        errorMessage:
+          type: string
+        rowLevelFormula:
+          type: string
+        rowLevelFormulaWithParameter:
+          type: string
+        nestedFormula:
+          type: string
+        nestedFormulaWithParameter:
+          type: string
+        nestedRowLevelFormula:
+          type: string
+        nestedRowLevelFormulaWithParameter:
+          type: string
+        workspaceId:
+          type: string
+        isDataEditable:
+          type: boolean
+        isMetaDataEditable:
+          type: boolean
+        isEditable:
+          type: boolean
+        isDataTypeEditable:
+          type: boolean
+        isDeletable:
+          type: boolean
+        isColumnLevelFormula:
+          type: boolean
+        colOptions:
+          type: object
+          additionalProperties:
+            type: object
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        tableId:
+          type: string
+        requestId:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+        parameterIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        isBIFormula:
+          type: boolean
+        isAudit:
+          type: boolean
+        isEnriched:
+          type: boolean
+        isDynamicFormula:
+          type: boolean
+        isSystemGenerated:
+          type: boolean
+        settings:
+          $ref: '#/components/schemas/ColumnSettingsDTO'
+        sourceDatatype:
+          type: string
+    EnumOptions:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnumOptionValue'
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        sqlQuery:
+          type: string
+        multipleValuesAllowed:
+          type: boolean
+        wrapValuesWithinSingleQuotes:
+          type: boolean
+    VersionDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        dagRunId:
+          type: integer
+          format: int64
+        description:
+          type: string
+        isDefaultVersion:
+          type: boolean
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    SortOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+        columnNameWithOutQuotes:
+          type: string
+        valueOrder:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    DataPipelineV2DTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        syncNow:
+          type: boolean
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTOM
+          - STANDARD
+          - DEDUP
+        scheduleType:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        schedule:
+          $ref: '#/components/schemas/ScheduleData'
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceDTO'
+        destination:
+          $ref: '#/components/schemas/DataSourceDTO'
+        clonedParentId:
+          type: integer
+          format: int64
+        where:
+          $ref: '#/components/schemas/WhereClause'
+        isMvPipeline:
+          type: boolean
+        isLastMilePipeline:
+          type: boolean
+        parentId:
+          type: integer
+          format: int64
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineProcessDTO'
+        workbookMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineStreamDTO'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineV2DTO'
+        description:
+          type: string
+        queryEngine:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        dagRunId:
+          type: integer
+          format: int64
+        nodeGroupConfig:
+          $ref: '#/components/schemas/DataPipelineNodeGroupConfig'
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    DataPipelineLiteDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTOM
+          - STANDARD
+          - DEDUP
+        outputTableName:
+          type: string
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobDTO'
+    RowDataDTO:
+      type: object
+      properties:
+        id:
+          type: object
+        position:
+          type: number
+          format: double
+        fkId:
+          type: object
+        cellValues:
+          type: object
+          additionalProperties:
+            type: object
+        cellValuesByColumnId:
+          type: object
+          additionalProperties:
+            type: object
+        linkRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkRecordDTO'
+    CreateDataPipelineResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        syncNow:
+          type: boolean
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTOM
+          - STANDARD
+          - DEDUP
+        dataSourceIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        custom:
+          $ref: '#/components/schemas/CustomDataPipelineResponseDTO'
+        standard:
+          $ref: '#/components/schemas/StandardDataPipelineResponseDTO'
+        dedup:
+          $ref: '#/components/schemas/DedupDataPipelineResponseDTO'
+        scheduleType:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        schedule:
+          $ref: '#/components/schemas/ScheduleData'
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        parentId:
+          type: integer
+          format: int64
+        isMvPipeline:
+          type: boolean
+        syncMode:
+          type: string
+          enum:
+          - FULL_REFRESH
+          - INCREMENTAL_APPEND
+          - INCREMENTAL_APPEND_V2
+          - INCREMENTAL_APPEND_MERGE
+          - INCREMENTAL_APPEND_V2_MERGE
+        clonedParentId:
+          type: integer
+          format: int64
+        where:
+          $ref: '#/components/schemas/WhereClause'
+        workbookMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineProcessDTO'
+    SparkJobDataDTO:
+      type: object
+      properties:
+        query:
+          type: string
+        submitTime:
+          type: integer
+          format: int64
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        waitTime:
+          type: integer
+          format: int64
+        stream:
+          type: string
+    WhereClause:
+      type: object
+      properties:
+        value:
+          type: string
+        streams:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        requiredParams:
+          type: array
+          items:
+            type: string
+    FilterOptionDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    PageResponseDTODagNodeDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DagNodeDTO'
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,694 @@
+openapi: 3.2.0
+info:
+  title: Saasxl-api doc MCP Connector Auth API
+  version: '1.0'
+  description: Unified connect-or-initiate flow for known connectors (Gmail, Google Drive, Calendar) via Composio, with per-company auth mapping and per-user connections.
+servers:
+- url: https://datagol-be.events.com
+  description: Generated server url
+tags:
+- name: MCP Connector Auth
+  description: Unified connect-or-initiate flow for known connectors (Gmail, Google Drive, Calendar) via Composio, with per-company auth mapping and per-user connections.
+paths:
+  /mcpConnectorAuth/api/v1/tools/execute:
+    post:
+      tags:
+      - MCP Connector Auth
+      summary: Execute a Composio tool
+      description: Resolves the Composio external user ID from the connection record and proxies tool execution to Composio.
+      operationId: executeTool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComposioExecuteToolRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /mcpConnectorAuth/api/v1/connect:
+    post:
+      tags:
+      - MCP Connector Auth
+      summary: Initiate connector OAuth
+      description: Resolves authConfigId automatically. Creates a new auth config if none exists for the slug. Set createMcpServer=true to also create an MCP server after OAuth.
+      operationId: connect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/McpConnectorConnectRequestDTO'
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/McpConnectorConnectResponseDTO'
+  /mcpConnectorAuth/api/v1/connections/{connectionId}:
+    get:
+      tags:
+      - MCP Connector Auth
+      summary: Get a connection by ID
+      operationId: getConnectionById
+      parameters:
+      - name: connectionId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/McpConnectorConnectionDTO'
+    delete:
+      tags:
+      - MCP Connector Auth
+      summary: Delete a connection
+      operationId: deleteConnection
+      parameters:
+      - name: connectionId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+    patch:
+      tags:
+      - MCP Connector Auth
+      summary: Update connection display name
+      operationId: updateConnectionName
+      parameters:
+      - name: connectionId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/McpConnectorConnectionDTO'
+  /mcpConnectorAuth/api/v1/mcpServers/{serverId}/url:
+    get:
+      tags:
+      - MCP Connector Auth
+      summary: Mint a per-user MCP URL
+      description: Generates a streamable MCP URL for an existing Composio MCP server that the agent can connect to.
+      operationId: getMcpServerUrl
+      parameters:
+      - name: serverId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /mcpConnectorAuth/api/v1/connectors:
+    get:
+      tags:
+      - MCP Connector Auth
+      summary: List all available connectors
+      description: Returns connectors with name, description, and logo read from config_property. Metadata is seeded automatically on startup via McpConnectorMetadataSeeder.
+      operationId: listConnectors
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/McpConnectorDTO'
+  /mcpConnectorAuth/api/v1/connections:
+    get:
+      tags:
+      - MCP Connector Auth
+      summary: List connections for the current user
+      operationId: getConnections
+      parameters:
+      - name: slugName
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/McpConnectorConnectionDTO'
+  /mcpConnectorAuth/api/v1/connections/{connectionId}/tools:
+    get:
+      tags:
+      - MCP Connector Auth
+      summary: List all Composio tools for a connection's toolkit
+      operationId: getToolsForConnection
+      parameters:
+      - name: connectionId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /mcpConnectorAuth/api/v1/callback:
+    get:
+      tags:
+      - MCP Connector Auth
+      summary: OAuth callback from Composio
+      description: Unauthenticated — receives the browser redirect from Composio after user consent, always creates a connection record, and conditionally creates an MCP server if createMcpServer was set in the original request. Redirects to the UI.
+      operationId: oauthCallback
+      parameters:
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: connected_account_id
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: auth_config_id
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: user_id
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: redirect
+      - name: state_id
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                - type: object
+                - $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '501':
+          description: Not Implemented
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SaasxlResponseDTOObject'
+        '200':
+          description: OK
+components:
+  schemas:
+    McpConnectorConnectResponseDTO:
+      type: object
+      properties:
+        mappingId:
+          type: integer
+          format: int64
+        authConfigId:
+          type: string
+        slugName:
+          type: string
+        status:
+          type: string
+        authorizationUrl:
+          type: string
+    McpConnectorDTO:
+      type: object
+      properties:
+        slug:
+          type: string
+        toolkitSlug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        logo:
+          type: string
+        authScheme:
+          type: string
+    ComposioExecuteToolRequestDTO:
+      required:
+      - connectionId
+      - toolSlug
+      type: object
+      properties:
+        connectionId:
+          type: integer
+          format: int64
+        toolSlug:
+          type: string
+        arguments:
+          type: object
+          additionalProperties:
+            type: object
+    McpConnectorConnectRequestDTO:
+      required:
+      - slug
+      type: object
+      properties:
+        description:
+          type: string
+        slug:
+          type: string
+        authConfigId:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        clientRedirectUrl:
+          type: string
+        externalUserId:
+          type: string
+        mcpName:
+          type: string
+        uiRedirectUri:
+          type: string
+        createMcpServer:
+          type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    McpConnectorConnectionDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        slugName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        externalUserId:
+          type: string
+        connectedAccountId:
+          type: string
+        authConfigId:
+          type: string
+        status:
+          type: string
+  securitySchemes:
+    s_jwt:
+      type: http
+      description: Jwt Token
+      scheme: bearer
+      bearerFormat: JWT

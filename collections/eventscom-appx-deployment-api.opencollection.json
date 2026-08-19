@@ -1,0 +1,196 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc AppX Deployment API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AppX Deployment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an AppX app by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/api/v1/appx/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get an AppX app by ID"
+        },
+        {
+          "info": {
+            "name": "Update AppX app metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/api/v1/appx/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update AppX app metadata"
+        },
+        {
+          "info": {
+            "name": "Attach a custom domain to an AppX app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/api/v1/appx/:appId/custom-domain",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The appId of the deployed AppX app"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Starts the custom domain verification flow. Returns the DNS records the user must add in their provider (A record for apex, CNAME for www). Poll the status endpoint with the Refresh button to advance through PENDING_DNS → CERT_PROVISIONING → ACTIVE."
+        },
+        {
+          "info": {
+            "name": "Remove custom domain from an AppX app",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/api/v1/appx/:appId/custom-domain",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The appId of the deployed AppX app"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes the custom domain host rules from the Ingress and cleans up the TLS secret. After this call a new custom domain can be attached."
+        },
+        {
+          "info": {
+            "name": "Deploy an AppX app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/api/v1/appx/deploy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Accepts a Docker image, appId, name and optional preview image, starts a durable Temporal workflow that creates a pod in the appx-apps namespace, persists app metadata to the database, and returns the app record. Poll GET noCo/api/v1/requestLog/status/{requestId} to track progress."
+        },
+        {
+          "info": {
+            "name": "Poll custom domain status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/api/v1/appx/:appId/custom-domain/status",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The appId of the deployed AppX app"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns current status (PENDING_DNS / CERT_PROVISIONING / ACTIVE / FAILED) and which DNS records have been verified. Call this from the Refresh button."
+        },
+        {
+          "info": {
+            "name": "List all AppX apps for the current tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/api/v1/appx/apps",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all AppX apps for the current tenant"
+        },
+        {
+          "info": {
+            "name": "Delete an AppX app",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://datagol-be.events.com/api/v1/appx/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "The appId used when the app was deployed"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes the Kubernetes pod and soft-deletes the DB record for the given appId."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

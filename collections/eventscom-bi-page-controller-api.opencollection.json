@@ -1,0 +1,307 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Saasxl-api doc Bi Page Controller API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bi-page-controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getWidgets_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/widgets",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all widgets for given page"
+        },
+        {
+          "info": {
+            "name": "updateWidgets_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/widgets",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to update all widgets for given page"
+        },
+        {
+          "info": {
+            "name": "index",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/widgets/index",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all widgets for given page"
+        },
+        {
+          "info": {
+            "name": "Fetch one level of a hierarchy tree from a reference workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/treeNodes",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Fetch one level of a hierarchy tree from a reference workbook"
+        },
+        {
+          "info": {
+            "name": "Search all tree nodes by label and return each match with its ancestor path",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/treeNodes/search",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Search all tree nodes by label and return each match with its ancestor path"
+        },
+        {
+          "info": {
+            "name": "Restore tree navigation state from a stored path in a single request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/treeNodes/resolvePath",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Resolves a saved path array (e.g. [\"Electronics\", \"Phones\"]) into the navigation stack, current level nodes, and selected node id so the filter popup can render without sequential per-level fetches."
+        },
+        {
+          "info": {
+            "name": "Fetch all deep leaf node IDs under a selected branch of a hierarchy tree",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/treeNodes/leafNodes",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Traverses all descendants of the last node in pathIds and returns their leaf IDs for use in an IN-clause filter. If more than 1000 leaves are found, returns the first 1000 with a warningMessage suggesting a more specific selection."
+        },
+        {
+          "info": {
+            "name": "getPageFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/filters",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all widgets for given page"
+        },
+        {
+          "info": {
+            "name": "getTablesByPageId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:pageId/tables",
+            "params": [
+              {
+                "name": "pageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get all tables for given page"
+        },
+        {
+          "info": {
+            "name": "getPageById_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://datagol-be.events.com/noCo/api/v2/biPage/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "to get  page for given id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
