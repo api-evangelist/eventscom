@@ -1,0 +1,174 @@
+slug: eventscom
+provider: Events.com
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 15
+edges:
+- tag: ML-Dashboard
+  spec_file: eventscom-ml-dashboard-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.9
+  evidence: POST /ai/api/v2/ml/dashboard/{elementType}/{elementId}/models/{modelId}/train  Trigger Model
+    Training; schemas AutoARIMAModelProperties, ProphetModelProperties, RandomForestModelProperties
+  reason: Full CRUD over ML models plus training, training history and prediction with concrete algorithm
+    configuration schemas — this is machine-learning model lifecycle management (MLOps), matching Artificial
+    Intelligence Management.
+- tag: data-quality-controller
+  spec_file: eventscom-data-quality-controller-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.9
+  evidence: GET /dataQuality/api/v1/policies/{policyId}/results getPolicyResults; POST /dataQuality/api/v1/policies/{policyId}/assertions
+    createPolicyAssertion; schemas PolicyAssertionResultDTO
+  reason: Data-quality policies, assertions and assertion results are exactly data quality monitoring
+    and remediation over datasets, not a business policy-management capability.
+- tag: IDP
+  spec_file: eventscom-idp-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: 'POST /idp/api/v1/user/token  getToken; POST /idp/api/v1/user/signUp/verifyEmailOtp  verifySignupWithEmailOtp;
+    schemas: ResetPasswordDTO, TeamInviteDTO, ExternalTeamMemberDTO'
+  reason: 'The tag is the platform''s identity provider: user and company accounts, token issuance, sign-up
+    OTP verification, password reset, team membership and invites. These operations plainly perform identity
+    and access management.'
+- tag: bi-page-controller
+  spec_file: eventscom-bi-page-controller-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: GET /noCo/api/v2/biPage/{pageId}/widgets, POST /noCo/api/v2/biPage/{pageId}/filters  getPageFilters,
+    'Fetch one level of a hierarchy tree from a reference workbook'
+  reason: Manages BI dashboard pages, their widgets, filters and hierarchy-drilldown navigation — delivery
+    of reporting and business intelligence content.
+- tag: biv-2-controller
+  spec_file: eventscom-biv-2-controller-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: GET /noCo/api/v2/workspaces/{workspaceId}/biPage/{pageId}/widgets  getWidgets; POST .../biPage  createPage;
+    schemas BIPageDTO, WidgetDTO, FilterOptionDTO, SortOptionDTO
+  reason: Operations create BI pages and attach/detach widgets with filters, groupings and sorts inside
+    workspaces — this is dashboard/report authoring, i.e. Analytics & BI Management. Not the vendor's
+    event products.
+- tag: NoCoDbV3
+  spec_file: eventscom-nocodbv3-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.78
+  evidence: POST /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces  createInterface; schemas
+    BIWidgetDTO, BIInterfacePageDTO, BIWidgetConfigDTO
+  reason: Operations create and configure BI interfaces, pages and widgets — dashboard/report authoring,
+    which realises Analytics & BI delivery.
+- tag: data-sources-controller
+  spec_file: eventscom-data-sources-controller-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.78
+  evidence: GET /dataSources/api/v1/glossaries/{glossaryId} getGlossary; GET /dataSources/api/v1/internal/materializedViews/{viewId}
+    getViewById; schemas CatalogDTO, SchemaDTO, SchemaSyncCronRequest
+  reason: Manages data sources, schemas, queries, materialized views, catalogs and business glossaries
+    — clearly enterprise data management. Spans governance (glossary/catalog) and architecture (schemas/views),
+    so no single L2 asserted.
+- tag: NoCoDbV2
+  spec_file: eventscom-nocodbv2-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.75
+  evidence: GET /noCo/api/v2/workspaces/{workspaceId}/tables/{tableId}  getTable; schemas DataPipelineV2DTO,
+    SchemaDTO, CatalogDTO, SparkJobDataDTO
+  reason: Large surface for managing workspaces, tables, rows, queries, schemas, catalogs and data pipelines
+    — this is the data platform's information/data management capability. Left at L1 since it spans cataloguing,
+    pipelines and BI rather than one sub-capability.
+- tag: WidgetV1
+  spec_file: eventscom-widgetv1-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.75
+  evidence: POST /widget/api/v1/kpi/abstract  getKpiAbstraction; POST /widget/api/v1/cohort/abstract  getCohortAbstraction;
+    POST /widget/api/v1/chart/table  getChartDataInTable; schemas ChartAbstractedDataDTO, TopNConfigDTO
+  reason: Operations serve aggregated chart, table, map, KPI and cohort data for dashboard widgets — i.e.
+    delivery of reporting/BI content. Maps to Analytics & BI Management; some residual chance this is
+    better read as pure rendering plumbing, hence 0.75.
+- tag: data-pipeline-controller-v2
+  spec_file: eventscom-data-pipeline-controller-v2-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.72
+  evidence: POST /dataPipeline/api/v2 createPipeline; GET /dataPipeline/api/v2/queryEngines getQueryEngines;
+    schemas DataPipelineJobDTO, DataSourceSchemaDTO, WareHouseInfo
+  reason: Operations create and run data pipelines against query engines and warehouses — a data-management/data-integration
+    surface of the vendor's 'datagol' data platform. L1 Information & Data Management is supported; no
+    single L2 (architecture vs analytics) is clearly named, so L2 withheld.
+- tag: etl-controller
+  spec_file: eventscom-etl-controller-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.72
+  evidence: POST /etl/api/v1/createSource createSource; POST /etl/api/v1/getDestinationSpecification;
+    schemas CreateConnectionRequestDTO, JobDetailDTO, StreamDTO
+  reason: ETL source/destination/connection and job management is data integration within the vendor's
+    data platform; maps to Information & Data Management at L1, with no L2 clearly named by the operations.
+- tag: Custom Agents
+  spec_file: eventscom-custom-agents-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /customAgents/api/v1 'Create a new custom agent'; GET /customAgents/api/v1/{customAgentId}/runs
+    'List agent runs for a custom agent'; schemas AgentSkillDTO, VoiceConfigDTO, ProviderConfigDTO
+  reason: Full lifecycle of custom AI agents — creation, configuration of model providers and skills,
+    and tracking of agent runs — which is AI/ML model and agent lifecycle management on the vendor's platform.
+- tag: Element Permissions
+  spec_file: eventscom-element-permissions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /noCo/api/v2/elementPermissions/link/{elementType}/{elementId}  Get link-level access
+    for element; getMatchedPermission  Get matched permission for user and element
+  reason: Operations create, edit and evaluate per-user and per-link access rights over platform elements,
+    including invite info — access control administration, i.e. Identity & Access Management. Confidence
+    held at 0.7 because this is in-product sharing permissions rather than an enterprise IAM/joiner-mover-leaver
+    system.
+- tag: Python Agent
+  spec_file: eventscom-python-agent-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /ai/api/v2/python-agent/query  Query Agent Unified; schemas AgentRequest, PythonAgentResponse
+  reason: Runtime for an LLM-based analytics agent — querying, session lifecycle, run cancellation and
+    Plotly output. Sits within AI/ML capability delivery; confidence tempered because much of the surface
+    (session cleanup, UI) is operational plumbing.
+- tag: Workbook Generate Dashboard
+  spec_file: eventscom-workbook-generate-dashboard-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: POST /ai/api/v2/dashboard/generate-dashboard  Generate Dashboard; POST /ai/api/v2/dashboard/widget/summary  Generate
+    Summary
+  reason: Generates dashboards and narrative summaries of dashboard/widget content — production of BI
+    artefacts, mapping to Analytics & BI Management. AI-generation framing adds some ambiguity, so 0.7.
