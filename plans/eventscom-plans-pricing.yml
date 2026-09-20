@@ -1,0 +1,52 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://events.com/pricing/
+sources:
+- https://events.com/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: ad-valorem
+published: true
+note: Event ticketing/marketing pricing page; some values (cap amount, merch flat % fee) appear blank
+  in the page text. No API pricing stated.
+plan_count: 6
+currency: USD
+plans:
+- name: Ticketing fee (example $20 ticket)
+  price_text: Events.com Fee $ 1.95
+  price: 1.95
+  currency: USD
+  period: per-use
+  unit: per ticket
+  included_quota: Fees capped at $ for tickets over $700; Plus credit card transaction processing fee
+- name: Payment processing
+  price_text: Stripe payment processing fee of 2.9% + .30¢ per successful card charge
+  currency: USD
+  period: per-use
+  unit: per successful card charge
+  included_quota: Fees above apply to both USD and CAD
+- name: Free listing
+  price_text: Free listing
+  period: none
+  unit: listing
+  included_quota: Events are shown in chronological order.
+- name: Featured and Boosted listing
+  price_text: $5 a day per event per city.
+  price: 5
+  currency: USD
+  period: per-use
+  unit: per day per event per city
+- name: Premier listing
+  price_text: $25-$100 a day to be the top spot in our largest ad space on the partner calendar of your
+    choice.
+  currency: USD
+  period: per-use
+  unit: per day
+- name: Execute / Sponsor
+  price_text: Reach out to us for a custom quote.
+  period: none
+  included_quota: Mobile check-in, On-site sales, White glove customer support, Post-event analytics
