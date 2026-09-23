@@ -68,6 +68,8 @@ paths:
                   $ref: '#/components/schemas/WidgetDTO'
       security:
       - s_jwt: []
+      summary: Get widgets 1
+      x-summary-source: derived
     put:
       tags:
       - bi-page-controller
@@ -136,6 +138,8 @@ paths:
                   $ref: '#/components/schemas/WidgetDTO'
       security:
       - s_jwt: []
+      summary: Update widgets 1
+      x-summary-source: derived
   /noCo/api/v2/biPage/{pageId}/widgets/index:
     post:
       tags:
@@ -190,6 +194,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Index
+      x-summary-source: derived
   /noCo/api/v2/biPage/{pageId}/treeNodes:
     post:
       tags:
@@ -516,6 +522,8 @@ paths:
                 $ref: '#/components/schemas/FilterOptionsResponseDTO'
       security:
       - s_jwt: []
+      summary: Get page filters
+      x-summary-source: derived
   /noCo/api/v2/biPage/{pageId}/tables:
     get:
       tags:
@@ -574,11 +582,13 @@ paths:
                 $ref: '#/components/schemas/BIPageTableDTO'
       security:
       - s_jwt: []
+      summary: Get tables by page id
+      x-summary-source: derived
   /noCo/api/v2/biPage/{id}:
     get:
       tags:
       - bi-page-controller
-      description: to get  page for given id
+      description: to get page for given id
       operationId: getPageById_1
       parameters:
       - name: id
@@ -632,55 +642,79 @@ paths:
                 $ref: '#/components/schemas/BIPageDTO'
       security:
       - s_jwt: []
+      summary: Get page by id 1
+      x-summary-source: derived
 components:
   schemas:
-    ThirdPartyFilterConfigDTO:
+    JoinConditionDTO:
       type: object
       properties:
-        name:
+        targetTableId:
           type: string
-        required:
-          type: boolean
-        defaultValue:
+        joinConditionExpression:
           type: string
-        actualValue:
-          type: string
-    TreeSearchRequestDTO:
-      type: object
-      properties:
-        workbookId:
-          type: string
-        query:
-          type: string
-        idColumnId:
-          type: string
-        parentIdColumnId:
-          type: string
-        labelColumnId:
-          type: string
-    BIPageTableDTO:
-      type: object
-      properties:
-        tables:
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        selectedColumnIds:
           type: array
           items:
-            $ref: '#/components/schemas/TableDTO'
+            type: string
+    FilterOptionsRequestDTO:
+      type: object
+      properties:
+        pageId:
+          type: string
+        table:
+          $ref: '#/components/schemas/TableDTO'
+        workspaceId:
+          type: string
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterConfigDTO'
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+        searchTerms:
+          type: object
+          additionalProperties:
+            type: string
+        filterValues:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FilterValueDTO'
         parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/WidgetParameterDTO'
-    TreeFetchLevelRequestDTO:
+          type: object
+          additionalProperties:
+            type: object
+        versions:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int64
+        hash:
+          type: string
+    RuleDTO:
       type: object
       properties:
-        workbookId:
+        field:
           type: string
-        parentId:
+        value:
+          type: object
+        operator:
           type: string
-        idColumnId:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
           type: string
-        parentIdColumnId:
-          type: string
-        labelColumnId:
+        not:
+          type: boolean
+        valueSource:
           type: string
     BIPageDTO:
       type: object
@@ -718,49 +752,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WidgetDTO'
-    TreeLeafNodesRequestDTO:
-      type: object
-      properties:
-        workbookId:
-          type: string
-        pathIds:
-          type: array
-          items:
-            type: string
-        idColumnId:
-          type: string
-        parentIdColumnId:
-          type: string
-    FilterConfigDTO:
-      type: object
-      properties:
-        columnDTO:
-          $ref: '#/components/schemas/ColumnDTO'
-        label:
-          type: string
-        type:
-          type: integer
-          format: int32
-        uuid:
-          type: string
-        operand:
-          type: string
-        linkedColumns:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinkedColumnDTO'
-        rank:
-          type: integer
-          format: int32
-        options:
-          type: array
-          items:
-            type: string
-        sortingOrder:
-          type: string
-          enum:
-          - ASC
-          - DESC
     BaseWidgetDTO:
       type: object
       properties:
@@ -770,114 +761,25 @@ components:
           type: string
         subTitle:
           type: string
-    FilterOptionsResponseDTO:
+    ThirdPartyFilterConfigDTO:
       type: object
       properties:
-        filterValues:
-          type: object
-          additionalProperties:
-            type: object
-    TreeLeafNodesResponseDTO:
-      type: object
-      properties:
-        leafIds:
-          type: array
-          items:
-            type: string
-        warningMessage:
-          type: string
-    AttachmentSettingsDTO:
-      type: object
-      properties:
-        templateKey:
-          type: string
-        templateFileName:
-          type: string
-        outputFileName:
-          type: string
-    RuleDTO:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    JoinRequest:
-      type: object
-      properties:
-        workspaceId:
-          type: string
         name:
           type: string
-        primaryTableId:
+        required:
+          type: boolean
+        defaultValue:
           type: string
-        joinConditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/JoinConditionDTO'
-    TreeSearchResultDTO:
+        actualValue:
+          type: string
+    GroupOptionDTO:
       type: object
       properties:
-        node:
-          $ref: '#/components/schemas/TreeNodeDTO'
-        pathSegments:
-          type: array
-          items:
-            type: string
-        pathLabel:
+        columnId:
           type: string
-    FilterValueDTO:
-      type: object
-      properties:
-        operand:
+        direction:
           type: string
-          enum:
-          - EQUALS
-          - NOT_EQUALS
-          - GREATER_THAN
-          - GREATER_THAN_EQUALS
-          - LESS_THAN
-          - LESS_THAN_EQUALS
-          - BETWEEN
-          - PERCENTAGE_CHANGE
-          - ABSOLUTE_CHANGE
-          - PERCENTAGE_INCREASE_BY
-          - PERCENTAGE_DECREASE_BY
-          - IN
-          - NOT_IN
-          - CONTAINS
-          - DOES_NOT_CONTAINS
-          - NOT_BETWEEN
-          - STARTS_WITH
-        value:
-          type: object
-        expression:
-          type: string
-    NavigationStackItemDTO:
-      type: object
-      properties:
-        nodeId:
-          type: string
-        label:
-          type: string
-    EnumOptionValue:
-      type: object
-      properties:
-        value:
-          type: object
-        label:
+        columnName:
           type: string
     WidgetDTO:
       type: object
@@ -923,58 +825,83 @@ components:
             $ref: '#/components/schemas/WidgetParameterDTO'
         indexStatus:
           type: string
-    ViewDTO:
+    LinkedColumnDTO:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        isMaster:
-          type: boolean
         tableId:
           type: string
-        position:
-          type: number
-          format: double
-        name:
+        columnId:
           type: string
-        type:
+    TreeResolvePathRequestDTO:
+      type: object
+      properties:
+        workbookId:
           type: string
-        description:
-          type: string
-        filterOptions:
-          $ref: '#/components/schemas/FilterOptionDTO'
-        groupOptions:
+        pathIds:
           type: array
           items:
-            $ref: '#/components/schemas/GroupOptionDTO'
-        sortOptions:
+            type: string
+        pathLabels:
           type: array
           items:
-            $ref: '#/components/schemas/SortOptionDTO'
-        uiMetadata:
+            type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+        labelColumnId:
+          type: string
+    TreeLeafNodesResponseDTO:
+      type: object
+      properties:
+        leafIds:
+          type: array
+          items:
+            type: string
+        warningMessage:
+          type: string
+    FilterOptionDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    JsonNode:
+      type: object
+    FilterOptionsResponseDTO:
+      type: object
+      properties:
+        filterValues:
           type: object
           additionalProperties:
             type: object
-        filterParams:
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-          additionalProperties:
-            type: object
-        whereClause:
-          type: string
-        query:
-          type: string
-        tableName:
-          type: string
     TreeLevelDTO:
       type: object
       properties:
@@ -984,30 +911,178 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TreeNodeDTO'
-    ColumnSettingsDTO:
+    JoinRequest:
       type: object
       properties:
-        enableUserAddNotifications:
-          type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
-    JoinConditionDTO:
+        workspaceId:
+          type: string
+        name:
+          type: string
+        primaryTableId:
+          type: string
+        joinConditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/JoinConditionDTO'
+    UserDTO:
       type: object
       properties:
-        targetTableId:
+        id:
+          type: integer
+          format: int64
+        firstname:
           type: string
-        joinConditionExpression:
+        lastname:
           type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        selectedColumnIds:
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
           type: array
           items:
             type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    BIPageTableDTO:
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableDTO'
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+    SortOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+        columnNameWithOutQuotes:
+          type: string
+        valueOrder:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    TreeNodeDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        parentId:
+          type: string
+        label:
+          type: string
+        hasChildren:
+          type: boolean
+    TreeSearchRequestDTO:
+      type: object
+      properties:
+        workbookId:
+          type: string
+        query:
+          type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+        labelColumnId:
+          type: string
+    TreeLeafNodesRequestDTO:
+      type: object
+      properties:
+        workbookId:
+          type: string
+        pathIds:
+          type: array
+          items:
+            type: string
+        idColumnId:
+          type: string
+        parentIdColumnId:
+          type: string
+    FilterValueDTO:
+      type: object
+      properties:
+        operand:
+          type: string
+          enum:
+          - EQUALS
+          - NOT_EQUALS
+          - GREATER_THAN
+          - GREATER_THAN_EQUALS
+          - LESS_THAN
+          - LESS_THAN_EQUALS
+          - BETWEEN
+          - PERCENTAGE_CHANGE
+          - ABSOLUTE_CHANGE
+          - PERCENTAGE_INCREASE_BY
+          - PERCENTAGE_DECREASE_BY
+          - IN
+          - NOT_IN
+          - CONTAINS
+          - DOES_NOT_CONTAINS
+          - NOT_BETWEEN
+          - STARTS_WITH
+        value:
+          type: object
+        expression:
+          type: string
     TableDTO:
       type: object
       properties:
@@ -1175,66 +1250,6 @@ components:
             $ref: '#/components/schemas/ViewDTO'
         latestVersion:
           $ref: '#/components/schemas/VersionDTO'
-    FilterOptionsRequestDTO:
-      type: object
-      properties:
-        pageId:
-          type: string
-        table:
-          $ref: '#/components/schemas/TableDTO'
-        workspaceId:
-          type: string
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/FilterConfigDTO'
-        thirdPartyFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
-        searchTerms:
-          type: object
-          additionalProperties:
-            type: string
-        filterValues:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/FilterValueDTO'
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-        versions:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-        hash:
-          type: string
-    LinkedColumnDTO:
-      type: object
-      properties:
-        tableId:
-          type: string
-        columnId:
-          type: string
-    TreeResolvePathResponseDTO:
-      type: object
-      properties:
-        navigationStack:
-          type: array
-          items:
-            $ref: '#/components/schemas/NavigationStackItemDTO'
-        currentLevelNodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/TreeNodeDTO'
-        selectedNodeId:
-          type: string
-        levels:
-          type: array
-          items:
-            $ref: '#/components/schemas/TreeLevelDTO'
     WidgetParameterDTO:
       type: object
       properties:
@@ -1271,17 +1286,59 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
-    GroupOptionDTO:
+    EnumOptions:
       type: object
       properties:
-        columnId:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnumOptionValue'
+        type:
           type: string
-        direction:
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        sqlQuery:
           type: string
-        columnName:
-          type: string
-    JsonNode:
+        multipleValuesAllowed:
+          type: boolean
+        wrapValuesWithinSingleQuotes:
+          type: boolean
+    VersionDTO:
       type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        dagRunId:
+          type: integer
+          format: int64
+        description:
+          type: string
+        isDefaultVersion:
+          type: boolean
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
     ColumnDTO:
       required:
       - name
@@ -1384,7 +1441,7 @@ components:
           $ref: '#/components/schemas/ColumnSettingsDTO'
         sourceDatatype:
           type: string
-    VersionDTO:
+    ViewDTO:
       type: object
       properties:
         createdBy:
@@ -1398,134 +1455,61 @@ components:
           type: string
           format: date-time
         id:
-          type: integer
-          format: int64
+          type: string
+        isMaster:
+          type: boolean
+        tableId:
+          type: string
+        position:
+          type: number
+          format: double
         name:
           type: string
-        dagRunId:
-          type: integer
-          format: int64
+        type:
+          type: string
         description:
           type: string
-        isDefaultVersion:
-          type: boolean
-        parameters:
+        filterOptions:
+          $ref: '#/components/schemas/FilterOptionDTO'
+        groupOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupOptionDTO'
+        sortOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortOptionDTO'
+        uiMetadata:
           type: object
           additionalProperties:
             type: object
-    EnumOptions:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnumOptionValue'
-        type:
-          type: string
-          enum:
-          - TEXT
-          - NUMERIC
-          - STATIC_ENUM
-          - DYNAMIC_ENUM
-          - BOOLEAN
-          - DATE
-          - DATETIME
-          - DATE_RANGE
-        sqlQuery:
-          type: string
-        multipleValuesAllowed:
-          type: boolean
-        wrapValuesWithinSingleQuotes:
-          type: boolean
-    SortOptionDTO:
-      type: object
-      properties:
-        columnId:
-          type: string
-        direction:
-          type: string
-        columnName:
-          type: string
-        columnNameWithOutQuotes:
-          type: string
-        valueOrder:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        filterParams:
           type: object
-    UserDTO:
+          additionalProperties:
+            type: object
+        whereClause:
+          type: string
+        query:
+          type: string
+        tableName:
+          type: string
+    TreeResolvePathResponseDTO:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-        roles:
+        navigationStack:
           type: array
           items:
-            type: string
-        permissions:
-          uniqueItems: true
+            $ref: '#/components/schemas/NavigationStackItemDTO'
+        currentLevelNodes:
           type: array
           items:
-            type: string
-        joinDate:
+            $ref: '#/components/schemas/TreeNodeDTO'
+        selectedNodeId:
           type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
-          type: integer
-          format: int64
-        isServiceAccount:
-          type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
-          type: boolean
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeLevelDTO'
     ErrorMessage:
       type: object
       properties:
@@ -1542,55 +1526,83 @@ components:
           type: array
           items:
             type: string
-    TreeResolvePathRequestDTO:
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
+    TreeSearchResultDTO:
+      type: object
+      properties:
+        node:
+          $ref: '#/components/schemas/TreeNodeDTO'
+        pathSegments:
+          type: array
+          items:
+            type: string
+        pathLabel:
+          type: string
+    NavigationStackItemDTO:
+      type: object
+      properties:
+        nodeId:
+          type: string
+        label:
+          type: string
+    FilterConfigDTO:
+      type: object
+      properties:
+        columnDTO:
+          $ref: '#/components/schemas/ColumnDTO'
+        label:
+          type: string
+        type:
+          type: integer
+          format: int32
+        uuid:
+          type: string
+        operand:
+          type: string
+        linkedColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkedColumnDTO'
+        rank:
+          type: integer
+          format: int32
+        options:
+          type: array
+          items:
+            type: string
+        sortingOrder:
+          type: string
+          enum:
+          - ASC
+          - DESC
+    TreeFetchLevelRequestDTO:
       type: object
       properties:
         workbookId:
           type: string
-        pathIds:
-          type: array
-          items:
-            type: string
-        pathLabels:
-          type: array
-          items:
-            type: string
+        parentId:
+          type: string
         idColumnId:
           type: string
         parentIdColumnId:
           type: string
         labelColumnId:
           type: string
-    TreeNodeDTO:
+    ColumnSettingsDTO:
       type: object
       properties:
-        id:
-          type: string
-        parentId:
-          type: string
-        label:
-          type: string
-        hasChildren:
+        enableUserAddNotifications:
           type: boolean
-    FilterOptionDTO:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
     AIGenerateSettingsDTO:
       type: object
       properties:

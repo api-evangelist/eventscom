@@ -59,16 +59,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    JiraProjects:
-      properties:
-        projects:
-          items:
-            $ref: '#/components/schemas/JiraProject'
-          type: array
-          title: Projects
-          description: List of Jira projects
-      type: object
-      title: JiraProjects
     HTTPValidationError:
       properties:
         detail:
@@ -78,46 +68,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    JiraIssueType:
-      properties:
-        name:
-          type: string
-          title: Name
-          description: Issue type name
-        fields:
-          $ref: '#/components/schemas/JiraIssueFields'
-          description: Fields associated with this issue type
-      type: object
-      required:
-      - name
-      - fields
-      title: JiraIssueType
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     CreateJiraIssueRequest:
       properties:
         connectorId:
@@ -167,6 +117,32 @@ components:
       - issueType
       - taskColumnId
       title: CreateJiraIssueRequest
+    JiraProject:
+      properties:
+        projectKey:
+          type: string
+          title: Projectkey
+          description: Unique identifier for the Jira project
+        projectName:
+          type: string
+          title: Projectname
+          description: Name of the project
+        projectId:
+          type: string
+          title: Projectid
+          description: ID of the project
+        issueTypes:
+          items:
+            $ref: '#/components/schemas/JiraIssueType'
+          type: array
+          title: Issuetypes
+          description: List of issue types and their fields
+      type: object
+      required:
+      - projectKey
+      - projectName
+      - projectId
+      title: JiraProject
     JiraIssueFields:
       properties:
         requiredFields:
@@ -207,29 +183,53 @@ components:
           description: Standard Jira fields
       type: object
       title: JiraIssueFields
-    JiraProject:
+    ValidationError:
       properties:
-        projectKey:
-          type: string
-          title: Projectkey
-          description: Unique identifier for the Jira project
-        projectName:
-          type: string
-          title: Projectname
-          description: Name of the project
-        projectId:
-          type: string
-          title: Projectid
-          description: ID of the project
-        issueTypes:
+        loc:
           items:
-            $ref: '#/components/schemas/JiraIssueType'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Issuetypes
-          description: List of issue types and their fields
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
       type: object
       required:
-      - projectKey
-      - projectName
-      - projectId
-      title: JiraProject
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    JiraProjects:
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/JiraProject'
+          type: array
+          title: Projects
+          description: List of Jira projects
+      type: object
+      title: JiraProjects
+    JiraIssueType:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Issue type name
+        fields:
+          $ref: '#/components/schemas/JiraIssueFields'
+          description: Fields associated with this issue type
+      type: object
+      required:
+      - name
+      - fields
+      title: JiraIssueType

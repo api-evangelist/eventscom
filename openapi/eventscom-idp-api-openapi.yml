@@ -52,6 +52,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Get user
+      x-summary-source: derived
     put:
       tags:
       - IDP
@@ -101,6 +103,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Update user
+      x-summary-source: derived
   /idp/api/v1/company:
     get:
       tags:
@@ -145,6 +149,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyDTO'
+      summary: Get company
+      x-summary-source: derived
     put:
       tags:
       - IDP
@@ -194,6 +200,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyDTO'
+      summary: Update company
+      x-summary-source: derived
   /idp/api/v1/company/theme/{id}:
     get:
       tags:
@@ -246,6 +254,8 @@ paths:
                 $ref: '#/components/schemas/CompanyThemeDTO'
       security:
       - s_jwt: []
+      summary: Get theme by id
+      x-summary-source: derived
     put:
       tags:
       - IDP
@@ -303,6 +313,8 @@ paths:
                 $ref: '#/components/schemas/CompanyThemeDTO'
       security:
       - s_jwt: []
+      summary: Update theme
+      x-summary-source: derived
     delete:
       tags:
       - IDP
@@ -350,6 +362,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete theme
+      x-summary-source: derived
   /idp/api/v1/company/editRootDir:
     put:
       tags:
@@ -402,6 +416,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: string
+      summary: Edit root dir
+      x-summary-source: derived
   /idp/api/v1/company/editKeys:
     put:
       tags:
@@ -452,6 +468,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyKeysDTO'
+      summary: Edit keys
+      x-summary-source: derived
   /idp/api/v1/user/token:
     post:
       tags:
@@ -502,6 +520,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserAuthTokenDTO'
+      summary: Get token
+      x-summary-source: derived
   /idp/api/v1/user/signUp/verifyEmailOtp:
     post:
       tags:
@@ -564,6 +584,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Verify signup with email otp
+      x-summary-source: derived
   /idp/api/v1/user/signUp/resendEmailOtp:
     post:
       tags:
@@ -616,6 +638,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Resend sign up email otp
+      x-summary-source: derived
   /idp/api/v1/user/sign-up:
     post:
       tags:
@@ -672,6 +696,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Sign up
+      x-summary-source: derived
   /idp/api/v1/user/reset-password:
     post:
       tags:
@@ -718,6 +744,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Reset password
+      x-summary-source: derived
   /idp/api/v1/user/resend-sign-up-email:
     post:
       tags:
@@ -764,6 +792,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Resend sign up email
+      x-summary-source: derived
   /idp/api/v1/user/public/post:
     post:
       tags:
@@ -812,6 +842,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Test post third paty
+      x-summary-source: derived
   /idp/api/v1/user/otp/verify:
     post:
       tags:
@@ -874,6 +906,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Verify otp
+      x-summary-source: derived
   /idp/api/v1/user/otp/send:
     post:
       tags:
@@ -920,6 +954,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Send otp
+      x-summary-source: derived
   /idp/api/v1/user/login:
     post:
       tags:
@@ -976,6 +1012,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Login
+      x-summary-source: derived
   /idp/api/v1/user/forgot-password:
     post:
       tags:
@@ -1022,6 +1060,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Forgot password
+      x-summary-source: derived
   /idp/api/v1/user/demoData:
     post:
       tags:
@@ -1072,6 +1112,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SeedDemoDataResponseDTO'
+      summary: Seed demo data
+      x-summary-source: derived
   /idp/api/v1/user/change-password:
     post:
       tags:
@@ -1118,6 +1160,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Change password
+      x-summary-source: derived
   /idp/api/v1/user/assign-role:
     post:
       tags:
@@ -1168,6 +1212,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AssignRoleDTO'
+      summary: Update role
+      x-summary-source: derived
   /idp/api/v1/team/resend-invite:
     post:
       tags:
@@ -1214,6 +1260,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Resend invite 1
+      x-summary-source: derived
   /idp/api/v1/team/join-team:
     post:
       tags:
@@ -1311,6 +1359,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/TeamInviteDTO'
+      summary: Invite to team
+      x-summary-source: derived
   /idp/api/v1/team/delete-invite:
     post:
       tags:
@@ -1357,6 +1407,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete invite 1
+      x-summary-source: derived
   /idp/api/v1/team/bulkInvite:
     post:
       tags:
@@ -1409,6 +1461,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TeamInviteDTO'
+      summary: Bulk invite to team
+      x-summary-source: derived
   /idp/api/v1/company/theme:
     get:
       tags:
@@ -1457,6 +1511,8 @@ paths:
                   $ref: '#/components/schemas/CompanyThemeDTO'
       security:
       - s_jwt: []
+      summary: Get all themes
+      x-summary-source: derived
     post:
       tags:
       - IDP
@@ -1508,6 +1564,8 @@ paths:
                 $ref: '#/components/schemas/CompanyThemeDTO'
       security:
       - s_jwt: []
+      summary: Create theme
+      x-summary-source: derived
   /idp/api/v1/company/serviceAccount:
     get:
       tags:
@@ -1554,6 +1612,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ServiceAccountDTO'
+      summary: Get all service accounts
+      x-summary-source: derived
     post:
       tags:
       - IDP
@@ -1603,6 +1663,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ServiceAccountDTO'
+      summary: Service account
+      x-summary-source: derived
   /idp/api/v1/company/reconcile/setup:
     post:
       tags:
@@ -1689,6 +1751,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Migration for read end points
+      x-summary-source: derived
   /idp/api/v1/company/noCoLink:
     post:
       tags:
@@ -1735,6 +1799,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Add no co link relation
+      x-summary-source: derived
   /idp/api/v1/company/llm/models/bulk:
     post:
       tags:
@@ -1789,6 +1855,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/BulkAddModelResponseDTO'
+      summary: Add models to team
+      x-summary-source: derived
   /idp/api/v1/company/keys/migration:
     post:
       tags:
@@ -1835,6 +1903,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Company keys migration
+      x-summary-source: derived
   /idp/api/v1/company/demoDb:
     post:
       tags:
@@ -1881,6 +1951,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Create demo db for all companies
+      x-summary-source: derived
   /idp/api/v1/company/createDefaultWarehouse:
     post:
       tags:
@@ -1921,6 +1993,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Create default ware house config for existing companies
+      x-summary-source: derived
   /idp/api/v1/user/verify:
     get:
       tags:
@@ -1971,6 +2045,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserDTO'
+      summary: Verify signup
+      x-summary-source: derived
   /idp/api/v1/user/signInWithMicrosoft:
     get:
       tags:
@@ -2011,6 +2087,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Sign in with microsoft
+      x-summary-source: derived
   /idp/api/v1/user/sign-in-with-google:
     get:
       tags:
@@ -2051,6 +2129,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Sign in with google
+      x-summary-source: derived
   /idp/api/v1/user/public:
     get:
       tags:
@@ -2097,6 +2177,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Test third party
+      x-summary-source: derived
   /idp/api/v1/user/apiTokens:
     get:
       tags:
@@ -2143,6 +2225,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserApiTokenDTO'
+      summary: List api tokens
+      x-summary-source: derived
   /idp/api/v1/user/apiToken:
     get:
       tags:
@@ -2187,6 +2271,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserApiTokenDTO'
+      summary: Get or create api token
+      x-summary-source: derived
   /idp/api/v1/user/accountExists/{email}:
     get:
       tags:
@@ -2237,6 +2323,8 @@ paths:
             '*/*':
               schema:
                 type: boolean
+      summary: Check account exists
+      x-summary-source: derived
   /idp/api/v1/team:
     get:
       tags:
@@ -2281,6 +2369,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/TeamDTO'
+      summary: Get team members
+      x-summary-source: derived
   /idp/api/v1/team/inviteInfo/{hash}:
     get:
       tags:
@@ -2331,6 +2421,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/InviteInfoDTO'
+      summary: Get invite info 1
+      x-summary-source: derived
   /idp/api/v1/team/external:
     get:
       tags:
@@ -2377,6 +2469,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ExternalTeamMemberDTO'
+      summary: External team members
+      x-summary-source: derived
   /idp/api/v1/oauth2/{regId}/callback:
     get:
       tags:
@@ -2467,6 +2561,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: O auth2 callback
+      x-summary-source: derived
   /idp/api/v1/oauth2/{regId}/authorize:
     get:
       tags:
@@ -2543,6 +2639,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Slack connect
+      x-summary-source: derived
   /idp/api/v1/company/validateSenderEmail:
     get:
       tags:
@@ -2595,6 +2693,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: boolean
+      summary: Validate sender email
+      x-summary-source: derived
   /idp/api/v1/company/serviceAccount/{id}/token:
     get:
       tags:
@@ -2646,6 +2746,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ServiceAccountTokenDTO'
+      summary: Get service account token
+      x-summary-source: derived
   /idp/api/v1/company/serviceAccount/{id}/token/reset:
     get:
       tags:
@@ -2702,6 +2804,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ServiceAccountTokenDTO'
+      summary: Reset token
+      x-summary-source: derived
   /idp/api/v1/company/llm/spend/logs:
     get:
       tags:
@@ -2777,6 +2881,8 @@ paths:
                   type: object
                   additionalProperties:
                     type: object
+      summary: Get spend logs by team
+      x-summary-source: derived
   /idp/api/v1/company/llm/spend/logs/ui:
     get:
       tags:
@@ -2870,6 +2976,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Get spend logs UIBy team
+      x-summary-source: derived
   /idp/api/v1/company/llm/models:
     get:
       tags:
@@ -2916,6 +3024,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+      summary: Get supported models by company id
+      x-summary-source: derived
     delete:
       tags:
       - IDP
@@ -2961,6 +3071,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete model by model name
+      x-summary-source: derived
   /idp/api/v1/company/llm/key:
     get:
       tags:
@@ -3005,6 +3117,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
+      summary: Get virtual key
+      x-summary-source: derived
   /idp/api/v1/company/llm/daily/activity:
     get:
       tags:
@@ -3078,6 +3192,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Get usage by team
+      x-summary-source: derived
   /idp/api/v1/company/llm/config:
     get:
       tags:
@@ -3122,6 +3238,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AIConfigDTO'
+      summary: Get default config
+      x-summary-source: derived
   /idp/api/v1/company/isCompanySpecificKeyExists:
     get:
       tags:
@@ -3168,6 +3286,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: boolean
+      summary: Is company specific key exists
+      x-summary-source: derived
   /idp/api/v1/company/internal/registration/event:
     get:
       tags:
@@ -3208,6 +3328,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Fire company registration
+      x-summary-source: derived
   /idp/api/v1/company/getRootDir:
     get:
       tags:
@@ -3254,6 +3376,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: string
+      summary: Get root dir
+      x-summary-source: derived
   /idp/api/v1/company/getKeys:
     get:
       tags:
@@ -3298,6 +3422,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyKeysDTO'
+      summary: Get keys by company id
+      x-summary-source: derived
   /idp/api/v1/company/getDefaultSenderInfo:
     get:
       tags:
@@ -3342,6 +3468,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyKeysDTO'
+      summary: Get default sender info
+      x-summary-source: derived
   /idp/api/v1/user/apiTokens/{id}:
     delete:
       tags:
@@ -3389,6 +3517,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete api token
+      x-summary-source: derived
   /idp/api/v1/team/remove-member:
     delete:
       tags:
@@ -3491,6 +3621,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete service account
+      x-summary-source: derived
   /idp/api/v1/company/deleteTempFolders/{key}:
     delete:
       tags:
@@ -3553,6 +3685,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete temp and deleted warehouses
+      x-summary-source: derived
   /idp/api/v1/company/deleteKeys/{keysType}:
     delete:
       tags:
@@ -3599,6 +3733,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete keys by company id
+      x-summary-source: derived
   /idp/api/v1/user/googleDriveConnect:
     get:
       tags:
@@ -3639,6 +3775,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect
+      x-summary-source: derived
     put:
       tags:
       - IDP
@@ -3678,6 +3816,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect 3
+      x-summary-source: derived
     post:
       tags:
       - IDP
@@ -3717,6 +3857,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect 2
+      x-summary-source: derived
     delete:
       tags:
       - IDP
@@ -3756,6 +3898,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect 5
+      x-summary-source: derived
     options:
       tags:
       - IDP
@@ -3795,6 +3939,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect 6
+      x-summary-source: derived
     head:
       tags:
       - IDP
@@ -3834,6 +3980,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect 1
+      x-summary-source: derived
     patch:
       tags:
       - IDP
@@ -3873,8 +4021,291 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Google drive connect 4
+      x-summary-source: derived
 components:
   schemas:
+    CompanyLiteLLMConfigDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teamId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        virtualKey:
+          type: string
+        modelConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+    UserApiTokenDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        token:
+          type: string
+        neverExpires:
+          type: boolean
+        expiryDate:
+          type: string
+          format: date-time
+        createDate:
+          type: string
+          format: date-time
+        name:
+          type: string
+    OtpDTO:
+      type: object
+      properties:
+        otp:
+          type: string
+    CompanyThemeDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        settings:
+          type: object
+          additionalProperties:
+            type: object
+        title:
+          type: string
+        description:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+    VerifySignUpOtpRequestDTO:
+      type: object
+      properties:
+        email:
+          type: string
+        otp:
+          type: string
+    AgentConfig:
+      type: object
+      properties:
+        agentType:
+          type: string
+        liteLlmEnabled:
+          type: boolean
+        defaultModel:
+          type: string
+        modelsByProvider:
+          type: object
+          additionalProperties:
+            type: object
+    ModelMetadata:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: string
+        shortDescription:
+          type: string
+        description:
+          type: string
+        default:
+          type: boolean
+    LiteLLMModelConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        label:
+          type: string
+        llmProvider:
+          type: string
+        defaultKey:
+          type: string
+        icon:
+          type: string
+        maxBudget:
+          type: number
+          format: double
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelMetadata'
+        keyAvailable:
+          type: boolean
+        image:
+          type: boolean
+    TeamDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDTO'
+    ChangePasswordDTO:
+      type: object
+      properties:
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+    BulkTeamInviteDTO:
+      type: object
+      properties:
+        teamUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamInviteDTO'
+    SignUpRequestDTO:
+      type: object
+      properties:
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        password:
+          type: string
+        hash:
+          type: string
+        elementType:
+          type: string
+          enum:
+          - WORK_SPACE
+          - TEAM
+        phoneNumber:
+          type: string
+    BulkAddModelResponseDTO:
+      type: object
+      properties:
+        modelName:
+          type: string
+        status:
+          type: string
+        message:
+          type: string
+        modelId:
+          type: string
+    ResendSignUpOtpRequestDTO:
+      type: object
+      properties:
+        email:
+          type: string
+    CompanyDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        displayName:
+          type: string
+        logo:
+          type: string
+        domain:
+          type: string
+        isSSOEnabled:
+          type: boolean
+        mfaEnabled:
+          type: boolean
+        logoKey:
+          type: string
+        isOnboardingCompleted:
+          type: boolean
+        size:
+          type: string
+    ResendSignUpEmailDTO:
+      type: object
+      properties:
+        email:
+          type: string
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
     CompanyKeysDTO:
       type: object
       properties:
@@ -3949,62 +4380,15 @@ components:
           type: string
         gcpSecretKey:
           type: string
-    ChangePasswordDTO:
+    SeedDemoDataResponseDTO:
       type: object
       properties:
-        oldPassword:
+        workspaceId:
           type: string
-        newPassword:
-          type: string
-    InviteInfoDTO:
-      type: object
-      properties:
-        inviteeEmail:
-          type: string
-        inviterName:
-          type: string
-        elementName:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        isInviteValid:
-          type: boolean
-    OtpDTO:
-      type: object
-      properties:
-        otp:
-          type: string
-    ResendSignUpEmailDTO:
-      type: object
-      properties:
-        email:
-          type: string
-    LoginDTO:
-      type: object
-      properties:
-        email:
-          type: string
-        password:
-          type: string
-    CompanyLiteLLMConfigDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        teamId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        virtualKey:
-          type: string
-        modelConfigs:
+        tableIds:
           type: array
           items:
-            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+            type: string
     SeedDemoDataDTO:
       type: object
       properties:
@@ -4013,251 +4397,6 @@ components:
           type: array
           items:
             type: string
-    AgentConfig:
-      type: object
-      properties:
-        agentType:
-          type: string
-        liteLlmEnabled:
-          type: boolean
-        defaultModel:
-          type: string
-        modelsByProvider:
-          type: object
-          additionalProperties:
-            type: object
-    BulkAddModelRequestDTO:
-      required:
-      - customLLMProvider
-      type: object
-      properties:
-        modelName:
-          type: string
-        customLLMProvider:
-          type: string
-        apiKey:
-          type: string
-        additionalParams:
-          type: object
-          additionalProperties:
-            type: object
-    LiteLLMModelConfigDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        label:
-          type: string
-        llmProvider:
-          type: string
-        defaultKey:
-          type: string
-        icon:
-          type: string
-        maxBudget:
-          type: number
-          format: double
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelMetadata'
-        keyAvailable:
-          type: boolean
-        image:
-          type: boolean
-    SaasxlResponseDTOMapStringObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    SignUpRequestDTO:
-      type: object
-      properties:
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        password:
-          type: string
-        hash:
-          type: string
-        elementType:
-          type: string
-          enum:
-          - WORK_SPACE
-          - TEAM
-        phoneNumber:
-          type: string
-    ServiceAccountTokenDTO:
-      type: object
-      properties:
-        token:
-          type: string
-        expiryInSeconds:
-          type: integer
-          format: int64
-        expiryDate:
-          type: string
-          format: date-time
-        neverExpires:
-          type: boolean
-    UserAuthTokenDTO:
-      type: object
-      properties:
-        token:
-          type: string
-    CompanyDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        displayName:
-          type: string
-        logo:
-          type: string
-        domain:
-          type: string
-        isSSOEnabled:
-          type: boolean
-        mfaEnabled:
-          type: boolean
-        logoKey:
-          type: string
-        isOnboardingCompleted:
-          type: boolean
-        size:
-          type: string
-    ExternalTeamMemberDTO:
-      type: object
-      properties:
-        email:
-          type: string
-        elementId:
-          type: string
-        elementName:
-          type: string
-    CompanyThemeDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        settings:
-          type: object
-          additionalProperties:
-            type: object
-        title:
-          type: string
-        description:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-    BulkAddModelResponseDTO:
-      type: object
-      properties:
-        modelName:
-          type: string
-        status:
-          type: string
-        message:
-          type: string
-        modelId:
-          type: string
-    VerifySignUpOtpRequestDTO:
-      type: object
-      properties:
-        email:
-          type: string
-        otp:
-          type: string
-    TeamDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserDTO'
-    AssignRoleDTO:
-      type: object
-      properties:
-        roles:
-          type: array
-          items:
-            type: string
-        userId:
-          type: integer
-          format: int64
-    ResendSignUpOtpRequestDTO:
-      type: object
-      properties:
-        email:
-          type: string
-    UserApiTokenDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        token:
-          type: string
-        neverExpires:
-          type: boolean
-        expiryDate:
-          type: string
-          format: date-time
-        createDate:
-          type: string
-          format: date-time
-        name:
-          type: string
-    ResetPasswordDTO:
-      type: object
-      properties:
-        email:
-          type: string
-        hash:
-          type: string
-        password:
-          type: string
     ServiceAccountDTO:
       type: object
       properties:
@@ -4295,7 +4434,20 @@ components:
           format: int64
         hidden:
           type: boolean
-    SaasxlResponseDTOObject:
+    ServiceAccountTokenDTO:
+      type: object
+      properties:
+        token:
+          type: string
+        expiryInSeconds:
+          type: integer
+          format: int64
+        expiryDate:
+          type: string
+          format: date-time
+        neverExpires:
+          type: boolean
+    SaasxlResponseDTOMapStringObject:
       type: object
       properties:
         success:
@@ -4309,13 +4461,17 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    BulkTeamInviteDTO:
+          additionalProperties:
+            type: object
+    ExternalTeamMemberDTO:
       type: object
       properties:
-        teamUsers:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamInviteDTO'
+        email:
+          type: string
+        elementId:
+          type: string
+        elementName:
+          type: string
     TeamInviteDTO:
       type: object
       properties:
@@ -4325,65 +4481,39 @@ components:
           type: array
           items:
             type: string
-    UserDTO:
+    ResetPasswordDTO:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
         email:
           type: string
-        companyName:
+        hash:
           type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
+        password:
           type: string
+    AIConfigDTO:
+      type: object
+      properties:
+        defaultBudget:
+          type: number
+          format: double
+        modelConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+        agentConfig:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentConfig'
+    AssignRoleDTO:
+      type: object
+      properties:
         roles:
           type: array
           items:
             type: string
-        permissions:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        joinDate:
-          type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
+        userId:
           type: integer
           format: int64
-        isServiceAccount:
-          type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
-          type: boolean
     ErrorMessage:
       type: object
       properties:
@@ -4400,42 +4530,62 @@ components:
           type: array
           items:
             type: string
-    ModelMetadata:
+    BulkAddModelRequestDTO:
+      required:
+      - customLLMProvider
       type: object
       properties:
-        label:
+        modelName:
           type: string
-        value:
+        customLLMProvider:
           type: string
-        shortDescription:
+        apiKey:
           type: string
-        description:
+        additionalParams:
+          type: object
+          additionalProperties:
+            type: object
+    UserAuthTokenDTO:
+      type: object
+      properties:
+        token:
           type: string
-        default:
+    LoginDTO:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
           type: boolean
-    SeedDemoDataResponseDTO:
-      type: object
-      properties:
-        workspaceId:
+        version:
           type: string
-        tableIds:
-          type: array
-          items:
-            type: string
-    AIConfigDTO:
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    InviteInfoDTO:
       type: object
       properties:
-        defaultBudget:
-          type: number
-          format: double
-        modelConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
-        agentConfig:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgentConfig'
+        inviteeEmail:
+          type: string
+        inviterName:
+          type: string
+        elementName:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        isInviteValid:
+          type: boolean
   securitySchemes:
     s_jwt:
       type: http

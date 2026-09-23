@@ -154,38 +154,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    UpdateWidgetRequest:
-      properties:
-        widget_id:
-          type: string
-          title: Widget Id
-        widget:
-          additionalProperties: true
-          type: object
-          title: Widget
-      type: object
-      required:
-      - widget_id
-      - widget
-      title: UpdateWidgetRequest
-    IndexWorkspaceRequest:
-      properties:
-        workspace_id:
-          type: string
-          title: Workspace Id
-      type: object
-      required:
-      - workspace_id
-      title: IndexWorkspaceRequest
-    DeleteWidgetRequest:
-      properties:
-        widget_id:
-          type: string
-          title: Widget Id
-      type: object
-      required:
-      - widget_id
-      title: DeleteWidgetRequest
     HTTPValidationError:
       properties:
         detail:
@@ -195,32 +163,15 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    ValidationError:
+    IndexWorkspaceRequest:
       properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
+        workspace_id:
           type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
+          title: Workspace Id
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - workspace_id
+      title: IndexWorkspaceRequest
     AddWidgetRequest:
       properties:
         page_id:
@@ -247,6 +198,55 @@ components:
       - company_id
       - widget
       title: AddWidgetRequest
+    DeleteWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+      type: object
+      required:
+      - widget_id
+      title: DeleteWidgetRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UpdateWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - widget_id
+      - widget
+      title: UpdateWidgetRequest
     IndexPageRequest:
       properties:
         page_id:

@@ -61,6 +61,31 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    SearchTablesRequest:
+      properties:
+        dataSourceIds:
+          items:
+            type: integer
+          type: array
+          title: Datasourceids
+          description: A list of data source ids.
+        searchQuery:
+          type: string
+          title: Searchquery
+          description: Natural language search query.
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+          description: Limit to show the top n values.
+        metric:
+          anyOf:
+          - $ref: '#/components/schemas/Metric'
+          - type: 'null'
+          description: Distance function to be used.
+      type: object
+      title: SearchTablesRequest
     HTTPValidationError:
       properties:
         detail:
@@ -86,24 +111,6 @@ components:
           description: Id of the data source.
       type: object
       title: TableDTO
-    SearchTablesResponse:
-      properties:
-        tables:
-          items:
-            $ref: '#/components/schemas/TableDTO'
-          type: array
-          title: Tables
-          description: List of tables.
-      type: object
-      title: SearchTablesResponse
-    Metric:
-      type: string
-      enum:
-      - L1
-      - L2
-      - COSINE
-      - NEGATIVE_IP
-      title: Metric
     CreateEmbeddingsRequest:
       properties:
         dataSourceId:
@@ -152,28 +159,21 @@ components:
       - msg
       - type
       title: ValidationError
-    SearchTablesRequest:
+    Metric:
+      type: string
+      enum:
+      - L1
+      - L2
+      - COSINE
+      - NEGATIVE_IP
+      title: Metric
+    SearchTablesResponse:
       properties:
-        dataSourceIds:
+        tables:
           items:
-            type: integer
+            $ref: '#/components/schemas/TableDTO'
           type: array
-          title: Datasourceids
-          description: A list of data source ids.
-        searchQuery:
-          type: string
-          title: Searchquery
-          description: Natural language search query.
-        limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Limit
-          description: Limit to show the top n values.
-        metric:
-          anyOf:
-          - $ref: '#/components/schemas/Metric'
-          - type: 'null'
-          description: Distance function to be used.
+          title: Tables
+          description: List of tables.
       type: object
-      title: SearchTablesRequest
+      title: SearchTablesResponse

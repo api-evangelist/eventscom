@@ -67,6 +67,59 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    RunEnrichmentRequest:
+      properties:
+        enrichment_id:
+          type: integer
+          title: Enrichment Id
+        params:
+          additionalProperties: true
+          type: object
+          title: Params
+        databar_api_key:
+          type: string
+          title: Databar Api Key
+      type: object
+      required:
+      - enrichment_id
+      - params
+      - databar_api_key
+      title: RunEnrichmentRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     AIGenerateInternalSettings:
       properties:
         prompt:
@@ -99,59 +152,6 @@ components:
       - model
       - web_access
       title: AIGenerateInternalSettings
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    RunEnrichmentRequest:
-      properties:
-        enrichment_id:
-          type: integer
-          title: Enrichment Id
-        params:
-          additionalProperties: true
-          type: object
-          title: Params
-        databar_api_key:
-          type: string
-          title: Databar Api Key
-      type: object
-      required:
-      - enrichment_id
-      - params
-      - databar_api_key
-      title: RunEnrichmentRequest
     AIGenerateInternalRequest:
       properties:
         row:

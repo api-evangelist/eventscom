@@ -502,40 +502,6 @@ paths:
       - s_jwt: []
 components:
   schemas:
-    PageableObject:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int64
-        sort:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortObject'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        paged:
-          type: boolean
-        unpaged:
-          type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     UserDTO:
       type: object
       properties:
@@ -595,6 +561,50 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    AlertHistoryDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        alertId:
+          type: string
+        alertName:
+          type: string
+        executedAt:
+          type: string
+          format: date-time
+        value:
+          type: number
+          format: double
+        comparisonValue:
+          type: number
+          format: double
+        query:
+          type: string
+        executionMetadata:
+          $ref: '#/components/schemas/AlertExecutionMetadata'
+        thresholdMet:
+          type: boolean
+        notificationSent:
+          type: boolean
+        alertDescription:
+          type: string
+        alertStatus:
+          type: string
+        alertSourceType:
+          type: string
+        alertSourceId:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -611,76 +621,25 @@ components:
           type: array
           items:
             type: string
-    Pageable:
+    PageableObject:
       type: object
       properties:
-        page:
-          minimum: 0
-          type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            type: string
-    TupleStringMapStringObject:
-      type: object
-      properties:
-        item1:
-          type: string
-        item2:
-          type: object
-          additionalProperties:
-            type: object
-    SortObject:
-      type: object
-      properties:
-        direction:
-          type: string
-        nullHandling:
-          type: string
-        ascending:
-          type: boolean
-        property:
-          type: string
-        ignoreCase:
-          type: boolean
-    PageAlertHistoryDTO:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-          format: int32
-        totalElements:
+        offset:
           type: integer
           format: int64
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertHistoryDTO'
-        number:
-          type: integer
-          format: int32
         sort:
           type: array
           items:
             $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
+        pageNumber:
           type: integer
           format: int32
-        empty:
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        unpaged:
           type: boolean
     AlertExecutionMetadata:
       type: object
@@ -733,50 +692,91 @@ components:
           type: string
         jobGroup:
           type: string
-    AlertHistoryDTO:
+    PageAlertHistoryDTO:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        alertId:
-          type: string
-        alertName:
-          type: string
-        executedAt:
-          type: string
-          format: date-time
-        value:
-          type: number
-          format: double
-        comparisonValue:
-          type: number
-          format: double
-        query:
-          type: string
-        executionMetadata:
-          $ref: '#/components/schemas/AlertExecutionMetadata'
-        thresholdMet:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertHistoryDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortObject'
+        first:
           type: boolean
-        notificationSent:
+        last:
           type: boolean
-        alertDescription:
+        numberOfElements:
+          type: integer
+          format: int32
+        empty:
+          type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
           type: string
-        alertStatus:
+        date:
           type: string
-        alertSourceType:
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    TupleStringMapStringObject:
+      type: object
+      properties:
+        item1:
           type: string
-        alertSourceId:
+        item2:
+          type: object
+          additionalProperties:
+            type: object
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    SortObject:
+      type: object
+      properties:
+        direction:
           type: string
+        nullHandling:
+          type: string
+        ascending:
+          type: boolean
+        property:
+          type: string
+        ignoreCase:
+          type: boolean
   securitySchemes:
     s_jwt:
       type: http

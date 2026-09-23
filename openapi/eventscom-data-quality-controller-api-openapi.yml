@@ -59,6 +59,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyDTO'
+      summary: Get policy by policy id
+      x-summary-source: derived
     put:
       tags:
       - data-quality-controller
@@ -115,6 +117,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyDTO'
+      summary: Update policy
+      x-summary-source: derived
     delete:
       tags:
       - data-quality-controller
@@ -165,6 +169,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyDTO'
+      summary: Delete policy by policy id
+      x-summary-source: derived
   /dataQuality/api/v1/policies/{policyId}/assertions/{assertionId}:
     put:
       tags:
@@ -228,6 +234,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyAssertionDTO'
+      summary: Update policy assertion by id
+      x-summary-source: derived
     delete:
       tags:
       - data-quality-controller
@@ -290,6 +298,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyAssertionDTO'
+      summary: Delete policy assertion by id
+      x-summary-source: derived
   /dataQuality/api/v1/policies:
     get:
       tags:
@@ -349,6 +359,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PageResponseDTOPolicyDTO'
+      summary: Get policies
+      x-summary-source: derived
     post:
       tags:
       - data-quality-controller
@@ -398,6 +410,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyDTO'
+      summary: Create policy
+      x-summary-source: derived
   /dataQuality/api/v1/policies/{policyId}/results:
     get:
       tags:
@@ -449,6 +463,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PageResponseDTOPolicyResultDTO'
+      summary: Get policy results
+      x-summary-source: derived
     post:
       tags:
       - data-quality-controller
@@ -499,6 +515,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyResultDTO'
+      summary: Create policy result
+      x-summary-source: derived
   /dataQuality/api/v1/policies/{policyId}/assertions:
     get:
       tags:
@@ -550,6 +568,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PageResponseDTOPolicyAssertionDTO'
+      summary: Get assertions by policy id
+      x-summary-source: derived
     post:
       tags:
       - data-quality-controller
@@ -606,6 +626,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyAssertionDTO'
+      summary: Create policy assertion
+      x-summary-source: derived
   /dataQuality/api/v1/policies/{policyId}/results/{policyResultId}:
     get:
       tags:
@@ -663,6 +685,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PolicyResultDTO'
+      summary: Get policy results 1
+      x-summary-source: derived
   /dataQuality/api/v1/conditions:
     get:
       tags:
@@ -707,6 +731,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PageResponseDTOConditionDTO'
+      summary: Get conditions
+      x-summary-source: derived
 components:
   schemas:
     PolicyAssertionDTO:
@@ -741,63 +767,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PolicyDTO'
-    ConditionConfigDTO:
-      type: object
-      properties:
-        expression:
-          type: string
-        sqlQuery:
-          $ref: '#/components/schemas/ConditionSqlQueryDTO'
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConditionParameterDTO'
-        targetType:
-          type: string
-          enum:
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - DATA_SOURCE_TABLE
-    PolicyDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        target:
-          $ref: '#/components/schemas/TargetDTO'
-        createdAt:
-          type: string
-          format: date-time
-        modifiedAt:
-          type: string
-          format: date-time
-        latestResult:
-          $ref: '#/components/schemas/PolicyResultDTO'
-    PageResponseDTOPolicyAssertionDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyAssertionDTO'
     UserDTO:
       type: object
       properties:
@@ -868,31 +837,39 @@ components:
           - DATA_SOURCE_TABLE
         id:
           type: string
-    SaasxlResponseDTOObject:
+    ConditionConfigDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        expression:
           type: string
-        date:
+        sqlQuery:
+          $ref: '#/components/schemas/ConditionSqlQueryDTO'
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConditionParameterDTO'
+        targetType:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+          enum:
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - DATA_SOURCE_TABLE
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
           type: object
-    ConditionParameterDTO:
-      type: object
-      properties:
-        key:
-          type: string
-        name:
-          type: string
-        dataType:
-          type: string
-        description:
-          type: string
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     ConditionSqlQueryDTO:
       type: object
       properties:
@@ -920,22 +897,6 @@ components:
           format: date-time
         createdBy:
           $ref: '#/components/schemas/UserDTO'
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     ConditionDTO:
       type: object
       properties:
@@ -963,13 +924,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PolicyResultDTO'
-    PageResponseDTOConditionDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConditionDTO'
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     PolicyAssertionResultDTO:
       type: object
       properties:
@@ -988,6 +956,64 @@ components:
           type: object
           additionalProperties:
             type: object
+    PolicyDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        target:
+          $ref: '#/components/schemas/TargetDTO'
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        latestResult:
+          $ref: '#/components/schemas/PolicyResultDTO'
+    ConditionParameterDTO:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        dataType:
+          type: string
+        description:
+          type: string
+    PageResponseDTOPolicyAssertionDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyAssertionDTO'
+    PageResponseDTOConditionDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConditionDTO'
   securitySchemes:
     s_jwt:
       type: http

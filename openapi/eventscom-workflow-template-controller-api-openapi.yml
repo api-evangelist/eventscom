@@ -512,54 +512,6 @@ components:
           type: object
           additionalProperties:
             type: object
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    WorkflowTemplateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        templateJson:
-          type: object
-          additionalProperties:
-            type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    RunWorkflowTemplateRequest:
-      type: object
-      properties:
-        inputJson:
-          type: object
-          additionalProperties:
-            type: object
     WorkflowTemplateResponse:
       type: object
       properties:
@@ -580,6 +532,54 @@ components:
         modiDate:
           type: string
           format: date-time
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    WorkflowTemplateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        templateJson:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    RunWorkflowTemplateRequest:
+      type: object
+      properties:
+        inputJson:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     s_jwt:
       type: http

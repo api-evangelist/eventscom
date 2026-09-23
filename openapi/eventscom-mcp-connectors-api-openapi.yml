@@ -149,6 +149,40 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    McpOAuth2CredentialResponseDTO:
+      type: object
+      properties:
+        credentialId:
+          type: integer
+          format: int64
+        mcpUrl:
+          type: string
+        authorizationUrl:
+          type: string
+        flow:
+          type: string
+        uiRedirectUri:
+          type: string
+        clientRedirectUri:
+          type: string
+        mcpConfigParams:
+          type: object
+          additionalProperties:
+            type: string
     McpOAuth2CredentialRequestDTO:
       required:
       - mcpUrl
@@ -174,40 +208,6 @@ components:
           type: string
         scopes:
           type: string
-    McpOAuth2CredentialResponseDTO:
-      type: object
-      properties:
-        credentialId:
-          type: integer
-          format: int64
-        mcpUrl:
-          type: string
-        authorizationUrl:
-          type: string
-        flow:
-          type: string
-        uiRedirectUri:
-          type: string
-        clientRedirectUri:
-          type: string
-        mcpConfigParams:
-          type: object
-          additionalProperties:
-            type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

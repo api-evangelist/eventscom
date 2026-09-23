@@ -60,8 +60,26 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Gtm job callback
+      x-summary-source: derived
 components:
   schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     GTMJobCallbackDTO:
       type: object
       properties:
@@ -89,22 +107,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

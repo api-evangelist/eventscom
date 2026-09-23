@@ -61,6 +61,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgentMcpDTO'
+      summary: Get 3
+      x-summary-source: derived
     put:
       tags:
       - Agent MCP
@@ -117,6 +119,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgentMcpDTO'
+      summary: Update 3
+      x-summary-source: derived
     delete:
       tags:
       - Agent MCP
@@ -163,6 +167,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete 5
+      x-summary-source: derived
   /mcp/api/v1/{mcpId}/toolkits:
     get:
       tags:
@@ -326,6 +332,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AgentMcpDTO'
+      summary: Get all 2
+      x-summary-source: derived
     post:
       tags:
       - Agent MCP
@@ -375,22 +383,26 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgentMcpDTO'
+      summary: Create 5
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     AgentMcpDTO:
       type: object
       properties:
@@ -444,22 +456,20 @@ components:
             type: object
             additionalProperties:
               type: object
-    ErrorMessage:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        success:
+          type: boolean
+        version:
           type: string
-        message:
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

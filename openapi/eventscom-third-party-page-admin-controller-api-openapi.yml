@@ -54,22 +54,10 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Invalidate all sessions
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ErrorMessage:
       type: object
       properties:
@@ -86,6 +74,20 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

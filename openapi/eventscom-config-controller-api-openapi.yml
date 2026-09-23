@@ -60,6 +60,8 @@ paths:
                 $ref: '#/components/schemas/ConfigPropertyDTO'
       security:
       - s_jwt: []
+      summary: Update 4
+      x-summary-source: derived
     post:
       tags:
       - config-controller
@@ -111,6 +113,8 @@ paths:
                 $ref: '#/components/schemas/ConfigPropertyDTO'
       security:
       - s_jwt: []
+      summary: Create 7
+      x-summary-source: derived
   /config/api/v2/configProperty/{configKey}:
     get:
       tags:
@@ -163,6 +167,8 @@ paths:
                 $ref: '#/components/schemas/ConfigPropertyDTO'
       security:
       - s_jwt: []
+      summary: Get 4
+      x-summary-source: derived
     delete:
       tags:
       - config-controller
@@ -214,6 +220,8 @@ paths:
                 $ref: '#/components/schemas/ConfigPropertyDTO'
       security:
       - s_jwt: []
+      summary: Delete 7
+      x-summary-source: derived
   /config/api/v2/configProperty/default/{configKey}:
     get:
       tags:
@@ -266,37 +274,10 @@ paths:
                 $ref: '#/components/schemas/ConfigPropertyDTO'
       security:
       - s_jwt: []
+      summary: Get default
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    ConfigPropertyDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        configKey:
-          type: string
-        configValue:
-          type: string
-        active:
-          type: boolean
-        companyId:
-          type: integer
-          format: int64
     ErrorMessage:
       type: object
       properties:
@@ -313,6 +294,35 @@ components:
           type: array
           items:
             type: string
+    ConfigPropertyDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        configKey:
+          type: string
+        configValue:
+          type: string
+        active:
+          type: boolean
+        companyId:
+          type: integer
+          format: int64
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

@@ -56,6 +56,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Cancel job
+      x-summary-source: derived
   /spark/api/v1/jobs:
     get:
       tags:
@@ -104,6 +106,8 @@ paths:
                   $ref: '#/components/schemas/SparkResultDTO'
       security:
       - s_jwt: []
+      summary: Get queries
+      x-summary-source: derived
   /spark/api/v1/getJobData/{jobGroupId}:
     get:
       tags:
@@ -158,6 +162,8 @@ paths:
                   $ref: '#/components/schemas/SparkJobDataDTO'
       security:
       - s_jwt: []
+      summary: Get data by job group id
+      x-summary-source: derived
   /spark/api/v1/allJobs:
     get:
       tags:
@@ -206,45 +212,10 @@ paths:
                   $ref: '#/components/schemas/SparkResultDTO'
       security:
       - s_jwt: []
+      summary: Get queries 1
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    SparkJobDTO:
-      type: object
-      properties:
-        jobGroupIds:
-          type: array
-          items:
-            type: string
     SparkJobDataDTO:
       type: object
       properties:
@@ -264,6 +235,43 @@ components:
           format: int64
         stream:
           type: string
+    SparkJobDTO:
+      type: object
+      properties:
+        jobGroupIds:
+          type: array
+          items:
+            type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     SparkResultDTO:
       type: object
       properties:

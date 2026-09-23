@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Saasxl-api doc Internal Login And Registration Controller API
+  title: Saasxl-api doc Internal Login And Registration Controller…
   version: '1.0'
 servers:
 - url: https://datagol-be.events.com
@@ -63,6 +63,8 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Get verification hash
+      x-summary-source: derived
   /idp/api/v1/user/automation/changeUserRole:
     get:
       tags:
@@ -118,22 +120,10 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Change user role
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ErrorMessage:
       type: object
       properties:
@@ -150,6 +140,20 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

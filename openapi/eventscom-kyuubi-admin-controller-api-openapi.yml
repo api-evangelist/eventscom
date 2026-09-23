@@ -60,6 +60,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/KyuubiEngineDTO'
+      summary: Get engines
+      x-summary-source: derived
     delete:
       tags:
       - kyuubi-admin-controller
@@ -105,6 +107,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete engine
+      x-summary-source: derived
 components:
   schemas:
     ErrorMessage:
@@ -123,20 +127,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     KyuubiEngineDTO:
       type: object
       properties:
@@ -158,6 +148,20 @@ components:
           type: object
           additionalProperties:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

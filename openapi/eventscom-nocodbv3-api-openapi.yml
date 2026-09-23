@@ -77,6 +77,8 @@ paths:
                 $ref: '#/components/schemas/BIV3DTO'
       security:
       - s_jwt: []
+      summary: Modify
+      x-summary-source: derived
     delete:
       tags:
       - NoCoDbV3
@@ -135,6 +137,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete 2
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces/{interfaceId}/pages/{pageId}/config/{id}:
     get:
       tags:
@@ -213,6 +217,8 @@ paths:
                 $ref: '#/components/schemas/BIInterfacePageConfigurationDTO'
       security:
       - s_jwt: []
+      summary: Get interface page config
+      x-summary-source: derived
     put:
       tags:
       - NoCoDbV3
@@ -296,6 +302,8 @@ paths:
                 $ref: '#/components/schemas/BIInterfacePageConfigurationDTO'
       security:
       - s_jwt: []
+      summary: Update interface page config
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces/{interfaceId}/pages/{pageId}/config/{configId}/widgets/{id}:
     put:
       tags:
@@ -385,6 +393,8 @@ paths:
                 $ref: '#/components/schemas/BIWidgetDTO'
       security:
       - s_jwt: []
+      summary: Update interface page config widget
+      x-summary-source: derived
     delete:
       tags:
       - NoCoDbV3
@@ -463,6 +473,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete interface page config widget
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces/{interfaceId}/pages/{id}:
     put:
       tags:
@@ -542,6 +554,8 @@ paths:
                 $ref: '#/components/schemas/BIInterfacePageDTO'
       security:
       - s_jwt: []
+      summary: Update interface page
+      x-summary-source: derived
     delete:
       tags:
       - NoCoDbV3
@@ -610,6 +624,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete interface page
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces/{id}:
     put:
       tags:
@@ -684,6 +700,8 @@ paths:
                 $ref: '#/components/schemas/BiInterfaceDTO'
       security:
       - s_jwt: []
+      summary: Update interface
+      x-summary-source: derived
     delete:
       tags:
       - NoCoDbV3
@@ -747,6 +765,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete interface
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces:
     post:
       tags:
@@ -816,6 +836,8 @@ paths:
                 $ref: '#/components/schemas/BiInterfaceDTO'
       security:
       - s_jwt: []
+      summary: Create interface
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces/{interfaceId}/pages:
     post:
       tags:
@@ -890,6 +912,8 @@ paths:
                 $ref: '#/components/schemas/BIInterfacePageDTO'
       security:
       - s_jwt: []
+      summary: Create interface page
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi/{biId}/interfaces/{interfaceId}/pages/{pageId}/config/{configId}/widgets:
     post:
       tags:
@@ -974,6 +998,8 @@ paths:
                 $ref: '#/components/schemas/BIWidgetDTO'
       security:
       - s_jwt: []
+      summary: Create interface page config widget
+      x-summary-source: derived
   /noCo/api/v3/workspaces/{workspaceId}/bi:
     get:
       tags:
@@ -1032,8 +1058,19 @@ paths:
                 $ref: '#/components/schemas/BIV3DTO'
       security:
       - s_jwt: []
+      summary: Get 1
+      x-summary-source: derived
 components:
   schemas:
+    BIWidgetDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        config:
+          $ref: '#/components/schemas/BIWidgetConfigDTO'
     BIV3DTO:
       type: object
       properties:
@@ -1050,6 +1087,50 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/BiInterfaceDTO'
+    BIInterfacePageDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        hidden:
+          type: boolean
+        type:
+          type: string
+        published:
+          type: boolean
+        description:
+          type: string
+        mode:
+          type: string
+        status:
+          type: string
+        position:
+          type: integer
+          format: int32
+        tableId:
+          type: string
+        config:
+          $ref: '#/components/schemas/BIInterfacePageConfigurationDTO'
+    JsonNode:
+      type: object
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     BiInterfaceDTO:
       type: object
       properties:
@@ -1071,17 +1152,6 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/BIInterfacePageDTO'
-    JsonNode:
-      type: object
-    BIWidgetDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        config:
-          $ref: '#/components/schemas/BIWidgetConfigDTO'
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -1096,6 +1166,20 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
+    BIInterfacePageConfigurationDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        layout:
+          $ref: '#/components/schemas/JsonNode'
+        filter:
+          $ref: '#/components/schemas/JsonNode'
+        widgets:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BIWidgetDTO'
     BIWidgetConfigDTO:
       type: object
       properties:
@@ -1127,62 +1211,6 @@ components:
           $ref: '#/components/schemas/JsonNode'
         tableMetaData:
           $ref: '#/components/schemas/JsonNode'
-    BIInterfacePageDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        hidden:
-          type: boolean
-        type:
-          type: string
-        published:
-          type: boolean
-        description:
-          type: string
-        mode:
-          type: string
-        status:
-          type: string
-        position:
-          type: integer
-          format: int32
-        tableId:
-          type: string
-        config:
-          $ref: '#/components/schemas/BIInterfacePageConfigurationDTO'
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    BIInterfacePageConfigurationDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        layout:
-          $ref: '#/components/schemas/JsonNode'
-        filter:
-          $ref: '#/components/schemas/JsonNode'
-        widgets:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/BIWidgetDTO'
   securitySchemes:
     s_jwt:
       type: http

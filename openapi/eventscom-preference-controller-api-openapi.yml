@@ -58,6 +58,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PreferenceDTO'
+      summary: Save and update
+      x-summary-source: derived
   /idp/api/v1/preference/{entityId}/{entityType}:
     get:
       tags:
@@ -113,8 +115,26 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PreferenceDTO'
+      summary: Get preference
+      x-summary-source: derived
 components:
   schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     PreferenceDTO:
       type: object
       properties:
@@ -140,22 +160,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

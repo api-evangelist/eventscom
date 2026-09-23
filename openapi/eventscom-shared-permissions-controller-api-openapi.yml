@@ -65,6 +65,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SharedPermissionsDTO'
+      summary: Modify shared permission
+      x-summary-source: derived
     delete:
       tags:
       - shared-permissions-controller
@@ -111,6 +113,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete shared permission
+      x-summary-source: derived
   /noCo/api/v1/sharedPermissions:
     post:
       tags:
@@ -163,6 +167,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SharedPermissionsDTO'
+      summary: Create shared permission
+      x-summary-source: derived
   /noCo/api/v1/sharedPermissions/{sharedItemId}:
     get:
       tags:
@@ -216,6 +222,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SharedPermissionsDTO'
+      summary: Get shared permission
+      x-summary-source: derived
 components:
   schemas:
     ErrorMessage:
@@ -234,20 +242,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     SharedPermissionsDTO:
       type: object
       properties:
@@ -271,6 +265,20 @@ components:
             type: string
         workbookColName:
           type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

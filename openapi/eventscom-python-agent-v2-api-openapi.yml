@@ -135,8 +135,7 @@ components:
         agentType:
           type: string
           title: Agenttype
-          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent,
-            etc.'
+          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent, etc.'
         type:
           anyOf:
           - type: string
@@ -165,9 +164,7 @@ components:
         enableStreamPersistence:
           type: boolean
           title: Enablestreampersistence
-          description: When True, chunks are persisted to Redis and the POST response is a JSON status
-            object; clients must connect to GET /messages/streaming/{conversationId}. When False (default),
-            chunks are streamed inline on the POST response.
+          description: When True, chunks are persisted to Redis and the POST response is a JSON status object; clients must connect to GET /messages/streaming/{conversationId}. When False (default), chunks are streamed inline on the POST response.
           default: false
       type: object
       required:
@@ -201,6 +198,15 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     Parameters:
       properties:
         dataProvider:
@@ -355,15 +361,13 @@ components:
             type: array
           - type: 'null'
           title: Workbookids
-          description: Selected workbooks in the same workspace as workbookId; first item duplicates workbookId
-            (primary); remaining IDs are auxiliary.
+          description: Selected workbooks in the same workspace as workbookId; first item duplicates workbookId (primary); remaining IDs are auxiliary.
         autoApprove:
           anyOf:
           - type: boolean
           - type: 'null'
           title: Autoapprove
-          description: When True or omitted, agent does not prompt for plan/code confirmation and proceeds
-            automatically. When False, requires user confirmation.
+          description: When True or omitted, agent does not prompt for plan/code confirmation and proceeds automatically. When False, requires user confirmation.
         analysisLevel:
           anyOf:
           - type: string
@@ -407,12 +411,3 @@ components:
           description: List of conversation file IDs.
       type: object
       title: Parameters
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError

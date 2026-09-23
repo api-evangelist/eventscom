@@ -66,6 +66,8 @@ paths:
                 $ref: '#/components/schemas/WorkspaceTemplateDTO'
       security:
       - s_jwt: []
+      summary: Get template
+      x-summary-source: derived
     put:
       tags:
       - workspace-template-controller
@@ -129,6 +131,8 @@ paths:
                 $ref: '#/components/schemas/WorkspaceTemplateDTO'
       security:
       - s_jwt: []
+      summary: Update template
+      x-summary-source: derived
     delete:
       tags:
       - workspace-template-controller
@@ -182,6 +186,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete template
+      x-summary-source: derived
   /noCo/api/v2/workspaces/templates:
     get:
       tags:
@@ -257,6 +263,8 @@ paths:
                   $ref: '#/components/schemas/WorkspaceTemplateDTO'
       security:
       - s_jwt: []
+      summary: Get templates
+      x-summary-source: derived
     post:
       tags:
       - workspace-template-controller
@@ -314,22 +322,26 @@ paths:
                 $ref: '#/components/schemas/WorkspaceTemplateDTO'
       security:
       - s_jwt: []
+      summary: Create template
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     UserDTO:
       type: object
       properties:
@@ -389,22 +401,6 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     WorkspaceTemplateDTO:
       type: object
       properties:
@@ -434,6 +430,20 @@ components:
           type: object
           additionalProperties:
             type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

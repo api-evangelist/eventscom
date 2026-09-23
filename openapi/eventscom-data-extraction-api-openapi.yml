@@ -151,6 +151,66 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DataExtractionRequest:
+      properties:
+        resource:
+          $ref: '#/components/schemas/Resource'
+        schema:
+          items:
+            $ref: '#/components/schemas/SchemaProperty'
+          type: array
+          title: Schema
+          description: A list of properties defining the structure of the data to be extracted.
+        llm_model:
+          type: string
+          title: Llm Model
+          description: The model to be used for the data extraction.
+          default: gpt-4.1-nano
+        company_id:
+          type: integer
+          title: Company Id
+          description: The company id of the user.
+      type: object
+      required:
+      - resource
+      - schema
+      - company_id
+      title: DataExtractionRequest
+    DataExtractionTestRequest:
+      properties:
+        schema:
+          title: Schema
+          description: The schema defining the structure of the data to be extracted.
+        resource:
+          $ref: '#/components/schemas/Resource'
+          description: The storage resource (S3 or GCP) to be used for the data extraction.
+      type: object
+      required:
+      - schema
+      - resource
+      title: DataExtractionTestRequest
+    Body_run_data_extraction_test_file_upload:
+      properties:
+        schema:
+          title: Schema
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - schema
+      - file
+      title: Body_run_data_extraction_test_file_upload
     Body_generate_data_extraction_schema_from_content:
       properties:
         file:
@@ -165,6 +225,46 @@ components:
       - file
       - prompt
       title: Body_generate_data_extraction_schema_from_content
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Body_execute_data_extraction_file_upload:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+        schema:
+          type: string
+          title: Schema
+      type: object
+      required:
+      - file
+      - schema
+      title: Body_execute_data_extraction_file_upload
     SchemaProperty:
       properties:
         property_name:
@@ -218,80 +318,6 @@ components:
       - storage_type
       title: Resource
       description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Body_run_data_extraction_test_file_upload:
-      properties:
-        schema:
-          title: Schema
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
-      type: object
-      required:
-      - schema
-      - file
-      title: Body_run_data_extraction_test_file_upload
-    DataExtractionRequest:
-      properties:
-        resource:
-          $ref: '#/components/schemas/Resource'
-        schema:
-          items:
-            $ref: '#/components/schemas/SchemaProperty'
-          type: array
-          title: Schema
-          description: A list of properties defining the structure of the data to be extracted.
-        llm_model:
-          type: string
-          title: Llm Model
-          description: The model to be used for the data extraction.
-          default: gpt-4.1-nano
-        company_id:
-          type: integer
-          title: Company Id
-          description: The company id of the user.
-      type: object
-      required:
-      - resource
-      - schema
-      - company_id
-      title: DataExtractionRequest
-    Body_execute_data_extraction_file_upload:
-      properties:
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
-        schema:
-          type: string
-          title: Schema
-      type: object
-      required:
-      - file
-      - schema
-      title: Body_execute_data_extraction_file_upload
-    DataExtractionTestRequest:
-      properties:
-        schema:
-          title: Schema
-          description: The schema defining the structure of the data to be extracted.
-        resource:
-          $ref: '#/components/schemas/Resource'
-          description: The storage resource (S3 or GCP) to be used for the data extraction.
-      type: object
-      required:
-      - schema
-      - resource
-      title: DataExtractionTestRequest
     DataExtractionRequestSchemaGenerate:
       properties:
         prompt:
@@ -306,29 +332,3 @@ components:
       - prompt
       - resource
       title: DataExtractionRequestSchemaGenerate
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError

@@ -52,6 +52,8 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Do migration
+      x-summary-source: derived
   /noCo/api/v2/tables/migration/nonDynamicFormula:
     get:
       tags:
@@ -96,6 +98,8 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Migrate non dynamic formula
+      x-summary-source: derived
   /noCo/api/v2/tables/migration/linkRelationBigint:
     get:
       tags:
@@ -142,6 +146,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Migrate link relation to bigint
+      x-summary-source: derived
   /noCo/api/v2/tables/migration/dynamicFormula:
     get:
       tags:
@@ -186,6 +192,8 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Migrate dynamic formula
+      x-summary-source: derived
   /noCo/api/v2/tables/migration/bigquery/createOrUpdateSchema:
     get:
       tags:
@@ -230,6 +238,8 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Create or update big query schema
+      x-summary-source: derived
   /noCo/api/v2/tables/migration/associateWorkspaceId:
     get:
       tags:
@@ -277,22 +287,10 @@ paths:
                 additionalProperties:
                   type: integer
                   format: int64
+      summary: Migrate link associate workspace id
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ErrorMessage:
       type: object
       properties:
@@ -309,6 +307,20 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

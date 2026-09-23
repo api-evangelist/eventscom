@@ -81,91 +81,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    WidgetSummaryResponse:
-      properties:
-        data:
-          type: string
-          title: Data
-      type: object
-      required:
-      - data
-      title: WidgetSummaryResponse
-    WidgetSummaryRequest:
-      properties:
-        widgetId:
-          type: string
-          title: Widgetid
-        pageId:
-          type: string
-          title: Pageid
-        persona:
-          type: string
-          title: Persona
-          default: BUSINESS
-        userPrompt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Userprompt
-      type: object
-      required:
-      - widgetId
-      - pageId
-      title: WidgetSummaryRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    DashboardSummaryRequest:
-      properties:
-        pageId:
-          type: string
-          title: Pageid
-        persona:
-          type: string
-          title: Persona
-        userPrompt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Userprompt
-      type: object
-      required:
-      - pageId
-      - persona
-      title: DashboardSummaryRequest
-    DashboardSummaryResponse:
-      properties:
-        data:
-          type: string
-          title: Data
-        successfulWidgetIds:
-          items:
-            type: string
-          type: array
-          title: Successfulwidgetids
-        skippedWidgetIds:
-          items:
-            type: string
-          type: array
-          title: Skippedwidgetids
-        failedWidgetIds:
-          items:
-            type: string
-          type: array
-          title: Failedwidgetids
-      type: object
-      required:
-      - data
-      - successfulWidgetIds
-      - skippedWidgetIds
-      - failedWidgetIds
-      title: DashboardSummaryResponse
     GenerateDashboardRequest:
       properties:
         workbookId:
@@ -205,12 +120,69 @@ components:
             type: array
           - type: 'null'
           title: Questions
-          description: List of questions. If provided, charts will be generated for these questions without
-            generating new ones.
+          description: List of questions. If provided, charts will be generated for these questions without generating new ones.
       type: object
       required:
       - workbookId
       title: GenerateDashboardRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DashboardSummaryResponse:
+      properties:
+        data:
+          type: string
+          title: Data
+        successfulWidgetIds:
+          items:
+            type: string
+          type: array
+          title: Successfulwidgetids
+        skippedWidgetIds:
+          items:
+            type: string
+          type: array
+          title: Skippedwidgetids
+        failedWidgetIds:
+          items:
+            type: string
+          type: array
+          title: Failedwidgetids
+      type: object
+      required:
+      - data
+      - successfulWidgetIds
+      - skippedWidgetIds
+      - failedWidgetIds
+      title: DashboardSummaryResponse
+    WidgetSummaryRequest:
+      properties:
+        widgetId:
+          type: string
+          title: Widgetid
+        pageId:
+          type: string
+          title: Pageid
+        persona:
+          type: string
+          title: Persona
+          default: BUSINESS
+        userPrompt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Userprompt
+      type: object
+      required:
+      - widgetId
+      - pageId
+      title: WidgetSummaryRequest
     ValidationError:
       properties:
         loc:
@@ -237,3 +209,30 @@ components:
       - msg
       - type
       title: ValidationError
+    WidgetSummaryResponse:
+      properties:
+        data:
+          type: string
+          title: Data
+      type: object
+      required:
+      - data
+      title: WidgetSummaryResponse
+    DashboardSummaryRequest:
+      properties:
+        pageId:
+          type: string
+          title: Pageid
+        persona:
+          type: string
+          title: Persona
+        userPrompt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Userprompt
+      type: object
+      required:
+      - pageId
+      - persona
+      title: DashboardSummaryRequest

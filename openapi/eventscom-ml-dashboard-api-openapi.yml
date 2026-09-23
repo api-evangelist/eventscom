@@ -245,78 +245,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    ARIMAorder:
-      properties:
-        p:
-          type: integer
-          title: P
-        d:
-          type: integer
-          title: D
-        q:
-          type: integer
-          title: Q
-      type: object
-      required:
-      - p
-      - d
-      - q
-      title: ARIMAorder
-    ProphetModelProperties:
-      properties:
-        testSizePercentage:
-          type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        seasonalityMode:
-          type: string
-          title: Seasonalitymode
-          default: additive
-        growth:
-          type: string
-          title: Growth
-          default: flat
-        capPercentage:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Cappercentage
-          default: 20
-        autoTune:
-          type: boolean
-          title: Autotune
-          default: false
-        excludeWeekends:
-          type: boolean
-          title: Excludeweekends
-          default: false
-        regressorsWithMode:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/Regressor'
-            type: array
-          - type: 'null'
-          title: Regressorswithmode
-        dateColumn:
-          type: string
-          title: Datecolumn
-      type: object
-      required:
-      - dateColumn
-      title: ProphetModelProperties
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     DataProperties:
       properties:
         workbookId:
@@ -330,88 +258,6 @@ components:
       - workbookId
       - targetColumn
       title: DataProperties
-    ExponentialSmoothingModelProperties:
-      properties:
-        testSizePercentage:
-          type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        trend:
-          type: string
-          enum:
-          - additive
-          - multiplicative
-          - none
-          title: Trend
-          default: additive
-        damped:
-          type: boolean
-          title: Damped
-          default: false
-        seasonal:
-          type: string
-          enum:
-          - additive
-          - multiplicative
-          - none
-          title: Seasonal
-          default: additive
-        seasonalPeriods:
-          type: integer
-          title: Seasonalperiods
-          default: 12
-      type: object
-      title: ExponentialSmoothingModelProperties
-    ARIMAModelProperties:
-      properties:
-        testSizePercentage:
-          type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        order:
-          items:
-            $ref: '#/components/schemas/ARIMAorder'
-          type: array
-          title: Order
-        trend:
-          type: string
-          enum:
-          - n
-          - c
-          - t
-          - ct
-          title: Trend
-          default: n
-        enforceStationarity:
-          type: boolean
-          title: Enforcestationarity
-          default: false
-        enforceInvertibility:
-          type: boolean
-          title: Enforceinvertibility
-          default: false
-        regressorsWithoutMode:
-          items:
-            type: string
-          type: array
-          title: Regressorswithoutmode
-        dateColumn:
-          type: string
-          title: Datecolumn
-      type: object
-      required:
-      - order
-      - regressorsWithoutMode
-      - dateColumn
-      title: ARIMAModelProperties
     RandomForestModelProperties:
       properties:
         testSizePercentage:
@@ -463,33 +309,15 @@ components:
       required:
       - includeColumns
       title: RandomForestModelProperties
-    LinearRegressionModelProperties:
+    HTTPValidationError:
       properties:
-        testSizePercentage:
-          type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        fitIntercept:
-          type: boolean
-          title: Fitintercept
-          default: true
-        positive:
-          type: boolean
-          title: Positive
-          default: false
-        includeColumns:
+        detail:
           items:
-            type: string
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Includecolumns
+          title: Detail
       type: object
-      required:
-      - includeColumns
-      title: LinearRegressionModelProperties
+      title: HTTPValidationError
     CreateModel:
       properties:
         id:
@@ -547,6 +375,217 @@ components:
       - dataProperties
       - modelProperties
       title: CreateModel
+    ProphetModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        seasonalityMode:
+          type: string
+          title: Seasonalitymode
+          default: additive
+        growth:
+          type: string
+          title: Growth
+          default: flat
+        capPercentage:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Cappercentage
+          default: 20
+        autoTune:
+          type: boolean
+          title: Autotune
+          default: false
+        excludeWeekends:
+          type: boolean
+          title: Excludeweekends
+          default: false
+        regressorsWithMode:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Regressor'
+            type: array
+          - type: 'null'
+          title: Regressorswithmode
+        dateColumn:
+          type: string
+          title: Datecolumn
+      type: object
+      required:
+      - dateColumn
+      title: ProphetModelProperties
+    Regressor:
+      properties:
+        column:
+          type: string
+          title: Column
+        mode:
+          type: string
+          title: Mode
+          default: additive
+      type: object
+      required:
+      - column
+      title: Regressor
+    ARIMAorder:
+      properties:
+        p:
+          type: integer
+          title: P
+        d:
+          type: integer
+          title: D
+        q:
+          type: integer
+          title: Q
+      type: object
+      required:
+      - p
+      - d
+      - q
+      title: ARIMAorder
+    LinearRegressionModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        fitIntercept:
+          type: boolean
+          title: Fitintercept
+          default: true
+        positive:
+          type: boolean
+          title: Positive
+          default: false
+        includeColumns:
+          items:
+            type: string
+          type: array
+          title: Includecolumns
+      type: object
+      required:
+      - includeColumns
+      title: LinearRegressionModelProperties
+    ARIMAModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        order:
+          items:
+            $ref: '#/components/schemas/ARIMAorder'
+          type: array
+          title: Order
+        trend:
+          type: string
+          enum:
+          - n
+          - c
+          - t
+          - ct
+          title: Trend
+          default: n
+        enforceStationarity:
+          type: boolean
+          title: Enforcestationarity
+          default: false
+        enforceInvertibility:
+          type: boolean
+          title: Enforceinvertibility
+          default: false
+        regressorsWithoutMode:
+          items:
+            type: string
+          type: array
+          title: Regressorswithoutmode
+        dateColumn:
+          type: string
+          title: Datecolumn
+      type: object
+      required:
+      - order
+      - regressorsWithoutMode
+      - dateColumn
+      title: ARIMAModelProperties
+    ExponentialSmoothingModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        trend:
+          type: string
+          enum:
+          - additive
+          - multiplicative
+          - none
+          title: Trend
+          default: additive
+        damped:
+          type: boolean
+          title: Damped
+          default: false
+        seasonal:
+          type: string
+          enum:
+          - additive
+          - multiplicative
+          - none
+          title: Seasonal
+          default: additive
+        seasonalPeriods:
+          type: integer
+          title: Seasonalperiods
+          default: 12
+      type: object
+      title: ExponentialSmoothingModelProperties
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     AutoARIMAModelProperties:
       properties:
         testSizePercentage:
@@ -593,42 +632,3 @@ components:
       required:
       - dateColumn
       title: AutoARIMAModelProperties
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Regressor:
-      properties:
-        column:
-          type: string
-          title: Column
-        mode:
-          type: string
-          title: Mode
-          default: additive
-      type: object
-      required:
-      - column
-      title: Regressor

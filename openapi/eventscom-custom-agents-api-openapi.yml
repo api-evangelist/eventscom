@@ -510,163 +510,7 @@ paths:
       - s_jwt: []
 components:
   schemas:
-    PageAgentRunDTO:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-          format: int32
-        totalElements:
-          type: integer
-          format: int64
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgentRunDTO'
-        number:
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
-        empty:
-          type: boolean
-    AgentSkillDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        s3Url:
-          type: string
-        enabled:
-          type: boolean
-    CustomAgentConfig:
-      type: object
-      properties:
-        connectors:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAgentConnector'
-        voiceConfig:
-          $ref: '#/components/schemas/VoiceConfigDTO'
-        webSearchEnabled:
-          type: boolean
-        browserEnabled:
-          type: boolean
-        deepResearchEnabled:
-          type: boolean
-        showImages:
-          type: boolean
-        subAgents:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAgentDTO'
-        mcpConfigs:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
-        skillIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-    MigrationResultDTO:
-      type: object
-      properties:
-        totalProcessed:
-          type: integer
-          format: int32
-        successCount:
-          type: integer
-          format: int32
-        failureCount:
-          type: integer
-          format: int32
-        successIds:
-          type: array
-          items:
-            type: string
-        failures:
-          type: array
-          items:
-            $ref: '#/components/schemas/MigrationFailureDTO'
-        message:
-          type: string
-        allSuccessful:
-          type: boolean
-    VoiceConfigDTO:
-      type: object
-      properties:
-        voiceEnabled:
-          type: boolean
-        speechToText:
-          $ref: '#/components/schemas/ProviderConfigDTO'
-        textToSpeech:
-          $ref: '#/components/schemas/ProviderConfigDTO'
-    CustomAgentConnector:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        sourceType:
-          type: string
-          enum:
-          - AI
-          - BACKEND
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    ProviderConfigDTO:
-      type: object
-      properties:
-        provider:
-          type: string
-        apiKey:
-          type: string
-    PageableObject:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int64
-        sort:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortObject'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        paged:
-          type: boolean
-        unpaged:
-          type: boolean
-    SaasxlResponseDTOObject:
+    SaasxlResponseDTOPageAgentRunDTO:
       type: object
       properties:
         success:
@@ -679,115 +523,11 @@ components:
         error:
           $ref: '#/components/schemas/ErrorMessage'
         data:
-          type: object
+          $ref: '#/components/schemas/PageAgentRunDTO'
     BulkIdsRequestDTO:
       type: object
       properties:
         ids:
-          type: array
-          items:
-            type: string
-    AgentRunDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        agentId:
-          type: string
-        conversationId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-          enum:
-          - RUNNING
-          - COMPLETED
-          - FAILED
-        errorMessage:
-          type: string
-        startedAt:
-          type: string
-          format: date-time
-        finishedAt:
-          type: string
-          format: date-time
-        temporalWorkflowId:
-          type: string
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-    CustomAgentDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        type:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        name:
-          type: string
-        description:
-          type: string
-        configs:
-          $ref: '#/components/schemas/CustomAgentConfig'
-        userId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        isPublished:
-          type: boolean
-        prompt:
-          type: string
-        instructions:
-          type: string
-        examples:
-          type: string
-        skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgentSkillDTO'
-        scheduleConfig:
-          type: object
-          additionalProperties:
-            type: object
-        permissionOfUser:
-          type: string
-        scope:
-          type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
           type: array
           items:
             type: string
@@ -850,6 +590,178 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    ProviderConfigDTO:
+      type: object
+      properties:
+        provider:
+          type: string
+        apiKey:
+          type: string
+    CustomAgentConnector:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        sourceType:
+          type: string
+          enum:
+          - AI
+          - BACKEND
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    AgentSkillDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        s3Url:
+          type: string
+        enabled:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortObject'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        unpaged:
+          type: boolean
+    CustomAgentDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        type:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        name:
+          type: string
+        description:
+          type: string
+        configs:
+          $ref: '#/components/schemas/CustomAgentConfig'
+        userId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        isPublished:
+          type: boolean
+        prompt:
+          type: string
+        instructions:
+          type: string
+        examples:
+          type: string
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentSkillDTO'
+        scheduleConfig:
+          type: object
+          additionalProperties:
+            type: object
+        permissionOfUser:
+          type: string
+        scope:
+          type: string
+    CustomAgentConfig:
+      type: object
+      properties:
+        connectors:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAgentConnector'
+        voiceConfig:
+          $ref: '#/components/schemas/VoiceConfigDTO'
+        webSearchEnabled:
+          type: boolean
+        browserEnabled:
+          type: boolean
+        deepResearchEnabled:
+          type: boolean
+        showImages:
+          type: boolean
+        subAgents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAgentDTO'
+        mcpConfigs:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+        skillIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     MigrationFailureDTO:
       type: object
       properties:
@@ -859,6 +771,39 @@ components:
           type: string
         exceptionType:
           type: string
+    VoiceConfigDTO:
+      type: object
+      properties:
+        voiceEnabled:
+          type: boolean
+        speechToText:
+          $ref: '#/components/schemas/ProviderConfigDTO'
+        textToSpeech:
+          $ref: '#/components/schemas/ProviderConfigDTO'
+    MigrationResultDTO:
+      type: object
+      properties:
+        totalProcessed:
+          type: integer
+          format: int32
+        successCount:
+          type: integer
+          format: int32
+        failureCount:
+          type: integer
+          format: int32
+        successIds:
+          type: array
+          items:
+            type: string
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/MigrationFailureDTO'
+        message:
+          type: string
+        allSuccessful:
+          type: boolean
     SortObject:
       type: object
       properties:
@@ -872,20 +817,75 @@ components:
           type: string
         ignoreCase:
           type: boolean
-    SaasxlResponseDTOPageAgentRunDTO:
+    AgentRunDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        id:
+          type: integer
+          format: int64
+        agentId:
           type: string
-        date:
+        conversationId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+          enum:
+          - RUNNING
+          - COMPLETED
+          - FAILED
+        errorMessage:
+          type: string
+        startedAt:
           type: string
           format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/PageAgentRunDTO'
+        finishedAt:
+          type: string
+          format: date-time
+        temporalWorkflowId:
+          type: string
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+    PageAgentRunDTO:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentRunDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        empty:
+          type: boolean
   securitySchemes:
     s_jwt:
       type: http

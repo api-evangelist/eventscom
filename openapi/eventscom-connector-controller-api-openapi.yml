@@ -59,11 +59,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOOpenApiInfo'
+      summary: Connector update
+      x-summary-source: derived
   /connector/api/v1/instance/{id}:
     put:
       tags:
       - connector-controller
-      description: update instance of  connector instance id
+      description: update instance of connector instance id
       operationId: updateUserConnectorCredentialInfo
       parameters:
       - name: id
@@ -117,6 +119,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOUserConnectorCredentialDTO'
+      summary: Update user connector credential info
+      x-summary-source: derived
     delete:
       tags:
       - connector-controller
@@ -163,6 +167,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete user connector credential info
+      x-summary-source: derived
   /connector/api/v1/credential-metadata/{id}:
     put:
       tags:
@@ -220,6 +226,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOConnectorCredentialDTO'
+      summary: Update connector credential info
+      x-summary-source: derived
     delete:
       tags:
       - connector-controller
@@ -266,6 +274,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete connector credential info
+      x-summary-source: derived
   /connector/api/v1/run:
     post:
       tags:
@@ -316,6 +326,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlHttpResponseObject'
+      summary: Connector run
+      x-summary-source: derived
   /connector/api/v1/register:
     post:
       tags:
@@ -367,6 +379,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOOpenApiInfo'
+      summary: Connector register
+      x-summary-source: derived
   /connector/api/v1/register/openapi:
     post:
       tags:
@@ -417,11 +431,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOOpenApiInfo'
+      summary: Register connector by open api spec
+      x-summary-source: derived
   /connector/api/v1/instance:
     get:
       tags:
       - connector-controller
-      description: To get  all instances by userId
+      description: To get all instances by userId
       operationId: getAllConnectorsByUserId
       responses:
         '400':
@@ -462,6 +478,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOListUserConnectorCredentialDTO'
+      summary: Get all connectors by user id
+      x-summary-source: derived
     post:
       tags:
       - connector-controller
@@ -512,6 +530,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOUserConnectorCredentialDTO'
+      summary: Create user connector credential info
+      x-summary-source: derived
   /connector/api/v1/credential-metadata:
     post:
       tags:
@@ -562,6 +582,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOConnectorCredentialDTO'
+      summary: Create connector credential info
+      x-summary-source: derived
   /connector/api/v1:
     get:
       tags:
@@ -607,6 +629,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOListOpenApiInfo'
+      summary: Get all connectors
+      x-summary-source: derived
   /connector/api/v1/names:
     get:
       tags:
@@ -652,6 +676,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOListString'
+      summary: Get all connect names
+      x-summary-source: derived
   /connector/api/v1/metadata/{connectorType}:
     get:
       tags:
@@ -703,6 +729,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOOpenApiInfo'
+      summary: Get connector metadata
+      x-summary-source: derived
   /connector/api/v1/instance/{connectorType}:
     get:
       tags:
@@ -755,11 +783,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOListUserConnectorCredentialDTO'
       deprecated: true
+      summary: Get user connector credential info
+      x-summary-source: derived
   /connector/api/v1/instance/byId/{id}:
     get:
       tags:
       - connector-controller
-      description: get instance of  connector instance id
+      description: get instance of connector instance id
       operationId: getUserConnectorCredentialInfo_1
       parameters:
       - name: id
@@ -812,6 +842,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOUserConnectorCredentialDTO'
+      summary: Get user connector credential info 1
+      x-summary-source: derived
   /connector/api/v1/instance/byCompany:
     get:
       tags:
@@ -858,6 +890,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOListUserConnectorCredentialDTO'
       deprecated: true
+      summary: Get connector credential by company id
+      x-summary-source: derived
   /connector/api/v1/getByName/{name}:
     get:
       tags:
@@ -908,6 +942,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOOpenApiInfo'
+      summary: Get connector config
+      x-summary-source: derived
   /connector/api/v1/credential-metadata/{connectorType}:
     get:
       tags:
@@ -958,6 +994,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SaasxlResponseDTOListConnectorCredentialDTO'
+      summary: Get connector credential info
+      x-summary-source: derived
   /connector/api/v1/delete/{name}:
     delete:
       tags:
@@ -1004,8 +1042,83 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete connector 1
+      x-summary-source: derived
 components:
   schemas:
+    ConnectorRunDTO:
+      type: object
+      properties:
+        connectorType:
+          type: string
+        baseUrl:
+          type: string
+        path:
+          type: string
+        method:
+          type: string
+        contentType:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventRequestParameterDTO'
+        userCredentialId:
+          type: integer
+          format: int64
+        credential:
+          $ref: '#/components/schemas/CredentialDTO'
+        companyId:
+          type: integer
+          format: int64
+    ApplicationJson:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Schema'
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    PathInfo:
+      type: object
+      properties:
+        get:
+          $ref: '#/components/schemas/EndPointInfo'
+        put:
+          $ref: '#/components/schemas/EndPointInfo'
+        delete:
+          $ref: '#/components/schemas/EndPointInfo'
+        post:
+          $ref: '#/components/schemas/EndPointInfo'
+        patch:
+          $ref: '#/components/schemas/EndPointInfo'
+    SaasxlResponseDTOListConnectorCredentialDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectorCredentialDTO'
+    Request:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+        required:
+          type: boolean
     ConnectorCredentialDTO:
       type: object
       properties:
@@ -1028,51 +1141,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JsonNode'
-    Schema:
-      type: object
-      properties:
-        type:
-          type: string
-        format:
-          type: string
-        $ref:
-          type: string
-    SaasxlResponseDTOOpenApiInfo:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/OpenApiInfo'
-    Info:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        termsOfService:
-          type: string
-        contact:
-          $ref: '#/components/schemas/Contact'
-        version:
-          type: string
-    OpenApiConnectorRegistrationRequestDTO:
-      type: object
-      properties:
-        connectorName:
-          type: string
-        baseUrl:
-          type: string
-        uri:
-          type: string
     OpenApiInfo:
       type: object
       properties:
@@ -1103,34 +1171,20 @@ components:
             $ref: '#/components/schemas/ConnectorCredentialDTO'
         components:
           $ref: '#/components/schemas/Component'
-    CredentialDTO:
+    Server:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        type:
+        url:
           type: string
-          enum:
-          - QUERY_PARAM
-          - BASIC_AUTH
-          - AUTHORIZATION
-          - ACCESS_TOKEN
-          - BEARER
-          - API_KEY
-          - OAUTH2
-        config:
-          type: array
-          items:
-            $ref: '#/components/schemas/Config'
-    Contact:
+        description:
+          type: string
+    Content:
       type: object
       properties:
-        email:
-          type: string
+        application/json:
+          $ref: '#/components/schemas/ApplicationJson'
+    JsonNode:
+      type: object
     ConfigDTO:
       type: object
       properties:
@@ -1140,74 +1194,27 @@ components:
           type: object
           additionalProperties:
             type: object
-    SaasxlResponseDTOConnectorCredentialDTO:
+    EventRequestParameterDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        type:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
         data:
-          $ref: '#/components/schemas/ConnectorCredentialDTO'
-    Parameter:
+          type: object
+          additionalProperties:
+            type: object
+    SchemaDefinition:
       type: object
       properties:
-        name:
-          type: string
-        in:
-          type: string
-        description:
-          type: string
-        schema:
-          $ref: '#/components/schemas/Schema'
-    Request:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/Content'
+        properties:
+          type: object
+          additionalProperties:
+            type: object
         required:
-          type: boolean
-    EndPointInfo:
-      type: object
-      properties:
-        tags:
           type: array
           items:
             type: string
-        summary:
-          type: string
-        description:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Parameter'
-        requestBody:
-          $ref: '#/components/schemas/Request'
-        responses:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Response'
-        deprecated:
-          type: boolean
-        operationId:
-          type: string
-    Component:
-      type: object
-      properties:
-        schemas:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/SchemaDefinition'
-    Tag:
-      type: object
-      properties:
-        name:
+        type:
           type: string
         description:
           type: string
@@ -1225,6 +1232,45 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           $ref: '#/components/schemas/UserConnectorCredentialDTO'
+    Config:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    Info:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        termsOfService:
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'
+        version:
+          type: string
+    SaasxlHttpResponseObject:
+      type: object
+      properties:
+        data:
+          type: object
+        statusCode:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
     UserConnectorCredentialDTO:
       type: object
       properties:
@@ -1260,173 +1306,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ConfigDTO'
-    SaasxlHttpResponseObject:
-      type: object
-      properties:
-        data:
-          type: object
-        statusCode:
-          type: integer
-          format: int32
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-    Config:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    EventRequestParameterDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    ConnectorRunDTO:
-      type: object
-      properties:
-        connectorType:
-          type: string
-        baseUrl:
-          type: string
-        path:
-          type: string
-        method:
-          type: string
-        contentType:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventRequestParameterDTO'
-        userCredentialId:
-          type: integer
-          format: int64
-        credential:
-          $ref: '#/components/schemas/CredentialDTO'
-        companyId:
-          type: integer
-          format: int64
-    PathInfo:
-      type: object
-      properties:
-        get:
-          $ref: '#/components/schemas/EndPointInfo'
-        put:
-          $ref: '#/components/schemas/EndPointInfo'
-        delete:
-          $ref: '#/components/schemas/EndPointInfo'
-        post:
-          $ref: '#/components/schemas/EndPointInfo'
-        patch:
-          $ref: '#/components/schemas/EndPointInfo'
-    SaasxlResponseDTOListConnectorCredentialDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConnectorCredentialDTO'
-    SchemaDefinition:
-      type: object
-      properties:
-        properties:
-          type: object
-          additionalProperties:
-            type: object
-        required:
-          type: array
-          items:
-            type: string
-        type:
-          type: string
-        description:
-          type: string
-    SaasxlResponseDTOListString:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            type: string
-    ApplicationJson:
-      type: object
-      properties:
-        schema:
-          $ref: '#/components/schemas/Schema'
-    JsonNode:
-      type: object
-    Response:
-      type: object
-      properties:
-        description:
-          type: string
-        content:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResponseContent'
-    ResponseContent:
-      type: object
-      properties:
-        schema:
-          $ref: '#/components/schemas/Schema'
-    Content:
-      type: object
-      properties:
-        application/json:
-          $ref: '#/components/schemas/ApplicationJson'
-    Server:
-      type: object
-      properties:
-        url:
-          type: string
-        description:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     SaasxlResponseDTOListUserConnectorCredentialDTO:
       type: object
       properties:
@@ -1443,22 +1322,79 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserConnectorCredentialDTO'
-    ErrorMessage:
+    Parameter:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        name:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
+        in:
+          type: string
+        description:
+          type: string
+        schema:
+          $ref: '#/components/schemas/Schema'
+    ResponseContent:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Schema'
+    SaasxlResponseDTOListString:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: array
           items:
             type: string
+    Response:
+      type: object
+      properties:
+        description:
+          type: string
+        content:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResponseContent'
+    Schema:
+      type: object
+      properties:
+        type:
+          type: string
+        format:
+          type: string
+        $ref:
+          type: string
+    CredentialDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - QUERY_PARAM
+          - BASIC_AUTH
+          - AUTHORIZATION
+          - ACCESS_TOKEN
+          - BEARER
+          - API_KEY
+          - OAUTH2
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/Config'
     SaasxlResponseDTOListOpenApiInfo:
       type: object
       properties:
@@ -1475,6 +1411,110 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OpenApiInfo'
+    SaasxlResponseDTOConnectorCredentialDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/ConnectorCredentialDTO'
+    Contact:
+      type: object
+      properties:
+        email:
+          type: string
+    SaasxlResponseDTOOpenApiInfo:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/OpenApiInfo'
+    EndPointInfo:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+        description:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        requestBody:
+          $ref: '#/components/schemas/Request'
+        responses:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Response'
+        deprecated:
+          type: boolean
+        operationId:
+          type: string
+    OpenApiConnectorRegistrationRequestDTO:
+      type: object
+      properties:
+        connectorName:
+          type: string
+        baseUrl:
+          type: string
+        uri:
+          type: string
+    Component:
+      type: object
+      properties:
+        schemas:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SchemaDefinition'
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

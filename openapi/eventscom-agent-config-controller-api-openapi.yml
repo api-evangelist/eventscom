@@ -66,6 +66,8 @@ paths:
                 $ref: '#/components/schemas/AgentConfigDTO'
       security:
       - s_jwt: []
+      summary: Update 8
+      x-summary-source: derived
     delete:
       tags:
       - agent-config-controller
@@ -113,6 +115,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete 11
+      x-summary-source: derived
   /agents/api/v1/config:
     post:
       tags:
@@ -165,6 +169,8 @@ paths:
                 $ref: '#/components/schemas/AgentConfigDTO'
       security:
       - s_jwt: []
+      summary: Create 11
+      x-summary-source: derived
   /agents/api/v1/config/byName:
     get:
       tags:
@@ -222,22 +228,26 @@ paths:
                 $ref: '#/components/schemas/AgentConfigDTO'
       security:
       - s_jwt: []
+      summary: Get by name 1
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     UserDTO:
       type: object
       properties:
@@ -297,22 +307,6 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     AgentConfigDTO:
       type: object
       properties:
@@ -342,6 +336,20 @@ components:
           type: object
           additionalProperties:
             type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

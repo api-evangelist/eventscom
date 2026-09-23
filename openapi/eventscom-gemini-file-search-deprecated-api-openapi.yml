@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: DataGol AI Gemini File Search (deprecated) Gemini File Search (deprecated) API
+  title: DataGol AI Gemini File Search (deprecated) API
   version: 1.0.36
 tags:
 - name: Gemini File Search (deprecated)
@@ -93,6 +93,41 @@ components:
       required:
       - company_name
       title: CreateStoreRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     StoreFileRequest:
       properties:
         aws_access_key:
@@ -142,38 +177,3 @@ components:
       - company_id
       - file_id
       title: StoreFileRequest
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError

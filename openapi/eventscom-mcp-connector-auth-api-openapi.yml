@@ -564,35 +564,6 @@ paths:
           description: OK
 components:
   schemas:
-    McpConnectorConnectResponseDTO:
-      type: object
-      properties:
-        mappingId:
-          type: integer
-          format: int64
-        authConfigId:
-          type: string
-        slugName:
-          type: string
-        status:
-          type: string
-        authorizationUrl:
-          type: string
-    McpConnectorDTO:
-      type: object
-      properties:
-        slug:
-          type: string
-        toolkitSlug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        logo:
-          type: string
-        authScheme:
-          type: string
     ComposioExecuteToolRequestDTO:
       required:
       - connectionId
@@ -608,6 +579,75 @@ components:
           type: object
           additionalProperties:
             type: object
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    McpConnectorDTO:
+      type: object
+      properties:
+        slug:
+          type: string
+        toolkitSlug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        logo:
+          type: string
+        authScheme:
+          type: string
+    McpConnectorConnectionDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        slugName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        externalUserId:
+          type: string
+        connectedAccountId:
+          type: string
+        authConfigId:
+          type: string
+        status:
+          type: string
+    McpConnectorConnectResponseDTO:
+      type: object
+      properties:
+        mappingId:
+          type: integer
+          format: int64
+        authConfigId:
+          type: string
+        slugName:
+          type: string
+        status:
+          type: string
+        authorizationUrl:
+          type: string
     McpConnectorConnectRequestDTO:
       required:
       - slug
@@ -646,46 +686,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    McpConnectorConnectionDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        slugName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
-        externalUserId:
-          type: string
-        connectedAccountId:
-          type: string
-        authConfigId:
-          type: string
-        status:
-          type: string
   securitySchemes:
     s_jwt:
       type: http

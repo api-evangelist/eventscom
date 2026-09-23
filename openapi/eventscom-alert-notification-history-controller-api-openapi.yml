@@ -54,6 +54,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Mark notification sent
+      x-summary-source: derived
   /api/v1/alerts/notification-history/{notificationHistoryId}/mark-seen:
     post:
       tags:
@@ -100,6 +102,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Mark as seen
+      x-summary-source: derived
   /api/v1/alerts/notification-history/pending/elements:
     post:
       tags:
@@ -154,6 +158,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get pending notifications by element filters
+      x-summary-source: derived
   /api/v1/alerts/notification-history/mark-seen-by-notification:
     post:
       tags:
@@ -202,6 +208,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Mark as seen by notification
+      x-summary-source: derived
   /api/v1/alerts/notification-history/mark-seen-by-elements:
     post:
       tags:
@@ -256,6 +264,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Mark as seen by elements
+      x-summary-source: derived
   /api/v1/alerts/notification-history/user/{userId}:
     get:
       tags:
@@ -335,6 +345,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get notification history by user
+      x-summary-source: derived
   /api/v1/alerts/notification-history/unread:
     get:
       tags:
@@ -387,6 +399,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get unread notification history
+      x-summary-source: derived
   /api/v1/alerts/notification-history/stats:
     get:
       tags:
@@ -449,6 +463,8 @@ paths:
             '*/*':
               schema:
                 type: object
+      summary: Get notification stats
+      x-summary-source: derived
   /api/v1/alerts/notification-history/pending:
     get:
       tags:
@@ -495,6 +511,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get pending notifications
+      x-summary-source: derived
   /api/v1/alerts/notification-history/pending/user:
     get:
       tags:
@@ -541,6 +559,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get pending notifications for user
+      x-summary-source: derived
   /api/v1/alerts/notification-history/pending/element:
     get:
       tags:
@@ -598,6 +618,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get pending notifications by element id and element type
+      x-summary-source: derived
   /api/v1/alerts/notification-history/email/{email}:
     get:
       tags:
@@ -664,6 +686,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get notification history by email
+      x-summary-source: derived
   /api/v1/alerts/notification-history/company/{companyId}:
     get:
       tags:
@@ -731,6 +755,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get notification history by company
+      x-summary-source: derived
   /api/v1/alerts/notification-history/alert/{alertId}:
     get:
       tags:
@@ -797,6 +823,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get notification history
+      x-summary-source: derived
     delete:
       tags:
       - alert-notification-history-controller
@@ -842,6 +870,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete notification history
+      x-summary-source: derived
   /api/v1/alerts/notification-history/alert/{alertId}/triggered:
     get:
       tags:
@@ -894,6 +924,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get triggered notifications
+      x-summary-source: derived
   /api/v1/alerts/notification-history/alert/{alertId}/date-range:
     get:
       tags:
@@ -972,73 +1004,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertNotificationHistoryDTO'
+      summary: Get notification history by date range
+      x-summary-source: derived
 components:
   schemas:
-    AlertNotificationHistoryDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        alertId:
-          type: string
-        alertIdHistoryId:
-          type: string
-        alertName:
-          type: string
-        executedAt:
-          type: string
-          format: date-time
-        value:
-          type: number
-          format: double
-        query:
-          type: string
-        executionMetadata:
-          $ref: '#/components/schemas/AlertExecutionMetadata'
-        thresholdMet:
-          type: boolean
-        notificationSent:
-          type: boolean
-        seen:
-          type: boolean
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertElementLink'
-        email:
-          type: string
-        alertDescription:
-          type: string
-        alertStatus:
-          type: string
-        alertSourceType:
-          type: string
-        alertSourceId:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     UserDTO:
       type: object
       properties:
@@ -1098,6 +1067,73 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    AlertElementLink:
+      type: object
+      properties:
+        alertId:
+          type: string
+        elementId:
+          type: string
+        elementType:
+          type: string
+    ElementFilterRequestDTO:
+      type: object
+      properties:
+        elementId:
+          type: string
+        elementType:
+          type: string
+    AlertNotificationHistoryDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        alertId:
+          type: string
+        alertIdHistoryId:
+          type: string
+        alertName:
+          type: string
+        executedAt:
+          type: string
+          format: date-time
+        value:
+          type: number
+          format: double
+        query:
+          type: string
+        executionMetadata:
+          $ref: '#/components/schemas/AlertExecutionMetadata'
+        thresholdMet:
+          type: boolean
+        notificationSent:
+          type: boolean
+        seen:
+          type: boolean
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertElementLink'
+        email:
+          type: string
+        alertDescription:
+          type: string
+        alertStatus:
+          type: string
+        alertSourceType:
+          type: string
+        alertSourceId:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -1114,22 +1150,6 @@ components:
           type: array
           items:
             type: string
-    ElementFilterRequestDTO:
-      type: object
-      properties:
-        elementId:
-          type: string
-        elementType:
-          type: string
-    AlertElementLink:
-      type: object
-      properties:
-        alertId:
-          type: string
-        elementId:
-          type: string
-        elementType:
-          type: string
     AlertExecutionMetadata:
       type: object
       properties:
@@ -1181,6 +1201,20 @@ components:
           type: string
         jobGroup:
           type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

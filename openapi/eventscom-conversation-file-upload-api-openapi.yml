@@ -128,7 +128,7 @@ paths:
 
         Auth: use Authorization as elsewhere, or pass the same JWT as query param
 
-        ``access_token`` (raw token or ``Bearer <token>``) when the client cannot set headers.'
+        ``access_token`` (raw token or ``Bearer ``) when the client cannot set headers.'
       operationId: get_preview_url_ai_api_v2_conversation_files__conversation_file_id__view_get
       parameters:
       - name: conversation_file_id
@@ -177,32 +177,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ConversationFilesQueryRequest:
-      properties:
-        query:
-          type: string
-          minLength: 1
-          title: Query
-        conversation_file_ids:
-          items:
-            type: string
-          type: array
-          minItems: 1
-          title: Conversation File Ids
-      type: object
-      required:
-      - query
-      - conversation_file_ids
-      title: ConversationFilesQueryRequest
     Body_post_conversation_file_ai_api_v2_conversation_files_post:
       properties:
         file:
@@ -213,19 +187,15 @@ components:
       required:
       - file
       title: Body_post_conversation_file_ai_api_v2_conversation_files_post
-    ConversationFileIdsStatusRequest:
+    HTTPValidationError:
       properties:
-        conversation_file_ids:
+        detail:
           items:
-            type: string
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          maxItems: 100
-          minItems: 1
-          title: Conversation File Ids
+          title: Detail
       type: object
-      required:
-      - conversation_file_ids
-      title: ConversationFileIdsStatusRequest
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -252,3 +222,33 @@ components:
       - msg
       - type
       title: ValidationError
+    ConversationFilesQueryRequest:
+      properties:
+        query:
+          type: string
+          minLength: 1
+          title: Query
+        conversation_file_ids:
+          items:
+            type: string
+          type: array
+          minItems: 1
+          title: Conversation File Ids
+      type: object
+      required:
+      - query
+      - conversation_file_ids
+      title: ConversationFilesQueryRequest
+    ConversationFileIdsStatusRequest:
+      properties:
+        conversation_file_ids:
+          items:
+            type: string
+          type: array
+          maxItems: 100
+          minItems: 1
+          title: Conversation File Ids
+      type: object
+      required:
+      - conversation_file_ids
+      title: ConversationFileIdsStatusRequest

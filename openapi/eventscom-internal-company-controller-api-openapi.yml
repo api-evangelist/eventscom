@@ -101,6 +101,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgentSkillDTO'
+      summary: Upload skill markdown 1
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/uploadFiles/{tenantId}:
     post:
       tags:
@@ -164,6 +166,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BulkFileUploadResponse'
+      summary: Upload files 1
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/updateSkill/{skillId}:
     post:
       tags:
@@ -263,6 +267,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgentSkillDTO'
+      summary: Update skill markdown 1
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/pipeline/config:
     get:
       tags:
@@ -319,6 +325,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyPipelineConfigDTO'
+      summary: Get pipeline config
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/llm/key:
     get:
       tags:
@@ -375,6 +383,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
+      summary: Get virtual key 1
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/key:
     get:
       tags:
@@ -431,6 +441,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyKeysDTO'
+      summary: Getkeys
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/gtm/config:
     get:
       tags:
@@ -493,6 +505,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/GTMConfigDTO'
+      summary: Get gtm config
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/downloadSkills/{skillId}:
     get:
       tags:
@@ -550,6 +564,8 @@ paths:
               schema:
                 type: string
                 format: binary
+      summary: Download skill by id
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/downloadFiles/{tenantId}:
     get:
       tags:
@@ -611,6 +627,8 @@ paths:
               schema:
                 type: string
                 format: binary
+      summary: Download folder
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/downloadFile/{tenantId}:
     get:
       tags:
@@ -672,6 +690,8 @@ paths:
               schema:
                 type: string
                 format: binary
+      summary: Download file 1
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/credential/{credentialId}:
     get:
       tags:
@@ -728,6 +748,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/UserConnectorCredentialDTO'
+      summary: Get fresh credential
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/composio/apiKey:
     get:
       tags:
@@ -780,6 +802,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: string
+      summary: Get composio api key
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/companyUnstructuredData/{companyId}:
     get:
       tags:
@@ -836,6 +860,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CompanyUnstructuredDataResponse'
+      summary: Get company unstructured data service
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/agentConfig:
     get:
       tags:
@@ -897,6 +923,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgentConfigDTO'
+      summary: Get agent config
+      x-summary-source: derived
   /idp/api/v1/company/internal/{token}/permissions/{elementType}/{elementId}:
     delete:
       tags:
@@ -957,210 +985,10 @@ paths:
             '*/*':
               schema:
                 type: string
+      summary: Delete all element permissions
+      x-summary-source: derived
 components:
   schemas:
-    AgentSkillDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        s3Url:
-          type: string
-        enabled:
-          type: boolean
-    LiteLLMModelConfigDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        label:
-          type: string
-        llmProvider:
-          type: string
-        defaultKey:
-          type: string
-        icon:
-          type: string
-        maxBudget:
-          type: number
-          format: double
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelMetadata'
-        keyAvailable:
-          type: boolean
-        image:
-          type: boolean
-    CompanyKeysDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        awsAccessKey:
-          type: string
-        awsSecretKey:
-          type: string
-        region:
-          type: string
-        rootDir:
-          type: string
-        azureAccountName:
-          type: string
-        azureAccountKey:
-          type: string
-        storageType:
-          type: string
-          enum:
-          - AWS
-          - AZURE
-          - GCS
-        sendGridApiKey:
-          type: string
-        defaultSenderEmail:
-          type: string
-        defaultSenderIdentity:
-          type: string
-        openAiApiKey:
-          type: string
-        anthropicApiKey:
-          type: string
-        geminiApiKey:
-          type: string
-        groqApiKey:
-          type: string
-        openRouterApiKey:
-          type: string
-        togetherAiApiKey:
-          type: string
-        vertexProject:
-          type: string
-        vertexLocation:
-          type: string
-        vertexCredentials:
-          type: string
-        bedrockAccessKey:
-          type: string
-        bedrockSecretKey:
-          type: string
-        bedrockRegion:
-          type: string
-        slackToken:
-          type: string
-        slackChannel:
-          type: string
-        perplexityApiKey:
-          type: string
-        tavilyApiKey:
-          type: string
-        parallelWebSystemsApiKey:
-          type: string
-        databarApiKey:
-          type: string
-        gcpServiceAccountKey:
-          type: string
-        gcpRegion:
-          type: string
-        gcpAccessKey:
-          type: string
-        gcpSecretKey:
-          type: string
-    UserConnectorCredentialDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        connectorType:
-          type: string
-        credentialType:
-          type: string
-          enum:
-          - QUERY_PARAM
-          - BASIC_AUTH
-          - AUTHORIZATION
-          - ACCESS_TOKEN
-          - BEARER
-          - API_KEY
-          - OAUTH2
-        userId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        tokenType:
-          type: string
-          enum:
-          - B2B
-          - USER
-        config:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConfigDTO'
-    CompanyPipelineConfigDTO:
-      type: object
-      properties:
-        keys:
-          $ref: '#/components/schemas/CompanyKeysDTO'
-        litellmConfig:
-          $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
-        companyName:
-          type: string
-    AgentConfigDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        agentTemplateId:
-          type: string
-        name:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
-        config:
-          type: object
-          additionalProperties:
-            type: object
-    CompanyLiteLLMConfigDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        teamId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        virtualKey:
-          type: string
-        modelConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
     OutputConfigurationDTO:
       type: object
       properties:
@@ -1178,35 +1006,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ColumnConfigurationDTO'
-    ColumnConfigurationDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        description:
-          type: string
-        tableId:
-          type: string
-        title:
-          type: string
-        workspaceId:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     CompanyUnstructuredDataResponse:
       type: object
       properties:
@@ -1281,22 +1080,141 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    ErrorMessage:
+    CompanyPipelineConfigDTO:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        keys:
+          $ref: '#/components/schemas/CompanyKeysDTO'
+        litellmConfig:
+          $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
+        companyName:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
+    UserConnectorCredentialDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        connectorType:
+          type: string
+        credentialType:
+          type: string
+          enum:
+          - QUERY_PARAM
+          - BASIC_AUTH
+          - AUTHORIZATION
+          - ACCESS_TOKEN
+          - BEARER
+          - API_KEY
+          - OAUTH2
+        userId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        tokenType:
+          type: string
+          enum:
+          - B2B
+          - USER
+        config:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/ConfigDTO'
+    CompanyLiteLLMConfigDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teamId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        virtualKey:
+          type: string
+        modelConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+    CompanyKeysDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        awsAccessKey:
+          type: string
+        awsSecretKey:
+          type: string
+        region:
+          type: string
+        rootDir:
+          type: string
+        azureAccountName:
+          type: string
+        azureAccountKey:
+          type: string
+        storageType:
+          type: string
+          enum:
+          - AWS
+          - AZURE
+          - GCS
+        sendGridApiKey:
+          type: string
+        defaultSenderEmail:
+          type: string
+        defaultSenderIdentity:
+          type: string
+        openAiApiKey:
+          type: string
+        anthropicApiKey:
+          type: string
+        geminiApiKey:
+          type: string
+        groqApiKey:
+          type: string
+        openRouterApiKey:
+          type: string
+        togetherAiApiKey:
+          type: string
+        vertexProject:
+          type: string
+        vertexLocation:
+          type: string
+        vertexCredentials:
+          type: string
+        bedrockAccessKey:
+          type: string
+        bedrockSecretKey:
+          type: string
+        bedrockRegion:
+          type: string
+        slackToken:
+          type: string
+        slackChannel:
+          type: string
+        perplexityApiKey:
+          type: string
+        tavilyApiKey:
+          type: string
+        parallelWebSystemsApiKey:
+          type: string
+        databarApiKey:
+          type: string
+        gcpServiceAccountKey:
+          type: string
+        gcpRegion:
+          type: string
+        gcpAccessKey:
+          type: string
+        gcpSecretKey:
+          type: string
     BulkFileUploadResponse:
       type: object
       properties:
@@ -1313,30 +1231,51 @@ components:
         failedUploads:
           type: integer
           format: int32
-    FileUploadResult:
+    AgentSkillDTO:
       type: object
       properties:
-        fileName:
-          type: string
-        key:
-          type: string
-        success:
-          type: boolean
-        errorMessage:
-          type: string
-    ModelMetadata:
-      type: object
-      properties:
-        label:
-          type: string
-        value:
-          type: string
-        shortDescription:
+        id:
+          type: integer
+          format: int64
+        name:
           type: string
         description:
           type: string
-        default:
+        s3Url:
+          type: string
+        enabled:
           type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    ColumnConfigurationDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        tableId:
+          type: string
+        title:
+          type: string
+        workspaceId:
+          type: string
     GTMConfigDTO:
       type: object
       properties:
@@ -1352,6 +1291,17 @@ components:
             $ref: '#/components/schemas/OutputConfigurationDTO'
         isDefault:
           type: boolean
+    FileUploadResult:
+      type: object
+      properties:
+        fileName:
+          type: string
+        key:
+          type: string
+        success:
+          type: boolean
+        errorMessage:
+          type: string
     ConfigDTO:
       type: object
       properties:
@@ -1361,6 +1311,86 @@ components:
           type: object
           additionalProperties:
             type: object
+    ModelMetadata:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: string
+        shortDescription:
+          type: string
+        description:
+          type: string
+        default:
+          type: boolean
+    AgentConfigDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        agentTemplateId:
+          type: string
+        name:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        config:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    LiteLLMModelConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        label:
+          type: string
+        llmProvider:
+          type: string
+        defaultKey:
+          type: string
+        icon:
+          type: string
+        maxBudget:
+          type: number
+          format: double
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelMetadata'
+        keyAvailable:
+          type: boolean
+        image:
+          type: boolean
   securitySchemes:
     s_jwt:
       type: http

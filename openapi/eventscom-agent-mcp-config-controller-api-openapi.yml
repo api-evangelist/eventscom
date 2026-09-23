@@ -61,6 +61,8 @@ paths:
                 $ref: '#/components/schemas/AgentMcpConfigDTO'
       security:
       - s_jwt: []
+      summary: Get mcp config
+      x-summary-source: derived
     put:
       tags:
       - agent-mcp-config-controller
@@ -119,6 +121,8 @@ paths:
                 $ref: '#/components/schemas/AgentMcpConfigDTO'
       security:
       - s_jwt: []
+      summary: Update mcp config
+      x-summary-source: derived
     delete:
       tags:
       - agent-mcp-config-controller
@@ -167,6 +171,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete mcp config
+      x-summary-source: derived
   /mcpConfigs/api/v1:
     get:
       tags:
@@ -215,6 +221,8 @@ paths:
                   $ref: '#/components/schemas/AgentMcpConfigDTO'
       security:
       - s_jwt: []
+      summary: List mcp configs
+      x-summary-source: derived
     post:
       tags:
       - agent-mcp-config-controller
@@ -266,6 +274,8 @@ paths:
                 $ref: '#/components/schemas/AgentMcpConfigDTO'
       security:
       - s_jwt: []
+      summary: Create mcp config
+      x-summary-source: derived
 components:
   schemas:
     ErrorMessage:
@@ -284,20 +294,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     AgentMcpConfigDTO:
       type: object
       properties:
@@ -332,6 +328,20 @@ components:
           type: string
         mcpUrl:
           type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

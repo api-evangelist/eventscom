@@ -60,6 +60,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/NodeGroupConfigDTO'
+      summary: Find by id
+      x-summary-source: derived
     put:
       tags:
       - node-group-config-controller
@@ -117,6 +119,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/NodeGroupConfigDTO'
+      summary: Update 6
+      x-summary-source: derived
     delete:
       tags:
       - node-group-config-controller
@@ -164,6 +168,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Delete 9
+      x-summary-source: derived
   /api/v1/node-group-config:
     get:
       tags:
@@ -211,6 +217,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/NodeGroupConfigDTO'
+      summary: Find all 1
+      x-summary-source: derived
     post:
       tags:
       - node-group-config-controller
@@ -261,6 +269,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/NodeGroupConfigDTO'
+      summary: Create 9
+      x-summary-source: derived
   /api/v1/node-group-config/companyId/:
     get:
       tags:
@@ -322,22 +332,10 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/TupleStringMapStringString'
+      summary: Get value
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     UserDTO:
       type: object
       properties:
@@ -397,6 +395,31 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    TupleStringMapStringString:
+      type: object
+      properties:
+        item1:
+          type: string
+        item2:
+          type: object
+          additionalProperties:
+            type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     NodeGroupConfigDTO:
       type: object
       properties:
@@ -423,31 +446,20 @@ components:
           type: object
           additionalProperties:
             type: string
-    ErrorMessage:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        success:
+          type: boolean
+        version:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    TupleStringMapStringString:
-      type: object
-      properties:
-        item1:
+        date:
           type: string
-        item2:
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-          additionalProperties:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

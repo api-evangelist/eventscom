@@ -65,6 +65,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/BIDTO'
       deprecated: true
+      summary: Modify bi 1
+      x-summary-source: derived
     delete:
       tags:
       - biv-1-controller
@@ -111,6 +113,8 @@ paths:
         '200':
           description: OK
       deprecated: true
+      summary: Delete BI 1
+      x-summary-source: derived
   /noCo/api/v1/bi:
     get:
       tags:
@@ -156,24 +160,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/BIDTO'
       deprecated: true
+      summary: Get BI 1
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    JsonNode:
-      type: object
     ErrorMessage:
       type: object
       properties:
@@ -190,6 +180,8 @@ components:
           type: array
           items:
             type: string
+    JsonNode:
+      type: object
     BIDTO:
       type: object
       properties:
@@ -205,6 +197,20 @@ components:
           type: string
         workspaceId:
           type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

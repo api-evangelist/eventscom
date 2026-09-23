@@ -435,140 +435,6 @@ paths:
                 $ref: '#/components/schemas/KbConnectorDTO'
 components:
   schemas:
-    ConnectorMetaDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - GMAIL
-          - GOOGLE_DRIVE
-          - GOOGLE_SPACES
-          - WEB
-          - S3
-          - GCS
-          - AZURE_BLOB
-          - ONEDRIVE
-          - SHAREPOINT
-          - SLACK
-          - CONFLUENCE
-          - JIRA
-          - WORKBOOK
-          - WORKSPACE_DOCUMENTS
-        collectionName:
-          type: string
-        metadata:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataFieldDTO'
-        dbFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/KbDbMetadataFieldDTO'
-    KbWorkbookSearchResultDTO:
-      type: object
-      properties:
-        collectionName:
-          type: string
-        hits:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hit'
-    KbMetadataQueryResultDTO:
-      type: object
-      properties:
-        totalCount:
-          type: integer
-          format: int64
-        rows:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    KbMetadataQueryDTO:
-      type: object
-      properties:
-        filters:
-          type: object
-          additionalProperties:
-            type: object
-        groupBy:
-          type: string
-        aggregations:
-          type: array
-          items:
-            type: string
-        orderBy:
-          type: string
-        orderDir:
-          type: string
-        limit:
-          type: integer
-          format: int32
-        select:
-          type: array
-          items:
-            type: string
-    KbConnectorStatsDTO:
-      type: object
-      properties:
-        connectorId:
-          type: string
-          format: uuid
-        total:
-          type: integer
-          format: int64
-        queued:
-          type: integer
-          format: int64
-        inProgress:
-          type: integer
-          format: int64
-        completed:
-          type: integer
-          format: int64
-        failed:
-          type: integer
-          format: int64
-        skipped:
-          type: integer
-          format: int64
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     MetadataFieldDTO:
       type: object
       properties:
@@ -580,48 +446,6 @@ components:
           type: string
         filterable:
           type: boolean
-    KbRunDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        connectorId:
-          type: string
-          format: uuid
-        runType:
-          type: string
-          enum:
-          - FULL
-          - INCREMENTAL
-          - MANUAL
-          - REINDEX
-        status:
-          type: string
-          enum:
-          - RUNNING
-          - SUCCESS
-          - FAILED
-          - PARTIAL
-          - CANCELLED
-        temporalWorkflowId:
-          type: string
-        startedAt:
-          type: string
-          format: date-time
-        finishedAt:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        statsJson:
-          type: object
-          additionalProperties:
-            type: object
-        checkpointJson:
-          type: object
-          additionalProperties:
-            type: object
     KbConfigDTO:
       type: object
       properties:
@@ -683,6 +507,22 @@ components:
         limit:
           type: integer
           format: int32
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     KbConnectorDTO:
       type: object
       properties:
@@ -736,6 +576,107 @@ components:
           $ref: '#/components/schemas/KbRunDTO'
         stats:
           $ref: '#/components/schemas/KbConnectorStatsDTO'
+    KbWorkbookSearchResultDTO:
+      type: object
+      properties:
+        collectionName:
+          type: string
+        hits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hit'
+    KbRunDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        connectorId:
+          type: string
+          format: uuid
+        runType:
+          type: string
+          enum:
+          - FULL
+          - INCREMENTAL
+          - MANUAL
+          - REINDEX
+        status:
+          type: string
+          enum:
+          - RUNNING
+          - SUCCESS
+          - FAILED
+          - PARTIAL
+          - CANCELLED
+        temporalWorkflowId:
+          type: string
+        startedAt:
+          type: string
+          format: date-time
+        finishedAt:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        statsJson:
+          type: object
+          additionalProperties:
+            type: object
+        checkpointJson:
+          type: object
+          additionalProperties:
+            type: object
+    KbConnectorStatsDTO:
+      type: object
+      properties:
+        connectorId:
+          type: string
+          format: uuid
+        total:
+          type: integer
+          format: int64
+        queued:
+          type: integer
+          format: int64
+        inProgress:
+          type: integer
+          format: int64
+        completed:
+          type: integer
+          format: int64
+        failed:
+          type: integer
+          format: int64
+        skipped:
+          type: integer
+          format: int64
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    KbMetadataQueryResultDTO:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
     Hit:
       type: object
       properties:
@@ -752,6 +693,65 @@ components:
           type: object
           additionalProperties:
             type: object
+    ConnectorMetaDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+        collectionName:
+          type: string
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataFieldDTO'
+        dbFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/KbDbMetadataFieldDTO'
+    KbMetadataQueryDTO:
+      type: object
+      properties:
+        filters:
+          type: object
+          additionalProperties:
+            type: object
+        groupBy:
+          type: string
+        aggregations:
+          type: array
+          items:
+            type: string
+        orderBy:
+          type: string
+        orderDir:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        select:
+          type: array
+          items:
+            type: string
   securitySchemes:
     s_jwt:
       type: http

@@ -56,6 +56,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Detach element
+      x-summary-source: derived
   /noCo/api/v1/elementLinks/detach/links:
     post:
       tags:
@@ -106,6 +108,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Detach elements
+      x-summary-source: derived
   /noCo/api/v1/elementLinks/attach:
     post:
       tags:
@@ -158,6 +162,8 @@ paths:
                 $ref: '#/components/schemas/ElementLinkDTO'
       security:
       - s_jwt: []
+      summary: Attach element
+      x-summary-source: derived
   /noCo/api/v1/elementLinks/attach/links:
     post:
       tags:
@@ -214,6 +220,8 @@ paths:
                   $ref: '#/components/schemas/ElementLinkDTO'
       security:
       - s_jwt: []
+      summary: Attach elements
+      x-summary-source: derived
   /noCo/api/v1/elementLinks/{elementType}/{elementId}:
     get:
       tags:
@@ -271,6 +279,8 @@ paths:
                 $ref: '#/components/schemas/LinkElementDTO'
       security:
       - s_jwt: []
+      summary: Get by element and linked element
+      x-summary-source: derived
   /noCo/api/v1/elementLinks/{elementType}/{elementId}/{linkedElementType}:
     get:
       tags:
@@ -335,35 +345,10 @@ paths:
                   $ref: '#/components/schemas/ElementLinkDTO'
       security:
       - s_jwt: []
+      summary: Get by element and linked element 1
+      x-summary-source: derived
 components:
   schemas:
-    ElementLinkDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        linkedElementType:
-          type: string
-        linkedId:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ErrorMessage:
       type: object
       properties:
@@ -380,6 +365,19 @@ components:
           type: array
           items:
             type: string
+    ElementLinkDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        linkedElementType:
+          type: string
+        linkedId:
+          type: string
     LinkElementDTO:
       type: object
       properties:
@@ -393,6 +391,20 @@ components:
           type: array
           items:
             type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

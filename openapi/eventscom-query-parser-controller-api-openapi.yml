@@ -60,6 +60,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/QueryResponseDTO'
+      summary: Get data sources
+      x-summary-source: derived
   /api/v1/query-parser/comments:
     post:
       tags:
@@ -114,6 +116,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
+      summary: Get remove comments
+      x-summary-source: derived
   /api/v1/query-parser/columns:
     post:
       tags:
@@ -164,42 +168,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SQLParseColumnResponseDTO'
+      summary: Get columns
+      x-summary-source: derived
 components:
   schemas:
-    SQLParseColumnResponseDTO:
+    SQLParseColumnDTO:
       type: object
       properties:
-        columns:
+        functions:
           type: array
           items:
-            $ref: '#/components/schemas/SQLParseColumnDTO'
-    SQLParseColumnRequestDTO:
-      type: object
-      properties:
-        sqlQuery:
+            type: string
+        name:
           type: string
-        schema:
-          type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: object
-              additionalProperties:
-                type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
+        dataType:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
+        sources:
+          type: array
+          items:
+            type: string
     ErrorMessage:
       type: object
       properties:
@@ -216,21 +203,40 @@ components:
           type: array
           items:
             type: string
-    SQLParseColumnDTO:
+    SQLParseColumnRequestDTO:
       type: object
       properties:
-        functions:
+        sqlQuery:
+          type: string
+        schema:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: object
+              additionalProperties:
+                type: string
+    SQLParseColumnResponseDTO:
+      type: object
+      properties:
+        columns:
           type: array
           items:
-            type: string
-        name:
+            $ref: '#/components/schemas/SQLParseColumnDTO'
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
           type: string
-        dataType:
+        date:
           type: string
-        sources:
-          type: array
-          items:
-            type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     QueryResponseDTO:
       type: object
       properties:

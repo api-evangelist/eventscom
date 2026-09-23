@@ -82,6 +82,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ConversationDTO'
+      summary: Get all conversations by user element
+      x-summary-source: derived
     put:
       tags:
       - conversation-controller
@@ -131,6 +133,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ConversationDTO'
+      summary: Update conversation
+      x-summary-source: derived
     post:
       tags:
       - conversation-controller
@@ -180,6 +184,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ConversationDTO'
+      summary: Create conversation 1
+      x-summary-source: derived
   /ai/api/v2/conversations/migratePermissions:
     post:
       tags:
@@ -220,6 +226,8 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOObject'
         '200':
           description: OK
+      summary: Migrate conversation permissions
+      x-summary-source: derived
   /ai/api/v2/conversations/{conversationId}:
     get:
       tags:
@@ -271,6 +279,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConversationDTO'
       deprecated: true
+      summary: Get conversation by id
+      x-summary-source: derived
     delete:
       tags:
       - conversation-controller
@@ -322,6 +332,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: string
+      summary: Delete conversation 1
+      x-summary-source: derived
 components:
   schemas:
     ErrorMessage:
@@ -340,20 +352,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ConversationDTO:
       type: object
       properties:
@@ -398,6 +396,20 @@ components:
           type: boolean
         isScheduled:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

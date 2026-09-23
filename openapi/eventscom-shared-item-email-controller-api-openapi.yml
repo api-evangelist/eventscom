@@ -67,6 +67,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SharedEmailLogDTO'
+      summary: Send shared item
+      x-summary-source: derived
 components:
   schemas:
     ErrorMessage:
@@ -85,20 +87,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     SharedEmailLogDTO:
       type: object
       properties:
@@ -113,6 +101,20 @@ components:
         sharedItemId:
           type: integer
           format: int64
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http

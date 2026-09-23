@@ -61,6 +61,8 @@ paths:
                 $ref: '#/components/schemas/AgentSkillDTO'
       security:
       - s_jwt: []
+      summary: Get skill
+      x-summary-source: derived
     put:
       tags:
       - agent-skill-controller
@@ -119,6 +121,8 @@ paths:
                 $ref: '#/components/schemas/AgentSkillDTO'
       security:
       - s_jwt: []
+      summary: Update skill
+      x-summary-source: derived
     delete:
       tags:
       - agent-skill-controller
@@ -173,6 +177,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete skill
+      x-summary-source: derived
   /skills/api/v1/{skillId}/upload:
     put:
       tags:
@@ -257,6 +263,8 @@ paths:
                 $ref: '#/components/schemas/AgentSkillDTO'
       security:
       - s_jwt: []
+      summary: Update skill markdown
+      x-summary-source: derived
   /skills/api/v1:
     get:
       tags:
@@ -305,6 +313,8 @@ paths:
                   $ref: '#/components/schemas/AgentSkillDTO'
       security:
       - s_jwt: []
+      summary: List skills
+      x-summary-source: derived
     post:
       tags:
       - agent-skill-controller
@@ -356,6 +366,8 @@ paths:
                 $ref: '#/components/schemas/AgentSkillDTO'
       security:
       - s_jwt: []
+      summary: Create skill
+      x-summary-source: derived
   /skills/api/v1/upload:
     post:
       tags:
@@ -434,6 +446,8 @@ paths:
                 $ref: '#/components/schemas/AgentSkillDTO'
       security:
       - s_jwt: []
+      summary: Upload skill markdown
+      x-summary-source: derived
   /skills/api/v1/{skillId}/usage:
     get:
       tags:
@@ -487,6 +501,8 @@ paths:
                 $ref: '#/components/schemas/AgentSkillUsageDTO'
       security:
       - s_jwt: []
+      summary: Get skill usage
+      x-summary-source: derived
   /skills/api/v1/{skillId}/download:
     get:
       tags:
@@ -541,6 +557,8 @@ paths:
                 format: binary
       security:
       - s_jwt: []
+      summary: Download skill file
+      x-summary-source: derived
 components:
   schemas:
     AgentSkillDTO:
@@ -557,20 +575,6 @@ components:
           type: string
         enabled:
           type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ErrorMessage:
       type: object
       properties:
@@ -587,6 +591,27 @@ components:
           type: array
           items:
             type: string
+    ReferencingAgent:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     AgentSkillUsageDTO:
       type: object
       properties:
@@ -596,13 +621,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReferencingAgent'
-    ReferencingAgent:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
   securitySchemes:
     s_jwt:
       type: http

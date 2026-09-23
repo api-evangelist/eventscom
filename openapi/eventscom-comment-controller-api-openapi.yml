@@ -82,6 +82,8 @@ paths:
                 $ref: '#/components/schemas/CommentDTO'
       security:
       - s_jwt: []
+      summary: Modify 2
+      x-summary-source: derived
     delete:
       tags:
       - comment-controller
@@ -145,6 +147,8 @@ paths:
           description: OK
       security:
       - s_jwt: []
+      summary: Delete 3
+      x-summary-source: derived
   /noCo/api/v1/{authElementType}/{authElementId}/comments:
     post:
       tags:
@@ -214,6 +218,8 @@ paths:
                 $ref: '#/components/schemas/CommentDTO'
       security:
       - s_jwt: []
+      summary: Create 3
+      x-summary-source: derived
   /noCo/api/v1/{authElementType}/{authElementId}/comments/{primaryElementType}/{primaryElementId}:
     get:
       tags:
@@ -299,6 +305,8 @@ paths:
                   $ref: '#/components/schemas/CommentDTO'
       security:
       - s_jwt: []
+      summary: Get comments
+      x-summary-source: derived
   /noCo/api/v1/{authElementType}/{authElementId}/comments/{primaryElementType}/{primaryElementId}/commentCount:
     get:
       tags:
@@ -372,61 +380,10 @@ paths:
                 $ref: '#/components/schemas/CommentCountDTO'
       security:
       - s_jwt: []
+      summary: Get number of comments
+      x-summary-source: derived
 components:
   schemas:
-    CommentDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        comment:
-          type: string
-        primaryElementType:
-          type: string
-        primaryElementId:
-          type: string
-        secondaryElementType:
-          type: string
-        secondaryElementId:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    CommentCountDTO:
-      type: object
-      properties:
-        primaryElementType:
-          type: string
-        primaryElementId:
-          type: string
-        counts:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: integer
-              format: int64
     UserDTO:
       type: object
       properties:
@@ -486,6 +443,31 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    CommentDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        comment:
+          type: string
+        primaryElementType:
+          type: string
+        primaryElementId:
+          type: string
+        secondaryElementType:
+          type: string
+        secondaryElementId:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -502,6 +484,34 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    CommentCountDTO:
+      type: object
+      properties:
+        primaryElementType:
+          type: string
+        primaryElementId:
+          type: string
+        counts:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: integer
+              format: int64
   securitySchemes:
     s_jwt:
       type: http

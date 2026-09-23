@@ -32,21 +32,15 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    PreviousGlobalIdDataset:
+    HTTPValidationError:
       properties:
-        workspaceId:
-          type: string
-          title: Workspaceid
-          description: The workspace ID
-        workbookId:
-          type: string
-          title: Workbookid
-          description: The workbook ID
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - workspaceId
-      - workbookId
-      title: PreviousGlobalIdDataset
+      title: HTTPValidationError
     GlobalIdDataResource:
       properties:
         name:
@@ -73,15 +67,6 @@ components:
       - name
       - sourceData
       title: GlobalIdDataResource
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     GlobalIdRequest:
       properties:
         datasets:
@@ -128,7 +113,33 @@ components:
       - workbookId
       - dataMapping
       title: SourceData
-    UnmatchedData:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    PreviousGlobalIdDataset:
       properties:
         workspaceId:
           type: string
@@ -142,7 +153,7 @@ components:
       required:
       - workspaceId
       - workbookId
-      title: UnmatchedData
+      title: PreviousGlobalIdDataset
     DataMapping:
       properties:
         crmIdField:
@@ -177,29 +188,18 @@ components:
           description: The company name field
       type: object
       title: DataMapping
-    ValidationError:
+    UnmatchedData:
       properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
+        workspaceId:
           type: string
-          title: Message
-        type:
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
           type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
+          title: Workbookid
+          description: The workbook ID
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - workspaceId
+      - workbookId
+      title: UnmatchedData

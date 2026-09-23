@@ -52,6 +52,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/HealthCheckDto'
+      summary: Get over all health check
+      x-summary-source: derived
   /api/v1/healthCheck/getStatus/details:
     get:
       tags:
@@ -96,27 +98,10 @@ paths:
             '*/*':
               schema:
                 type: object
+      summary: Get custom health check
+      x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    HealthCheckDto:
-      type: object
-      properties:
-        status:
-          type: string
     ErrorMessage:
       type: object
       properties:
@@ -133,6 +118,25 @@ components:
           type: array
           items:
             type: string
+    HealthCheckDto:
+      type: object
+      properties:
+        status:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http
