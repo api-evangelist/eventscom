@@ -75,17 +75,20 @@ components:
           type: array
           items:
             type: string
-    ThirdPartyFilterConfigDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        name:
-          type: string
-        required:
+        success:
           type: boolean
-        defaultValue:
+        version:
           type: string
-        actualValue:
+        date:
           type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     ExternalEmbeddingConfigDTO:
       type: object
       properties:
@@ -133,20 +136,17 @@ components:
         serviceAccountId:
           type: integer
           format: int64
-    SaasxlResponseDTOObject:
+    ThirdPartyFilterConfigDTO:
       type: object
       properties:
-        success:
+        name:
+          type: string
+        required:
           type: boolean
-        version:
+        defaultValue:
           type: string
-        date:
+        actualValue:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

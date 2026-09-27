@@ -151,40 +151,26 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
+    SchemaProperty:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    DataExtractionRequest:
-      properties:
-        resource:
-          $ref: '#/components/schemas/Resource'
-        schema:
-          items:
-            $ref: '#/components/schemas/SchemaProperty'
-          type: array
-          title: Schema
-          description: A list of properties defining the structure of the data to be extracted.
-        llm_model:
+        property_name:
           type: string
-          title: Llm Model
-          description: The model to be used for the data extraction.
-          default: gpt-4.1-nano
-        company_id:
-          type: integer
-          title: Company Id
-          description: The company id of the user.
+          title: Property Name
+          description: The name of the property.
+        property_description:
+          type: string
+          title: Property Description
+          description: The description of the property.
+        property_type:
+          type: string
+          title: Property Type
+          description: The type of the property, optional, by default str.
+          default: str
       type: object
       required:
-      - resource
-      - schema
-      - company_id
-      title: DataExtractionRequest
+      - property_name
+      - property_description
+      title: SchemaProperty
     DataExtractionTestRequest:
       properties:
         schema:
@@ -198,19 +184,62 @@ components:
       - schema
       - resource
       title: DataExtractionTestRequest
-    Body_run_data_extraction_test_file_upload:
+    Resource:
       properties:
-        schema:
-          title: Schema
+        bucket_name:
+          type: string
+          title: Bucket Name
+          description: The name of the bucket.
+        prefix:
+          type: string
+          title: Prefix
+          description: The prefix for the objects.
+        access_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Access Key
+          description: Optional; GCP/S3 access key; when omitted, config credentials are used.
+        secret_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secret Key
+          description: Optional; GCP/S3 secret key; when omitted, config credentials are used.
+        storage_type:
+          type: string
+          title: Storage Type
+          description: The type of the storage, either 'AWS' or 'GCP'.
+      type: object
+      required:
+      - bucket_name
+      - prefix
+      - storage_type
+      title: Resource
+      description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_execute_data_extraction_file_upload:
+      properties:
         file:
           type: string
           contentMediaType: application/octet-stream
           title: File
+        schema:
+          type: string
+          title: Schema
       type: object
       required:
-      - schema
       - file
-      title: Body_run_data_extraction_test_file_upload
+      - schema
+      title: Body_execute_data_extraction_file_upload
     Body_generate_data_extraction_schema_from_content:
       properties:
         file:
@@ -251,73 +280,31 @@ components:
       - msg
       - type
       title: ValidationError
-    Body_execute_data_extraction_file_upload:
+    DataExtractionRequest:
       properties:
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
+        resource:
+          $ref: '#/components/schemas/Resource'
         schema:
-          type: string
+          items:
+            $ref: '#/components/schemas/SchemaProperty'
+          type: array
           title: Schema
+          description: A list of properties defining the structure of the data to be extracted.
+        llm_model:
+          type: string
+          title: Llm Model
+          description: The model to be used for the data extraction.
+          default: gpt-4.1-nano
+        company_id:
+          type: integer
+          title: Company Id
+          description: The company id of the user.
       type: object
       required:
-      - file
+      - resource
       - schema
-      title: Body_execute_data_extraction_file_upload
-    SchemaProperty:
-      properties:
-        property_name:
-          type: string
-          title: Property Name
-          description: The name of the property.
-        property_description:
-          type: string
-          title: Property Description
-          description: The description of the property.
-        property_type:
-          type: string
-          title: Property Type
-          description: The type of the property, optional, by default str.
-          default: str
-      type: object
-      required:
-      - property_name
-      - property_description
-      title: SchemaProperty
-    Resource:
-      properties:
-        bucket_name:
-          type: string
-          title: Bucket Name
-          description: The name of the bucket.
-        prefix:
-          type: string
-          title: Prefix
-          description: The prefix for the objects.
-        access_key:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Access Key
-          description: Optional; GCP/S3 access key; when omitted, config credentials are used.
-        secret_key:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Secret Key
-          description: Optional; GCP/S3 secret key; when omitted, config credentials are used.
-        storage_type:
-          type: string
-          title: Storage Type
-          description: The type of the storage, either 'AWS' or 'GCP'.
-      type: object
-      required:
-      - bucket_name
-      - prefix
-      - storage_type
-      title: Resource
-      description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
+      - company_id
+      title: DataExtractionRequest
     DataExtractionRequestSchemaGenerate:
       properties:
         prompt:
@@ -332,3 +319,16 @@ components:
       - prompt
       - resource
       title: DataExtractionRequestSchemaGenerate
+    Body_run_data_extraction_test_file_upload:
+      properties:
+        schema:
+          title: Schema
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - schema
+      - file
+      title: Body_run_data_extraction_test_file_upload

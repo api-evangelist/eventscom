@@ -241,26 +241,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    PythonAgentResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-        status:
-          type: string
-          title: Status
-          default: success
-        data:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Data
-      type: object
-      required:
-      - message
-      title: PythonAgentResponse
-      description: Base response model for Python agent
     HTTPValidationError:
       properties:
         detail:
@@ -270,65 +250,67 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    AgentRequest:
+    StopRunResponse:
       properties:
-        userId:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Userid
-          description: 'ID of the user sending this query. '
-        conversationId:
+        status:
           type: string
-          title: Conversationid
-          description: Conversation or thread ID of the query.
+          title: Status
         message:
           type: string
           title: Message
-          description: User query or message to the agent.
-        selectedLlmModel:
+        messageId:
+          type: string
+          title: Messageid
+        conversationId:
           anyOf:
           - type: string
           - type: 'null'
-          title: Selectedllmmodel
-          description: Model to be used to resolve the query.
-        parameters:
-          $ref: '#/components/schemas/Parameters'
-          description: Context for the query
+          title: Conversationid
         agentType:
-          type: string
-          title: Agenttype
-          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent, etc.'
-        selectedParser:
-          type: string
-          title: Selectedparser
-          description: 'Type of parser. Example: LLM Sherpa, Llama Parse'
-        workbookIds:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Workbookids
-          description: List of workbook IDs for additional data sources.
-        callerMessageId:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Callermessageid
-          description: Pre-allocated message ID from ai-core. When set, skips internal DB INSERT and UPDATE.
-        callerUserId:
           anyOf:
           - type: string
           - type: 'null'
-          title: Calleruserid
-          description: User ID pre-validated by ai-core.
+          title: Agenttype
+          default: PythonAgent
+        disconnectInvoked:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Disconnectinvoked
+          default: false
       type: object
       required:
+      - status
       - message
-      - parameters
-      - agentType
-      title: AgentRequest
+      - messageId
+      title: StopRunResponse
+      description: Response model for stop endpoint.
+    PythonAgentFeedbackRequest:
+      properties:
+        session_id:
+          type: string
+          title: Session Id
+        feedback:
+          type: string
+          title: Feedback
+        chain_id:
+          type: string
+          title: Chain Id
+        query_clarification:
+          type: string
+          title: Query Clarification
+        context_needed:
+          type: string
+          title: Context Needed
+      type: object
+      required:
+      - session_id
+      - feedback
+      - chain_id
+      - query_clarification
+      - context_needed
+      title: PythonAgentFeedbackRequest
+      description: Request model for Python agent feedback submission
     Parameters:
       properties:
         dataProvider:
@@ -515,64 +497,82 @@ components:
       - msg
       - type
       title: ValidationError
-    PythonAgentFeedbackRequest:
+    AgentRequest:
       properties:
-        session_id:
+        userId:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Userid
+          description: 'ID of the user sending this query. '
+        conversationId:
           type: string
-          title: Session Id
-        feedback:
-          type: string
-          title: Feedback
-        chain_id:
-          type: string
-          title: Chain Id
-        query_clarification:
-          type: string
-          title: Query Clarification
-        context_needed:
-          type: string
-          title: Context Needed
-      type: object
-      required:
-      - session_id
-      - feedback
-      - chain_id
-      - query_clarification
-      - context_needed
-      title: PythonAgentFeedbackRequest
-      description: Request model for Python agent feedback submission
-    StopRunResponse:
-      properties:
-        status:
-          type: string
-          title: Status
+          title: Conversationid
+          description: Conversation or thread ID of the query.
         message:
           type: string
           title: Message
-        messageId:
-          type: string
-          title: Messageid
-        conversationId:
+          description: User query or message to the agent.
+        selectedLlmModel:
           anyOf:
           - type: string
           - type: 'null'
-          title: Conversationid
+          title: Selectedllmmodel
+          description: Model to be used to resolve the query.
+        parameters:
+          $ref: '#/components/schemas/Parameters'
+          description: Context for the query
         agentType:
+          type: string
+          title: Agenttype
+          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent, etc.'
+        selectedParser:
+          type: string
+          title: Selectedparser
+          description: 'Type of parser. Example: LLM Sherpa, Llama Parse'
+        workbookIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Workbookids
+          description: List of workbook IDs for additional data sources.
+        callerMessageId:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Callermessageid
+          description: Pre-allocated message ID from ai-core. When set, skips internal DB INSERT and UPDATE.
+        callerUserId:
           anyOf:
           - type: string
           - type: 'null'
-          title: Agenttype
-          default: PythonAgent
-        disconnectInvoked:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Disconnectinvoked
-          default: false
+          title: Calleruserid
+          description: User ID pre-validated by ai-core.
       type: object
       required:
-      - status
       - message
-      - messageId
-      title: StopRunResponse
-      description: Response model for stop endpoint.
+      - parameters
+      - agentType
+      title: AgentRequest
+    PythonAgentResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+        status:
+          type: string
+          title: Status
+          default: success
+        data:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Data
+      type: object
+      required:
+      - message
+      title: PythonAgentResponse
+      description: Base response model for Python agent

@@ -81,50 +81,33 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    GenerateDashboardRequest:
+    DashboardSummaryRequest:
       properties:
-        workbookId:
+        pageId:
           type: string
-          title: Workbookid
-          description: Workbook ID for which the dashboard is to be generated.
+          title: Pageid
         persona:
-          anyOf:
-          - type: string
-          - type: 'null'
+          type: string
           title: Persona
-          description: Persona for which the dashboard is to be generated.
-        count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count
-          description: Number of dashboards to be generated.
-          default: 10
-        generateChart:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Generatechart
-          description: Flag to indicate whether to generate charts or just questions.
-          default: false
         userPrompt:
           anyOf:
           - type: string
           - type: 'null'
           title: Userprompt
-          description: Optional user prompt to guide question generation.
-        questions:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Questions
-          description: List of questions. If provided, charts will be generated for these questions without generating new ones.
       type: object
       required:
-      - workbookId
-      title: GenerateDashboardRequest
+      - pageId
+      - persona
+      title: DashboardSummaryRequest
+    WidgetSummaryResponse:
+      properties:
+        data:
+          type: string
+          title: Data
+      type: object
+      required:
+      - data
+      title: WidgetSummaryResponse
     HTTPValidationError:
       properties:
         detail:
@@ -209,30 +192,47 @@ components:
       - msg
       - type
       title: ValidationError
-    WidgetSummaryResponse:
+    GenerateDashboardRequest:
       properties:
-        data:
+        workbookId:
           type: string
-          title: Data
-      type: object
-      required:
-      - data
-      title: WidgetSummaryResponse
-    DashboardSummaryRequest:
-      properties:
-        pageId:
-          type: string
-          title: Pageid
+          title: Workbookid
+          description: Workbook ID for which the dashboard is to be generated.
         persona:
-          type: string
+          anyOf:
+          - type: string
+          - type: 'null'
           title: Persona
+          description: Persona for which the dashboard is to be generated.
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+          description: Number of dashboards to be generated.
+          default: 10
+        generateChart:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Generatechart
+          description: Flag to indicate whether to generate charts or just questions.
+          default: false
         userPrompt:
           anyOf:
           - type: string
           - type: 'null'
           title: Userprompt
+          description: Optional user prompt to guide question generation.
+        questions:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Questions
+          description: List of questions. If provided, charts will be generated for these questions without generating new ones.
       type: object
       required:
-      - pageId
-      - persona
-      title: DashboardSummaryRequest
+      - workbookId
+      title: GenerateDashboardRequest

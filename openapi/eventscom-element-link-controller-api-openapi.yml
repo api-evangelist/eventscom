@@ -349,6 +349,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    LinkElementDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        links:
+          type: array
+          items:
+            type: object
     ErrorMessage:
       type: object
       properties:
@@ -365,32 +378,6 @@ components:
           type: array
           items:
             type: string
-    ElementLinkDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        linkedElementType:
-          type: string
-        linkedId:
-          type: string
-    LinkElementDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        links:
-          type: array
-          items:
-            type: object
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -405,6 +392,19 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
+    ElementLinkDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        linkedElementType:
+          type: string
+        linkedId:
+          type: string
   securitySchemes:
     s_jwt:
       type: http

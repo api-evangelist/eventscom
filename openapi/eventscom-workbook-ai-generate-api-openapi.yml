@@ -67,6 +67,38 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    AIGenerateInternalSettings:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Prompt for AI Generation
+        model:
+          type: string
+          title: Model
+          description: Model for AI Generation
+        web_access:
+          type: boolean
+          title: Web Access
+          description: Web access for AI Generation
+        web_search_provider:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Web Search Provider
+          description: Provider for web search (required when web_access is true)
+        web_search_provider_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Web Search Provider Key
+          description: Key for provider (required when web_access is true)
+      type: object
+      required:
+      - prompt
+      - model
+      - web_access
+      title: AIGenerateInternalSettings
     HTTPValidationError:
       properties:
         detail:
@@ -76,6 +108,25 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    AIGenerateInternalRequest:
+      properties:
+        row:
+          additionalProperties: true
+          type: object
+          title: Row
+          description: Row data for AI Generation
+        ai_settings:
+          $ref: '#/components/schemas/AIGenerateInternalSettings'
+          description: AI settings for AI Generation
+        llm_config:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Llm Config
+          description: LLM configuration parameters
+      type: object
+      title: AIGenerateInternalRequest
     RunEnrichmentRequest:
       properties:
         enrichment_id:
@@ -120,54 +171,3 @@ components:
       - msg
       - type
       title: ValidationError
-    AIGenerateInternalSettings:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Prompt for AI Generation
-        model:
-          type: string
-          title: Model
-          description: Model for AI Generation
-        web_access:
-          type: boolean
-          title: Web Access
-          description: Web access for AI Generation
-        web_search_provider:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Web Search Provider
-          description: Provider for web search (required when web_access is true)
-        web_search_provider_key:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Web Search Provider Key
-          description: Key for provider (required when web_access is true)
-      type: object
-      required:
-      - prompt
-      - model
-      - web_access
-      title: AIGenerateInternalSettings
-    AIGenerateInternalRequest:
-      properties:
-        row:
-          additionalProperties: true
-          type: object
-          title: Row
-          description: Row data for AI Generation
-        ai_settings:
-          $ref: '#/components/schemas/AIGenerateInternalSettings'
-          description: AI settings for AI Generation
-        llm_config:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Llm Config
-          description: LLM configuration parameters
-      type: object
-      title: AIGenerateInternalRequest

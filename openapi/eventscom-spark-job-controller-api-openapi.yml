@@ -235,13 +235,6 @@ components:
           format: int64
         stream:
           type: string
-    SparkJobDTO:
-      type: object
-      properties:
-        jobGroupIds:
-          type: array
-          items:
-            type: string
     ErrorMessage:
       type: object
       properties:
@@ -272,6 +265,13 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
+    SparkJobDTO:
+      type: object
+      properties:
+        jobGroupIds:
+          type: array
+          items:
+            type: string
     SparkResultDTO:
       type: object
       properties:

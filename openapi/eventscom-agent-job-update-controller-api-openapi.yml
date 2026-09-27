@@ -64,6 +64,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GTMJobCallbackDTO:
+      type: object
+      properties:
+        jobId:
+          type: string
+        result:
+          type: object
+          additionalProperties:
+            type: object
+        status:
+          type: string
+        errorMessage:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -80,19 +93,6 @@ components:
           type: array
           items:
             type: string
-    GTMJobCallbackDTO:
-      type: object
-      properties:
-        jobId:
-          type: string
-        result:
-          type: object
-          additionalProperties:
-            type: object
-        status:
-          type: string
-        errorMessage:
-          type: string
     SaasxlResponseDTOObject:
       type: object
       properties:

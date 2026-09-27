@@ -551,6 +551,126 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    MapAbstractionRequestDTO:
+      required:
+      - source
+      type: object
+      properties:
+        latitudeColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        longitudeColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        geoColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        source:
+          type: string
+          enum:
+          - STATE_10M
+          - STATE_50M
+          - WORLD_10M
+          - WORLD_50M
+          - ZIPCODE_US
+          - COUNTIES_US_10M
+          - SELF
+        coordinateType:
+          type: string
+          enum:
+          - POLYGON
+          - CENTROID
+        tableId:
+          type: string
+        viewId:
+          type: string
+        filters:
+          type: string
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        providerType:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        userDTO:
+          $ref: '#/components/schemas/UserDTO'
+        versionId:
+          type: integer
+          format: int64
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    WidgetCacheResponseDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+        widgetQueryResul:
+          type: object
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    ComparisonDTO:
+      type: object
+      properties:
+        periodType:
+          type: string
+          enum:
+          - NONE
+          - YEAR
+          - QUARTER
+          - MONTH
+          - WEEK
+          - DAY
+          - HOUR
+          - MINUTE
+          - SECOND
+          - QUARTER_OF_YEAR
+          - MONTH_OF_YEAR
+          - WEEK_OF_YEAR
+          - DAY_OF_MONTH
+          - HOUR_OF_DAY
+          - DAY_OF_WEEK
+        offset:
+          type: integer
+          format: int32
+        timeAxisColumn:
+          type: string
+        timeAxis:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        number:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        includeAbsoluteChange:
+          type: boolean
+        includePercentageChange:
+          type: boolean
     TopNConfigDTO:
       type: object
       properties:
@@ -589,63 +709,6 @@ components:
           type: array
           items:
             type: string
-    ChartAbstractedDataDTO:
-      type: object
-      properties:
-        series:
-          type: object
-        x_axis:
-          type: object
-        y_axis:
-          type: object
-        groupCategories:
-          type: object
-        x_axis_type:
-          type: string
-        seriesType:
-          type: string
-          enum:
-          - PIE_CHART
-          - HEAT_MAP
-          - LINE_CHART
-          - LINE_CHART_2D
-          - TREE_MAP
-          - KPI
-          - TABLE
-          - CHART_TABLE
-          - PIVOT_TABLE
-          - SUNBURST
-          - COHORT
-        columnRecords:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ColumnDTO'
-        tableMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        request:
-          $ref: '#/components/schemas/ChartDataAbstractionRequestDTO'
-        provider:
-          type: string
-          enum:
-          - SPARK
-          - JDBC
-          - MYSQL
-          - SQL_SERVER
-          - ATHENA
-          - BIGQUERY
-          - CLOUD_BIGQUERY
-          - REDSHIFT
-          - SNOWFLAKE
-        queries:
-          type: array
-          items:
-            type: string
-        dataQuery:
-          type: string
-        seriesMetadata:
-          type: object
     TreeFilterRequestDTO:
       type: object
       properties:
@@ -671,14 +734,6 @@ components:
           type: array
           items:
             type: string
-    EomProjectionDTO:
-      type: object
-      properties:
-        timestampColumnId:
-          type: string
-        interval:
-          type: integer
-          format: int32
     KpiAbstractionRequestDTO:
       required:
       - number
@@ -732,134 +787,6 @@ components:
           type: boolean
         timezone:
           type: string
-    ThirdPartyFilterConfigDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        required:
-          type: boolean
-        defaultValue:
-          type: string
-        actualValue:
-          type: string
-    MapAbstractedDataDTO:
-      type: object
-      properties:
-        series:
-          type: object
-        columnRecords:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ColumnDTO'
-        tableMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        queries:
-          type: array
-          items:
-            type: string
-    ChartDataAbstractionRequestDTO:
-      required:
-      - seriesType
-      type: object
-      properties:
-        tableId:
-          type: string
-        columnX:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        columnGroup:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        columnY:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        pivotRows:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        pivotCols:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        pivotVals:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        seriesType:
-          type: string
-          enum:
-          - PIE_CHART
-          - HEAT_MAP
-          - LINE_CHART
-          - LINE_CHART_2D
-          - TREE_MAP
-          - KPI
-          - TABLE
-          - CHART_TABLE
-          - PIVOT_TABLE
-          - SUNBURST
-          - COHORT
-        filters:
-          type: string
-        providerType:
-          type: string
-          enum:
-          - SPARK
-          - JDBC
-          - MYSQL
-          - SQL_SERVER
-          - ATHENA
-          - BIGQUERY
-          - CLOUD_BIGQUERY
-          - REDSHIFT
-          - SNOWFLAKE
-        viewId:
-          type: string
-        analysisFilterDTO:
-          $ref: '#/components/schemas/AnalysisFilterDTO'
-        userDTO:
-          $ref: '#/components/schemas/UserDTO'
-        limit:
-          type: integer
-          format: int32
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-        thirdPartyFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
-        treeFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/TreeFilterRequestDTO'
-        having:
-          type: string
-        referencedColumnNames:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        comparison:
-          $ref: '#/components/schemas/ComparisonDTO'
-        comparisonFilters:
-          type: string
-        tableQuery:
-          type: string
-        workspaceId:
-          type: string
-        versionId:
-          type: integer
-          format: int64
-        includeNullValues:
-          type: boolean
-        timezone:
-          type: string
-        cacheable:
-          type: boolean
     ColumnRequestDTO:
       required:
       - columnId
@@ -956,6 +883,80 @@ components:
           items:
             type: integer
             format: int32
+    AnalysisFilterDTO:
+      type: object
+      properties:
+        xaxisColumnValues:
+          type: array
+          items:
+            type: string
+        groupColumnValues:
+          type: array
+          items:
+            type: string
+    WidgetParameterDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        enumOptions:
+          $ref: '#/components/schemas/EnumOptions'
+        defaultValue:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        showByDefault:
+          type: boolean
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     UserDTO:
       type: object
       properties:
@@ -1015,31 +1016,44 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    AttachmentSettingsDTO:
+    ChartAbstractedDataDTO:
       type: object
       properties:
-        templateKey:
+        series:
+          type: object
+        x_axis:
+          type: object
+        y_axis:
+          type: object
+        groupCategories:
+          type: object
+        x_axis_type:
           type: string
-        templateFileName:
+        seriesType:
           type: string
-        outputFileName:
-          type: string
-    CohortAbstractionRequestDTO:
-      required:
-      - activityColumn
-      - cohortColumn
-      - metric
-      type: object
-      properties:
-        tableId:
-          type: string
-        filters:
-          type: string
-        treeFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/TreeFilterRequestDTO'
-        providerType:
+          enum:
+          - PIE_CHART
+          - HEAT_MAP
+          - LINE_CHART
+          - LINE_CHART_2D
+          - TREE_MAP
+          - KPI
+          - TABLE
+          - CHART_TABLE
+          - PIVOT_TABLE
+          - SUNBURST
+          - COHORT
+        columnRecords:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnDTO'
+        tableMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        request:
+          $ref: '#/components/schemas/ChartDataAbstractionRequestDTO'
+        provider:
           type: string
           enum:
           - SPARK
@@ -1051,142 +1065,14 @@ components:
           - CLOUD_BIGQUERY
           - REDSHIFT
           - SNOWFLAKE
-        cohortColumn:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        activityColumn:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        metric:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        rowMetrics:
+        queries:
           type: array
           items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        additionalRows:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        parameters:
+            type: string
+        dataQuery:
+          type: string
+        seriesMetadata:
           type: object
-          additionalProperties:
-            type: object
-        versionId:
-          type: integer
-          format: int64
-        workspaceId:
-          type: string
-        tableQuery:
-          type: string
-        limit:
-          type: integer
-          format: int32
-        includeNullValues:
-          type: boolean
-        timezone:
-          type: string
-    WidgetCacheResponseDTO:
-      type: object
-      properties:
-        sqlQuery:
-          type: string
-        widgetQueryResul:
-          type: object
-    MapAbstractionRequestDTO:
-      required:
-      - source
-      type: object
-      properties:
-        latitudeColumn:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        longitudeColumn:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        geoColumn:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnRequestDTO'
-        source:
-          type: string
-          enum:
-          - STATE_10M
-          - STATE_50M
-          - WORLD_10M
-          - WORLD_50M
-          - ZIPCODE_US
-          - COUNTIES_US_10M
-          - SELF
-        coordinateType:
-          type: string
-          enum:
-          - POLYGON
-          - CENTROID
-        tableId:
-          type: string
-        viewId:
-          type: string
-        filters:
-          type: string
-        treeFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/TreeFilterRequestDTO'
-        providerType:
-          type: string
-          enum:
-          - SPARK
-          - JDBC
-          - MYSQL
-          - SQL_SERVER
-          - ATHENA
-          - BIGQUERY
-          - CLOUD_BIGQUERY
-          - REDSHIFT
-          - SNOWFLAKE
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-        userDTO:
-          $ref: '#/components/schemas/UserDTO'
-        versionId:
-          type: integer
-          format: int64
-    WidgetParameterDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        workspaceId:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        type:
-          type: string
-          enum:
-          - TEXT
-          - NUMERIC
-          - STATIC_ENUM
-          - DYNAMIC_ENUM
-          - BOOLEAN
-          - DATE
-          - DATETIME
-          - DATE_RANGE
-        enumOptions:
-          $ref: '#/components/schemas/EnumOptions'
-        defaultValue:
-          type: object
-        createdAt:
-          type: string
-          format: date-time
-        showByDefault:
-          type: boolean
-        thirdPartyFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
     EnumOptions:
       type: object
       properties:
@@ -1211,6 +1097,14 @@ components:
           type: boolean
         wrapValuesWithinSingleQuotes:
           type: boolean
+    EomProjectionDTO:
+      type: object
+      properties:
+        timestampColumnId:
+          type: string
+        interval:
+          type: integer
+          format: int32
     ColumnDTO:
       required:
       - name
@@ -1313,6 +1207,13 @@ components:
           $ref: '#/components/schemas/ColumnSettingsDTO'
         sourceDatatype:
           type: string
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -1329,94 +1230,193 @@ components:
           type: array
           items:
             type: string
-    ComparisonDTO:
+    MapAbstractedDataDTO:
       type: object
       properties:
-        periodType:
+        series:
+          type: object
+        columnRecords:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ColumnDTO'
+        tableMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        queries:
+          type: array
+          items:
+            type: string
+    CohortAbstractionRequestDTO:
+      required:
+      - activityColumn
+      - cohortColumn
+      - metric
+      type: object
+      properties:
+        tableId:
+          type: string
+        filters:
+          type: string
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        providerType:
           type: string
           enum:
-          - NONE
-          - YEAR
-          - QUARTER
-          - MONTH
-          - WEEK
-          - DAY
-          - HOUR
-          - MINUTE
-          - SECOND
-          - QUARTER_OF_YEAR
-          - MONTH_OF_YEAR
-          - WEEK_OF_YEAR
-          - DAY_OF_MONTH
-          - HOUR_OF_DAY
-          - DAY_OF_WEEK
-        offset:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        cohortColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        activityColumn:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        metric:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        rowMetrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        additionalRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        versionId:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        tableQuery:
+          type: string
+        limit:
           type: integer
           format: int32
-        timeAxisColumn:
+        includeNullValues:
+          type: boolean
+        timezone:
           type: string
-        timeAxis:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        number:
-          $ref: '#/components/schemas/ColumnRequestDTO'
-        includeAbsoluteChange:
-          type: boolean
-        includePercentageChange:
-          type: boolean
-    EnumOptionValue:
+    ThirdPartyFilterConfigDTO:
       type: object
       properties:
-        value:
+        name:
+          type: string
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+    ChartDataAbstractionRequestDTO:
+      required:
+      - seriesType
+      type: object
+      properties:
+        tableId:
+          type: string
+        columnX:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        columnGroup:
+          $ref: '#/components/schemas/ColumnRequestDTO'
+        columnY:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        pivotRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        pivotCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        pivotVals:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnRequestDTO'
+        seriesType:
+          type: string
+          enum:
+          - PIE_CHART
+          - HEAT_MAP
+          - LINE_CHART
+          - LINE_CHART_2D
+          - TREE_MAP
+          - KPI
+          - TABLE
+          - CHART_TABLE
+          - PIVOT_TABLE
+          - SUNBURST
+          - COHORT
+        filters:
+          type: string
+        providerType:
+          type: string
+          enum:
+          - SPARK
+          - JDBC
+          - MYSQL
+          - SQL_SERVER
+          - ATHENA
+          - BIGQUERY
+          - CLOUD_BIGQUERY
+          - REDSHIFT
+          - SNOWFLAKE
+        viewId:
+          type: string
+        analysisFilterDTO:
+          $ref: '#/components/schemas/AnalysisFilterDTO'
+        userDTO:
+          $ref: '#/components/schemas/UserDTO'
+        limit:
+          type: integer
+          format: int32
+        parameters:
           type: object
-        label:
+          additionalProperties:
+            type: object
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+        treeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/TreeFilterRequestDTO'
+        having:
           type: string
-    AnalysisFilterDTO:
-      type: object
-      properties:
-        xaxisColumnValues:
+        referencedColumnNames:
+          uniqueItems: true
           type: array
           items:
             type: string
-        groupColumnValues:
-          type: array
-          items:
-            type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
+        comparison:
+          $ref: '#/components/schemas/ComparisonDTO'
+        comparisonFilters:
+          type: string
+        tableQuery:
+          type: string
+        workspaceId:
+          type: string
+        versionId:
+          type: integer
+          format: int64
+        includeNullValues:
           type: boolean
-        version:
+        timezone:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    ColumnSettingsDTO:
-      type: object
-      properties:
-        enableUserAddNotifications:
+        cacheable:
           type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
-    AIGenerateSettingsDTO:
-      type: object
-      properties:
-        prompt:
-          type: string
-        model:
-          type: string
-        webAccess:
-          type: boolean
-        enabled:
-          type: boolean
-        webAccessProvider:
-          type: string
   securitySchemes:
     s_jwt:
       type: http

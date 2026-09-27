@@ -119,6 +119,17 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    PreferenceDTO:
+      type: object
+      properties:
+        entityId:
+          type: string
+        entityType:
+          type: string
+        settings:
+          type: object
+          additionalProperties:
+            type: object
     ErrorMessage:
       type: object
       properties:
@@ -135,17 +146,6 @@ components:
           type: array
           items:
             type: string
-    PreferenceDTO:
-      type: object
-      properties:
-        entityId:
-          type: string
-        entityType:
-          type: string
-        settings:
-          type: object
-          additionalProperties:
-            type: object
     SaasxlResponseDTOObject:
       type: object
       properties:

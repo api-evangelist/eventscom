@@ -95,22 +95,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    TableDTO:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: Id of the data source table.
-        name:
-          type: string
-          title: Name
-          description: Name of the data source table.
-        dataSourceId:
-          type: integer
-          title: Datasourceid
-          description: Id of the data source.
-      type: object
-      title: TableDTO
     CreateEmbeddingsRequest:
       properties:
         dataSourceId:
@@ -133,6 +117,14 @@ components:
           description: OpenAI embedding model ID.
       type: object
       title: CreateEmbeddingsRequest
+    Metric:
+      type: string
+      enum:
+      - L1
+      - L2
+      - COSINE
+      - NEGATIVE_IP
+      title: Metric
     ValidationError:
       properties:
         loc:
@@ -159,14 +151,22 @@ components:
       - msg
       - type
       title: ValidationError
-    Metric:
-      type: string
-      enum:
-      - L1
-      - L2
-      - COSINE
-      - NEGATIVE_IP
-      title: Metric
+    TableDTO:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: Id of the data source table.
+        name:
+          type: string
+          title: Name
+          description: Name of the data source table.
+        dataSourceId:
+          type: integer
+          title: Datasourceid
+          description: Id of the data source.
+      type: object
+      title: TableDTO
     SearchTablesResponse:
       properties:
         tables:

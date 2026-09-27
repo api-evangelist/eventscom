@@ -1062,124 +1062,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    BIWidgetDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        config:
-          $ref: '#/components/schemas/BIWidgetConfigDTO'
-    BIV3DTO:
-      type: object
-      properties:
-        id:
-          type: string
-        mode:
-          type: string
-        status:
-          type: string
-        workspaceId:
-          type: string
-        interfaces:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/BiInterfaceDTO'
-    BIInterfacePageDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        hidden:
-          type: boolean
-        type:
-          type: string
-        published:
-          type: boolean
-        description:
-          type: string
-        mode:
-          type: string
-        status:
-          type: string
-        position:
-          type: integer
-          format: int32
-        tableId:
-          type: string
-        config:
-          $ref: '#/components/schemas/BIInterfacePageConfigurationDTO'
-    JsonNode:
-      type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    BiInterfaceDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        description:
-          type: string
-        icon:
-          type: string
-        published:
-          type: boolean
-        position:
-          type: integer
-          format: int32
-        pages:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/BIInterfacePageDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    BIInterfacePageConfigurationDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        layout:
-          $ref: '#/components/schemas/JsonNode'
-        filter:
-          $ref: '#/components/schemas/JsonNode'
-        widgets:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/BIWidgetDTO'
     BIWidgetConfigDTO:
       type: object
       properties:
@@ -1211,6 +1093,124 @@ components:
           $ref: '#/components/schemas/JsonNode'
         tableMetaData:
           $ref: '#/components/schemas/JsonNode'
+    BiInterfaceDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+        published:
+          type: boolean
+        position:
+          type: integer
+          format: int32
+        pages:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BIInterfacePageDTO'
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    JsonNode:
+      type: object
+    BIInterfacePageConfigurationDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        layout:
+          $ref: '#/components/schemas/JsonNode'
+        filter:
+          $ref: '#/components/schemas/JsonNode'
+        widgets:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BIWidgetDTO'
+    BIInterfacePageDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        hidden:
+          type: boolean
+        type:
+          type: string
+        published:
+          type: boolean
+        description:
+          type: string
+        mode:
+          type: string
+        status:
+          type: string
+        position:
+          type: integer
+          format: int32
+        tableId:
+          type: string
+        config:
+          $ref: '#/components/schemas/BIInterfacePageConfigurationDTO'
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    BIV3DTO:
+      type: object
+      properties:
+        id:
+          type: string
+        mode:
+          type: string
+        status:
+          type: string
+        workspaceId:
+          type: string
+        interfaces:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BiInterfaceDTO'
+    BIWidgetDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        config:
+          $ref: '#/components/schemas/BIWidgetConfigDTO'
   securitySchemes:
     s_jwt:
       type: http

@@ -221,6 +221,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    TriggerTypeDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -237,16 +247,6 @@ components:
           type: array
           items:
             type: string
-    TriggerTypeDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
     SaasxlResponseDTOObject:
       type: object
       properties:

@@ -566,33 +566,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ThirdPartyFilterConfigDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        required:
-          type: boolean
-        defaultValue:
-          type: string
-        actualValue:
-          type: string
-    LinkRecordDTO:
-      type: object
-      properties:
-        sourceRecordId:
-          type: object
-        destinationRecordId:
-          type: object
-        linkColumnId:
-          type: string
-        columnId:
-          type: string
-        tableId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
     BasicSchedule:
       type: object
       properties:
@@ -605,6 +578,17 @@ components:
           - DAY
           - MONTH
         units:
+          type: string
+    GenerateSchemaRequestDTO:
+      type: object
+      properties:
+        fileId:
+          type: string
+        prompt:
+          type: string
+        resource:
+          $ref: '#/components/schemas/ResourceDTO'
+        content:
           type: string
     ExtractionDTO:
       type: object
@@ -685,6 +669,98 @@ components:
             type: object
         content:
           type: string
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    LinkRecordDTO:
+      type: object
+      properties:
+        sourceRecordId:
+          type: object
+        destinationRecordId:
+          type: object
+        linkColumnId:
+          type: string
+        columnId:
+          type: string
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    ScheduleData:
+      type: object
+      properties:
+        basicSchedule:
+          $ref: '#/components/schemas/BasicSchedule'
+        cronExpression:
+          type: string
+        cronExpressionValue:
+          type: string
+    WidgetParameterDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        enumOptions:
+          $ref: '#/components/schemas/EnumOptions'
+        defaultValue:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        showByDefault:
+          type: boolean
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
     ExtractionTriggerRequestDTO:
       type: object
       properties:
@@ -696,6 +772,42 @@ components:
           type: string
         selectAll:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    RowDataDTO:
+      type: object
+      properties:
+        id:
+          type: object
+        position:
+          type: number
+          format: double
+        fkId:
+          type: object
+        cellValues:
+          type: object
+          additionalProperties:
+            type: object
+        cellValuesByColumnId:
+          type: object
+          additionalProperties:
+            type: object
+        linkRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkRecordDTO'
     UserDTO:
       type: object
       properties:
@@ -755,93 +867,6 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    AttachmentSettingsDTO:
-      type: object
-      properties:
-        templateKey:
-          type: string
-        templateFileName:
-          type: string
-        outputFileName:
-          type: string
-    ScheduleData:
-      type: object
-      properties:
-        basicSchedule:
-          $ref: '#/components/schemas/BasicSchedule'
-        cronExpression:
-          type: string
-        cronExpressionValue:
-          type: string
-    GenerateSchemaRequestDTO:
-      type: object
-      properties:
-        fileId:
-          type: string
-        prompt:
-          type: string
-        resource:
-          $ref: '#/components/schemas/ResourceDTO'
-        content:
-          type: string
-    RowDataDTO:
-      type: object
-      properties:
-        id:
-          type: object
-        position:
-          type: number
-          format: double
-        fkId:
-          type: object
-        cellValues:
-          type: object
-          additionalProperties:
-            type: object
-        cellValuesByColumnId:
-          type: object
-          additionalProperties:
-            type: object
-        linkRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinkRecordDTO'
-    WidgetParameterDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        workspaceId:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        type:
-          type: string
-          enum:
-          - TEXT
-          - NUMERIC
-          - STATIC_ENUM
-          - DYNAMIC_ENUM
-          - BOOLEAN
-          - DATE
-          - DATETIME
-          - DATE_RANGE
-        enumOptions:
-          $ref: '#/components/schemas/EnumOptions'
-        defaultValue:
-          type: object
-        createdAt:
-          type: string
-          format: date-time
-        showByDefault:
-          type: boolean
-        thirdPartyFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
     EnumOptions:
       type: object
       properties:
@@ -866,19 +891,6 @@ components:
           type: boolean
         wrapValuesWithinSingleQuotes:
           type: boolean
-    ResourceDTO:
-      type: object
-      properties:
-        bucket_name:
-          type: string
-        prefix:
-          type: string
-        access_key:
-          type: string
-        secret_key:
-          type: string
-        storage_type:
-          type: string
     ColumnDTO:
       required:
       - name
@@ -981,6 +993,13 @@ components:
           $ref: '#/components/schemas/ColumnSettingsDTO'
         sourceDatatype:
           type: string
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -997,48 +1016,29 @@ components:
           type: array
           items:
             type: string
-    EnumOptionValue:
+    ResourceDTO:
       type: object
       properties:
-        value:
-          type: object
-        label:
+        bucket_name:
           type: string
-    SaasxlResponseDTOObject:
+        prefix:
+          type: string
+        access_key:
+          type: string
+        secret_key:
+          type: string
+        storage_type:
+          type: string
+    ThirdPartyFilterConfigDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        name:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    ColumnSettingsDTO:
-      type: object
-      properties:
-        enableUserAddNotifications:
+        required:
           type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
-    AIGenerateSettingsDTO:
-      type: object
-      properties:
-        prompt:
+        defaultValue:
           type: string
-        model:
-          type: string
-        webAccess:
-          type: boolean
-        enabled:
-          type: boolean
-        webAccessProvider:
+        actualValue:
           type: string
   securitySchemes:
     s_jwt:

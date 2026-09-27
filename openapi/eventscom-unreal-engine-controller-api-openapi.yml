@@ -564,22 +564,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UnrealEngineExecutionBlockDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        configurationId:
-          type: integer
-          format: int64
-        instanceId:
-          type: integer
-          format: int64
-        json:
-          type: object
-          additionalProperties:
-            type: object
     UnrealEngineExecutionInstanceDTO:
       type: object
       properties:
@@ -646,6 +630,22 @@ components:
           - CUSTOM
         key:
           type: string
+    UnrealEngineExecutionBlockDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        configurationId:
+          type: integer
+          format: int64
+        instanceId:
+          type: integer
+          format: int64
+        json:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     s_jwt:
       type: http

@@ -56,15 +56,16 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
+    MarkdownRequest:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        markdown_content:
+          type: string
+          title: Markdown Content
+          description: Markdown content to be converted to PDF
       type: object
-      title: HTTPValidationError
+      required:
+      - markdown_content
+      title: MarkdownRequest
     ValidationError:
       properties:
         loc:
@@ -91,6 +92,15 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     CompanyResearchRequest:
       properties:
         name:
@@ -131,13 +141,3 @@ components:
       - website
       - industry
       title: CompanyResearchRequest
-    MarkdownRequest:
-      properties:
-        markdown_content:
-          type: string
-          title: Markdown Content
-          description: Markdown content to be converted to PDF
-      type: object
-      required:
-      - markdown_content
-      title: MarkdownRequest

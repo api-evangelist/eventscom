@@ -164,32 +164,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    ParsedSqlColumnsList:
-      properties:
-        error:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Error
-          description: Error message.
-        invalid_columns:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Invalid Columns
-          description: List of invalid columns.
-          default: []
-        columns:
-          items:
-            $ref: '#/components/schemas/ParsedSqlColumn'
-          type: array
-          title: Columns
-          description: List of columns.
-          default: []
-      type: object
-      title: ParsedSqlColumnsList
     ValidationError:
       properties:
         loc:
@@ -216,15 +190,6 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ParsedSqlColumn:
       properties:
         name:
@@ -255,3 +220,38 @@ components:
           default: ''
       type: object
       title: ParsedSqlColumn
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ParsedSqlColumnsList:
+      properties:
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error
+          description: Error message.
+        invalid_columns:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Invalid Columns
+          description: List of invalid columns.
+          default: []
+        columns:
+          items:
+            $ref: '#/components/schemas/ParsedSqlColumn'
+          type: array
+          title: Columns
+          description: List of columns.
+          default: []
+      type: object
+      title: ParsedSqlColumnsList

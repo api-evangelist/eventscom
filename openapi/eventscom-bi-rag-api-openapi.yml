@@ -154,6 +154,15 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    DeleteWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+      type: object
+      required:
+      - widget_id
+      title: DeleteWidgetRequest
     HTTPValidationError:
       properties:
         detail:
@@ -163,6 +172,15 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    IndexPageRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+      type: object
+      required:
+      - page_id
+      title: IndexPageRequest
     IndexWorkspaceRequest:
       properties:
         workspace_id:
@@ -198,15 +216,6 @@ components:
       - company_id
       - widget
       title: AddWidgetRequest
-    DeleteWidgetRequest:
-      properties:
-        widget_id:
-          type: string
-          title: Widget Id
-      type: object
-      required:
-      - widget_id
-      title: DeleteWidgetRequest
     ValidationError:
       properties:
         loc:
@@ -247,12 +256,3 @@ components:
       - widget_id
       - widget
       title: UpdateWidgetRequest
-    IndexPageRequest:
-      properties:
-        page_id:
-          type: string
-          title: Page Id
-      type: object
-      required:
-      - page_id
-      title: IndexPageRequest

@@ -134,6 +134,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GenerateInvoiceResponseDTO:
+      required:
+      - invoiceURL
+      - name
+      - to
+      type: object
+      properties:
+        invoiceURL:
+          type: string
+        to:
+          type: string
+        name:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -150,19 +163,20 @@ components:
           type: array
           items:
             type: string
-    GenerateInvoiceResponseDTO:
-      required:
-      - invoiceURL
-      - name
-      - to
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        invoiceURL:
+        success:
+          type: boolean
+        version:
           type: string
-        to:
+        date:
           type: string
-        name:
-          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     InvoiceDTO:
       required:
       - address
@@ -199,20 +213,6 @@ components:
           type: string
         totalAmount:
           type: number
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

@@ -32,15 +32,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     GlobalIdDataResource:
       properties:
         name:
@@ -67,6 +58,34 @@ components:
       - name
       - sourceData
       title: GlobalIdDataResource
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    SourceData:
+      properties:
+        workspaceId:
+          type: string
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
+          type: string
+          title: Workbookid
+          description: The workbook ID
+        dataMapping:
+          $ref: '#/components/schemas/DataMapping'
+          description: The data mapping
+      type: object
+      required:
+      - workspaceId
+      - workbookId
+      - dataMapping
+      title: SourceData
     GlobalIdRequest:
       properties:
         datasets:
@@ -94,7 +113,7 @@ components:
       required:
       - datasets
       title: GlobalIdRequest
-    SourceData:
+    PreviousGlobalIdDataset:
       properties:
         workspaceId:
           type: string
@@ -104,15 +123,11 @@ components:
           type: string
           title: Workbookid
           description: The workbook ID
-        dataMapping:
-          $ref: '#/components/schemas/DataMapping'
-          description: The data mapping
       type: object
       required:
       - workspaceId
       - workbookId
-      - dataMapping
-      title: SourceData
+      title: PreviousGlobalIdDataset
     ValidationError:
       properties:
         loc:
@@ -139,21 +154,6 @@ components:
       - msg
       - type
       title: ValidationError
-    PreviousGlobalIdDataset:
-      properties:
-        workspaceId:
-          type: string
-          title: Workspaceid
-          description: The workspace ID
-        workbookId:
-          type: string
-          title: Workbookid
-          description: The workbook ID
-      type: object
-      required:
-      - workspaceId
-      - workbookId
-      title: PreviousGlobalIdDataset
     DataMapping:
       properties:
         crmIdField:

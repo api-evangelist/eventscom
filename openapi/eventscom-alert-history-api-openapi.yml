@@ -502,64 +502,25 @@ paths:
       - s_jwt: []
 components:
   schemas:
-    UserDTO:
+    PageableObject:
       type: object
       properties:
-        id:
+        offset:
           type: integer
           format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-        roles:
+        sort:
           type: array
           items:
-            type: string
-        permissions:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        joinDate:
-          type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
+            $ref: '#/components/schemas/SortObject'
+        pageNumber:
           type: integer
-          format: int64
-        isServiceAccount:
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
           type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
+        unpaged:
           type: boolean
     AlertHistoryDTO:
       type: object
@@ -621,26 +582,91 @@ components:
           type: array
           items:
             type: string
-    PageableObject:
+    SortObject:
       type: object
       properties:
-        offset:
+        direction:
+          type: string
+        nullHandling:
+          type: string
+        ascending:
+          type: boolean
+        property:
+          type: string
+        ignoreCase:
+          type: boolean
+    PageAlertHistoryDTO:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
           type: integer
           format: int64
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertHistoryDTO'
+        number:
+          type: integer
+          format: int32
         sort:
           type: array
           items:
             $ref: '#/components/schemas/SortObject'
-        pageNumber:
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
           type: integer
           format: int32
-        pageSize:
+        empty:
+          type: boolean
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
           type: integer
           format: int32
-        paged:
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    TupleStringMapStringObject:
+      type: object
+      properties:
+        item1:
+          type: string
+        item2:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
           type: boolean
-        unpaged:
-          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     AlertExecutionMetadata:
       type: object
       properties:
@@ -692,90 +718,64 @@ components:
           type: string
         jobGroup:
           type: string
-    PageAlertHistoryDTO:
+    UserDTO:
       type: object
       properties:
-        totalPages:
-          type: integer
-          format: int32
-        totalElements:
+        id:
           type: integer
           format: int64
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertHistoryDTO'
-        number:
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
-        empty:
-          type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
+        firstname:
           type: string
-        date:
+        lastname:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    TupleStringMapStringObject:
-      type: object
-      properties:
-        item1:
+        email:
           type: string
-        item2:
-          type: object
-          additionalProperties:
-            type: object
-    Pageable:
-      type: object
-      properties:
-        page:
-          minimum: 0
+        companyName:
+          type: string
+        companyId:
           type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
+          format: int64
+        status:
+          type: string
+        roles:
           type: array
           items:
             type: string
-    SortObject:
-      type: object
-      properties:
-        direction:
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
           type: string
-        nullHandling:
-          type: string
-        ascending:
+          format: date-time
+        mfaEnabled:
           type: boolean
-        property:
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
           type: string
-        ignoreCase:
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
           type: boolean
   securitySchemes:
     s_jwt:

@@ -598,6 +598,15 @@ components:
           type: string
         name:
           type: string
+    AgentSkillUsageDTO:
+      type: object
+      properties:
+        inUse:
+          type: boolean
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferencingAgent'
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -612,15 +621,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    AgentSkillUsageDTO:
-      type: object
-      properties:
-        inUse:
-          type: boolean
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReferencingAgent'
   securitySchemes:
     s_jwt:
       type: http

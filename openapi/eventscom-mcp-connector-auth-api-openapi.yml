@@ -564,51 +564,19 @@ paths:
           description: OK
 components:
   schemas:
-    ComposioExecuteToolRequestDTO:
-      required:
-      - connectionId
-      - toolSlug
+    McpConnectorConnectResponseDTO:
       type: object
       properties:
-        connectionId:
+        mappingId:
           type: integer
           format: int64
-        toolSlug:
+        authConfigId:
           type: string
-        arguments:
-          type: object
-          additionalProperties:
-            type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        slugName:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    McpConnectorDTO:
-      type: object
-      properties:
-        slug:
+        status:
           type: string
-        toolkitSlug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        logo:
-          type: string
-        authScheme:
+        authorizationUrl:
           type: string
     McpConnectorConnectionDTO:
       type: object
@@ -634,19 +602,65 @@ components:
           type: string
         status:
           type: string
-    McpConnectorConnectResponseDTO:
+    ErrorMessage:
       type: object
       properties:
-        mappingId:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    ComposioExecuteToolRequestDTO:
+      required:
+      - connectionId
+      - toolSlug
+      type: object
+      properties:
+        connectionId:
           type: integer
           format: int64
-        authConfigId:
+        toolSlug:
           type: string
-        slugName:
+        arguments:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
           type: string
-        status:
+        date:
           type: string
-        authorizationUrl:
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    McpConnectorDTO:
+      type: object
+      properties:
+        slug:
+          type: string
+        toolkitSlug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        logo:
+          type: string
+        authScheme:
           type: string
     McpConnectorConnectRequestDTO:
       required:
@@ -672,20 +686,6 @@ components:
           type: string
         createMcpServer:
           type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

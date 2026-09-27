@@ -133,6 +133,31 @@ paths:
           description: OK
 components:
   schemas:
+    McpOAuth2CredentialRequestDTO:
+      required:
+      - mcpUrl
+      type: object
+      properties:
+        mcpUrl:
+          type: string
+        name:
+          type: string
+        redirectUri:
+          type: string
+        clientRedirectUri:
+          type: string
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        discoveryUrl:
+          type: string
+        tokenEndpoint:
+          type: string
+        authorizationEndpoint:
+          type: string
+        scopes:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -183,31 +208,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    McpOAuth2CredentialRequestDTO:
-      required:
-      - mcpUrl
-      type: object
-      properties:
-        mcpUrl:
-          type: string
-        name:
-          type: string
-        redirectUri:
-          type: string
-        clientRedirectUri:
-          type: string
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        discoveryUrl:
-          type: string
-        tokenEndpoint:
-          type: string
-        authorizationEndpoint:
-          type: string
-        scopes:
-          type: string
   securitySchemes:
     s_jwt:
       type: http

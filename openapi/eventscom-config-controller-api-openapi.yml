@@ -278,6 +278,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ConfigPropertyDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        configKey:
+          type: string
+        configValue:
+          type: string
+        active:
+          type: boolean
+        companyId:
+          type: integer
+          format: int64
     ErrorMessage:
       type: object
       properties:
@@ -294,21 +309,6 @@ components:
           type: array
           items:
             type: string
-    ConfigPropertyDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        configKey:
-          type: string
-        configValue:
-          type: string
-        active:
-          type: boolean
-        companyId:
-          type: integer
-          format: int64
     SaasxlResponseDTOObject:
       type: object
       properties:

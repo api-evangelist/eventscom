@@ -1046,43 +1046,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ConnectorRunDTO:
+    SaasxlResponseDTOOpenApiInfo:
       type: object
       properties:
-        connectorType:
+        success:
+          type: boolean
+        version:
           type: string
-        baseUrl:
+        date:
           type: string
-        path:
-          type: string
-        method:
-          type: string
-        contentType:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventRequestParameterDTO'
-        userCredentialId:
-          type: integer
-          format: int64
-        credential:
-          $ref: '#/components/schemas/CredentialDTO'
-        companyId:
-          type: integer
-          format: int64
-    ApplicationJson:
-      type: object
-      properties:
-        schema:
-          $ref: '#/components/schemas/Schema'
-    Tag:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/OpenApiInfo'
     PathInfo:
       type: object
       properties:
@@ -1096,22 +1073,15 @@ components:
           $ref: '#/components/schemas/EndPointInfo'
         patch:
           $ref: '#/components/schemas/EndPointInfo'
-    SaasxlResponseDTOListConnectorCredentialDTO:
+    EventRequestParameterDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        type:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConnectorCredentialDTO'
+          type: object
+          additionalProperties:
+            type: object
     Request:
       type: object
       properties:
@@ -1141,6 +1111,96 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JsonNode'
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Parameter:
+      type: object
+      properties:
+        name:
+          type: string
+        in:
+          type: string
+        description:
+          type: string
+        schema:
+          $ref: '#/components/schemas/Schema'
+    SchemaDefinition:
+      type: object
+      properties:
+        properties:
+          type: object
+          additionalProperties:
+            type: object
+        required:
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+        description:
+          type: string
+    JsonNode:
+      type: object
+    Server:
+      type: object
+      properties:
+        url:
+          type: string
+        description:
+          type: string
+    Response:
+      type: object
+      properties:
+        description:
+          type: string
+        content:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResponseContent'
+    SaasxlResponseDTOListOpenApiInfo:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenApiInfo'
+    CredentialDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - QUERY_PARAM
+          - BASIC_AUTH
+          - AUTHORIZATION
+          - ACCESS_TOKEN
+          - BEARER
+          - API_KEY
+          - OAUTH2
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/Config'
     OpenApiInfo:
       type: object
       properties:
@@ -1171,54 +1231,7 @@ components:
             $ref: '#/components/schemas/ConnectorCredentialDTO'
         components:
           $ref: '#/components/schemas/Component'
-    Server:
-      type: object
-      properties:
-        url:
-          type: string
-        description:
-          type: string
-    Content:
-      type: object
-      properties:
-        application/json:
-          $ref: '#/components/schemas/ApplicationJson'
-    JsonNode:
-      type: object
-    ConfigDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    EventRequestParameterDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    SchemaDefinition:
-      type: object
-      properties:
-        properties:
-          type: object
-          additionalProperties:
-            type: object
-        required:
-          type: array
-          items:
-            type: string
-        type:
-          type: string
-        description:
-          type: string
-    SaasxlResponseDTOUserConnectorCredentialDTO:
+    SaasxlResponseDTOListString:
       type: object
       properties:
         success:
@@ -1231,16 +1244,19 @@ components:
         error:
           $ref: '#/components/schemas/ErrorMessage'
         data:
-          $ref: '#/components/schemas/UserConnectorCredentialDTO'
-    Config:
+          type: array
+          items:
+            type: string
+    ResponseContent:
       type: object
       properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
+        schema:
+          $ref: '#/components/schemas/Schema'
+    ApplicationJson:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Schema'
     Info:
       type: object
       properties:
@@ -1253,6 +1269,77 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
         version:
+          type: string
+    Config:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    OpenApiConnectorRegistrationRequestDTO:
+      type: object
+      properties:
+        connectorName:
+          type: string
+        baseUrl:
+          type: string
+        uri:
+          type: string
+    ConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOListConnectorCredentialDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectorCredentialDTO'
+    Schema:
+      type: object
+      properties:
+        type:
+          type: string
+        format:
+          type: string
+        $ref:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    Contact:
+      type: object
+      properties:
+        email:
           type: string
     SaasxlHttpResponseObject:
       type: object
@@ -1271,6 +1358,43 @@ components:
           format: date-time
         error:
           $ref: '#/components/schemas/ErrorMessage'
+    Content:
+      type: object
+      properties:
+        application/json:
+          $ref: '#/components/schemas/ApplicationJson'
+    EndPointInfo:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+        description:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        requestBody:
+          $ref: '#/components/schemas/Request'
+        responses:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Response'
+        deprecated:
+          type: boolean
+        operationId:
+          type: string
+    Component:
+      type: object
+      properties:
+        schemas:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SchemaDefinition'
     UserConnectorCredentialDTO:
       type: object
       properties:
@@ -1306,185 +1430,31 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ConfigDTO'
-    SaasxlResponseDTOListUserConnectorCredentialDTO:
+    ConnectorRunDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        connectorType:
           type: string
-        date:
+        baseUrl:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserConnectorCredentialDTO'
-    Parameter:
-      type: object
-      properties:
-        name:
+        path:
           type: string
-        in:
+        method:
           type: string
-        description:
-          type: string
-        schema:
-          $ref: '#/components/schemas/Schema'
-    ResponseContent:
-      type: object
-      properties:
-        schema:
-          $ref: '#/components/schemas/Schema'
-    SaasxlResponseDTOListString:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            type: string
-    Response:
-      type: object
-      properties:
-        description:
-          type: string
-        content:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResponseContent'
-    Schema:
-      type: object
-      properties:
-        type:
-          type: string
-        format:
-          type: string
-        $ref:
-          type: string
-    CredentialDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        type:
-          type: string
-          enum:
-          - QUERY_PARAM
-          - BASIC_AUTH
-          - AUTHORIZATION
-          - ACCESS_TOKEN
-          - BEARER
-          - API_KEY
-          - OAUTH2
-        config:
-          type: array
-          items:
-            $ref: '#/components/schemas/Config'
-    SaasxlResponseDTOListOpenApiInfo:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenApiInfo'
-    SaasxlResponseDTOConnectorCredentialDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/ConnectorCredentialDTO'
-    Contact:
-      type: object
-      properties:
-        email:
-          type: string
-    SaasxlResponseDTOOpenApiInfo:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/OpenApiInfo'
-    EndPointInfo:
-      type: object
-      properties:
-        tags:
-          type: array
-          items:
-            type: string
-        summary:
-          type: string
-        description:
+        contentType:
           type: string
         parameters:
           type: array
           items:
-            $ref: '#/components/schemas/Parameter'
-        requestBody:
-          $ref: '#/components/schemas/Request'
-        responses:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Response'
-        deprecated:
-          type: boolean
-        operationId:
-          type: string
-    OpenApiConnectorRegistrationRequestDTO:
-      type: object
-      properties:
-        connectorName:
-          type: string
-        baseUrl:
-          type: string
-        uri:
-          type: string
-    Component:
-      type: object
-      properties:
-        schemas:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/SchemaDefinition'
+            $ref: '#/components/schemas/EventRequestParameterDTO'
+        userCredentialId:
+          type: integer
+          format: int64
+        credential:
+          $ref: '#/components/schemas/CredentialDTO'
+        companyId:
+          type: integer
+          format: int64
     ErrorMessage:
       type: object
       properties:
@@ -1501,7 +1471,7 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
+    SaasxlResponseDTOListUserConnectorCredentialDTO:
       type: object
       properties:
         success:
@@ -1514,7 +1484,37 @@ components:
         error:
           $ref: '#/components/schemas/ErrorMessage'
         data:
-          type: object
+          type: array
+          items:
+            $ref: '#/components/schemas/UserConnectorCredentialDTO'
+    SaasxlResponseDTOConnectorCredentialDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/ConnectorCredentialDTO'
+    SaasxlResponseDTOUserConnectorCredentialDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/UserConnectorCredentialDTO'
   securitySchemes:
     s_jwt:
       type: http

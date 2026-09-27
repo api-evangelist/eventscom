@@ -449,19 +449,57 @@ paths:
       - s_jwt: []
 components:
   schemas:
-    DnsRecord:
+    CustomDomainStatusResponse:
       type: object
       properties:
-        type:
+        requestId:
           type: string
-        name:
+        appId:
           type: string
-        value:
+        apexDomain:
           type: string
-        ttl:
+        wwwDomain:
           type: string
-        description:
+        status:
           type: string
+        apexDnsVerified:
+          type: boolean
+        wwwDnsVerified:
+          type: boolean
+        requiredDnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+        apexUrl:
+          type: string
+        wwwUrl:
+          type: string
+        message:
+          type: string
+    CustomDomainRequest:
+      required:
+      - apexDomain
+      type: object
+      properties:
+        apexDomain:
+          pattern: ^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     SaasxlResponseDTOAppXDTO:
       type: object
       properties:
@@ -476,6 +514,77 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           $ref: '#/components/schemas/AppXDTO'
+    DnsRecord:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+        ttl:
+          type: string
+        description:
+          type: string
+    SaasxlResponseDTOListAppXDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppXDTO'
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    SaasxlResponseDTOCustomDomainStatusResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/CustomDomainStatusResponse'
+    SaasxlResponseDTOVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     UserDTO:
       type: object
       properties:
@@ -535,87 +644,6 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    CustomDomainRequest:
-      required:
-      - apexDomain
-      type: object
-      properties:
-        apexDomain:
-          pattern: ^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$
-          type: string
-    SaasxlResponseDTOVoid:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    SaasxlResponseDTOListAppXDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppXDTO'
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    CustomDomainStatusResponse:
-      type: object
-      properties:
-        requestId:
-          type: string
-        appId:
-          type: string
-        apexDomain:
-          type: string
-        wwwDomain:
-          type: string
-        status:
-          type: string
-        apexDnsVerified:
-          type: boolean
-        wwwDnsVerified:
-          type: boolean
-        requiredDnsRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsRecord'
-        apexUrl:
-          type: string
-        wwwUrl:
-          type: string
-        message:
-          type: string
     AppXDTO:
       type: object
       properties:
@@ -648,34 +676,6 @@ components:
           format: int64
         requestId:
           type: string
-    SaasxlResponseDTOCustomDomainStatusResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/CustomDomainStatusResponse'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

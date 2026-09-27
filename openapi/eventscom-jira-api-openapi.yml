@@ -59,6 +59,46 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    JiraIssueFields:
+      properties:
+        requiredFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Requiredfields
+          description: Required fields for the issue type
+        customFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Customfields
+          description: Custom fields available
+        traditionalFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Traditionalfields
+          description: Standard Jira fields
+      type: object
+      title: JiraIssueFields
     HTTPValidationError:
       properties:
         detail:
@@ -68,6 +108,16 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    JiraProjects:
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/JiraProject'
+          type: array
+          title: Projects
+          description: List of Jira projects
+      type: object
+      title: JiraProjects
     CreateJiraIssueRequest:
       properties:
         connectorId:
@@ -143,46 +193,6 @@ components:
       - projectName
       - projectId
       title: JiraProject
-    JiraIssueFields:
-      properties:
-        requiredFields:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - additionalProperties: true
-                type: object
-              - type: 'null'
-            type: object
-          type: array
-          title: Requiredfields
-          description: Required fields for the issue type
-        customFields:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - additionalProperties: true
-                type: object
-              - type: 'null'
-            type: object
-          type: array
-          title: Customfields
-          description: Custom fields available
-        traditionalFields:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - additionalProperties: true
-                type: object
-              - type: 'null'
-            type: object
-          type: array
-          title: Traditionalfields
-          description: Standard Jira fields
-      type: object
-      title: JiraIssueFields
     ValidationError:
       properties:
         loc:
@@ -209,16 +219,6 @@ components:
       - msg
       - type
       title: ValidationError
-    JiraProjects:
-      properties:
-        projects:
-          items:
-            $ref: '#/components/schemas/JiraProject'
-          type: array
-          title: Projects
-          description: List of Jira projects
-      type: object
-      title: JiraProjects
     JiraIssueType:
       properties:
         name:

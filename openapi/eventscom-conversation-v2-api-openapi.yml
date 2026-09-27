@@ -176,6 +176,150 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    CustomMessageResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Message from backend service.
+      type: object
+      required:
+      - message
+      title: CustomMessageResponse
+    CreateConversation:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: ID of the conversation
+        name:
+          type: string
+          title: Name
+          description: Name of the thread or conversation
+        userId:
+          type: integer
+          title: Userid
+          description: User ID of the user who created the conversation
+        scope:
+          type: string
+          title: Scope
+          description: The scope of the conversation. Default - PRIVATE
+        elementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Elementtype
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+        elementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Elementid
+          description: ID of the element.
+        secondaryElementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secondaryelementtype
+          description: Secondary element type used when the conversation relates to another entity.
+        secondaryElementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Secondaryelementid
+          description: Secondary element ID associated with the nested or linked entity.
+        agentType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agenttype
+          description: Type of agent. RAG, DCA, etc.
+        active:
+          type: boolean
+          title: Active
+          description: Conversation active boolean
+        uiMetadata:
+          additionalProperties: true
+          type: object
+          title: Uimetadata
+          description: UI metadata of the conversation
+          default: {}
+      type: object
+      required:
+      - name
+      - scope
+      - active
+      title: CreateConversation
+    UpdateConversation:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: ID of the conversation.
+        name:
+          type: string
+          title: Name
+          description: Name of the new conversation.
+        userId:
+          type: integer
+          title: Userid
+          description: User ID of the creator.
+        scope:
+          type: string
+          title: Scope
+          description: Scope of the conversation. By default it will be initialized to PRIVATE.
+          default: PRIVATE
+        elementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Elementtype
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+        elementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Elementid
+          description: ID of the element.
+        secondaryElementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secondaryelementtype
+          description: Secondary element type used when the conversation relates to another entity.
+        secondaryElementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Secondaryelementid
+          description: Secondary element ID associated with the nested or linked entity.
+        createdOn:
+          type: string
+          format: date-time
+          title: Createdon
+          description: Timestamp of the conversation creation.
+        active:
+          type: boolean
+          title: Active
+          description: Conversation active boolean
+        uiMetadata:
+          additionalProperties: true
+          type: object
+          title: Uimetadata
+          description: UI metadata of the conversation
+          default: {}
+      type: object
+      required:
+      - id
+      - name
+      - userId
+      - createdOn
+      - active
+      title: UpdateConversation
     HTTPValidationError:
       properties:
         detail:
@@ -277,72 +421,6 @@ components:
       - createdOn
       - active
       title: CreateConversationResponse
-    CreateConversation:
-      properties:
-        id:
-          type: string
-          title: Id
-          description: ID of the conversation
-        name:
-          type: string
-          title: Name
-          description: Name of the thread or conversation
-        userId:
-          type: integer
-          title: Userid
-          description: User ID of the user who created the conversation
-        scope:
-          type: string
-          title: Scope
-          description: The scope of the conversation. Default - PRIVATE
-        elementType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Elementtype
-          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
-        elementId:
-          anyOf:
-          - type: string
-          - type: integer
-          - type: 'null'
-          title: Elementid
-          description: ID of the element.
-        secondaryElementType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Secondaryelementtype
-          description: Secondary element type used when the conversation relates to another entity.
-        secondaryElementId:
-          anyOf:
-          - type: string
-          - type: integer
-          - type: 'null'
-          title: Secondaryelementid
-          description: Secondary element ID associated with the nested or linked entity.
-        agentType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Agenttype
-          description: Type of agent. RAG, DCA, etc.
-        active:
-          type: boolean
-          title: Active
-          description: Conversation active boolean
-        uiMetadata:
-          additionalProperties: true
-          type: object
-          title: Uimetadata
-          description: UI metadata of the conversation
-          default: {}
-      type: object
-      required:
-      - name
-      - scope
-      - active
-      title: CreateConversation
     ValidationError:
       properties:
         loc:
@@ -369,81 +447,3 @@ components:
       - msg
       - type
       title: ValidationError
-    CustomMessageResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-          description: Message from backend service.
-      type: object
-      required:
-      - message
-      title: CustomMessageResponse
-    UpdateConversation:
-      properties:
-        id:
-          type: string
-          title: Id
-          description: ID of the conversation.
-        name:
-          type: string
-          title: Name
-          description: Name of the new conversation.
-        userId:
-          type: integer
-          title: Userid
-          description: User ID of the creator.
-        scope:
-          type: string
-          title: Scope
-          description: Scope of the conversation. By default it will be initialized to PRIVATE.
-          default: PRIVATE
-        elementType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Elementtype
-          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
-        elementId:
-          anyOf:
-          - type: string
-          - type: integer
-          - type: 'null'
-          title: Elementid
-          description: ID of the element.
-        secondaryElementType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Secondaryelementtype
-          description: Secondary element type used when the conversation relates to another entity.
-        secondaryElementId:
-          anyOf:
-          - type: string
-          - type: integer
-          - type: 'null'
-          title: Secondaryelementid
-          description: Secondary element ID associated with the nested or linked entity.
-        createdOn:
-          type: string
-          format: date-time
-          title: Createdon
-          description: Timestamp of the conversation creation.
-        active:
-          type: boolean
-          title: Active
-          description: Conversation active boolean
-        uiMetadata:
-          additionalProperties: true
-          type: object
-          title: Uimetadata
-          description: UI metadata of the conversation
-          default: {}
-      type: object
-      required:
-      - id
-      - name
-      - userId
-      - createdOn
-      - active
-      title: UpdateConversation

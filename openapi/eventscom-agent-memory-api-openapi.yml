@@ -190,15 +190,34 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
+    SearchMemoriesRequest:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        query:
+          type: string
+          title: Query
+        top_k:
+          type: integer
+          title: Top K
+          default: 5
+        metadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Metadata
+        agent_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agent Id
+        include_drafts:
+          type: boolean
+          title: Include Drafts
+          default: false
       type: object
-      title: HTTPValidationError
+      required:
+      - query
+      title: SearchMemoriesRequest
     ValidationError:
       properties:
         loc:
@@ -257,31 +276,12 @@ components:
       - metadata
       - draft
       title: MemoryRequestUI
-    SearchMemoriesRequest:
+    HTTPValidationError:
       properties:
-        query:
-          type: string
-          title: Query
-        top_k:
-          type: integer
-          title: Top K
-          default: 5
-        metadata:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Metadata
-        agent_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Agent Id
-        include_drafts:
-          type: boolean
-          title: Include Drafts
-          default: false
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - query
-      title: SearchMemoriesRequest
+      title: HTTPValidationError

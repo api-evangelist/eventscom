@@ -281,6 +281,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    SharedItemResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        sharedPermissionId:
+          type: integer
+          format: int64
+        submittedAt:
+          type: string
+          format: date-time
     ErrorMessage:
       type: object
       properties:
@@ -297,20 +311,6 @@ components:
           type: array
           items:
             type: string
-    SharedItemResponseDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        email:
-          type: string
-        sharedPermissionId:
-          type: integer
-          format: int64
-        submittedAt:
-          type: string
-          format: date-time
     SaasxlResponseDTOObject:
       type: object
       properties:
