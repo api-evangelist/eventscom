@@ -108,43 +108,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    AIGenerateInternalRequest:
-      properties:
-        row:
-          additionalProperties: true
-          type: object
-          title: Row
-          description: Row data for AI Generation
-        ai_settings:
-          $ref: '#/components/schemas/AIGenerateInternalSettings'
-          description: AI settings for AI Generation
-        llm_config:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Llm Config
-          description: LLM configuration parameters
-      type: object
-      title: AIGenerateInternalRequest
-    RunEnrichmentRequest:
-      properties:
-        enrichment_id:
-          type: integer
-          title: Enrichment Id
-        params:
-          additionalProperties: true
-          type: object
-          title: Params
-        databar_api_key:
-          type: string
-          title: Databar Api Key
-      type: object
-      required:
-      - enrichment_id
-      - params
-      - databar_api_key
-      title: RunEnrichmentRequest
     ValidationError:
       properties:
         loc:
@@ -171,3 +134,40 @@ components:
       - msg
       - type
       title: ValidationError
+    RunEnrichmentRequest:
+      properties:
+        enrichment_id:
+          type: integer
+          title: Enrichment Id
+        params:
+          additionalProperties: true
+          type: object
+          title: Params
+        databar_api_key:
+          type: string
+          title: Databar Api Key
+      type: object
+      required:
+      - enrichment_id
+      - params
+      - databar_api_key
+      title: RunEnrichmentRequest
+    AIGenerateInternalRequest:
+      properties:
+        row:
+          additionalProperties: true
+          type: object
+          title: Row
+          description: Row data for AI Generation
+        ai_settings:
+          $ref: '#/components/schemas/AIGenerateInternalSettings'
+          description: AI settings for AI Generation
+        llm_config:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Llm Config
+          description: LLM configuration parameters
+      type: object
+      title: AIGenerateInternalRequest

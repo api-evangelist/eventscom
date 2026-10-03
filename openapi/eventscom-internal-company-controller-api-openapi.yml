@@ -989,65 +989,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        permissions:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        joinDate:
-          type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
-          type: integer
-          format: int64
-        isServiceAccount:
-          type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
-          type: boolean
     AgentSkillDTO:
       type: object
       properties:
@@ -1062,19 +1003,69 @@ components:
           type: string
         enabled:
           type: boolean
-    ModelMetadata:
+    AgentConfigDTO:
       type: object
       properties:
-        label:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
-        value:
+          format: date-time
+        modiDate:
           type: string
-        shortDescription:
+          format: date-time
+        id:
           type: string
-        description:
+        agentTemplateId:
           type: string
-        default:
+        name:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        config:
+          type: object
+          additionalProperties:
+            type: object
+    CompanyLiteLLMConfigDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teamId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        virtualKey:
+          type: string
+        modelConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+    OutputConfigurationDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        createNewWorkbook:
           type: boolean
+        tableId:
+          type: string
+        title:
+          type: string
+        workspaceId:
+          type: string
+        columnConfiguration:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnConfigurationDTO'
     CompanyKeysDTO:
       type: object
       properties:
@@ -1149,32 +1140,105 @@ components:
           type: string
         gcpSecretKey:
           type: string
-    ConfigDTO:
+    ErrorMessage:
       type: object
       properties:
-        type:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        data:
+        message:
           type: object
-          additionalProperties:
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    GTMConfigDTO:
+      type: object
+      properties:
+        prompts:
+          type: array
+          items:
             type: object
-    CompanyLiteLLMConfigDTO:
+            additionalProperties:
+              type: object
+        outputConfiguration:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputConfigurationDTO'
+        isDefault:
+          type: boolean
+    CompanyPipelineConfigDTO:
+      type: object
+      properties:
+        keys:
+          $ref: '#/components/schemas/CompanyKeysDTO'
+        litellmConfig:
+          $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
+        companyName:
+          type: string
+    UserDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        teamId:
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
           type: string
         companyId:
           type: integer
           format: int64
-        virtualKey:
+        status:
           type: string
-        modelConfigs:
+        roles:
           type: array
           items:
-            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
     FileUploadResult:
       type: object
       properties:
@@ -1186,35 +1250,72 @@ components:
           type: boolean
         errorMessage:
           type: string
-    AgentConfigDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
           type: string
           format: date-time
-        modiDate:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    ModelMetadata:
+      type: object
+      properties:
+        label:
           type: string
-          format: date-time
-        id:
+        value:
           type: string
-        agentTemplateId:
+        shortDescription:
           type: string
+        description:
+          type: string
+        default:
+          type: boolean
+    ColumnConfigurationDTO:
+      type: object
+      properties:
         name:
           type: string
-        companyId:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
-        config:
+        type:
+          type: string
+        description:
+          type: string
+        tableId:
+          type: string
+        title:
+          type: string
+        workspaceId:
+          type: string
+    ConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
           type: object
           additionalProperties:
             type: object
+    CompanyUnstructuredDataResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        tenantId:
+          type: string
+        apiKey:
+          type: string
+        modelInitialized:
+          type: boolean
     LiteLLMModelConfigDTO:
       type: object
       properties:
@@ -1239,31 +1340,6 @@ components:
           type: boolean
         image:
           type: boolean
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    CompanyPipelineConfigDTO:
-      type: object
-      properties:
-        keys:
-          $ref: '#/components/schemas/CompanyKeysDTO'
-        litellmConfig:
-          $ref: '#/components/schemas/CompanyLiteLLMConfigDTO'
-        companyName:
-          type: string
     BulkFileUploadResponse:
       type: object
       properties:
@@ -1315,82 +1391,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ConfigDTO'
-    GTMConfigDTO:
-      type: object
-      properties:
-        prompts:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
-        outputConfiguration:
-          type: array
-          items:
-            $ref: '#/components/schemas/OutputConfigurationDTO'
-        isDefault:
-          type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    OutputConfigurationDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        createNewWorkbook:
-          type: boolean
-        tableId:
-          type: string
-        title:
-          type: string
-        workspaceId:
-          type: string
-        columnConfiguration:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnConfigurationDTO'
-    ColumnConfigurationDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        description:
-          type: string
-        tableId:
-          type: string
-        title:
-          type: string
-        workspaceId:
-          type: string
-    CompanyUnstructuredDataResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        tenantId:
-          type: string
-        apiKey:
-          type: string
-        modelInitialized:
-          type: boolean
   securitySchemes:
     s_jwt:
       type: http

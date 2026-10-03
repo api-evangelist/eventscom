@@ -95,6 +95,42 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SearchTablesResponse:
+      properties:
+        tables:
+          items:
+            $ref: '#/components/schemas/TableDTO'
+          type: array
+          title: Tables
+          description: List of tables.
+      type: object
+      title: SearchTablesResponse
     CreateEmbeddingsRequest:
       properties:
         dataSourceId:
@@ -125,32 +161,6 @@ components:
       - COSINE
       - NEGATIVE_IP
       title: Metric
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     TableDTO:
       properties:
         id:
@@ -167,13 +177,3 @@ components:
           description: Id of the data source.
       type: object
       title: TableDTO
-    SearchTablesResponse:
-      properties:
-        tables:
-          items:
-            $ref: '#/components/schemas/TableDTO'
-          type: array
-          title: Tables
-          description: List of tables.
-      type: object
-      title: SearchTablesResponse

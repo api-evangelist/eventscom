@@ -460,6 +460,30 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ElementLinkDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        linkedElementType:
+          type: string
+        linkedId:
+          type: string
+    MoveElementsDTO:
+      type: object
+      properties:
+        sourceFolderId:
+          type: string
+        targetFolderId:
+          type: string
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/ElementLinkDTO'
     ErrorMessage:
       type: object
       properties:
@@ -476,19 +500,20 @@ components:
           type: array
           items:
             type: string
-    ElementLinkDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        id:
+        success:
+          type: boolean
+        version:
           type: string
-        elementType:
+        date:
           type: string
-        elementId:
-          type: string
-        linkedElementType:
-          type: string
-        linkedId:
-          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     FolderDTO:
       type: object
       properties:
@@ -523,31 +548,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FolderDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    MoveElementsDTO:
-      type: object
-      properties:
-        sourceFolderId:
-          type: string
-        targetFolderId:
-          type: string
-        elements:
-          type: array
-          items:
-            $ref: '#/components/schemas/ElementLinkDTO'
   securitySchemes:
     s_jwt:
       type: http

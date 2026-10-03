@@ -62,6 +62,38 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ExternalColumnDTO:
+      required:
+      - name
+      - uiDataType
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        uiDataType:
+          type: string
+        editable:
+          type: boolean
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     ExternalTableDTO:
       type: object
       properties:
@@ -96,38 +128,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    ExternalColumnDTO:
-      required:
-      - name
-      - uiDataType
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        uiDataType:
-          type: string
-        editable:
-          type: boolean
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
   securitySchemes:
     s_jwt:
       type: http

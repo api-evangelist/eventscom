@@ -172,50 +172,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    IndexPageRequest:
-      properties:
-        page_id:
-          type: string
-          title: Page Id
-      type: object
-      required:
-      - page_id
-      title: IndexPageRequest
-    IndexWorkspaceRequest:
-      properties:
-        workspace_id:
-          type: string
-          title: Workspace Id
-      type: object
-      required:
-      - workspace_id
-      title: IndexWorkspaceRequest
-    AddWidgetRequest:
-      properties:
-        page_id:
-          type: string
-          title: Page Id
-        widget_id:
-          type: string
-          title: Widget Id
-        workspace_id:
-          type: string
-          title: Workspace Id
-        company_id:
-          type: integer
-          title: Company Id
-        widget:
-          additionalProperties: true
-          type: object
-          title: Widget
-      type: object
-      required:
-      - page_id
-      - widget_id
-      - workspace_id
-      - company_id
-      - widget
-      title: AddWidgetRequest
     ValidationError:
       properties:
         loc:
@@ -256,3 +212,47 @@ components:
       - widget_id
       - widget
       title: UpdateWidgetRequest
+    IndexWorkspaceRequest:
+      properties:
+        workspace_id:
+          type: string
+          title: Workspace Id
+      type: object
+      required:
+      - workspace_id
+      title: IndexWorkspaceRequest
+    IndexPageRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+      type: object
+      required:
+      - page_id
+      title: IndexPageRequest
+    AddWidgetRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+        widget_id:
+          type: string
+          title: Widget Id
+        workspace_id:
+          type: string
+          title: Workspace Id
+        company_id:
+          type: integer
+          title: Company Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - page_id
+      - widget_id
+      - workspace_id
+      - company_id
+      - widget
+      title: AddWidgetRequest

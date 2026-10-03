@@ -566,151 +566,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    BasicSchedule:
+    EnumOptionValue:
       type: object
       properties:
-        timeUnit:
-          type: string
-          enum:
-          - SECOND
-          - MINUTE
-          - HOURS
-          - DAY
-          - MONTH
-        units:
-          type: string
-    GenerateSchemaRequestDTO:
-      type: object
-      properties:
-        fileId:
-          type: string
-        prompt:
-          type: string
-        resource:
-          $ref: '#/components/schemas/ResourceDTO'
-        content:
-          type: string
-    ExtractionDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        title:
-          type: string
-        workspaceId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        inputTableId:
-          type: string
-        elementType:
-          type: string
-          enum:
-          - FILE
-          - FOLDER
-          - COLUMN
-        elementId:
-          type: string
-        extractionMode:
-          type: string
-          enum:
-          - STANDARD
-          - ADVANCED
-        columnConfiguration:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnDTO'
-        outputConfiguration:
+        value:
           type: object
-          additionalProperties:
-            type: object
-        llmModel:
+        label:
           type: string
-        storeExtractedData:
-          type: boolean
-        elementIds:
-          type: array
-          items:
-            type: string
-        lastExtractedAt:
-          type: string
-          format: date-time
-        scheduleType:
-          type: string
-          enum:
-          - CRON
-          - MANUAL
-          - SCHEDULED
-          - DATA_CHANGE
-        schedule:
-          $ref: '#/components/schemas/ScheduleData'
-        primaryKeyColumnId:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        isIndexCreated:
-          type: boolean
-        advancedSchema:
-          type: object
-          additionalProperties:
-            type: object
-        content:
-          type: string
-    AttachmentSettingsDTO:
+    ResourceDTO:
       type: object
       properties:
-        templateKey:
+        bucket_name:
           type: string
-        templateFileName:
+        prefix:
           type: string
-        outputFileName:
+        access_key:
           type: string
-    LinkRecordDTO:
-      type: object
-      properties:
-        sourceRecordId:
-          type: object
-        destinationRecordId:
-          type: object
-        linkColumnId:
+        secret_key:
           type: string
-        columnId:
-          type: string
-        tableId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-    ColumnSettingsDTO:
-      type: object
-      properties:
-        enableUserAddNotifications:
-          type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
-    ScheduleData:
-      type: object
-      properties:
-        basicSchedule:
-          $ref: '#/components/schemas/BasicSchedule'
-        cronExpression:
-          type: string
-        cronExpressionValue:
+        storage_type:
           type: string
     WidgetParameterDTO:
       type: object
@@ -748,125 +622,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
-    AIGenerateSettingsDTO:
-      type: object
-      properties:
-        prompt:
-          type: string
-        model:
-          type: string
-        webAccess:
-          type: boolean
-        enabled:
-          type: boolean
-        webAccessProvider:
-          type: string
-    ExtractionTriggerRequestDTO:
-      type: object
-      properties:
-        rows:
-          type: array
-          items:
-            $ref: '#/components/schemas/RowDataDTO'
-        whereClause:
-          type: string
-        selectAll:
-          type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    RowDataDTO:
-      type: object
-      properties:
-        id:
-          type: object
-        position:
-          type: number
-          format: double
-        fkId:
-          type: object
-        cellValues:
-          type: object
-          additionalProperties:
-            type: object
-        cellValuesByColumnId:
-          type: object
-          additionalProperties:
-            type: object
-        linkRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinkRecordDTO'
-    UserDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        permissions:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        joinDate:
-          type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
-          type: integer
-          format: int64
-        isServiceAccount:
-          type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
-          type: boolean
     EnumOptions:
       type: object
       properties:
@@ -891,6 +646,41 @@ components:
           type: boolean
         wrapValuesWithinSingleQuotes:
           type: boolean
+    RowDataDTO:
+      type: object
+      properties:
+        id:
+          type: object
+        position:
+          type: number
+          format: double
+        fkId:
+          type: object
+        cellValues:
+          type: object
+          additionalProperties:
+            type: object
+        cellValuesByColumnId:
+          type: object
+          additionalProperties:
+            type: object
+        linkRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkRecordDTO'
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
     ColumnDTO:
       required:
       - name
@@ -993,12 +783,72 @@ components:
           $ref: '#/components/schemas/ColumnSettingsDTO'
         sourceDatatype:
           type: string
-    EnumOptionValue:
+    ExtractionTriggerRequestDTO:
       type: object
       properties:
-        value:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/RowDataDTO'
+        whereClause:
+          type: string
+        selectAll:
+          type: boolean
+    LinkRecordDTO:
+      type: object
+      properties:
+        sourceRecordId:
           type: object
-        label:
+        destinationRecordId:
+          type: object
+        linkColumnId:
+          type: string
+        columnId:
+          type: string
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+    BasicSchedule:
+      type: object
+      properties:
+        timeUnit:
+          type: string
+          enum:
+          - SECOND
+          - MINUTE
+          - HOURS
+          - DAY
+          - MONTH
+        units:
+          type: string
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    ScheduleData:
+      type: object
+      properties:
+        basicSchedule:
+          $ref: '#/components/schemas/BasicSchedule'
+        cronExpression:
+          type: string
+        cronExpressionValue:
           type: string
     ErrorMessage:
       type: object
@@ -1016,18 +866,89 @@ components:
           type: array
           items:
             type: string
-    ResourceDTO:
+    UserDTO:
       type: object
       properties:
-        bucket_name:
+        id:
+          type: integer
+          format: int64
+        firstname:
           type: string
-        prefix:
+        lastname:
           type: string
-        access_key:
+        email:
           type: string
-        secret_key:
+        companyName:
           type: string
-        storage_type:
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    GenerateSchemaRequestDTO:
+      type: object
+      properties:
+        fileId:
+          type: string
+        prompt:
+          type: string
+        resource:
+          $ref: '#/components/schemas/ResourceDTO'
+        content:
           type: string
     ThirdPartyFilterConfigDTO:
       type: object
@@ -1039,6 +960,85 @@ components:
         defaultValue:
           type: string
         actualValue:
+          type: string
+    ExtractionDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        workspaceId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        inputTableId:
+          type: string
+        elementType:
+          type: string
+          enum:
+          - FILE
+          - FOLDER
+          - COLUMN
+        elementId:
+          type: string
+        extractionMode:
+          type: string
+          enum:
+          - STANDARD
+          - ADVANCED
+        columnConfiguration:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDTO'
+        outputConfiguration:
+          type: object
+          additionalProperties:
+            type: object
+        llmModel:
+          type: string
+        storeExtractedData:
+          type: boolean
+        elementIds:
+          type: array
+          items:
+            type: string
+        lastExtractedAt:
+          type: string
+          format: date-time
+        scheduleType:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        schedule:
+          $ref: '#/components/schemas/ScheduleData'
+        primaryKeyColumnId:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        isIndexCreated:
+          type: boolean
+        advancedSchema:
+          type: object
+          additionalProperties:
+            type: object
+        content:
           type: string
   securitySchemes:
     s_jwt:

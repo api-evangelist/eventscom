@@ -55,6 +55,16 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    Body_generate_controls_ai_api_v2_demos_document_validation_controls_post:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - file
+      title: Body_generate_controls_ai_api_v2_demos_document_validation_controls_post
     HTTPValidationError:
       properties:
         detail:
@@ -90,37 +100,6 @@ components:
       - msg
       - type
       title: ValidationError
-    Body_generate_controls_ai_api_v2_demos_document_validation_controls_post:
-      properties:
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
-      type: object
-      required:
-      - file
-      title: Body_generate_controls_ai_api_v2_demos_document_validation_controls_post
-    Control:
-      properties:
-        id:
-          type: string
-          title: Id
-        name:
-          type: string
-          title: Name
-        description:
-          type: string
-          title: Description
-        priority:
-          type: string
-          title: Priority
-      type: object
-      required:
-      - id
-      - name
-      - description
-      - priority
-      title: Control
     ValidationRequest:
       properties:
         target_workspace_id:
@@ -172,3 +151,24 @@ components:
       - base_folder_id
       - controls
       title: ValidationRequest
+    Control:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+        description:
+          type: string
+          title: Description
+        priority:
+          type: string
+          title: Priority
+      type: object
+      required:
+      - id
+      - name
+      - description
+      - priority
+      title: Control

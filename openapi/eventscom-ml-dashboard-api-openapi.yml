@@ -337,6 +337,66 @@ components:
       required:
       - dateColumn
       title: ProphetModelProperties
+    RandomForestModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        nEstimators:
+          type: integer
+          title: Nestimators
+          default: 100
+        criterion:
+          type: string
+          enum:
+          - gini
+          - entropy
+          - log_loss
+          title: Criterion
+          default: gini
+        maxDepth:
+          type: integer
+          title: Maxdepth
+          default: 10
+        minSamplesSplit:
+          type: integer
+          title: Minsamplessplit
+          default: 2
+        minSamplesLeaf:
+          type: integer
+          title: Minsamplesleaf
+          default: 1
+        maxFeatures:
+          type: string
+          enum:
+          - auto
+          - sqrt
+          - log2
+          title: Maxfeatures
+          default: auto
+        includeColumns:
+          items:
+            type: string
+          type: array
+          title: Includecolumns
+      type: object
+      required:
+      - includeColumns
+      title: RandomForestModelProperties
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ExponentialSmoothingModelProperties:
       properties:
         testSizePercentage:
@@ -373,55 +433,6 @@ components:
           default: 12
       type: object
       title: ExponentialSmoothingModelProperties
-    LinearRegressionModelProperties:
-      properties:
-        testSizePercentage:
-          type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        fitIntercept:
-          type: boolean
-          title: Fitintercept
-          default: true
-        positive:
-          type: boolean
-          title: Positive
-          default: false
-        includeColumns:
-          items:
-            type: string
-          type: array
-          title: Includecolumns
-      type: object
-      required:
-      - includeColumns
-      title: LinearRegressionModelProperties
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Regressor:
-      properties:
-        column:
-          type: string
-          title: Column
-        mode:
-          type: string
-          title: Mode
-          default: additive
-      type: object
-      required:
-      - column
-      title: Regressor
     ARIMAModelProperties:
       properties:
         testSizePercentage:
@@ -468,6 +479,102 @@ components:
       - regressorsWithoutMode
       - dateColumn
       title: ARIMAModelProperties
+    LinearRegressionModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        fitIntercept:
+          type: boolean
+          title: Fitintercept
+          default: true
+        positive:
+          type: boolean
+          title: Positive
+          default: false
+        includeColumns:
+          items:
+            type: string
+          type: array
+          title: Includecolumns
+      type: object
+      required:
+      - includeColumns
+      title: LinearRegressionModelProperties
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Regressor:
+      properties:
+        column:
+          type: string
+          title: Column
+        mode:
+          type: string
+          title: Mode
+          default: additive
+      type: object
+      required:
+      - column
+      title: Regressor
+    DataProperties:
+      properties:
+        workbookId:
+          type: string
+          title: Workbookid
+        targetColumn:
+          type: string
+          title: Targetcolumn
+      type: object
+      required:
+      - workbookId
+      - targetColumn
+      title: DataProperties
+    ARIMAorder:
+      properties:
+        p:
+          type: integer
+          title: P
+        d:
+          type: integer
+          title: D
+        q:
+          type: integer
+          title: Q
+      type: object
+      required:
+      - p
+      - d
+      - q
+      title: ARIMAorder
     CreateModel:
       properties:
         id:
@@ -525,110 +632,3 @@ components:
       - dataProperties
       - modelProperties
       title: CreateModel
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    ARIMAorder:
-      properties:
-        p:
-          type: integer
-          title: P
-        d:
-          type: integer
-          title: D
-        q:
-          type: integer
-          title: Q
-      type: object
-      required:
-      - p
-      - d
-      - q
-      title: ARIMAorder
-    RandomForestModelProperties:
-      properties:
-        testSizePercentage:
-          type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        nEstimators:
-          type: integer
-          title: Nestimators
-          default: 100
-        criterion:
-          type: string
-          enum:
-          - gini
-          - entropy
-          - log_loss
-          title: Criterion
-          default: gini
-        maxDepth:
-          type: integer
-          title: Maxdepth
-          default: 10
-        minSamplesSplit:
-          type: integer
-          title: Minsamplessplit
-          default: 2
-        minSamplesLeaf:
-          type: integer
-          title: Minsamplesleaf
-          default: 1
-        maxFeatures:
-          type: string
-          enum:
-          - auto
-          - sqrt
-          - log2
-          title: Maxfeatures
-          default: auto
-        includeColumns:
-          items:
-            type: string
-          type: array
-          title: Includecolumns
-      type: object
-      required:
-      - includeColumns
-      title: RandomForestModelProperties
-    DataProperties:
-      properties:
-        workbookId:
-          type: string
-          title: Workbookid
-        targetColumn:
-          type: string
-          title: Targetcolumn
-      type: object
-      required:
-      - workbookId
-      - targetColumn
-      title: DataProperties

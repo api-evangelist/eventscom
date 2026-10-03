@@ -423,55 +423,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    MigrationResultDTO:
-      type: object
-      properties:
-        totalProcessed:
-          type: integer
-          format: int32
-        successCount:
-          type: integer
-          format: int32
-        failureCount:
-          type: integer
-          format: int32
-        successIds:
-          type: array
-          items:
-            type: string
-        failures:
-          type: array
-          items:
-            $ref: '#/components/schemas/MigrationFailureDTO'
-        message:
-          type: string
-        allSuccessful:
-          type: boolean
-    MigrationFailureDTO:
-      type: object
-      properties:
-        agentId:
-          type: string
-        errorMessage:
-          type: string
-        exceptionType:
-          type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     ExternalEmbeddingConfigDTO:
       type: object
       properties:
@@ -519,6 +470,66 @@ components:
         serviceAccountId:
           type: integer
           format: int64
+    MigrationFailureDTO:
+      type: object
+      properties:
+        agentId:
+          type: string
+        errorMessage:
+          type: string
+        exceptionType:
+          type: string
+    ThirdPartyFilterConfigDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+    MigrationResultDTO:
+      type: object
+      properties:
+        totalProcessed:
+          type: integer
+          format: int32
+        successCount:
+          type: integer
+          format: int32
+        failureCount:
+          type: integer
+          format: int32
+        successIds:
+          type: array
+          items:
+            type: string
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/MigrationFailureDTO'
+        message:
+          type: string
+        allSuccessful:
+          type: boolean
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -533,17 +544,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    ThirdPartyFilterConfigDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        required:
-          type: boolean
-        defaultValue:
-          type: string
-        actualValue:
-          type: string
   securitySchemes:
     s_jwt:
       type: http

@@ -575,6 +575,22 @@ components:
           type: string
         enabled:
           type: boolean
+    AgentSkillUsageDTO:
+      type: object
+      properties:
+        inUse:
+          type: boolean
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferencingAgent'
+    ReferencingAgent:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -591,22 +607,6 @@ components:
           type: array
           items:
             type: string
-    ReferencingAgent:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    AgentSkillUsageDTO:
-      type: object
-      properties:
-        inUse:
-          type: boolean
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReferencingAgent'
     SaasxlResponseDTOObject:
       type: object
       properties:

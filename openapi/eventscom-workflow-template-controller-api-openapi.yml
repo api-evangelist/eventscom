@@ -531,13 +531,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    RunWorkflowTemplateRequest:
-      type: object
-      properties:
-        inputJson:
-          type: object
-          additionalProperties:
-            type: object
     RunWorkflowTemplateResponse:
       type: object
       properties:
@@ -569,6 +562,13 @@ components:
         modiDate:
           type: string
           format: date-time
+    RunWorkflowTemplateRequest:
+      type: object
+      properties:
+        inputJson:
+          type: object
+          additionalProperties:
+            type: object
     WorkflowTemplateRequest:
       type: object
       properties:

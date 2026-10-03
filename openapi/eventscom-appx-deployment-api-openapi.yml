@@ -449,6 +449,20 @@ paths:
       - s_jwt: []
 components:
   schemas:
+    SaasxlResponseDTOVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     CustomDomainStatusResponse:
       type: object
       properties:
@@ -476,6 +490,22 @@ components:
           type: string
         message:
           type: string
+    SaasxlResponseDTOListAppXDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppXDTO'
     CustomDomainRequest:
       required:
       - apexDomain
@@ -500,91 +530,38 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOAppXDTO:
+    AppXDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
           format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/AppXDTO'
-    DnsRecord:
-      type: object
-      properties:
-        type:
+        modiDate:
+          type: string
+          format: date-time
+        id:
           type: string
         name:
           type: string
-        value:
+        previewImage:
           type: string
-        ttl:
+        appUrl:
           type: string
-        description:
+        dockerImageTag:
           type: string
-    SaasxlResponseDTOListAppXDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
+        customDomain:
           type: string
-        date:
+        customDomainStatus:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppXDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
+        companyId:
+          type: integer
+          format: int64
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    SaasxlResponseDTOCustomDomainStatusResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/CustomDomainStatusResponse'
-    SaasxlResponseDTOVoid:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     UserDTO:
       type: object
       properties:
@@ -644,38 +621,61 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    AppXDTO:
+    DnsRecord:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
+        type:
           type: string
         name:
           type: string
-        previewImage:
+        value:
           type: string
-        appUrl:
+        ttl:
           type: string
-        dockerImageTag:
+        description:
           type: string
-        customDomain:
+    SaasxlResponseDTOCustomDomainStatusResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
           type: string
-        customDomainStatus:
+        date:
           type: string
-        companyId:
-          type: integer
-          format: int64
-        requestId:
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/CustomDomainStatusResponse'
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
           type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    SaasxlResponseDTOAppXDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/AppXDTO'
   securitySchemes:
     s_jwt:
       type: http

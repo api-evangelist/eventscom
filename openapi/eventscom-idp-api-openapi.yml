@@ -4025,80 +4025,33 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TeamInviteDTO:
+    VerifySignUpOtpRequestDTO:
       type: object
       properties:
         email:
           type: string
-        roles:
-          type: array
-          items:
-            type: string
-    CompanyDTO:
+        otp:
+          type: string
+    BulkTeamInviteDTO:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        displayName:
-          type: string
-        logo:
-          type: string
-        domain:
-          type: string
-        isSSOEnabled:
-          type: boolean
-        mfaEnabled:
-          type: boolean
-        logoKey:
-          type: string
-        isOnboardingCompleted:
-          type: boolean
-        size:
-          type: string
-    CompanyLiteLLMConfigDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        teamId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        virtualKey:
-          type: string
-        modelConfigs:
+        teamUsers:
           type: array
           items:
-            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
-    LiteLLMModelConfigDTO:
+            $ref: '#/components/schemas/TeamInviteDTO'
+    AgentConfig:
       type: object
       properties:
-        type:
+        agentType:
           type: string
-        label:
-          type: string
-        llmProvider:
-          type: string
-        defaultKey:
-          type: string
-        icon:
-          type: string
-        maxBudget:
-          type: number
-          format: double
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelMetadata'
-        keyAvailable:
+        liteLlmEnabled:
           type: boolean
-        image:
-          type: boolean
+        defaultModel:
+          type: string
+        modelsByProvider:
+          type: object
+          additionalProperties:
+            type: object
     ServiceAccountDTO:
       type: object
       properties:
@@ -4136,6 +4089,99 @@ components:
           format: int64
         hidden:
           type: boolean
+    CompanyThemeDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        settings:
+          type: object
+          additionalProperties:
+            type: object
+        title:
+          type: string
+        description:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+    AIConfigDTO:
+      type: object
+      properties:
+        defaultBudget:
+          type: number
+          format: double
+        modelConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+        agentConfig:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentConfig'
+    ResendSignUpEmailDTO:
+      type: object
+      properties:
+        email:
+          type: string
+    CompanyDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        displayName:
+          type: string
+        logo:
+          type: string
+        domain:
+          type: string
+        isSSOEnabled:
+          type: boolean
+        mfaEnabled:
+          type: boolean
+        logoKey:
+          type: string
+        isOnboardingCompleted:
+          type: boolean
+        size:
+          type: string
+    UserAuthTokenDTO:
+      type: object
+      properties:
+        token:
+          type: string
+    BulkAddModelRequestDTO:
+      required:
+      - customLLMProvider
+      type: object
+      properties:
+        modelName:
+          type: string
+        customLLMProvider:
+          type: string
+        apiKey:
+          type: string
+        additionalParams:
+          type: object
+          additionalProperties:
+            type: object
     SignUpRequestDTO:
       type: object
       properties:
@@ -4158,32 +4204,58 @@ components:
           - TEAM
         phoneNumber:
           type: string
-    VerifySignUpOtpRequestDTO:
+    AssignRoleDTO:
       type: object
       properties:
-        email:
-          type: string
-        otp:
-          type: string
-    ResendSignUpEmailDTO:
-      type: object
-      properties:
-        email:
-          type: string
-    LoginDTO:
-      type: object
-      properties:
-        email:
-          type: string
-        password:
-          type: string
-    BulkTeamInviteDTO:
-      type: object
-      properties:
-        teamUsers:
+        roles:
           type: array
           items:
-            $ref: '#/components/schemas/TeamInviteDTO'
+            type: string
+        userId:
+          type: integer
+          format: int64
+    UserApiTokenDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        token:
+          type: string
+        neverExpires:
+          type: boolean
+        expiryDate:
+          type: string
+          format: date-time
+        createDate:
+          type: string
+          format: date-time
+        name:
+          type: string
+    ServiceAccountTokenDTO:
+      type: object
+      properties:
+        token:
+          type: string
+        expiryInSeconds:
+          type: integer
+          format: int64
+        expiryDate:
+          type: string
+          format: date-time
+        neverExpires:
+          type: boolean
+    BulkAddModelResponseDTO:
+      type: object
+      properties:
+        modelName:
+          type: string
+        status:
+          type: string
+        message:
+          type: string
+        modelId:
+          type: string
     SeedDemoDataResponseDTO:
       type: object
       properties:
@@ -4193,7 +4265,87 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOMapStringObject:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    ResendSignUpOtpRequestDTO:
+      type: object
+      properties:
+        email:
+          type: string
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    SaasxlResponseDTOObject:
       type: object
       properties:
         success:
@@ -4207,35 +4359,73 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-          additionalProperties:
-            type: object
-    AgentConfig:
+    ModelMetadata:
       type: object
       properties:
-        agentType:
+        label:
           type: string
-        liteLlmEnabled:
+        value:
+          type: string
+        shortDescription:
+          type: string
+        description:
+          type: string
+        default:
           type: boolean
-        defaultModel:
+    ResetPasswordDTO:
+      type: object
+      properties:
+        email:
           type: string
-        modelsByProvider:
-          type: object
-          additionalProperties:
-            type: object
-    TeamDTO:
+        hash:
+          type: string
+        password:
+          type: string
+    OtpDTO:
+      type: object
+      properties:
+        otp:
+          type: string
+    ChangePasswordDTO:
+      type: object
+      properties:
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+    ExternalTeamMemberDTO:
+      type: object
+      properties:
+        email:
+          type: string
+        elementId:
+          type: string
+        elementName:
+          type: string
+    CompanyLiteLLMConfigDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        name:
+        teamId:
           type: string
-        description:
+        companyId:
+          type: integer
+          format: int64
+        virtualKey:
           type: string
-        users:
+        modelConfigs:
           type: array
           items:
-            $ref: '#/components/schemas/UserDTO'
+            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
+    LoginDTO:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
     SeedDemoDataDTO:
       type: object
       properties:
@@ -4244,25 +4434,21 @@ components:
           type: array
           items:
             type: string
-    AIConfigDTO:
+    InviteInfoDTO:
       type: object
       properties:
-        defaultBudget:
-          type: number
-          format: double
-        modelConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LiteLLMModelConfigDTO'
-        agentConfig:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgentConfig'
-    UserAuthTokenDTO:
-      type: object
-      properties:
-        token:
+        inviteeEmail:
           type: string
+        inviterName:
+          type: string
+        elementName:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        isInviteValid:
+          type: boolean
     CompanyKeysDTO:
       type: object
       properties:
@@ -4337,73 +4523,16 @@ components:
           type: string
         gcpSecretKey:
           type: string
-    ResetPasswordDTO:
+    TeamInviteDTO:
       type: object
       properties:
         email:
           type: string
-        hash:
-          type: string
-        password:
-          type: string
-    ResendSignUpOtpRequestDTO:
-      type: object
-      properties:
-        email:
-          type: string
-    InviteInfoDTO:
-      type: object
-      properties:
-        inviteeEmail:
-          type: string
-        inviterName:
-          type: string
-        elementName:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        isInviteValid:
-          type: boolean
-    CompanyThemeDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        settings:
-          type: object
-          additionalProperties:
-            type: object
-        title:
-          type: string
-        description:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-    ChangePasswordDTO:
-      type: object
-      properties:
-        oldPassword:
-          type: string
-        newPassword:
-          type: string
-    SaasxlResponseDTOObject:
+        roles:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOMapStringObject:
       type: object
       properties:
         success:
@@ -4417,175 +4546,46 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    UserDTO:
+          additionalProperties:
+            type: object
+    TeamDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        permissions:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        joinDate:
-          type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
-          type: integer
-          format: int64
-        isServiceAccount:
-          type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
-          type: boolean
-    UserApiTokenDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        token:
-          type: string
-        neverExpires:
-          type: boolean
-        expiryDate:
-          type: string
-          format: date-time
-        createDate:
-          type: string
-          format: date-time
         name:
-          type: string
-    ServiceAccountTokenDTO:
-      type: object
-      properties:
-        token:
-          type: string
-        expiryInSeconds:
-          type: integer
-          format: int64
-        expiryDate:
-          type: string
-          format: date-time
-        neverExpires:
-          type: boolean
-    BulkAddModelResponseDTO:
-      type: object
-      properties:
-        modelName:
-          type: string
-        status:
-          type: string
-        message:
-          type: string
-        modelId:
-          type: string
-    ModelMetadata:
-      type: object
-      properties:
-        label:
-          type: string
-        value:
-          type: string
-        shortDescription:
           type: string
         description:
           type: string
-        default:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDTO'
+    LiteLLMModelConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        label:
+          type: string
+        llmProvider:
+          type: string
+        defaultKey:
+          type: string
+        icon:
+          type: string
+        maxBudget:
+          type: number
+          format: double
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelMetadata'
+        keyAvailable:
           type: boolean
-    ExternalTeamMemberDTO:
-      type: object
-      properties:
-        email:
-          type: string
-        elementId:
-          type: string
-        elementName:
-          type: string
-    OtpDTO:
-      type: object
-      properties:
-        otp:
-          type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    AssignRoleDTO:
-      type: object
-      properties:
-        roles:
-          type: array
-          items:
-            type: string
-        userId:
-          type: integer
-          format: int64
-    BulkAddModelRequestDTO:
-      required:
-      - customLLMProvider
-      type: object
-      properties:
-        modelName:
-          type: string
-        customLLMProvider:
-          type: string
-        apiKey:
-          type: string
-        additionalParams:
-          type: object
-          additionalProperties:
-            type: object
+        image:
+          type: boolean
   securitySchemes:
     s_jwt:
       type: http

@@ -106,54 +106,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    EmailDTO:
-      required:
-      - subject
-      - to
-      type: object
-      properties:
-        from:
-          type: string
-        senderIdentity:
-          type: string
-        to:
-          type: string
-        subject:
-          type: string
-        body:
-          type: string
-        attachmentUrl:
-          type: string
     BulkEmailDTO:
       type: object
       properties:
@@ -209,6 +161,54 @@ components:
         fromEmail:
           type: string
         senderIdentity:
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    EmailDTO:
+      required:
+      - subject
+      - to
+      type: object
+      properties:
+        from:
+          type: string
+        senderIdentity:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        body:
+          type: string
+        attachmentUrl:
           type: string
   securitySchemes:
     s_jwt:

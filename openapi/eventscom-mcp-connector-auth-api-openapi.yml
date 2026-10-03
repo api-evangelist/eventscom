@@ -564,20 +564,6 @@ paths:
           description: OK
 components:
   schemas:
-    McpConnectorConnectResponseDTO:
-      type: object
-      properties:
-        mappingId:
-          type: integer
-          format: int64
-        authConfigId:
-          type: string
-        slugName:
-          type: string
-        status:
-          type: string
-        authorizationUrl:
-          type: string
     McpConnectorConnectionDTO:
       type: object
       properties:
@@ -602,6 +588,36 @@ components:
           type: string
         status:
           type: string
+    McpConnectorDTO:
+      type: object
+      properties:
+        slug:
+          type: string
+        toolkitSlug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        logo:
+          type: string
+        authScheme:
+          type: string
+    ComposioExecuteToolRequestDTO:
+      required:
+      - connectionId
+      - toolSlug
+      type: object
+      properties:
+        connectionId:
+          type: integer
+          format: int64
+        toolSlug:
+          type: string
+        arguments:
+          type: object
+          additionalProperties:
+            type: object
     ErrorMessage:
       type: object
       properties:
@@ -618,21 +634,6 @@ components:
           type: array
           items:
             type: string
-    ComposioExecuteToolRequestDTO:
-      required:
-      - connectionId
-      - toolSlug
-      type: object
-      properties:
-        connectionId:
-          type: integer
-          format: int64
-        toolSlug:
-          type: string
-        arguments:
-          type: object
-          additionalProperties:
-            type: object
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -647,20 +648,19 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    McpConnectorDTO:
+    McpConnectorConnectResponseDTO:
       type: object
       properties:
-        slug:
+        mappingId:
+          type: integer
+          format: int64
+        authConfigId:
           type: string
-        toolkitSlug:
+        slugName:
           type: string
-        name:
+        status:
           type: string
-        description:
-          type: string
-        logo:
-          type: string
-        authScheme:
+        authorizationUrl:
           type: string
     McpConnectorConnectRequestDTO:
       required:

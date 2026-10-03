@@ -502,26 +502,6 @@ paths:
       - s_jwt: []
 components:
   schemas:
-    PageableObject:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int64
-        sort:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortObject'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        paged:
-          type: boolean
-        unpaged:
-          type: boolean
     AlertHistoryDTO:
       type: object
       properties:
@@ -566,35 +546,21 @@ components:
           type: string
         alertSourceId:
           type: string
-    ErrorMessage:
+    Pageable:
       type: object
       properties:
-        statusCode:
+        page:
+          minimum: 0
           type: integer
           format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
           type: array
           items:
             type: string
-    SortObject:
-      type: object
-      properties:
-        direction:
-          type: string
-        nullHandling:
-          type: string
-        ascending:
-          type: boolean
-        property:
-          type: string
-        ignoreCase:
-          type: boolean
     PageAlertHistoryDTO:
       type: object
       properties:
@@ -629,44 +595,6 @@ components:
           format: int32
         empty:
           type: boolean
-    Pageable:
-      type: object
-      properties:
-        page:
-          minimum: 0
-          type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            type: string
-    TupleStringMapStringObject:
-      type: object
-      properties:
-        item1:
-          type: string
-        item2:
-          type: object
-          additionalProperties:
-            type: object
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     AlertExecutionMetadata:
       type: object
       properties:
@@ -718,6 +646,42 @@ components:
           type: string
         jobGroup:
           type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortObject'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        unpaged:
+          type: boolean
     UserDTO:
       type: object
       properties:
@@ -777,6 +741,42 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    SortObject:
+      type: object
+      properties:
+        direction:
+          type: string
+        nullHandling:
+          type: string
+        ascending:
+          type: boolean
+        property:
+          type: string
+        ignoreCase:
+          type: boolean
+    TupleStringMapStringObject:
+      type: object
+      properties:
+        item1:
+          type: string
+        item2:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     s_jwt:
       type: http

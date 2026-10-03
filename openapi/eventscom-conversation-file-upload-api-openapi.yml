@@ -177,29 +177,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    Body_post_conversation_file_ai_api_v2_conversation_files_post:
-      properties:
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
-      type: object
-      required:
-      - file
-      title: Body_post_conversation_file_ai_api_v2_conversation_files_post
-    ConversationFileIdsStatusRequest:
-      properties:
-        conversation_file_ids:
-          items:
-            type: string
-          type: array
-          maxItems: 100
-          minItems: 1
-          title: Conversation File Ids
-      type: object
-      required:
-      - conversation_file_ids
-      title: ConversationFileIdsStatusRequest
     HTTPValidationError:
       properties:
         detail:
@@ -252,3 +229,26 @@ components:
       - query
       - conversation_file_ids
       title: ConversationFilesQueryRequest
+    ConversationFileIdsStatusRequest:
+      properties:
+        conversation_file_ids:
+          items:
+            type: string
+          type: array
+          maxItems: 100
+          minItems: 1
+          title: Conversation File Ids
+      type: object
+      required:
+      - conversation_file_ids
+      title: ConversationFileIdsStatusRequest
+    Body_post_conversation_file_ai_api_v2_conversation_files_post:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - file
+      title: Body_post_conversation_file_ai_api_v2_conversation_files_post

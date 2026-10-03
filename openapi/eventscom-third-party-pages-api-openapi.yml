@@ -63,36 +63,17 @@ paths:
                 type: object
 components:
   schemas:
-    ErrorMessage:
+    ThirdPartyFilterConfigDTO:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        name:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
+        required:
           type: boolean
-        version:
+        defaultValue:
           type: string
-        date:
+        actualValue:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     ExternalEmbeddingConfigDTO:
       type: object
       properties:
@@ -140,17 +121,36 @@ components:
         serviceAccountId:
           type: integer
           format: int64
-    ThirdPartyFilterConfigDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        name:
-          type: string
-        required:
+        success:
           type: boolean
-        defaultValue:
+        version:
           type: string
-        actualValue:
+        date:
           type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     s_jwt:
       type: http

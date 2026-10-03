@@ -244,44 +244,13 @@ paths:
                 $ref: '#/components/schemas/WorkflowStatusResponse'
 components:
   schemas:
-    WorkflowStep:
+    StartWorkflowResponse:
       type: object
       properties:
-        stepId:
+        workflowId:
           type: string
-          enum:
-          - CREATE_DATA_SOURCE
-          - CREATE_WAREHOUSE
-          - CREATE_PIPELINE
-          - RUN_PIPELINE
-          - CREATE_DAG
-          - CREATE_NODES
-          - CREATE_EDGES
-          - DAG_RUN
-          - CREATE_WORKSPACE
-          - PUBLISH_TO_WORKSPACE
-          - CREATE_BIPAGE
-          - CREATE_WIDGET
-          - LINK_WIDGET_TO_BI_PAGE
-          - SEED_DEMO_DATA
-          - ADD_SINGLE_SELECT
-          - CREATE_FORMULAE_COLUMN
-          - CREATE_BI_PAGE_FILTER
-          - UPDATE_DAG_SCHEDULE_TYPE
-          - LAST_MILE_PIPELINE
-          - ADD_MIGRATION_PROVIDER
-          - ADD_DESTINATION_MIGRATION_PROVIDER
-          - ENABLE_STREAMS
-        name:
+        workflowName:
           type: string
-        request:
-          type: object
-          additionalProperties:
-            type: object
-        dependsOn:
-          type: array
-          items:
-            type: string
     ErrorMessage:
       type: object
       properties:
@@ -298,82 +267,6 @@ components:
           type: array
           items:
             type: string
-    WorkflowStatusResponse:
-      type: object
-      properties:
-        workflowId:
-          type: string
-        workflowName:
-          type: string
-        status:
-          type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/StepStatusSummary'
-    StartWorkflowResponse:
-      type: object
-      properties:
-        workflowId:
-          type: string
-        workflowName:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    StepStatusSummary:
-      type: object
-      properties:
-        stepId:
-          type: string
-        status:
-          type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        output:
-          type: object
-          additionalProperties:
-            type: object
-    WorkflowDefinition:
-      type: object
-      properties:
-        name:
-          type: string
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkflowStep'
-        userDto:
-          $ref: '#/components/schemas/UserDTO'
-        bearerToken:
-          type: string
-        previousWorkflowId:
-          type: string
     UserDTO:
       type: object
       properties:
@@ -433,6 +326,113 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    StepStatusSummary:
+      type: object
+      properties:
+        stepId:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        output:
+          type: object
+          additionalProperties:
+            type: object
+    WorkflowDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowStep'
+        userDto:
+          $ref: '#/components/schemas/UserDTO'
+        bearerToken:
+          type: string
+        previousWorkflowId:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    WorkflowStep:
+      type: object
+      properties:
+        stepId:
+          type: string
+          enum:
+          - CREATE_DATA_SOURCE
+          - CREATE_WAREHOUSE
+          - CREATE_PIPELINE
+          - RUN_PIPELINE
+          - CREATE_DAG
+          - CREATE_NODES
+          - CREATE_EDGES
+          - DAG_RUN
+          - CREATE_WORKSPACE
+          - PUBLISH_TO_WORKSPACE
+          - CREATE_BIPAGE
+          - CREATE_WIDGET
+          - LINK_WIDGET_TO_BI_PAGE
+          - SEED_DEMO_DATA
+          - ADD_SINGLE_SELECT
+          - CREATE_FORMULAE_COLUMN
+          - CREATE_BI_PAGE_FILTER
+          - UPDATE_DAG_SCHEDULE_TYPE
+          - LAST_MILE_PIPELINE
+          - ADD_MIGRATION_PROVIDER
+          - ADD_DESTINATION_MIGRATION_PROVIDER
+          - ENABLE_STREAMS
+        name:
+          type: string
+        request:
+          type: object
+          additionalProperties:
+            type: object
+        dependsOn:
+          type: array
+          items:
+            type: string
+    WorkflowStatusResponse:
+      type: object
+      properties:
+        workflowId:
+          type: string
+        workflowName:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/StepStatusSummary'
   securitySchemes:
     s_jwt:
       type: http
