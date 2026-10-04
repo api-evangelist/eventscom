@@ -336,57 +336,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NodeGroupConfigDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        isDefault:
+        success:
           type: boolean
-        properties:
-          type: object
-          additionalProperties:
-            type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        version:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    TupleStringMapStringString:
-      type: object
-      properties:
-        item1:
+        date:
           type: string
-        item2:
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-          additionalProperties:
-            type: string
     UserDTO:
       type: object
       properties:
@@ -446,20 +409,57 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    SaasxlResponseDTOObject:
+    TupleStringMapStringString:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        item1:
           type: string
-        date:
+        item2:
+          type: object
+          additionalProperties:
+            type: string
+    NodeGroupConfigDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
           format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        isDefault:
+          type: boolean
+        properties:
           type: object
+          additionalProperties:
+            type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     s_jwt:
       type: http

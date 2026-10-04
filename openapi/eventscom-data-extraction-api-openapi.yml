@@ -151,6 +151,113 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    DataExtractionTestRequest:
+      properties:
+        schema:
+          title: Schema
+          description: The schema defining the structure of the data to be extracted.
+        resource:
+          $ref: '#/components/schemas/Resource'
+          description: The storage resource (S3 or GCP) to be used for the data extraction.
+      type: object
+      required:
+      - schema
+      - resource
+      title: DataExtractionTestRequest
+    DataExtractionRequestSchemaGenerate:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: The prompt to be used for the data extraction schema generation.
+        resource:
+          $ref: '#/components/schemas/Resource'
+          description: The storage resource (S3 or GCP) to be used for the data extraction.
+      type: object
+      required:
+      - prompt
+      - resource
+      title: DataExtractionRequestSchemaGenerate
+    SchemaProperty:
+      properties:
+        property_name:
+          type: string
+          title: Property Name
+          description: The name of the property.
+        property_description:
+          type: string
+          title: Property Description
+          description: The description of the property.
+        property_type:
+          type: string
+          title: Property Type
+          description: The type of the property, optional, by default str.
+          default: str
+      type: object
+      required:
+      - property_name
+      - property_description
+      title: SchemaProperty
+    Resource:
+      properties:
+        bucket_name:
+          type: string
+          title: Bucket Name
+          description: The name of the bucket.
+        prefix:
+          type: string
+          title: Prefix
+          description: The prefix for the objects.
+        access_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Access Key
+          description: Optional; GCP/S3 access key; when omitted, config credentials are used.
+        secret_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secret Key
+          description: Optional; GCP/S3 secret key; when omitted, config credentials are used.
+        storage_type:
+          type: string
+          title: Storage Type
+          description: The type of the storage, either 'AWS' or 'GCP'.
+      type: object
+      required:
+      - bucket_name
+      - prefix
+      - storage_type
+      title: Resource
+      description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
+    Body_generate_data_extraction_schema_from_content:
+      properties:
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+        prompt:
+          type: string
+          title: Prompt
+      type: object
+      required:
+      - file
+      - prompt
+      title: Body_generate_data_extraction_schema_from_content
+    Body_run_data_extraction_test_file_upload:
+      properties:
+        schema:
+          title: Schema
+        file:
+          type: string
+          contentMediaType: application/octet-stream
+          title: File
+      type: object
+      required:
+      - schema
+      - file
+      title: Body_run_data_extraction_test_file_upload
     DataExtractionRequest:
       properties:
         resource:
@@ -211,33 +318,6 @@ components:
       - msg
       - type
       title: ValidationError
-    DataExtractionTestRequest:
-      properties:
-        schema:
-          title: Schema
-          description: The schema defining the structure of the data to be extracted.
-        resource:
-          $ref: '#/components/schemas/Resource'
-          description: The storage resource (S3 or GCP) to be used for the data extraction.
-      type: object
-      required:
-      - schema
-      - resource
-      title: DataExtractionTestRequest
-    Body_generate_data_extraction_schema_from_content:
-      properties:
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
-        prompt:
-          type: string
-          title: Prompt
-      type: object
-      required:
-      - file
-      - prompt
-      title: Body_generate_data_extraction_schema_from_content
     Body_execute_data_extraction_file_upload:
       properties:
         file:
@@ -252,83 +332,3 @@ components:
       - file
       - schema
       title: Body_execute_data_extraction_file_upload
-    Body_run_data_extraction_test_file_upload:
-      properties:
-        schema:
-          title: Schema
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          title: File
-      type: object
-      required:
-      - schema
-      - file
-      title: Body_run_data_extraction_test_file_upload
-    SchemaProperty:
-      properties:
-        property_name:
-          type: string
-          title: Property Name
-          description: The name of the property.
-        property_description:
-          type: string
-          title: Property Description
-          description: The description of the property.
-        property_type:
-          type: string
-          title: Property Type
-          description: The type of the property, optional, by default str.
-          default: str
-      type: object
-      required:
-      - property_name
-      - property_description
-      title: SchemaProperty
-    Resource:
-      properties:
-        bucket_name:
-          type: string
-          title: Bucket Name
-          description: The name of the bucket.
-        prefix:
-          type: string
-          title: Prefix
-          description: The prefix for the objects.
-        access_key:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Access Key
-          description: Optional; GCP/S3 access key; when omitted, config credentials are used.
-        secret_key:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Secret Key
-          description: Optional; GCP/S3 secret key; when omitted, config credentials are used.
-        storage_type:
-          type: string
-          title: Storage Type
-          description: The type of the storage, either 'AWS' or 'GCP'.
-      type: object
-      required:
-      - bucket_name
-      - prefix
-      - storage_type
-      title: Resource
-      description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
-    DataExtractionRequestSchemaGenerate:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: The prompt to be used for the data extraction schema generation.
-        resource:
-          $ref: '#/components/schemas/Resource'
-          description: The storage resource (S3 or GCP) to be used for the data extraction.
-      type: object
-      required:
-      - prompt
-      - resource
-      title: DataExtractionRequestSchemaGenerate

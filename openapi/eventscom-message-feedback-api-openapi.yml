@@ -32,6 +32,25 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    CustomMessageResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Message from backend service.
+      type: object
+      required:
+      - message
+      title: CustomMessageResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     FeedbackReq:
       properties:
         messageId:
@@ -52,15 +71,6 @@ components:
       - like
       - comment
       title: FeedbackReq
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -87,13 +97,3 @@ components:
       - msg
       - type
       title: ValidationError
-    CustomMessageResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-          description: Message from backend service.
-      type: object
-      required:
-      - message
-      title: CustomMessageResponse

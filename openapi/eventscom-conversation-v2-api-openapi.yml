@@ -176,41 +176,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     CreateConversation:
       properties:
         id:
@@ -277,6 +242,74 @@ components:
       - scope
       - active
       title: CreateConversation
+    UpdateConversation:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: ID of the conversation.
+        name:
+          type: string
+          title: Name
+          description: Name of the new conversation.
+        userId:
+          type: integer
+          title: Userid
+          description: User ID of the creator.
+        scope:
+          type: string
+          title: Scope
+          description: Scope of the conversation. By default it will be initialized to PRIVATE.
+          default: PRIVATE
+        elementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Elementtype
+          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
+        elementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Elementid
+          description: ID of the element.
+        secondaryElementType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Secondaryelementtype
+          description: Secondary element type used when the conversation relates to another entity.
+        secondaryElementId:
+          anyOf:
+          - type: string
+          - type: integer
+          - type: 'null'
+          title: Secondaryelementid
+          description: Secondary element ID associated with the nested or linked entity.
+        createdOn:
+          type: string
+          format: date-time
+          title: Createdon
+          description: Timestamp of the conversation creation.
+        active:
+          type: boolean
+          title: Active
+          description: Conversation active boolean
+        uiMetadata:
+          additionalProperties: true
+          type: object
+          title: Uimetadata
+          description: UI metadata of the conversation
+          default: {}
+      type: object
+      required:
+      - id
+      - name
+      - userId
+      - createdOn
+      - active
+      title: UpdateConversation
     CreateConversationResponse:
       properties:
         id:
@@ -379,71 +412,38 @@ components:
       required:
       - message
       title: CustomMessageResponse
-    UpdateConversation:
+    HTTPValidationError:
       properties:
-        id:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
           type: string
-          title: Id
-          description: ID of the conversation.
-        name:
+          title: Message
+        type:
           type: string
-          title: Name
-          description: Name of the new conversation.
-        userId:
-          type: integer
-          title: Userid
-          description: User ID of the creator.
-        scope:
-          type: string
-          title: Scope
-          description: Scope of the conversation. By default it will be initialized to PRIVATE.
-          default: PRIVATE
-        elementType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Elementtype
-          description: Type of element where the conversation is being created. WORKBOOK, WORKSPACE, etc.
-        elementId:
-          anyOf:
-          - type: string
-          - type: integer
-          - type: 'null'
-          title: Elementid
-          description: ID of the element.
-        secondaryElementType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Secondaryelementtype
-          description: Secondary element type used when the conversation relates to another entity.
-        secondaryElementId:
-          anyOf:
-          - type: string
-          - type: integer
-          - type: 'null'
-          title: Secondaryelementid
-          description: Secondary element ID associated with the nested or linked entity.
-        createdOn:
-          type: string
-          format: date-time
-          title: Createdon
-          description: Timestamp of the conversation creation.
-        active:
-          type: boolean
-          title: Active
-          description: Conversation active boolean
-        uiMetadata:
-          additionalProperties: true
+          title: Error Type
+        input:
+          title: Input
+        ctx:
           type: object
-          title: Uimetadata
-          description: UI metadata of the conversation
-          default: {}
+          title: Context
       type: object
       required:
-      - id
-      - name
-      - userId
-      - createdOn
-      - active
-      title: UpdateConversation
+      - loc
+      - msg
+      - type
+      title: ValidationError

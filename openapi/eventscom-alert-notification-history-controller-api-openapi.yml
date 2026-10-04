@@ -1008,22 +1008,87 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ErrorMessage:
+    AlertElementLink:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        alertId:
           type: string
-        message:
+        elementId:
+          type: string
+        elementType:
+          type: string
+    AlertExecutionMetadata:
+      type: object
+      properties:
+        thresholdOperand:
+          type: string
+          enum:
+          - EQUALS
+          - NOT_EQUALS
+          - GREATER_THAN
+          - GREATER_THAN_EQUALS
+          - LESS_THAN
+          - LESS_THAN_EQUALS
+          - BETWEEN
+          - PERCENTAGE_CHANGE
+          - ABSOLUTE_CHANGE
+          - PERCENTAGE_INCREASE_BY
+          - PERCENTAGE_DECREASE_BY
+          - IN
+          - NOT_IN
+          - CONTAINS
+          - DOES_NOT_CONTAINS
+          - NOT_BETWEEN
+          - STARTS_WITH
+        thresholdValue:
+          type: number
+          format: double
+        executionStatus:
+          type: string
+        errorMessage:
+          type: string
+        triggerMessage:
+          type: string
+        executionTimeMs:
+          type: integer
+          format: int64
+        dataSource:
+          type: string
+        tableName:
+          type: string
+        columnName:
+          type: string
+        aggregationType:
+          type: string
+        filters:
+          type: string
+        cronExpression:
+          type: string
+        jobKey:
+          type: string
+        jobGroup:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
+    ElementFilterRequestDTO:
+      type: object
+      properties:
+        elementId:
+          type: string
+        elementType:
+          type: string
     AlertNotificationHistoryDTO:
       type: object
       properties:
@@ -1134,87 +1199,22 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    AlertElementLink:
+    ErrorMessage:
       type: object
       properties:
-        alertId:
-          type: string
-        elementId:
-          type: string
-        elementType:
-          type: string
-    ElementFilterRequestDTO:
-      type: object
-      properties:
-        elementId:
-          type: string
-        elementType:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    AlertExecutionMetadata:
-      type: object
-      properties:
-        thresholdOperand:
-          type: string
-          enum:
-          - EQUALS
-          - NOT_EQUALS
-          - GREATER_THAN
-          - GREATER_THAN_EQUALS
-          - LESS_THAN
-          - LESS_THAN_EQUALS
-          - BETWEEN
-          - PERCENTAGE_CHANGE
-          - ABSOLUTE_CHANGE
-          - PERCENTAGE_INCREASE_BY
-          - PERCENTAGE_DECREASE_BY
-          - IN
-          - NOT_IN
-          - CONTAINS
-          - DOES_NOT_CONTAINS
-          - NOT_BETWEEN
-          - STARTS_WITH
-        thresholdValue:
-          type: number
-          format: double
-        executionStatus:
-          type: string
-        errorMessage:
-          type: string
-        triggerMessage:
-          type: string
-        executionTimeMs:
+        statusCode:
           type: integer
-          format: int64
-        dataSource:
+          format: int32
+        requestId:
           type: string
-        tableName:
-          type: string
-        columnName:
-          type: string
-        aggregationType:
-          type: string
-        filters:
-          type: string
-        cronExpression:
-          type: string
-        jobKey:
-          type: string
-        jobGroup:
-          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     s_jwt:
       type: http

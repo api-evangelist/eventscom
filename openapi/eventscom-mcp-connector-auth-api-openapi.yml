@@ -588,52 +588,6 @@ components:
           type: string
         status:
           type: string
-    McpConnectorDTO:
-      type: object
-      properties:
-        slug:
-          type: string
-        toolkitSlug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        logo:
-          type: string
-        authScheme:
-          type: string
-    ComposioExecuteToolRequestDTO:
-      required:
-      - connectionId
-      - toolSlug
-      type: object
-      properties:
-        connectionId:
-          type: integer
-          format: int64
-        toolSlug:
-          type: string
-        arguments:
-          type: object
-          additionalProperties:
-            type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -648,20 +602,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    McpConnectorConnectResponseDTO:
-      type: object
-      properties:
-        mappingId:
-          type: integer
-          format: int64
-        authConfigId:
-          type: string
-        slugName:
-          type: string
-        status:
-          type: string
-        authorizationUrl:
-          type: string
     McpConnectorConnectRequestDTO:
       required:
       - slug
@@ -686,6 +626,66 @@ components:
           type: string
         createMcpServer:
           type: boolean
+    McpConnectorConnectResponseDTO:
+      type: object
+      properties:
+        mappingId:
+          type: integer
+          format: int64
+        authConfigId:
+          type: string
+        slugName:
+          type: string
+        status:
+          type: string
+        authorizationUrl:
+          type: string
+    ComposioExecuteToolRequestDTO:
+      required:
+      - connectionId
+      - toolSlug
+      type: object
+      properties:
+        connectionId:
+          type: integer
+          format: int64
+        toolSlug:
+          type: string
+        arguments:
+          type: object
+          additionalProperties:
+            type: object
+    McpConnectorDTO:
+      type: object
+      properties:
+        slug:
+          type: string
+        toolkitSlug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        logo:
+          type: string
+        authScheme:
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     s_jwt:
       type: http

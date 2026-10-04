@@ -172,21 +172,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SQLParseColumnDTO:
-      type: object
-      properties:
-        functions:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        dataType:
-          type: string
-        sources:
-          type: array
-          items:
-            type: string
     SQLParseColumnRequestDTO:
       type: object
       properties:
@@ -200,6 +185,27 @@ components:
               type: object
               additionalProperties:
                 type: string
+    SQLParseColumnResponseDTO:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLParseColumnDTO'
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     QueryResponseDTO:
       type: object
       properties:
@@ -223,6 +229,21 @@ components:
           type: string
         sqlQuery:
           type: string
+    SQLParseColumnDTO:
+      type: object
+      properties:
+        functions:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        dataType:
+          type: string
+        sources:
+          type: array
+          items:
+            type: string
     ErrorMessage:
       type: object
       properties:
@@ -239,27 +260,6 @@ components:
           type: array
           items:
             type: string
-    SQLParseColumnResponseDTO:
-      type: object
-      properties:
-        columns:
-          type: array
-          items:
-            $ref: '#/components/schemas/SQLParseColumnDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

@@ -59,91 +59,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    JiraIssueFields:
-      properties:
-        requiredFields:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - additionalProperties: true
-                type: object
-              - type: 'null'
-            type: object
-          type: array
-          title: Requiredfields
-          description: Required fields for the issue type
-        customFields:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - additionalProperties: true
-                type: object
-              - type: 'null'
-            type: object
-          type: array
-          title: Customfields
-          description: Custom fields available
-        traditionalFields:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - additionalProperties: true
-                type: object
-              - type: 'null'
-            type: object
-          type: array
-          title: Traditionalfields
-          description: Standard Jira fields
-      type: object
-      title: JiraIssueFields
-    JiraProjects:
-      properties:
-        projects:
-          items:
-            $ref: '#/components/schemas/JiraProject'
-          type: array
-          title: Projects
-          description: List of Jira projects
-      type: object
-      title: JiraProjects
     CreateJiraIssueRequest:
       properties:
         connectorId:
@@ -233,3 +148,88 @@ components:
       - projectName
       - projectId
       title: JiraProject
+    JiraIssueFields:
+      properties:
+        requiredFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Requiredfields
+          description: Required fields for the issue type
+        customFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Customfields
+          description: Custom fields available
+        traditionalFields:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - additionalProperties: true
+                type: object
+              - type: 'null'
+            type: object
+          type: array
+          title: Traditionalfields
+          description: Standard Jira fields
+      type: object
+      title: JiraIssueFields
+    JiraProjects:
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/JiraProject'
+          type: array
+          title: Projects
+          description: List of Jira projects
+      type: object
+      title: JiraProjects
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

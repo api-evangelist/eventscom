@@ -106,6 +106,164 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    RuleDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    EventConnectionDTO:
+      type: object
+      properties:
+        node:
+          type: string
+        nextNodes:
+          type: array
+          items:
+            type: string
+    SaasxlHttpResponseObject:
+      type: object
+      properties:
+        data:
+          type: object
+        statusCode:
+          type: integer
+          format: int32
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    EventConnectorInfoDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        connectorType:
+          type: string
+        path:
+          type: string
+        method:
+          type: string
+        credential:
+          $ref: '#/components/schemas/EventCredentialDTO'
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterDTO'
+        operationMetaData:
+          $ref: '#/components/schemas/OperationMetaData'
+        configJsFn:
+          type: string
+        responseParserFn:
+          type: string
+        responseData:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseData'
+    RequestDTO:
+      type: object
+      properties:
+        credential:
+          $ref: '#/components/schemas/EventCredentialDTO'
+        connectorType:
+          type: string
+        operation:
+          type: string
+        resource:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventRequestParameterDTO'
+    EventCredentialDTO:
+      type: object
+      properties:
+        credentialType:
+          type: string
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventRequestParameterDTO'
+    EventDTO:
+      type: object
+      properties:
+        currentNode:
+          type: string
+        destinationNode:
+          type: string
+        connections:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventConnectionDTO'
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventNodeDTO'
+        workFlowId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        requestId:
+          type: string
+        status:
+          type: string
+        startTimeInMillis:
+          type: integer
+          format: int64
+        endTimeInMillis:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+    EventRequestParameterDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     EventNodeDTO:
       type: object
       properties:
@@ -147,6 +305,13 @@ components:
         waitTimeInSeconds:
           type: integer
           format: int64
+    ResponseData:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/RequestDTO'
+        outputData:
+          $ref: '#/components/schemas/SaasxlHttpResponseObject'
     ParameterDTO:
       type: object
       properties:
@@ -156,49 +321,29 @@ components:
           type: object
           additionalProperties:
             type: object
-    ResponseData:
+    WorkflowJobSchedulerDTO:
       type: object
       properties:
-        request:
-          $ref: '#/components/schemas/RequestDTO'
-        outputData:
-          $ref: '#/components/schemas/SaasxlHttpResponseObject'
-    RuleDTO:
+        event:
+          $ref: '#/components/schemas/EventDTO'
+        waitTimeInSeconds:
+          type: integer
+          format: int64
+    OperationMetaData:
       type: object
       properties:
-        field:
+        httpMethod:
           type: string
-        value:
-          type: object
-        operator:
+        baseUrl:
           type: string
-        rules:
+        operationUrl:
+          type: string
+        contentType:
+          type: string
+        parameters:
           type: array
           items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    SaasxlHttpResponseObject:
-      type: object
-      properties:
-        data:
-          type: object
-        statusCode:
-          type: integer
-          format: int32
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
+            $ref: '#/components/schemas/EventRequestParameterDTO'
     ErrorMessage:
       type: object
       properties:
@@ -215,151 +360,6 @@ components:
           type: array
           items:
             type: string
-    EventConnectorInfoDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        connectorType:
-          type: string
-        path:
-          type: string
-        method:
-          type: string
-        credential:
-          $ref: '#/components/schemas/EventCredentialDTO'
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ParameterDTO'
-        operationMetaData:
-          $ref: '#/components/schemas/OperationMetaData'
-        configJsFn:
-          type: string
-        responseParserFn:
-          type: string
-        responseData:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResponseData'
-    EventDTO:
-      type: object
-      properties:
-        currentNode:
-          type: string
-        destinationNode:
-          type: string
-        connections:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventConnectionDTO'
-        nodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventNodeDTO'
-        workFlowId:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        requestId:
-          type: string
-        status:
-          type: string
-        startTimeInMillis:
-          type: integer
-          format: int64
-        endTimeInMillis:
-          type: integer
-          format: int64
-        workspaceId:
-          type: string
-    EventCredentialDTO:
-      type: object
-      properties:
-        credentialType:
-          type: string
-        config:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventRequestParameterDTO'
-    WorkflowJobSchedulerDTO:
-      type: object
-      properties:
-        event:
-          $ref: '#/components/schemas/EventDTO'
-        waitTimeInSeconds:
-          type: integer
-          format: int64
-    EventConnectionDTO:
-      type: object
-      properties:
-        node:
-          type: string
-        nextNodes:
-          type: array
-          items:
-            type: string
-    RequestDTO:
-      type: object
-      properties:
-        credential:
-          $ref: '#/components/schemas/EventCredentialDTO'
-        connectorType:
-          type: string
-        operation:
-          type: string
-        resource:
-          type: string
-        limit:
-          type: integer
-          format: int32
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventRequestParameterDTO'
-    OperationMetaData:
-      type: object
-      properties:
-        httpMethod:
-          type: string
-        baseUrl:
-          type: string
-        operationUrl:
-          type: string
-        contentType:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventRequestParameterDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    EventRequestParameterDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
   securitySchemes:
     s_jwt:
       type: http

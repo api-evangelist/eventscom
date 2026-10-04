@@ -56,46 +56,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    CompanyResearchRequest:
-      properties:
-        name:
-          type: string
-          title: Name
-          description: Name of the company to research
-        focus_query:
-          type: string
-          title: Focus Query
-          description: Focus of the research
-        headquarters:
-          type: string
-          title: Headquarters
-          description: Company headquarters location
-        website:
-          type: string
-          title: Website
-          description: Company's website URL
-        industry:
-          type: string
-          title: Industry
-          description: Industry sector the company operates in
-        crunchbaseToggle:
-          type: boolean
-          title: Crunchbasetoggle
-          description: Toggle to include possible Crunchbase data
-          default: false
-        linkedinToggle:
-          type: boolean
-          title: Linkedintoggle
-          description: Toggle to include possible LinkedIn data
-          default: false
-      type: object
-      required:
-      - name
-      - focus_query
-      - headquarters
-      - website
-      - industry
-      title: CompanyResearchRequest
     HTTPValidationError:
       properties:
         detail:
@@ -141,3 +101,43 @@ components:
       required:
       - markdown_content
       title: MarkdownRequest
+    CompanyResearchRequest:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Name of the company to research
+        focus_query:
+          type: string
+          title: Focus Query
+          description: Focus of the research
+        headquarters:
+          type: string
+          title: Headquarters
+          description: Company headquarters location
+        website:
+          type: string
+          title: Website
+          description: Company's website URL
+        industry:
+          type: string
+          title: Industry
+          description: Industry sector the company operates in
+        crunchbaseToggle:
+          type: boolean
+          title: Crunchbasetoggle
+          description: Toggle to include possible Crunchbase data
+          default: false
+        linkedinToggle:
+          type: boolean
+          title: Linkedintoggle
+          description: Toggle to include possible LinkedIn data
+          default: false
+      type: object
+      required:
+      - name
+      - focus_query
+      - headquarters
+      - website
+      - industry
+      title: CompanyResearchRequest

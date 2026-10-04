@@ -1490,21 +1490,63 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    FunctionDTO:
+    WebhookEventDTO:
       type: object
       properties:
-        name:
-          type: string
-        displayTitle:
+        id:
           type: string
         title:
           type: string
-        description:
+        tableId:
           type: string
-        example:
+        eventName:
           type: string
-        function:
+        tableName:
           type: string
+        notificationType:
+          type: string
+        httpNotificationDetails:
+          $ref: '#/components/schemas/HttpNotificationDetails'
+    ColumnSettingsDTO:
+      type: object
+      properties:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    RequestStatusLogRequestDTO:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+    EnumOptions:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnumOptionValue'
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        sqlQuery:
+          type: string
+        multipleValuesAllowed:
+          type: boolean
+        wrapValuesWithinSingleQuotes:
+          type: boolean
     EnumOptionValue:
       type: object
       properties:
@@ -1512,38 +1554,15 @@ components:
           type: object
         label:
           type: string
-    JoinConditionDTO:
+    AttachmentSettingsDTO:
       type: object
       properties:
-        targetTableId:
+        templateKey:
           type: string
-        joinConditionExpression:
+        templateFileName:
           type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        selectedColumnIds:
-          type: array
-          items:
-            type: string
-    TransformationDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
+        outputFileName:
           type: string
-        formulaMapping:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/DefinitionDTO'
-        sourceSchema:
-          type: string
-        userId:
-          type: integer
-          format: int64
     WidgetParameterDTO:
       type: object
       properties:
@@ -1580,140 +1599,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
-    ViewDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        isMaster:
-          type: boolean
-        tableId:
-          type: string
-        position:
-          type: number
-          format: double
-        name:
-          type: string
-        type:
-          type: string
-        description:
-          type: string
-        filterOptions:
-          $ref: '#/components/schemas/FilterOptionDTO'
-        groupOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupOptionDTO'
-        sortOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortOptionDTO'
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        filterParams:
-          type: object
-          additionalProperties:
-            type: object
-        whereClause:
-          type: string
-        query:
-          type: string
-        tableName:
-          type: string
-    WebhookEventDataDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        tableId:
-          type: string
-        tableName:
-          type: string
-        data:
-          type: string
-    WebhookEventDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        tableId:
-          type: string
-        eventName:
-          type: string
-        tableName:
-          type: string
-        notificationType:
-          type: string
-        httpNotificationDetails:
-          $ref: '#/components/schemas/HttpNotificationDetails'
-    VersionDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        dagRunId:
-          type: integer
-          format: int64
-        description:
-          type: string
-        isDefaultVersion:
-          type: boolean
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-    EnumOptions:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnumOptionValue'
-        type:
-          type: string
-          enum:
-          - TEXT
-          - NUMERIC
-          - STATIC_ENUM
-          - DYNAMIC_ENUM
-          - BOOLEAN
-          - DATE
-          - DATETIME
-          - DATE_RANGE
-        sqlQuery:
-          type: string
-        multipleValuesAllowed:
-          type: boolean
-        wrapValuesWithinSingleQuotes:
-          type: boolean
     DefinitionDTO:
       type: object
       properties:
@@ -1723,19 +1608,43 @@ components:
           type: string
         def:
           $ref: '#/components/schemas/FunctionDefinitionDTO'
-    AIGenerateSettingsDTO:
+    JsonNode:
+      type: object
+    RuleDTO:
       type: object
       properties:
-        prompt:
+        field:
           type: string
-        model:
+        value:
+          type: object
+        operator:
           type: string
-        webAccess:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
           type: boolean
-        enabled:
-          type: boolean
-        webAccessProvider:
+        valueSource:
           type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     ColumnDTO:
       required:
       - name
@@ -1838,48 +1747,54 @@ components:
           $ref: '#/components/schemas/ColumnSettingsDTO'
         sourceDatatype:
           type: string
-    RequestStatusLogRequestDTO:
+    FilterOptionDTO:
       type: object
       properties:
-        ids:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
           type: array
           items:
-            type: string
-    TransformationExecDTO:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    VersionDTO:
       type: object
       properties:
-        transformationId:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
           type: integer
           format: int64
-        value:
-          $ref: '#/components/schemas/JsonNode'
-    JsonNode:
-      type: object
-    keyExtractor:
-      type: object
-      properties:
-        key:
+        name:
           type: string
-        fn:
+        dagRunId:
+          type: integer
+          format: int64
+        description:
           type: string
-    AttachmentSettingsDTO:
-      type: object
-      properties:
-        templateKey:
-          type: string
-        templateFileName:
-          type: string
-        outputFileName:
-          type: string
-    GroupOptionDTO:
-      type: object
-      properties:
-        columnId:
-          type: string
-        direction:
-          type: string
-        columnName:
-          type: string
+        isDefaultVersion:
+          type: boolean
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
     TableViewDTO:
       type: object
       properties:
@@ -2045,15 +1960,31 @@ components:
           $ref: '#/components/schemas/ViewDTO'
         latestVersion:
           $ref: '#/components/schemas/VersionDTO'
-    ColumnSettingsDTO:
+    FunctionDefinitionDTO:
       type: object
       properties:
-        enableUserAddNotifications:
-          type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
+        name:
+          type: string
+        args:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionDTO'
+    SortOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+        columnNameWithOutQuotes:
+          type: string
+        valueOrder:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
     RequestStatusLogDTO:
       type: object
       properties:
@@ -2082,22 +2013,20 @@ components:
             type: object
         sessionId:
           type: string
-    ErrorMessage:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        success:
+          type: boolean
+        version:
           type: string
-        message:
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     UserDTO:
       type: object
       properties:
@@ -2157,21 +2086,114 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    SaasxlResponseDTOObject:
+    FunctionDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        name:
           type: string
-        date:
+        displayTitle:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        example:
+          type: string
+        function:
+          type: string
+    ViewDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
           format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        isMaster:
+          type: boolean
+        tableId:
+          type: string
+        position:
+          type: number
+          format: double
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        filterOptions:
+          $ref: '#/components/schemas/FilterOptionDTO'
+        groupOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupOptionDTO'
+        sortOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortOptionDTO'
+        uiMetadata:
           type: object
-    SortOptionDTO:
+          additionalProperties:
+            type: object
+        filterParams:
+          type: object
+          additionalProperties:
+            type: object
+        whereClause:
+          type: string
+        query:
+          type: string
+        tableName:
+          type: string
+    WebhookEventDataDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        tableId:
+          type: string
+        tableName:
+          type: string
+        data:
+          type: string
+    JoinRequest:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+        name:
+          type: string
+        primaryTableId:
+          type: string
+        joinConditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/JoinConditionDTO'
+    JoinConditionDTO:
+      type: object
+      properties:
+        targetTableId:
+          type: string
+        joinConditionExpression:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        selectedColumnIds:
+          type: array
+          items:
+            type: string
+    GroupOptionDTO:
       type: object
       properties:
         columnId:
@@ -2180,13 +2202,30 @@ components:
           type: string
         columnName:
           type: string
-        columnNameWithOutQuotes:
+    TransformationExecDTO:
+      type: object
+      properties:
+        transformationId:
+          type: integer
+          format: int64
+        value:
+          $ref: '#/components/schemas/JsonNode'
+    keyExtractor:
+      type: object
+      properties:
+        key:
           type: string
-        valueOrder:
-          uniqueItems: true
+        fn:
+          type: string
+    FileParsingRequestDTO:
+      type: object
+      properties:
+        file:
+          type: string
+        keyExtractors:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/keyExtractor'
     HttpNotificationDetails:
       type: object
       properties:
@@ -2206,44 +2245,6 @@ components:
           type: object
           additionalProperties:
             type: object
-    FilterOptionDTO:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    RuleDTO:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
     ThirdPartyFilterConfigDTO:
       type: object
       properties:
@@ -2255,37 +2256,36 @@ components:
           type: string
         actualValue:
           type: string
-    JoinRequest:
+    AIGenerateSettingsDTO:
       type: object
       properties:
-        workspaceId:
+        prompt:
           type: string
-        name:
+        model:
           type: string
-        primaryTableId:
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
           type: string
-        joinConditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/JoinConditionDTO'
-    FunctionDefinitionDTO:
+    TransformationDTO:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
         name:
           type: string
-        args:
-          type: array
-          items:
+        formulaMapping:
+          type: object
+          additionalProperties:
             $ref: '#/components/schemas/DefinitionDTO'
-    FileParsingRequestDTO:
-      type: object
-      properties:
-        file:
+        sourceSchema:
           type: string
-        keyExtractors:
-          type: array
-          items:
-            $ref: '#/components/schemas/keyExtractor'
+        userId:
+          type: integer
+          format: int64
   securitySchemes:
     s_jwt:
       type: http

@@ -244,29 +244,75 @@ paths:
                 $ref: '#/components/schemas/WorkflowStatusResponse'
 components:
   schemas:
-    StartWorkflowResponse:
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    WorkflowDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowStep'
+        userDto:
+          $ref: '#/components/schemas/UserDTO'
+        bearerToken:
+          type: string
+        previousWorkflowId:
+          type: string
+    WorkflowStatusResponse:
       type: object
       properties:
         workflowId:
           type: string
         workflowName:
           type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        status:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        steps:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/StepStatusSummary'
+    StepStatusSummary:
+      type: object
+      properties:
+        stepId:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        output:
+          type: object
+          additionalProperties:
+            type: object
     UserDTO:
       type: object
       properties:
@@ -326,54 +372,6 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    StepStatusSummary:
-      type: object
-      properties:
-        stepId:
-          type: string
-        status:
-          type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        output:
-          type: object
-          additionalProperties:
-            type: object
-    WorkflowDefinition:
-      type: object
-      properties:
-        name:
-          type: string
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkflowStep'
-        userDto:
-          $ref: '#/components/schemas/UserDTO'
-        bearerToken:
-          type: string
-        previousWorkflowId:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     WorkflowStep:
       type: object
       properties:
@@ -412,27 +410,29 @@ components:
           type: array
           items:
             type: string
-    WorkflowStatusResponse:
+    StartWorkflowResponse:
       type: object
       properties:
         workflowId:
           type: string
         workflowName:
           type: string
-        status:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        steps:
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
           type: array
           items:
-            $ref: '#/components/schemas/StepStatusSummary'
+            type: string
   securitySchemes:
     s_jwt:
       type: http

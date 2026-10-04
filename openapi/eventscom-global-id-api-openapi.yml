@@ -32,6 +32,128 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    UnmatchedData:
+      properties:
+        workspaceId:
+          type: string
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
+          type: string
+          title: Workbookid
+          description: The workbook ID
+      type: object
+      required:
+      - workspaceId
+      - workbookId
+      title: UnmatchedData
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SourceData:
+      properties:
+        workspaceId:
+          type: string
+          title: Workspaceid
+          description: The workspace ID
+        workbookId:
+          type: string
+          title: Workbookid
+          description: The workbook ID
+        dataMapping:
+          $ref: '#/components/schemas/DataMapping'
+          description: The data mapping
+      type: object
+      required:
+      - workspaceId
+      - workbookId
+      - dataMapping
+      title: SourceData
+    GlobalIdDataResource:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: The name of the workbook
+        isCrm:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Iscrm
+          description: Whether the workbook is a CRM workbook
+          default: false
+        sourceData:
+          $ref: '#/components/schemas/SourceData'
+          description: The source data
+        correctedUnmatchedData:
+          anyOf:
+          - $ref: '#/components/schemas/UnmatchedData'
+          - type: 'null'
+          description: The corrected unmatched data. Do not change any field names exported by DataGol.
+      type: object
+      required:
+      - name
+      - sourceData
+      title: GlobalIdDataResource
+    GlobalIdRequest:
+      properties:
+        datasets:
+          items:
+            $ref: '#/components/schemas/GlobalIdDataResource'
+          type: array
+          title: Datasets
+          description: List of dataset resources
+        previousGlobalId:
+          anyOf:
+          - $ref: '#/components/schemas/PreviousGlobalIdDataset'
+          - type: 'null'
+          description: The previous global ID dataset
+        previousPivotTable:
+          anyOf:
+          - $ref: '#/components/schemas/PreviousGlobalIdDataset'
+          - type: 'null'
+          description: The previous pivot table
+        fixedUnmatchedData:
+          anyOf:
+          - $ref: '#/components/schemas/UnmatchedData'
+          - type: 'null'
+          description: The fixed unmatched data. Do not change any field names exported by DataGol.
+      type: object
+      required:
+      - datasets
+      title: GlobalIdRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     DataMapping:
       properties:
         crmIdField:
@@ -66,109 +188,6 @@ components:
           description: The company name field
       type: object
       title: DataMapping
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    GlobalIdDataResource:
-      properties:
-        name:
-          type: string
-          title: Name
-          description: The name of the workbook
-        isCrm:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Iscrm
-          description: Whether the workbook is a CRM workbook
-          default: false
-        sourceData:
-          $ref: '#/components/schemas/SourceData'
-          description: The source data
-        correctedUnmatchedData:
-          anyOf:
-          - $ref: '#/components/schemas/UnmatchedData'
-          - type: 'null'
-          description: The corrected unmatched data. Do not change any field names exported by DataGol.
-      type: object
-      required:
-      - name
-      - sourceData
-      title: GlobalIdDataResource
-    UnmatchedData:
-      properties:
-        workspaceId:
-          type: string
-          title: Workspaceid
-          description: The workspace ID
-        workbookId:
-          type: string
-          title: Workbookid
-          description: The workbook ID
-      type: object
-      required:
-      - workspaceId
-      - workbookId
-      title: UnmatchedData
-    GlobalIdRequest:
-      properties:
-        datasets:
-          items:
-            $ref: '#/components/schemas/GlobalIdDataResource'
-          type: array
-          title: Datasets
-          description: List of dataset resources
-        previousGlobalId:
-          anyOf:
-          - $ref: '#/components/schemas/PreviousGlobalIdDataset'
-          - type: 'null'
-          description: The previous global ID dataset
-        previousPivotTable:
-          anyOf:
-          - $ref: '#/components/schemas/PreviousGlobalIdDataset'
-          - type: 'null'
-          description: The previous pivot table
-        fixedUnmatchedData:
-          anyOf:
-          - $ref: '#/components/schemas/UnmatchedData'
-          - type: 'null'
-          description: The fixed unmatched data. Do not change any field names exported by DataGol.
-      type: object
-      required:
-      - datasets
-      title: GlobalIdRequest
     PreviousGlobalIdDataset:
       properties:
         workspaceId:
@@ -184,22 +203,3 @@ components:
       - workspaceId
       - workbookId
       title: PreviousGlobalIdDataset
-    SourceData:
-      properties:
-        workspaceId:
-          type: string
-          title: Workspaceid
-          description: The workspace ID
-        workbookId:
-          type: string
-          title: Workbookid
-          description: The workbook ID
-        dataMapping:
-          $ref: '#/components/schemas/DataMapping'
-          description: The data mapping
-      type: object
-      required:
-      - workspaceId
-      - workbookId
-      - dataMapping
-      title: SourceData

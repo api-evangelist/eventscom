@@ -245,52 +245,23 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    AutoARIMAModelProperties:
+    ARIMAorder:
       properties:
-        testSizePercentage:
+        p:
           type: integer
-          title: Testsizepercentage
-          default: 30
-        removeOutliers:
-          type: boolean
-          title: Removeoutliers
-          default: false
-        startP:
+          title: P
+        d:
           type: integer
-          title: Startp
-          default: 2
-        maxP:
+          title: D
+        q:
           type: integer
-          title: Maxp
-          default: 5
-        startQ:
-          type: integer
-          title: Startq
-          default: 2
-        maxQ:
-          type: integer
-          title: Maxq
-          default: 5
-        seasonal:
-          type: boolean
-          title: Seasonal
-          default: true
-        informationCriterion:
-          type: string
-          enum:
-          - aic
-          - bic
-          - hqic
-          - oob
-          title: Informationcriterion
-          default: aic
-        dateColumn:
-          type: string
-          title: Datecolumn
+          title: Q
       type: object
       required:
-      - dateColumn
-      title: AutoARIMAModelProperties
+      - p
+      - d
+      - q
+      title: ARIMAorder
     ProphetModelProperties:
       properties:
         testSizePercentage:
@@ -337,6 +308,52 @@ components:
       required:
       - dateColumn
       title: ProphetModelProperties
+    ARIMAModelProperties:
+      properties:
+        testSizePercentage:
+          type: integer
+          title: Testsizepercentage
+          default: 30
+        removeOutliers:
+          type: boolean
+          title: Removeoutliers
+          default: false
+        order:
+          items:
+            $ref: '#/components/schemas/ARIMAorder'
+          type: array
+          title: Order
+        trend:
+          type: string
+          enum:
+          - n
+          - c
+          - t
+          - ct
+          title: Trend
+          default: n
+        enforceStationarity:
+          type: boolean
+          title: Enforcestationarity
+          default: false
+        enforceInvertibility:
+          type: boolean
+          title: Enforceinvertibility
+          default: false
+        regressorsWithoutMode:
+          items:
+            type: string
+          type: array
+          title: Regressorswithoutmode
+        dateColumn:
+          type: string
+          title: Datecolumn
+      type: object
+      required:
+      - order
+      - regressorsWithoutMode
+      - dateColumn
+      title: ARIMAModelProperties
     RandomForestModelProperties:
       properties:
         testSizePercentage:
@@ -388,15 +405,6 @@ components:
       required:
       - includeColumns
       title: RandomForestModelProperties
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ExponentialSmoothingModelProperties:
       properties:
         testSizePercentage:
@@ -433,7 +441,7 @@ components:
           default: 12
       type: object
       title: ExponentialSmoothingModelProperties
-    ARIMAModelProperties:
+    AutoARIMAModelProperties:
       properties:
         testSizePercentage:
           type: integer
@@ -443,42 +451,55 @@ components:
           type: boolean
           title: Removeoutliers
           default: false
-        order:
-          items:
-            $ref: '#/components/schemas/ARIMAorder'
-          type: array
-          title: Order
-        trend:
+        startP:
+          type: integer
+          title: Startp
+          default: 2
+        maxP:
+          type: integer
+          title: Maxp
+          default: 5
+        startQ:
+          type: integer
+          title: Startq
+          default: 2
+        maxQ:
+          type: integer
+          title: Maxq
+          default: 5
+        seasonal:
+          type: boolean
+          title: Seasonal
+          default: true
+        informationCriterion:
           type: string
           enum:
-          - n
-          - c
-          - t
-          - ct
-          title: Trend
-          default: n
-        enforceStationarity:
-          type: boolean
-          title: Enforcestationarity
-          default: false
-        enforceInvertibility:
-          type: boolean
-          title: Enforceinvertibility
-          default: false
-        regressorsWithoutMode:
-          items:
-            type: string
-          type: array
-          title: Regressorswithoutmode
+          - aic
+          - bic
+          - hqic
+          - oob
+          title: Informationcriterion
+          default: aic
         dateColumn:
           type: string
           title: Datecolumn
       type: object
       required:
-      - order
-      - regressorsWithoutMode
       - dateColumn
-      title: ARIMAModelProperties
+      title: AutoARIMAModelProperties
+    DataProperties:
+      properties:
+        workbookId:
+          type: string
+          title: Workbookid
+        targetColumn:
+          type: string
+          title: Targetcolumn
+      type: object
+      required:
+      - workbookId
+      - targetColumn
+      title: DataProperties
     LinearRegressionModelProperties:
       properties:
         testSizePercentage:
@@ -506,75 +527,6 @@ components:
       required:
       - includeColumns
       title: LinearRegressionModelProperties
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Regressor:
-      properties:
-        column:
-          type: string
-          title: Column
-        mode:
-          type: string
-          title: Mode
-          default: additive
-      type: object
-      required:
-      - column
-      title: Regressor
-    DataProperties:
-      properties:
-        workbookId:
-          type: string
-          title: Workbookid
-        targetColumn:
-          type: string
-          title: Targetcolumn
-      type: object
-      required:
-      - workbookId
-      - targetColumn
-      title: DataProperties
-    ARIMAorder:
-      properties:
-        p:
-          type: integer
-          title: P
-        d:
-          type: integer
-          title: D
-        q:
-          type: integer
-          title: Q
-      type: object
-      required:
-      - p
-      - d
-      - q
-      title: ARIMAorder
     CreateModel:
       properties:
         id:
@@ -632,3 +584,51 @@ components:
       - dataProperties
       - modelProperties
       title: CreateModel
+    Regressor:
+      properties:
+        column:
+          type: string
+          title: Column
+        mode:
+          type: string
+          title: Mode
+          default: additive
+      type: object
+      required:
+      - column
+      title: Regressor
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

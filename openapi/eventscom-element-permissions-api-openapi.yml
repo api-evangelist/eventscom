@@ -826,23 +826,26 @@ paths:
       - s_jwt: []
 components:
   schemas:
-    BulkDeleteRequestDTO:
+    BulkCreateRequestDTO:
       type: object
       properties:
-        ids:
+        permissions:
           type: array
           items:
-            type: string
-    BulkOperationFailureDTO:
+            $ref: '#/components/schemas/ElementPermissionsDTO'
+    EditElementPermissionsDTO:
+      required:
+      - permission
       type: object
       properties:
         id:
           type: string
-        userId:
-          type: integer
-          format: int64
-        reason:
+        permission:
           type: string
+        config:
+          type: object
+          additionalProperties:
+            type: object
     InviteInfoDTO:
       type: object
       properties:
@@ -858,15 +861,27 @@ components:
           type: string
         isInviteValid:
           type: boolean
-    LinkAccessRequestDTO:
-      required:
-      - scope
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        scope:
+        success:
+          type: boolean
+        version:
           type: string
-        permission:
+        date:
           type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    BulkDeleteRequestDTO:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
     ElementPermissionsDTO:
       required:
       - elementId
@@ -912,22 +927,6 @@ components:
           type: object
         hidden:
           type: boolean
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     UserDTO:
       type: object
       properties:
@@ -987,40 +986,6 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    EditElementPermissionsDTO:
-      required:
-      - permission
-      type: object
-      properties:
-        id:
-          type: string
-        permission:
-          type: string
-        config:
-          type: object
-          additionalProperties:
-            type: object
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    LinkAccessResponseDTO:
-      type: object
-      properties:
-        scope:
-          type: string
-        permission:
-          type: string
     BulkOperationResponseDTO:
       type: object
       properties:
@@ -1041,13 +1006,48 @@ components:
         failureCount:
           type: integer
           format: int32
-    BulkCreateRequestDTO:
+    LinkAccessRequestDTO:
+      required:
+      - scope
       type: object
       properties:
-        permissions:
+        scope:
+          type: string
+        permission:
+          type: string
+    LinkAccessResponseDTO:
+      type: object
+      properties:
+        scope:
+          type: string
+        permission:
+          type: string
+    BulkOperationFailureDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        reason:
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
           type: array
           items:
-            $ref: '#/components/schemas/ElementPermissionsDTO'
+            type: string
   securitySchemes:
     s_jwt:
       type: http

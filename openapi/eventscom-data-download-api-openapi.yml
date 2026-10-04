@@ -61,6 +61,25 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    DataDownloadRequest:
+      properties:
+        data:
+          items:
+            type: string
+          type: array
+          title: Data
+          description: List of file paths to download from S3
+        workspaceId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Workspaceid
+          description: Workspace ID (optional, kept for backward compatibility)
+      type: object
+      required:
+      - data
+      title: DataDownloadRequest
+      description: Request model for downloading data files from S3
     ValidationError:
       properties:
         loc:
@@ -87,22 +106,3 @@ components:
       - msg
       - type
       title: ValidationError
-    DataDownloadRequest:
-      properties:
-        data:
-          items:
-            type: string
-          type: array
-          title: Data
-          description: List of file paths to download from S3
-        workspaceId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Workspaceid
-          description: Workspace ID (optional, kept for backward compatibility)
-      type: object
-      required:
-      - data
-      title: DataDownloadRequest
-      description: Request model for downloading data files from S3

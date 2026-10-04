@@ -154,6 +154,32 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    AddWidgetRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+        widget_id:
+          type: string
+          title: Widget Id
+        workspace_id:
+          type: string
+          title: Workspace Id
+        company_id:
+          type: integer
+          title: Company Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - page_id
+      - widget_id
+      - workspace_id
+      - company_id
+      - widget
+      title: AddWidgetRequest
     DeleteWidgetRequest:
       properties:
         widget_id:
@@ -163,6 +189,38 @@ components:
       required:
       - widget_id
       title: DeleteWidgetRequest
+    UpdateWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - widget_id
+      - widget
+      title: UpdateWidgetRequest
+    IndexPageRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+      type: object
+      required:
+      - page_id
+      title: IndexPageRequest
+    IndexWorkspaceRequest:
+      properties:
+        workspace_id:
+          type: string
+          title: Workspace Id
+      type: object
+      required:
+      - workspace_id
+      title: IndexWorkspaceRequest
     HTTPValidationError:
       properties:
         detail:
@@ -198,61 +256,3 @@ components:
       - msg
       - type
       title: ValidationError
-    UpdateWidgetRequest:
-      properties:
-        widget_id:
-          type: string
-          title: Widget Id
-        widget:
-          additionalProperties: true
-          type: object
-          title: Widget
-      type: object
-      required:
-      - widget_id
-      - widget
-      title: UpdateWidgetRequest
-    IndexWorkspaceRequest:
-      properties:
-        workspace_id:
-          type: string
-          title: Workspace Id
-      type: object
-      required:
-      - workspace_id
-      title: IndexWorkspaceRequest
-    IndexPageRequest:
-      properties:
-        page_id:
-          type: string
-          title: Page Id
-      type: object
-      required:
-      - page_id
-      title: IndexPageRequest
-    AddWidgetRequest:
-      properties:
-        page_id:
-          type: string
-          title: Page Id
-        widget_id:
-          type: string
-          title: Widget Id
-        workspace_id:
-          type: string
-          title: Workspace Id
-        company_id:
-          type: integer
-          title: Company Id
-        widget:
-          additionalProperties: true
-          type: object
-          title: Widget
-      type: object
-      required:
-      - page_id
-      - widget_id
-      - workspace_id
-      - company_id
-      - widget
-      title: AddWidgetRequest

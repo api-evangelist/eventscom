@@ -61,6 +61,49 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    TableDTO:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: Id of the data source table.
+        name:
+          type: string
+          title: Name
+          description: Name of the data source table.
+        dataSourceId:
+          type: integer
+          title: Datasourceid
+          description: Id of the data source.
+      type: object
+      title: TableDTO
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Metric:
+      type: string
+      enum:
+      - L1
+      - L2
+      - COSINE
+      - NEGATIVE_IP
+      title: Metric
+    SearchTablesResponse:
+      properties:
+        tables:
+          items:
+            $ref: '#/components/schemas/TableDTO'
+          type: array
+          title: Tables
+          description: List of tables.
+      type: object
+      title: SearchTablesResponse
     SearchTablesRequest:
       properties:
         dataSourceIds:
@@ -86,15 +129,6 @@ components:
           description: Distance function to be used.
       type: object
       title: SearchTablesRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -121,16 +155,6 @@ components:
       - msg
       - type
       title: ValidationError
-    SearchTablesResponse:
-      properties:
-        tables:
-          items:
-            $ref: '#/components/schemas/TableDTO'
-          type: array
-          title: Tables
-          description: List of tables.
-      type: object
-      title: SearchTablesResponse
     CreateEmbeddingsRequest:
       properties:
         dataSourceId:
@@ -153,27 +177,3 @@ components:
           description: OpenAI embedding model ID.
       type: object
       title: CreateEmbeddingsRequest
-    Metric:
-      type: string
-      enum:
-      - L1
-      - L2
-      - COSINE
-      - NEGATIVE_IP
-      title: Metric
-    TableDTO:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: Id of the data source table.
-        name:
-          type: string
-          title: Name
-          description: Name of the data source table.
-        dataSourceId:
-          type: integer
-          title: Datasourceid
-          description: Id of the data source.
-      type: object
-      title: TableDTO

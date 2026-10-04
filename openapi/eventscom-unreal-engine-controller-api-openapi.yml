@@ -564,57 +564,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UnrealEngineConfigurationDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        config:
-          type: object
-          additionalProperties:
-            type: object
-        workflowBuilderType:
-          type: string
-          enum:
-          - CHAT_AGENT
-          - CUSTOM
-        key:
-          type: string
-    UnrealEngineExecutionBlockDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        configurationId:
-          type: integer
-          format: int64
-        instanceId:
-          type: integer
-          format: int64
-        json:
-          type: object
-          additionalProperties:
-            type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -646,6 +595,57 @@ components:
             type: object
         isCompleted:
           type: boolean
+    UnrealEngineConfigurationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: object
+        workflowBuilderType:
+          type: string
+          enum:
+          - CHAT_AGENT
+          - CUSTOM
+        key:
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    UnrealEngineExecutionBlockDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        configurationId:
+          type: integer
+          format: int64
+        instanceId:
+          type: integer
+          format: int64
+        json:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     s_jwt:
       type: http

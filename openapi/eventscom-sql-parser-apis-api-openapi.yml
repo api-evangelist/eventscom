@@ -164,32 +164,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    ParsedSqlColumnsList:
-      properties:
-        error:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Error
-          description: Error message.
-        invalid_columns:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Invalid Columns
-          description: List of invalid columns.
-          default: []
-        columns:
-          items:
-            $ref: '#/components/schemas/ParsedSqlColumn'
-          type: array
-          title: Columns
-          description: List of columns.
-          default: []
-      type: object
-      title: ParsedSqlColumnsList
     HTTPValidationError:
       properties:
         detail:
@@ -199,32 +173,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     ParsedSqlColumn:
       properties:
         name:
@@ -255,3 +203,55 @@ components:
           default: ''
       type: object
       title: ParsedSqlColumn
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ParsedSqlColumnsList:
+      properties:
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error
+          description: Error message.
+        invalid_columns:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Invalid Columns
+          description: List of invalid columns.
+          default: []
+        columns:
+          items:
+            $ref: '#/components/schemas/ParsedSqlColumn'
+          type: array
+          title: Columns
+          description: List of columns.
+          default: []
+      type: object
+      title: ParsedSqlColumnsList

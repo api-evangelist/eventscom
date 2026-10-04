@@ -423,6 +423,44 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    MigrationResultDTO:
+      type: object
+      properties:
+        totalProcessed:
+          type: integer
+          format: int32
+        successCount:
+          type: integer
+          format: int32
+        failureCount:
+          type: integer
+          format: int32
+        successIds:
+          type: array
+          items:
+            type: string
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/MigrationFailureDTO'
+        message:
+          type: string
+        allSuccessful:
+          type: boolean
     ExternalEmbeddingConfigDTO:
       type: object
       properties:
@@ -490,30 +528,6 @@ components:
           type: string
         actualValue:
           type: string
-    MigrationResultDTO:
-      type: object
-      properties:
-        totalProcessed:
-          type: integer
-          format: int32
-        successCount:
-          type: integer
-          format: int32
-        failureCount:
-          type: integer
-          format: int32
-        successIds:
-          type: array
-          items:
-            type: string
-        failures:
-          type: array
-          items:
-            $ref: '#/components/schemas/MigrationFailureDTO'
-        message:
-          type: string
-        allSuccessful:
-          type: boolean
     ErrorMessage:
       type: object
       properties:
@@ -530,20 +544,6 @@ components:
           type: array
           items:
             type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
   securitySchemes:
     s_jwt:
       type: http

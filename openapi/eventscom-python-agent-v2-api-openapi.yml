@@ -107,71 +107,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    AgentRequest:
-      properties:
-        userId:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Userid
-          description: 'ID of the user sending this query. '
-        conversationId:
-          type: string
-          title: Conversationid
-          description: Conversation or thread ID of the query.
-        message:
-          type: string
-          title: Message
-          description: User query or message to the agent.
-        selectedLlmModel:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Selectedllmmodel
-          description: Model to be used to resolve the query.
-        parameters:
-          $ref: '#/components/schemas/Parameters'
-          description: Context for the query
-        agentType:
-          type: string
-          title: Agenttype
-          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent, etc.'
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
-          description: Alias for agentType sent by some UI clients.
-        selectedParser:
-          type: string
-          title: Selectedparser
-          description: 'Type of parser. Example: LLM Sherpa, Llama Parse'
-        workbookIds:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Workbookids
-          description: List of workbook IDs for additional data sources.
-        uiMetadata:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Uimetadata
-          description: Optional UI metadata persisted on the message row and returned when loading messages.
-        enableStreamPersistence:
-          type: boolean
-          title: Enablestreampersistence
-          description: When True, chunks are persisted to Redis and the POST response is a JSON status object; clients must connect to GET /messages/streaming/{conversationId}. When False (default), chunks are streamed inline on the POST response.
-          default: false
-      type: object
-      required:
-      - message
-      - parameters
-      - agentType
-      title: AgentRequest
     HTTPValidationError:
       properties:
         detail:
@@ -181,32 +116,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     Parameters:
       properties:
         dataProvider:
@@ -411,3 +320,94 @@ components:
           description: List of conversation file IDs.
       type: object
       title: Parameters
+    AgentRequest:
+      properties:
+        userId:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Userid
+          description: 'ID of the user sending this query. '
+        conversationId:
+          type: string
+          title: Conversationid
+          description: Conversation or thread ID of the query.
+        message:
+          type: string
+          title: Message
+          description: User query or message to the agent.
+        selectedLlmModel:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Selectedllmmodel
+          description: Model to be used to resolve the query.
+        parameters:
+          $ref: '#/components/schemas/Parameters'
+          description: Context for the query
+        agentType:
+          type: string
+          title: Agenttype
+          description: 'Type of agent. Example: PythonAgent, DataConversationAgent, SQLAgent, BIAgent, etc.'
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
+          description: Alias for agentType sent by some UI clients.
+        selectedParser:
+          type: string
+          title: Selectedparser
+          description: 'Type of parser. Example: LLM Sherpa, Llama Parse'
+        workbookIds:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Workbookids
+          description: List of workbook IDs for additional data sources.
+        uiMetadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Uimetadata
+          description: Optional UI metadata persisted on the message row and returned when loading messages.
+        enableStreamPersistence:
+          type: boolean
+          title: Enablestreampersistence
+          description: When True, chunks are persisted to Redis and the POST response is a JSON status object; clients must connect to GET /messages/streaming/{conversationId}. When False (default), chunks are streamed inline on the POST response.
+          default: false
+      type: object
+      required:
+      - message
+      - parameters
+      - agentType
+      title: AgentRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

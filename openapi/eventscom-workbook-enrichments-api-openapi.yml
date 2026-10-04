@@ -524,68 +524,22 @@ paths:
                 $ref: '#/components/schemas/SaasxlResponseDTOMapStringObject'
 components:
   schemas:
-    SingleRowEnrichmentRunDTO:
+    LinkRecordDTO:
       type: object
       properties:
-        selectedOutputColumns:
-          type: array
-          items:
-            type: string
-    SaasxlResponseDTOVoid:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        sourceRecordId:
           type: object
-    EnrichmentRunDTO:
-      type: object
-      properties:
-        requestId:
-          type: string
-        status:
-          type: string
-        errorMessage:
-          type: string
-    SaasxlResponseDTOMapStringObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        destinationRecordId:
           type: object
-          additionalProperties:
-            type: object
-    SaasxlResponseDTOListWorkbookEnrichmentDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
+        linkColumnId:
           type: string
-        date:
+        columnId:
           type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
     RowDataDTO:
       type: object
       properties:
@@ -608,22 +562,127 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LinkRecordDTO'
-    ErrorMessage:
+    EnrichmentRunDTO:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
         requestId:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
+        status:
+          type: string
+        errorMessage:
+          type: string
+    SingleRowEnrichmentRunDTO:
+      type: object
+      properties:
+        selectedOutputColumns:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    SaasxlResponseDTOListWorkbookEnrichmentDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkbookEnrichmentDTO'
+    WorkbookEnrichmentDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        workspaceId:
+          type: string
+        tableId:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        actionType:
+          type: string
+          enum:
+          - WEB
+          - EMAIL_CAMPAIGN
+          - AI_ENRICHMENT
+          - AI_GENERATE
+        actionId:
+          type: integer
+          format: int64
+        hiddenColumnId:
+          type: string
+        mapping:
+          type: object
+          additionalProperties:
+            type: string
+        outputConfiguration:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOMapStringObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    SaasxlResponseDTOVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     SaasxlResponseDTOWorkbookEnrichmentDTO:
       type: object
       properties:
@@ -711,36 +770,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           $ref: '#/components/schemas/EnrichmentRunDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    LinkRecordDTO:
-      type: object
-      properties:
-        sourceRecordId:
-          type: object
-        destinationRecordId:
-          type: object
-        linkColumnId:
-          type: string
-        columnId:
-          type: string
-        tableId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
     BulkEnrichmentRunDTO:
       type: object
       properties:
@@ -762,51 +791,22 @@ components:
           type: array
           items:
             type: string
-    WorkbookEnrichmentDTO:
+    ErrorMessage:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
+        statusCode:
           type: integer
-          format: int64
-        name:
+          format: int32
+        requestId:
           type: string
-        workspaceId:
-          type: string
-        tableId:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        actionType:
-          type: string
-          enum:
-          - WEB
-          - EMAIL_CAMPAIGN
-          - AI_ENRICHMENT
-          - AI_GENERATE
-        actionId:
-          type: integer
-          format: int64
-        hiddenColumnId:
-          type: string
-        mapping:
+        message:
           type: object
-          additionalProperties:
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
             type: string
-        outputConfiguration:
-          type: object
-          additionalProperties:
-            type: object
   securitySchemes:
     s_jwt:
       type: http

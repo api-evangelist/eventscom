@@ -241,36 +241,87 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
+    PythonAgentResponse:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
+        message:
           type: string
           title: Message
-        type:
+        status:
           type: string
-          title: Error Type
+          title: Status
+          default: success
+        data:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Data
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - message
+      title: PythonAgentResponse
+      description: Base response model for Python agent
+    StopRunResponse:
+      properties:
+        status:
+          type: string
+          title: Status
+        message:
+          type: string
+          title: Message
+        messageId:
+          type: string
+          title: Messageid
+        conversationId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Conversationid
+        agentType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Agenttype
+          default: PythonAgent
+        disconnectInvoked:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Disconnectinvoked
+          default: false
+      type: object
+      required:
+      - status
+      - message
+      - messageId
+      title: StopRunResponse
+      description: Response model for stop endpoint.
+    PythonAgentFeedbackRequest:
+      properties:
+        session_id:
+          type: string
+          title: Session Id
+        feedback:
+          type: string
+          title: Feedback
+        chain_id:
+          type: string
+          title: Chain Id
+        query_clarification:
+          type: string
+          title: Query Clarification
+        context_needed:
+          type: string
+          title: Context Needed
+      type: object
+      required:
+      - session_id
+      - feedback
+      - chain_id
+      - query_clarification
+      - context_needed
+      title: PythonAgentFeedbackRequest
+      description: Request model for Python agent feedback submission
     AgentRequest:
       properties:
         userId:
@@ -330,26 +381,15 @@ components:
       - parameters
       - agentType
       title: AgentRequest
-    PythonAgentResponse:
+    HTTPValidationError:
       properties:
-        message:
-          type: string
-          title: Message
-        status:
-          type: string
-          title: Status
-          default: success
-        data:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Data
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - message
-      title: PythonAgentResponse
-      description: Base response model for Python agent
+      title: HTTPValidationError
     Parameters:
       properties:
         dataProvider:
@@ -515,64 +555,24 @@ components:
           description: 'LLM profile: "FAST" (Groq fast_agent_configs), "MODERATE" (standard_agent_configs), "DEEP_ANALYSIS" (top-level agent_configs). Omitted or null defaults to DEEP_ANALYSIS. Case-insensitive and legacy labels Fast / Moderate / Deep Analysis are accepted.'
       type: object
       title: Parameters
-    StopRunResponse:
+    ValidationError:
       properties:
-        status:
-          type: string
-          title: Status
-        message:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
           type: string
           title: Message
-        messageId:
+        type:
           type: string
-          title: Messageid
-        conversationId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Conversationid
-        agentType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Agenttype
-          default: PythonAgent
-        disconnectInvoked:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Disconnectinvoked
-          default: false
+          title: Error Type
       type: object
       required:
-      - status
-      - message
-      - messageId
-      title: StopRunResponse
-      description: Response model for stop endpoint.
-    PythonAgentFeedbackRequest:
-      properties:
-        session_id:
-          type: string
-          title: Session Id
-        feedback:
-          type: string
-          title: Feedback
-        chain_id:
-          type: string
-          title: Chain Id
-        query_clarification:
-          type: string
-          title: Query Clarification
-        context_needed:
-          type: string
-          title: Context Needed
-      type: object
-      required:
-      - session_id
-      - feedback
-      - chain_id
-      - query_clarification
-      - context_needed
-      title: PythonAgentFeedbackRequest
-      description: Request model for Python agent feedback submission
+      - loc
+      - msg
+      - type
+      title: ValidationError

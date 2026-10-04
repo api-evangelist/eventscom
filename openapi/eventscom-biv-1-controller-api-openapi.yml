@@ -164,35 +164,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    BIDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        interfaces:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonNode'
-        mode:
-          type: string
-        status:
-          type: string
-        workspaceId:
-          type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     JsonNode:
       type: object
     ErrorMessage:
@@ -211,6 +182,35 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    BIDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        interfaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonNode'
+        mode:
+          type: string
+        status:
+          type: string
+        workspaceId:
+          type: string
   securitySchemes:
     s_jwt:
       type: http
