@@ -216,20 +216,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     SparkResultDTO:
       type: object
       properties:
@@ -248,6 +250,20 @@ components:
           type: array
           items:
             type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     SparkJobDataDTO:
       type: object
       properties:
@@ -267,22 +283,6 @@ components:
           format: int64
         stream:
           type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

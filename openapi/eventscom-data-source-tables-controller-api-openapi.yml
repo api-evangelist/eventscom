@@ -61,22 +61,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    TableDTO:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: Id of the data source table.
-        name:
-          type: string
-          title: Name
-          description: Name of the data source table.
-        dataSourceId:
-          type: integer
-          title: Datasourceid
-          description: Id of the data source.
-      type: object
-      title: TableDTO
     HTTPValidationError:
       properties:
         detail:
@@ -86,49 +70,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    Metric:
-      type: string
-      enum:
-      - L1
-      - L2
-      - COSINE
-      - NEGATIVE_IP
-      title: Metric
-    SearchTablesResponse:
-      properties:
-        tables:
-          items:
-            $ref: '#/components/schemas/TableDTO'
-          type: array
-          title: Tables
-          description: List of tables.
-      type: object
-      title: SearchTablesResponse
-    SearchTablesRequest:
-      properties:
-        dataSourceIds:
-          items:
-            type: integer
-          type: array
-          title: Datasourceids
-          description: A list of data source ids.
-        searchQuery:
-          type: string
-          title: Searchquery
-          description: Natural language search query.
-        limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Limit
-          description: Limit to show the top n values.
-        metric:
-          anyOf:
-          - $ref: '#/components/schemas/Metric'
-          - type: 'null'
-          description: Distance function to be used.
-      type: object
-      title: SearchTablesRequest
     ValidationError:
       properties:
         loc:
@@ -155,6 +96,65 @@ components:
       - msg
       - type
       title: ValidationError
+    SearchTablesRequest:
+      properties:
+        dataSourceIds:
+          items:
+            type: integer
+          type: array
+          title: Datasourceids
+          description: A list of data source ids.
+        searchQuery:
+          type: string
+          title: Searchquery
+          description: Natural language search query.
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+          description: Limit to show the top n values.
+        metric:
+          anyOf:
+          - $ref: '#/components/schemas/Metric'
+          - type: 'null'
+          description: Distance function to be used.
+      type: object
+      title: SearchTablesRequest
+    Metric:
+      type: string
+      enum:
+      - L1
+      - L2
+      - COSINE
+      - NEGATIVE_IP
+      title: Metric
+    SearchTablesResponse:
+      properties:
+        tables:
+          items:
+            $ref: '#/components/schemas/TableDTO'
+          type: array
+          title: Tables
+          description: List of tables.
+      type: object
+      title: SearchTablesResponse
+    TableDTO:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: Id of the data source table.
+        name:
+          type: string
+          title: Name
+          description: Name of the data source table.
+        dataSourceId:
+          type: integer
+          title: Datasourceid
+          description: Id of the data source.
+      type: object
+      title: TableDTO
     CreateEmbeddingsRequest:
       properties:
         dataSourceId:

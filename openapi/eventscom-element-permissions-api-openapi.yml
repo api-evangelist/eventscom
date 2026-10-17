@@ -826,6 +826,22 @@ paths:
       - s_jwt: []
 components:
   schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     BulkCreateRequestDTO:
       type: object
       properties:
@@ -833,6 +849,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ElementPermissionsDTO'
+    LinkAccessRequestDTO:
+      required:
+      - scope
+      type: object
+      properties:
+        scope:
+          type: string
+        permission:
+          type: string
+    BulkOperationFailureDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        reason:
+          type: string
     EditElementPermissionsDTO:
       required:
       - permission
@@ -846,35 +881,26 @@ components:
           type: object
           additionalProperties:
             type: object
-    InviteInfoDTO:
+    BulkOperationResponseDTO:
       type: object
       properties:
-        inviteeEmail:
-          type: string
-        inviterName:
-          type: string
-        elementName:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        isInviteValid:
-          type: boolean
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
+        successfulOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ElementPermissionsDTO'
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkOperationFailureDTO'
+        totalProcessed:
+          type: integer
+          format: int32
+        successCount:
+          type: integer
+          format: int32
+        failureCount:
+          type: integer
+          format: int32
     BulkDeleteRequestDTO:
       type: object
       properties:
@@ -882,51 +908,6 @@ components:
           type: array
           items:
             type: string
-    ElementPermissionsDTO:
-      required:
-      - elementId
-      - elementType
-      type: object
-      properties:
-        id:
-          type: string
-        elementId:
-          type: string
-        elementType:
-          type: string
-        permission:
-          type: string
-        email:
-          type: string
-        userId:
-          type: integer
-          format: int64
-        anonymousUserId:
-          type: string
-        user:
-          $ref: '#/components/schemas/UserDTO'
-        elementName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        parentElementType:
-          type: string
-        parentElementId:
-          type: string
-        accessScope:
-          type: string
-        config:
-          type: object
-          additionalProperties:
-            type: object
-        joinedAt:
-          type: string
-          format: date-time
-        element:
-          type: object
-        hidden:
-          type: boolean
     UserDTO:
       type: object
       properties:
@@ -986,35 +967,20 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    BulkOperationResponseDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        successfulOperations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ElementPermissionsDTO'
-        failures:
-          type: array
-          items:
-            $ref: '#/components/schemas/BulkOperationFailureDTO'
-        totalProcessed:
-          type: integer
-          format: int32
-        successCount:
-          type: integer
-          format: int32
-        failureCount:
-          type: integer
-          format: int32
-    LinkAccessRequestDTO:
-      required:
-      - scope
-      type: object
-      properties:
-        scope:
+        success:
+          type: boolean
+        version:
           type: string
-        permission:
+        date:
           type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     LinkAccessResponseDTO:
       type: object
       properties:
@@ -1022,32 +988,66 @@ components:
           type: string
         permission:
           type: string
-    BulkOperationFailureDTO:
+    InviteInfoDTO:
+      type: object
+      properties:
+        inviteeEmail:
+          type: string
+        inviterName:
+          type: string
+        elementName:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        isInviteValid:
+          type: boolean
+    ElementPermissionsDTO:
+      required:
+      - elementId
+      - elementType
       type: object
       properties:
         id:
           type: string
+        elementId:
+          type: string
+        elementType:
+          type: string
+        permission:
+          type: string
+        email:
+          type: string
         userId:
           type: integer
           format: int64
-        reason:
+        anonymousUserId:
           type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
+        user:
+          $ref: '#/components/schemas/UserDTO'
+        elementName:
+          type: string
+        companyId:
           type: integer
-          format: int32
-        requestId:
+          format: int64
+        parentElementType:
           type: string
-        message:
+        parentElementId:
+          type: string
+        accessScope:
+          type: string
+        config:
           type: object
-        details:
+          additionalProperties:
+            type: object
+        joinedAt:
+          type: string
+          format: date-time
+        element:
           type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
+        hidden:
+          type: boolean
   securitySchemes:
     s_jwt:
       type: http

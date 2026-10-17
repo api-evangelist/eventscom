@@ -164,40 +164,20 @@ components:
       - schema
       - resource
       title: DataExtractionTestRequest
-    DataExtractionRequestSchemaGenerate:
+    Body_execute_data_extraction_file_upload:
       properties:
-        prompt:
+        file:
           type: string
-          title: Prompt
-          description: The prompt to be used for the data extraction schema generation.
-        resource:
-          $ref: '#/components/schemas/Resource'
-          description: The storage resource (S3 or GCP) to be used for the data extraction.
+          contentMediaType: application/octet-stream
+          title: File
+        schema:
+          type: string
+          title: Schema
       type: object
       required:
-      - prompt
-      - resource
-      title: DataExtractionRequestSchemaGenerate
-    SchemaProperty:
-      properties:
-        property_name:
-          type: string
-          title: Property Name
-          description: The name of the property.
-        property_description:
-          type: string
-          title: Property Description
-          description: The description of the property.
-        property_type:
-          type: string
-          title: Property Type
-          description: The type of the property, optional, by default str.
-          default: str
-      type: object
-      required:
-      - property_name
-      - property_description
-      title: SchemaProperty
+      - file
+      - schema
+      title: Body_execute_data_extraction_file_upload
     Resource:
       properties:
         bucket_name:
@@ -231,6 +211,15 @@ components:
       - storage_type
       title: Resource
       description: Storage resource for S3 or GCP (bucket + prefix + optional credentials).
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     Body_generate_data_extraction_schema_from_content:
       properties:
         file:
@@ -258,40 +247,26 @@ components:
       - schema
       - file
       title: Body_run_data_extraction_test_file_upload
-    DataExtractionRequest:
+    SchemaProperty:
       properties:
-        resource:
-          $ref: '#/components/schemas/Resource'
-        schema:
-          items:
-            $ref: '#/components/schemas/SchemaProperty'
-          type: array
-          title: Schema
-          description: A list of properties defining the structure of the data to be extracted.
-        llm_model:
+        property_name:
           type: string
-          title: Llm Model
-          description: The model to be used for the data extraction.
-          default: gpt-4.1-nano
-        company_id:
-          type: integer
-          title: Company Id
-          description: The company id of the user.
+          title: Property Name
+          description: The name of the property.
+        property_description:
+          type: string
+          title: Property Description
+          description: The description of the property.
+        property_type:
+          type: string
+          title: Property Type
+          description: The type of the property, optional, by default str.
+          default: str
       type: object
       required:
-      - resource
-      - schema
-      - company_id
-      title: DataExtractionRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+      - property_name
+      - property_description
+      title: SchemaProperty
     ValidationError:
       properties:
         loc:
@@ -318,17 +293,42 @@ components:
       - msg
       - type
       title: ValidationError
-    Body_execute_data_extraction_file_upload:
+    DataExtractionRequestSchemaGenerate:
       properties:
-        file:
+        prompt:
           type: string
-          contentMediaType: application/octet-stream
-          title: File
-        schema:
-          type: string
-          title: Schema
+          title: Prompt
+          description: The prompt to be used for the data extraction schema generation.
+        resource:
+          $ref: '#/components/schemas/Resource'
+          description: The storage resource (S3 or GCP) to be used for the data extraction.
       type: object
       required:
-      - file
+      - prompt
+      - resource
+      title: DataExtractionRequestSchemaGenerate
+    DataExtractionRequest:
+      properties:
+        resource:
+          $ref: '#/components/schemas/Resource'
+        schema:
+          items:
+            $ref: '#/components/schemas/SchemaProperty'
+          type: array
+          title: Schema
+          description: A list of properties defining the structure of the data to be extracted.
+        llm_model:
+          type: string
+          title: Llm Model
+          description: The model to be used for the data extraction.
+          default: gpt-4.1-nano
+        company_id:
+          type: integer
+          title: Company Id
+          description: The company id of the user.
+      type: object
+      required:
+      - resource
       - schema
-      title: Body_execute_data_extraction_file_upload
+      - company_id
+      title: DataExtractionRequest

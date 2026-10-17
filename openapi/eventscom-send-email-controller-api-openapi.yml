@@ -136,6 +136,24 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
+    EmailDTO:
+      required:
+      - subject
+      - to
+      type: object
+      properties:
+        from:
+          type: string
+        senderIdentity:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        body:
+          type: string
+        attachmentUrl:
+          type: string
     BulkEmailDTO:
       type: object
       properties:
@@ -191,24 +209,6 @@ components:
         fromEmail:
           type: string
         senderIdentity:
-          type: string
-    EmailDTO:
-      required:
-      - subject
-      - to
-      type: object
-      properties:
-        from:
-          type: string
-        senderIdentity:
-          type: string
-        to:
-          type: string
-        subject:
-          type: string
-        body:
-          type: string
-        attachmentUrl:
           type: string
   securitySchemes:
     s_jwt:

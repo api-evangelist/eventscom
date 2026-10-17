@@ -1854,93 +1854,17 @@ paths:
                 $ref: '#/components/schemas/KbBrowseResponseDTO'
 components:
   schemas:
-    KbBrowseResponseDTO:
+    KbBrowseItemDTO:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/KbBrowseItemDTO'
-        hasMore:
-          type: boolean
-        totalCount:
-          type: integer
-          format: int32
-        nextCursor:
-          type: string
-    PageResponseDTOKbIndexJobDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/KbIndexJobDTO'
-    KbConnectorCreateDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - GMAIL
-          - GOOGLE_DRIVE
-          - GOOGLE_SPACES
-          - WEB
-          - S3
-          - GCS
-          - AZURE_BLOB
-          - ONEDRIVE
-          - SHAREPOINT
-          - SLACK
-          - CONFLUENCE
-          - JIRA
-          - WORKBOOK
-          - WORKSPACE_DOCUMENTS
-        credentialId:
-          type: integer
-          format: int64
-        sourceId:
-          type: string
-    KbResolveUrlItemDTO:
-      type: object
-      properties:
-        url:
-          type: string
         id:
           type: string
         name:
           type: string
         type:
           type: string
-        driveId:
-          type: string
-        error:
-          type: string
-    KbConnectorStatsDTO:
-      type: object
-      properties:
-        connectorId:
-          type: string
-          format: uuid
-        total:
-          type: integer
-          format: int64
-        queued:
-          type: integer
-          format: int64
-        inProgress:
-          type: integer
-          format: int64
-        completed:
-          type: integer
-          format: int64
-        failed:
-          type: integer
-          format: int64
-        skipped:
-          type: integer
-          format: int64
+        hasChildren:
+          type: boolean
     KbRecordGroupDTO:
       type: object
       properties:
@@ -1977,104 +1901,20 @@ components:
         recordCount:
           type: integer
           format: int64
-    KbRecordConfigDTO:
+    KbBrowseResponseDTO:
       type: object
       properties:
-        pdfParser:
-          type: string
-        ocrEnabled:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/KbBrowseItemDTO'
+        hasMore:
           type: boolean
-    KbWorkbookSearchDTO:
-      type: object
-      properties:
-        query:
-          type: string
-        filters:
-          type: object
-          additionalProperties:
-            type: object
-        limit:
+        totalCount:
           type: integer
           format: int32
-    KbTriggerSyncDTO:
-      type: object
-      properties:
-        runType:
+        nextCursor:
           type: string
-          enum:
-          - FULL
-          - INCREMENTAL
-          - MANUAL
-          - REINDEX
-        checkpointOverride:
-          type: object
-          additionalProperties:
-            type: object
-    KbConfigCreateDTO:
-      type: object
-      properties:
-        syncJson:
-          type: object
-          additionalProperties:
-            type: object
-        filtersJson:
-          type: object
-          additionalProperties:
-            type: object
-        scheduleJson:
-          type: object
-          additionalProperties:
-            type: object
-        indexJson:
-          type: object
-          additionalProperties:
-            type: object
-        advancedJson:
-          type: object
-          additionalProperties:
-            type: object
-    KbRunDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        connectorId:
-          type: string
-          format: uuid
-        runType:
-          type: string
-          enum:
-          - FULL
-          - INCREMENTAL
-          - MANUAL
-          - REINDEX
-        status:
-          type: string
-          enum:
-          - RUNNING
-          - SUCCESS
-          - FAILED
-          - PARTIAL
-          - CANCELLED
-        temporalWorkflowId:
-          type: string
-        startedAt:
-          type: string
-          format: date-time
-        finishedAt:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        statsJson:
-          type: object
-          additionalProperties:
-            type: object
-        checkpointJson:
-          type: object
-          additionalProperties:
-            type: object
     SaasxlResponseDTOObject:
       type: object
       properties:
@@ -2096,29 +1936,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KbRunDTO'
-    KbBrowseItemDTO:
+    KbConnectorCreateDTO:
       type: object
       properties:
-        id:
-          type: string
         name:
           type: string
-        type:
-          type: string
-        hasChildren:
-          type: boolean
-    KbConnectorDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        companyId:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
         type:
           type: string
           enum:
@@ -2136,53 +1958,11 @@ components:
           - JIRA
           - WORKBOOK
           - WORKSPACE_DOCUMENTS
-        name:
-          type: string
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - PAUSED
-          - ERROR
-        lastSyncAt:
-          type: string
-          format: date-time
-        lastSyncStatus:
-          type: string
-        sourceId:
-          type: string
         credentialId:
           type: integer
           format: int64
-        activeConfig:
-          $ref: '#/components/schemas/KbConfigDTO'
-        latestRun:
-          $ref: '#/components/schemas/KbRunDTO'
-        stats:
-          $ref: '#/components/schemas/KbConnectorStatsDTO'
-    Hit:
-      type: object
-      properties:
-        pointId:
+        sourceId:
           type: string
-        rowId:
-          type: string
-        pageContent:
-          type: string
-        score:
-          type: number
-          format: float
-        metadata:
-          type: object
-          additionalProperties:
-            type: object
-    PageResponseDTOKbRecordDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/KbRecordDTO'
     KbConnectorUpdateDTO:
       type: object
       properties:
@@ -2197,9 +1977,24 @@ components:
         credentialId:
           type: integer
           format: int64
-    KbResolveUrlRequestDTO:
+    KbWorkbookSearchResultDTO:
       type: object
       properties:
+        collectionName:
+          type: string
+        hits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hit'
+    KbResolveUrlByCredentialRequestDTO:
+      required:
+      - credentialId
+      - urls
+      type: object
+      properties:
+        credentialId:
+          type: integer
+          format: int64
         urls:
           type: array
           items:
@@ -2281,44 +2076,31 @@ components:
           type: object
           additionalProperties:
             type: object
-    KbResolveUrlByCredentialRequestDTO:
-      required:
-      - credentialId
-      - urls
+    KbRecordConfigDTO:
       type: object
       properties:
-        credentialId:
-          type: integer
-          format: int64
-        urls:
-          type: array
-          items:
-            type: string
-    KbWorkbookSearchResultDTO:
-      type: object
-      properties:
-        collectionName:
+        pdfParser:
           type: string
-        hits:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hit'
-    KbConfigDTO:
+        ocrEnabled:
+          type: boolean
+    KbResolveUrlItemDTO:
       type: object
       properties:
+        url:
+          type: string
         id:
           type: string
-          format: uuid
-        connectorId:
+        name:
           type: string
-          format: uuid
-        credentialId:
-          type: integer
-          format: int64
-        credentialName:
+        type:
           type: string
-        credentialStatus:
+        driveId:
           type: string
+        error:
+          type: string
+    KbConfigCreateDTO:
+      type: object
+      properties:
         syncJson:
           type: object
           additionalProperties:
@@ -2339,22 +2121,6 @@ components:
           type: object
           additionalProperties:
             type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     KbIndexJobDTO:
       type: object
       properties:
@@ -2394,6 +2160,240 @@ components:
           format: int32
         errorMessage:
           type: string
+    KbTriggerSyncDTO:
+      type: object
+      properties:
+        runType:
+          type: string
+          enum:
+          - FULL
+          - INCREMENTAL
+          - MANUAL
+          - REINDEX
+        checkpointOverride:
+          type: object
+          additionalProperties:
+            type: object
+    PageResponseDTOKbIndexJobDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/KbIndexJobDTO'
+    KbResolveUrlRequestDTO:
+      type: object
+      properties:
+        urls:
+          type: array
+          items:
+            type: string
+    Hit:
+      type: object
+      properties:
+        pointId:
+          type: string
+        rowId:
+          type: string
+        pageContent:
+          type: string
+        score:
+          type: number
+          format: float
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+    KbConnectorStatsDTO:
+      type: object
+      properties:
+        connectorId:
+          type: string
+          format: uuid
+        total:
+          type: integer
+          format: int64
+        queued:
+          type: integer
+          format: int64
+        inProgress:
+          type: integer
+          format: int64
+        completed:
+          type: integer
+          format: int64
+        failed:
+          type: integer
+          format: int64
+        skipped:
+          type: integer
+          format: int64
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    KbWorkbookSearchDTO:
+      type: object
+      properties:
+        query:
+          type: string
+        filters:
+          type: object
+          additionalProperties:
+            type: object
+        limit:
+          type: integer
+          format: int32
+    KbRunDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        connectorId:
+          type: string
+          format: uuid
+        runType:
+          type: string
+          enum:
+          - FULL
+          - INCREMENTAL
+          - MANUAL
+          - REINDEX
+        status:
+          type: string
+          enum:
+          - RUNNING
+          - SUCCESS
+          - FAILED
+          - PARTIAL
+          - CANCELLED
+        temporalWorkflowId:
+          type: string
+        startedAt:
+          type: string
+          format: date-time
+        finishedAt:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        statsJson:
+          type: object
+          additionalProperties:
+            type: object
+        checkpointJson:
+          type: object
+          additionalProperties:
+            type: object
+    KbConfigDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        connectorId:
+          type: string
+          format: uuid
+        credentialId:
+          type: integer
+          format: int64
+        credentialName:
+          type: string
+        credentialStatus:
+          type: string
+        syncJson:
+          type: object
+          additionalProperties:
+            type: object
+        filtersJson:
+          type: object
+          additionalProperties:
+            type: object
+        scheduleJson:
+          type: object
+          additionalProperties:
+            type: object
+        indexJson:
+          type: object
+          additionalProperties:
+            type: object
+        advancedJson:
+          type: object
+          additionalProperties:
+            type: object
+    KbConnectorDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - GMAIL
+          - GOOGLE_DRIVE
+          - GOOGLE_SPACES
+          - WEB
+          - S3
+          - GCS
+          - AZURE_BLOB
+          - ONEDRIVE
+          - SHAREPOINT
+          - SLACK
+          - CONFLUENCE
+          - JIRA
+          - WORKBOOK
+          - WORKSPACE_DOCUMENTS
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - PAUSED
+          - ERROR
+        lastSyncAt:
+          type: string
+          format: date-time
+        lastSyncStatus:
+          type: string
+        sourceId:
+          type: string
+        credentialId:
+          type: integer
+          format: int64
+        activeConfig:
+          $ref: '#/components/schemas/KbConfigDTO'
+        latestRun:
+          $ref: '#/components/schemas/KbRunDTO'
+        stats:
+          $ref: '#/components/schemas/KbConnectorStatsDTO'
+    PageResponseDTOKbRecordDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/KbRecordDTO'
   securitySchemes:
     s_jwt:
       type: http

@@ -735,27 +735,47 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PageResponseDTOPolicyResultDTO:
+    PolicyAssertionDTO:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyResultDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
+        id:
+          type: integer
+          format: int64
+        policyId:
+          type: integer
+          format: int64
+        conditionId:
+          type: integer
+          format: int64
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        target:
+          $ref: '#/components/schemas/TargetDTO'
+        description:
           type: string
-        date:
+        createdAt:
           type: string
           format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     PolicyResultDTO:
       type: object
       properties:
@@ -783,6 +803,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ConditionDTO'
+    ConditionParameterDTO:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        dataType:
+          type: string
+        description:
+          type: string
+    PageResponseDTOPolicyAssertionDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyAssertionDTO'
     TargetDTO:
       type: object
       properties:
@@ -794,30 +832,6 @@ components:
           - DATA_SOURCE_TABLE
         id:
           type: string
-    ConditionConfigDTO:
-      type: object
-      properties:
-        expression:
-          type: string
-        sqlQuery:
-          $ref: '#/components/schemas/ConditionSqlQueryDTO'
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConditionParameterDTO'
-        targetType:
-          type: string
-          enum:
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - DATA_SOURCE_TABLE
-    PageResponseDTOPolicyAssertionDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyAssertionDTO'
     PageResponseDTOPolicyDTO:
       type: object
       properties:
@@ -825,31 +839,31 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PolicyDTO'
-    PolicyAssertionDTO:
+    PageResponseDTOPolicyResultDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyResultDTO'
+    PolicyAssertionResultDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        policyId:
+        policyResultId:
           type: integer
           format: int64
-        conditionId:
+        assertionId:
           type: integer
           format: int64
-        parameters:
+        successful:
+          type: boolean
+        data:
           type: object
           additionalProperties:
             type: object
-        target:
-          $ref: '#/components/schemas/TargetDTO'
-        description:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
     PolicyDTO:
       type: object
       properties:
@@ -942,57 +956,26 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     ConditionSqlQueryDTO:
       type: object
       properties:
         postgres:
           type: string
         spark:
-          type: string
-    PolicyAssertionResultDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        policyResultId:
-          type: integer
-          format: int64
-        assertionId:
-          type: integer
-          format: int64
-        successful:
-          type: boolean
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    ConditionParameterDTO:
-      type: object
-      properties:
-        key:
-          type: string
-        name:
-          type: string
-        dataType:
-          type: string
-        description:
           type: string
     ConditionDTO:
       type: object
@@ -1014,6 +997,23 @@ components:
           - DATA_SOURCE_TABLE
         config:
           $ref: '#/components/schemas/ConditionConfigDTO'
+    ConditionConfigDTO:
+      type: object
+      properties:
+        expression:
+          type: string
+        sqlQuery:
+          $ref: '#/components/schemas/ConditionSqlQueryDTO'
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConditionParameterDTO'
+        targetType:
+          type: string
+          enum:
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - DATA_SOURCE_TABLE
   securitySchemes:
     s_jwt:
       type: http

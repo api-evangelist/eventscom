@@ -42,35 +42,6 @@ components:
       required:
       - message
       title: CustomMessageResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    FeedbackReq:
-      properties:
-        messageId:
-          type: integer
-          title: Messageid
-          description: Message id for this feedback
-        like:
-          type: boolean
-          title: Like
-          description: Like or Dislike the response
-        comment:
-          type: string
-          title: Comment
-          description: Feedback Comment on the response of the LLM
-      type: object
-      required:
-      - messageId
-      - like
-      - comment
-      title: FeedbackReq
     ValidationError:
       properties:
         loc:
@@ -97,3 +68,32 @@ components:
       - msg
       - type
       title: ValidationError
+    FeedbackReq:
+      properties:
+        messageId:
+          type: integer
+          title: Messageid
+          description: Message id for this feedback
+        like:
+          type: boolean
+          title: Like
+          description: Like or Dislike the response
+        comment:
+          type: string
+          title: Comment
+          description: Feedback Comment on the response of the LLM
+      type: object
+      required:
+      - messageId
+      - like
+      - comment
+      title: FeedbackReq
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

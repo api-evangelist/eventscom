@@ -59,6 +59,25 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    JiraProjects:
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/JiraProject'
+          type: array
+          title: Projects
+          description: List of Jira projects
+      type: object
+      title: JiraProjects
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     CreateJiraIssueRequest:
       properties:
         connectorId:
@@ -122,32 +141,32 @@ components:
       - name
       - fields
       title: JiraIssueType
-    JiraProject:
+    ValidationError:
       properties:
-        projectKey:
-          type: string
-          title: Projectkey
-          description: Unique identifier for the Jira project
-        projectName:
-          type: string
-          title: Projectname
-          description: Name of the project
-        projectId:
-          type: string
-          title: Projectid
-          description: ID of the project
-        issueTypes:
+        loc:
           items:
-            $ref: '#/components/schemas/JiraIssueType'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Issuetypes
-          description: List of issue types and their fields
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
       type: object
       required:
-      - projectKey
-      - projectName
-      - projectId
-      title: JiraProject
+      - loc
+      - msg
+      - type
+      title: ValidationError
     JiraIssueFields:
       properties:
         requiredFields:
@@ -188,48 +207,29 @@ components:
           description: Standard Jira fields
       type: object
       title: JiraIssueFields
-    JiraProjects:
+    JiraProject:
       properties:
-        projects:
-          items:
-            $ref: '#/components/schemas/JiraProject'
-          type: array
-          title: Projects
-          description: List of Jira projects
-      type: object
-      title: JiraProjects
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
+        projectKey:
           type: string
-          title: Message
-        type:
+          title: Projectkey
+          description: Unique identifier for the Jira project
+        projectName:
           type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
+          title: Projectname
+          description: Name of the project
+        projectId:
+          type: string
+          title: Projectid
+          description: ID of the project
+        issueTypes:
+          items:
+            $ref: '#/components/schemas/JiraIssueType'
+          type: array
+          title: Issuetypes
+          description: List of issue types and their fields
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - projectKey
+      - projectName
+      - projectId
+      title: JiraProject

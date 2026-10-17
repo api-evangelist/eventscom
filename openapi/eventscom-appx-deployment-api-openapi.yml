@@ -449,6 +449,49 @@ paths:
       - s_jwt: []
 components:
   schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    CustomDomainStatusResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+        appId:
+          type: string
+        apexDomain:
+          type: string
+        wwwDomain:
+          type: string
+        status:
+          type: string
+        apexDnsVerified:
+          type: boolean
+        wwwDnsVerified:
+          type: boolean
+        requiredDnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+        apexUrl:
+          type: string
+        wwwUrl:
+          type: string
+        message:
+          type: string
     DnsRecord:
       type: object
       properties:
@@ -462,20 +505,6 @@ components:
           type: string
         description:
           type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     SaasxlResponseDTOCustomDomainStatusResponse:
       type: object
       properties:
@@ -490,52 +519,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           $ref: '#/components/schemas/CustomDomainStatusResponse'
-    AppXDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        name:
-          type: string
-        previewImage:
-          type: string
-        appUrl:
-          type: string
-        dockerImageTag:
-          type: string
-        customDomain:
-          type: string
-        customDomainStatus:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        requestId:
-          type: string
-    SaasxlResponseDTOVoid:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
     SaasxlResponseDTOAppXDTO:
       type: object
       properties:
@@ -550,6 +533,22 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           $ref: '#/components/schemas/AppXDTO'
+    SaasxlResponseDTOListAppXDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppXDTO'
     UserDTO:
       type: object
       properties:
@@ -609,15 +608,7 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    CustomDomainRequest:
-      required:
-      - apexDomain
-      type: object
-      properties:
-        apexDomain:
-          pattern: ^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$
-          type: string
-    SaasxlResponseDTOListAppXDTO:
+    SaasxlResponseDTOObject:
       type: object
       properties:
         success:
@@ -630,52 +621,61 @@ components:
         error:
           $ref: '#/components/schemas/ErrorMessage'
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppXDTO'
-    CustomDomainStatusResponse:
+          type: object
+    AppXDTO:
       type: object
       properties:
-        requestId:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
-        appId:
+          format: date-time
+        modiDate:
           type: string
-        apexDomain:
+          format: date-time
+        id:
           type: string
-        wwwDomain:
+        name:
           type: string
-        status:
+        previewImage:
           type: string
-        apexDnsVerified:
-          type: boolean
-        wwwDnsVerified:
-          type: boolean
-        requiredDnsRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsRecord'
-        apexUrl:
+        appUrl:
           type: string
-        wwwUrl:
+        dockerImageTag:
           type: string
-        message:
+        customDomain:
           type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
+        customDomainStatus:
+          type: string
+        companyId:
           type: integer
-          format: int32
+          format: int64
         requestId:
           type: string
-        message:
+    SaasxlResponseDTOVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
+    CustomDomainRequest:
+      required:
+      - apexDomain
+      type: object
+      properties:
+        apexDomain:
+          pattern: ^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$
+          type: string
   securitySchemes:
     s_jwt:
       type: http

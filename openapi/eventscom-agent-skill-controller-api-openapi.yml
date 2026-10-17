@@ -561,20 +561,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     ReferencingAgent:
       type: object
       properties:
@@ -596,6 +598,20 @@ components:
           type: string
         enabled:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     AgentSkillUsageDTO:
       type: object
       properties:
@@ -605,22 +621,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReferencingAgent'
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

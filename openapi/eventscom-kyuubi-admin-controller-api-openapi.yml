@@ -111,6 +111,27 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    KyuubiEngineDTO:
+      type: object
+      properties:
+        version:
+          type: string
+        user:
+          type: string
+        engineType:
+          type: string
+        sharelevel:
+          type: string
+        subdomain:
+          type: string
+        instance:
+          type: string
+        namespace:
+          type: string
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
     ErrorMessage:
       type: object
       properties:
@@ -141,27 +162,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    KyuubiEngineDTO:
-      type: object
-      properties:
-        version:
-          type: string
-        user:
-          type: string
-        engineType:
-          type: string
-        sharelevel:
-          type: string
-        subdomain:
-          type: string
-        instance:
-          type: string
-        namespace:
-          type: string
-        attributes:
-          type: object
-          additionalProperties:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

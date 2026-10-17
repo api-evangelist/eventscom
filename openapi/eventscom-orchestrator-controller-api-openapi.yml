@@ -244,20 +244,29 @@ paths:
                 $ref: '#/components/schemas/WorkflowStatusResponse'
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    StartWorkflowResponse:
+      type: object
+      properties:
+        workflowId:
+          type: string
+        workflowName:
+          type: string
     WorkflowDefinition:
       type: object
       properties:
@@ -294,25 +303,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StepStatusSummary'
-    StepStatusSummary:
-      type: object
-      properties:
-        stepId:
-          type: string
-        status:
-          type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        errorMessage:
-          type: string
-        output:
-          type: object
-          additionalProperties:
-            type: object
     UserDTO:
       type: object
       properties:
@@ -372,6 +362,39 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    StepStatusSummary:
+      type: object
+      properties:
+        stepId:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        errorMessage:
+          type: string
+        output:
+          type: object
+          additionalProperties:
+            type: object
     WorkflowStep:
       type: object
       properties:
@@ -407,29 +430,6 @@ components:
           additionalProperties:
             type: object
         dependsOn:
-          type: array
-          items:
-            type: string
-    StartWorkflowResponse:
-      type: object
-      properties:
-        workflowId:
-          type: string
-        workflowName:
-          type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
           type: array
           items:
             type: string

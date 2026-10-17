@@ -280,6 +280,54 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    SharedItemWithPermissionsDTO:
+      type: object
+      properties:
+        sharedItemDTO:
+          $ref: '#/components/schemas/SharedItemDTO'
+        sharedPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedPermissionsDTO'
+    ErrorMessage:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
+          type: string
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    SharedPermissionsDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        hash:
+          type: string
+        sharedItemId:
+          type: integer
+          format: int64
+        sharedEntityType:
+          type: string
+          enum:
+          - COMPANY
+          - DOMAIN
+          - WORKBOOK
+        entityValues:
+          type: array
+          items:
+            type: string
+        workbookColName:
+          type: string
     SharedItemDTO:
       type: object
       properties:
@@ -312,54 +360,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    SharedPermissionsDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        hash:
-          type: string
-        sharedItemId:
-          type: integer
-          format: int64
-        sharedEntityType:
-          type: string
-          enum:
-          - COMPANY
-          - DOMAIN
-          - WORKBOOK
-        entityValues:
-          type: array
-          items:
-            type: string
-        workbookColName:
-          type: string
-    SharedItemWithPermissionsDTO:
-      type: object
-      properties:
-        sharedItemDTO:
-          $ref: '#/components/schemas/SharedItemDTO'
-        sharedPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SharedPermissionsDTO'
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

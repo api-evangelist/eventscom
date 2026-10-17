@@ -566,91 +566,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ColumnSettingsDTO:
-      type: object
-      properties:
-        enableUserAddNotifications:
-          type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
-    EnumOptions:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnumOptionValue'
-        type:
-          type: string
-          enum:
-          - TEXT
-          - NUMERIC
-          - STATIC_ENUM
-          - DYNAMIC_ENUM
-          - BOOLEAN
-          - DATE
-          - DATETIME
-          - DATE_RANGE
-        sqlQuery:
-          type: string
-        multipleValuesAllowed:
-          type: boolean
-        wrapValuesWithinSingleQuotes:
-          type: boolean
-    EnumOptionValue:
-      type: object
-      properties:
-        value:
-          type: object
-        label:
-          type: string
-    AttachmentSettingsDTO:
-      type: object
-      properties:
-        templateKey:
-          type: string
-        templateFileName:
-          type: string
-        outputFileName:
-          type: string
-    WidgetParameterDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        workspaceId:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        type:
-          type: string
-          enum:
-          - TEXT
-          - NUMERIC
-          - STATIC_ENUM
-          - DYNAMIC_ENUM
-          - BOOLEAN
-          - DATE
-          - DATETIME
-          - DATE_RANGE
-        enumOptions:
-          $ref: '#/components/schemas/EnumOptions'
-        defaultValue:
-          type: object
-        createdAt:
-          type: string
-          format: date-time
-        showByDefault:
-          type: boolean
-        thirdPartyFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
     RowDataDTO:
       type: object
       properties:
@@ -673,6 +588,79 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LinkRecordDTO'
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        permissions:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        joinDate:
+          type: string
+          format: date-time
+        mfaEnabled:
+          type: boolean
+        redirectToMfaFlow:
+          type: boolean
+        tokenExpiryTime:
+          type: integer
+          format: int64
+        isServiceAccount:
+          type: boolean
+        lastLogin:
+          type: string
+          format: date-time
+        signInMethod:
+          type: string
+          enum:
+          - EMAIL
+          - GOOGLE
+          - MICROSOFT
+        isOnboardingCompleted:
+          type: boolean
+        role:
+          type: string
+        department:
+          type: string
+        anonymousUserId:
+          type: string
+        thirdPartyUser:
+          type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     ExtractionDTO:
       type: object
       properties:
@@ -752,14 +740,34 @@ components:
             type: object
         content:
           type: string
-    ScheduleData:
+    ResourceDTO:
       type: object
       properties:
-        basicSchedule:
-          $ref: '#/components/schemas/BasicSchedule'
-        cronExpression:
+        bucket_name:
           type: string
-        cronExpressionValue:
+        prefix:
+          type: string
+        access_key:
+          type: string
+        secret_key:
+          type: string
+        storage_type:
+          type: string
+    AttachmentSettingsDTO:
+      type: object
+      properties:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
           type: string
     ColumnDTO:
       required:
@@ -863,92 +871,6 @@ components:
           $ref: '#/components/schemas/ColumnSettingsDTO'
         sourceDatatype:
           type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    UserDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstname:
-          type: string
-        lastname:
-          type: string
-        email:
-          type: string
-        companyName:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        status:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        permissions:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        joinDate:
-          type: string
-          format: date-time
-        mfaEnabled:
-          type: boolean
-        redirectToMfaFlow:
-          type: boolean
-        tokenExpiryTime:
-          type: integer
-          format: int64
-        isServiceAccount:
-          type: boolean
-        lastLogin:
-          type: string
-          format: date-time
-        signInMethod:
-          type: string
-          enum:
-          - EMAIL
-          - GOOGLE
-          - MICROSOFT
-        isOnboardingCompleted:
-          type: boolean
-        role:
-          type: string
-        department:
-          type: string
-        anonymousUserId:
-          type: string
-        thirdPartyUser:
-          type: boolean
-    ResourceDTO:
-      type: object
-      properties:
-        bucket_name:
-          type: string
-        prefix:
-          type: string
-        access_key:
-          type: string
-        secret_key:
-          type: string
-        storage_type:
-          type: string
     BasicSchedule:
       type: object
       properties:
@@ -961,6 +883,15 @@ components:
           - DAY
           - MONTH
         units:
+          type: string
+    ScheduleData:
+      type: object
+      properties:
+        basicSchedule:
+          $ref: '#/components/schemas/BasicSchedule'
+        cronExpression:
+          type: string
+        cronExpressionValue:
           type: string
     LinkRecordDTO:
       type: object
@@ -978,17 +909,42 @@ components:
         companyId:
           type: integer
           format: int64
-    GenerateSchemaRequestDTO:
+    WidgetParameterDTO:
       type: object
       properties:
-        fileId:
+        id:
+          type: integer
+          format: int64
+        workspaceId:
           type: string
-        prompt:
+        name:
           type: string
-        resource:
-          $ref: '#/components/schemas/ResourceDTO'
-        content:
+        key:
           type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        enumOptions:
+          $ref: '#/components/schemas/EnumOptions'
+        defaultValue:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        showByDefault:
+          type: boolean
+        thirdPartyFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
     ThirdPartyFilterConfigDTO:
       type: object
       properties:
@@ -1000,19 +956,15 @@ components:
           type: string
         actualValue:
           type: string
-    AIGenerateSettingsDTO:
+    ColumnSettingsDTO:
       type: object
       properties:
-        prompt:
-          type: string
-        model:
-          type: string
-        webAccess:
+        enableUserAddNotifications:
           type: boolean
-        enabled:
-          type: boolean
-        webAccessProvider:
-          type: string
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
     ErrorMessage:
       type: object
       properties:
@@ -1029,6 +981,54 @@ components:
           type: array
           items:
             type: string
+    GenerateSchemaRequestDTO:
+      type: object
+      properties:
+        fileId:
+          type: string
+        prompt:
+          type: string
+        resource:
+          $ref: '#/components/schemas/ResourceDTO'
+        content:
+          type: string
+    EnumOptions:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnumOptionValue'
+        type:
+          type: string
+          enum:
+          - TEXT
+          - NUMERIC
+          - STATIC_ENUM
+          - DYNAMIC_ENUM
+          - BOOLEAN
+          - DATE
+          - DATETIME
+          - DATE_RANGE
+        sqlQuery:
+          type: string
+        multipleValuesAllowed:
+          type: boolean
+        wrapValuesWithinSingleQuotes:
+          type: boolean
+    AIGenerateSettingsDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        model:
+          type: string
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
     ExtractionTriggerRequestDTO:
       type: object
       properties:

@@ -164,45 +164,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ParsedSqlColumn:
-      properties:
-        name:
-          type: string
-          title: Name
-          description: Name of the column.
-          default: ''
-        sources:
-          items:
-            type: string
-          type: array
-          title: Sources
-          description: List of sources.
-          default: []
-        functions:
-          items:
-            type: string
-          type: array
-          title: Functions
-          description: List of functions.
-          default: []
-        dataType:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Datatype
-          description: Data type of the column.
-          default: ''
-      type: object
-      title: ParsedSqlColumn
     ValidationError:
       properties:
         loc:
@@ -255,3 +216,42 @@ components:
           default: []
       type: object
       title: ParsedSqlColumnsList
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ParsedSqlColumn:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Name of the column.
+          default: ''
+        sources:
+          items:
+            type: string
+          type: array
+          title: Sources
+          description: List of sources.
+          default: []
+        functions:
+          items:
+            type: string
+          type: array
+          title: Functions
+          description: List of functions.
+          default: []
+        dataType:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Datatype
+          description: Data type of the column.
+          default: ''
+      type: object
+      title: ParsedSqlColumn

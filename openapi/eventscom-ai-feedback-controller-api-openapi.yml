@@ -175,27 +175,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AIFeedbackDTO:
-      type: object
-      properties:
-        question:
-          type: string
-        answer:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-        feedback:
-          type: string
-        elementType:
-          type: string
-        elementId:
-          type: string
-        like:
-          type: boolean
-        agentType:
-          type: string
     ErrorMessage:
       type: object
       properties:
@@ -226,6 +205,27 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
+    AIFeedbackDTO:
+      type: object
+      properties:
+        question:
+          type: string
+        answer:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+        feedback:
+          type: string
+        elementType:
+          type: string
+        elementId:
+          type: string
+        like:
+          type: boolean
+        agentType:
+          type: string
   securitySchemes:
     s_jwt:
       type: http

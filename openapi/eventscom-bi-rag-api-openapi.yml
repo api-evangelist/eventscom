@@ -154,6 +154,38 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    UpdateWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+        widget:
+          additionalProperties: true
+          type: object
+          title: Widget
+      type: object
+      required:
+      - widget_id
+      - widget
+      title: UpdateWidgetRequest
+    DeleteWidgetRequest:
+      properties:
+        widget_id:
+          type: string
+          title: Widget Id
+      type: object
+      required:
+      - widget_id
+      title: DeleteWidgetRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     AddWidgetRequest:
       properties:
         page_id:
@@ -180,38 +212,6 @@ components:
       - company_id
       - widget
       title: AddWidgetRequest
-    DeleteWidgetRequest:
-      properties:
-        widget_id:
-          type: string
-          title: Widget Id
-      type: object
-      required:
-      - widget_id
-      title: DeleteWidgetRequest
-    UpdateWidgetRequest:
-      properties:
-        widget_id:
-          type: string
-          title: Widget Id
-        widget:
-          additionalProperties: true
-          type: object
-          title: Widget
-      type: object
-      required:
-      - widget_id
-      - widget
-      title: UpdateWidgetRequest
-    IndexPageRequest:
-      properties:
-        page_id:
-          type: string
-          title: Page Id
-      type: object
-      required:
-      - page_id
-      title: IndexPageRequest
     IndexWorkspaceRequest:
       properties:
         workspace_id:
@@ -221,15 +221,6 @@ components:
       required:
       - workspace_id
       title: IndexWorkspaceRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -256,3 +247,12 @@ components:
       - msg
       - type
       title: ValidationError
+    IndexPageRequest:
+      properties:
+        page_id:
+          type: string
+          title: Page Id
+      type: object
+      required:
+      - page_id
+      title: IndexPageRequest

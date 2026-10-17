@@ -1760,13 +1760,160 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    JobAttempt:
+    Failure:
       type: object
       properties:
-        attempt:
-          $ref: '#/components/schemas/Attempt'
-        logs:
+        failureOrigin:
+          type: string
+        failureType:
+          type: string
+        externalMessage:
+          type: string
+        internalMessage:
+          type: string
+        stacktrace:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
+    Stats:
+      type: object
+      properties:
+        recordsEmitted:
+          type: integer
+          format: int64
+        bytesEmitted:
+          type: integer
+          format: int64
+        recordsCommitted:
+          type: integer
+          format: int64
+    WhitelistedDestinationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        workSpaceId:
+          type: string
+        destinationDefinitionId:
+          type: string
+    StreamStats:
+      type: object
+      properties:
+        streamName:
+          type: string
+        stats:
+          $ref: '#/components/schemas/Stats'
+    DataPipelineMigrationProviderDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        source:
+          type: string
+        type:
+          type: string
+          enum:
+          - DEFAULT
+          - THIRD_PARTY
+          - DEDUP
+    CreateDestinationRequestDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+    WhitelistedSourceDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        workSpaceId:
+          type: string
+        sourceDefinitionId:
+          type: string
+    Detail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        configType:
+          type: string
+        configId:
+          type: string
+        status:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    WorkSpaceDTO:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+    DestinationSpecificationRequestDTO:
+      type: object
+      properties:
+        destinationDefinitionId:
+          type: string
+        workspaceId:
+          type: string
+    SourceSpecificationRequestDTO:
+      type: object
+      properties:
+        sourceDefinitionId:
+          type: string
+        workspaceId:
+          type: string
+    DestinationDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        workspaceId:
+          type: string
+        destinationName:
+          type: string
+        destinationId:
+          type: string
+        destinationDefinitionId:
+          type: string
+        connectionConfiguration:
+          type: object
+          additionalProperties:
+            type: object
+        connectionSpecification:
+          type: object
+          additionalProperties:
+            type: object
     Attempt:
       type: object
       properties:
@@ -1810,34 +1957,6 @@ components:
           type: object
           additionalProperties:
             type: object
-    Detail:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        configType:
-          type: string
-        configId:
-          type: string
-        status:
-          type: string
-        createdAt:
-          type: string
-        updatedAt:
-          type: string
-    WhitelistedDestinationDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        workSpaceId:
-          type: string
-        destinationDefinitionId:
-          type: string
     SourceDTO:
       type: object
       properties:
@@ -1859,22 +1978,22 @@ components:
           type: object
           additionalProperties:
             type: object
-    SourceSpecificationRequestDTO:
+    ErrorMessage:
       type: object
       properties:
-        sourceDefinitionId:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        workspaceId:
-          type: string
-    JobDetailDTO:
-      type: object
-      properties:
-        job:
-          $ref: '#/components/schemas/Detail'
-        attempts:
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
           type: array
           items:
-            $ref: '#/components/schemas/JobAttempt'
+            type: string
     CreateSourceRequestDTO:
       type: object
       properties:
@@ -1886,13 +2005,22 @@ components:
           type: object
           additionalProperties:
             type: object
-    DestinationSpecificationRequestDTO:
+    ConnectionDTO:
       type: object
       properties:
-        destinationDefinitionId:
+        node:
           type: string
-        workspaceId:
-          type: string
+        nextNodes:
+          type: array
+          items:
+            type: string
+    JobAttempt:
+      type: object
+      properties:
+        attempt:
+          $ref: '#/components/schemas/Attempt'
+        logs:
+          type: object
     StreamDTO:
       type: object
       properties:
@@ -1910,118 +2038,15 @@ components:
             - INCREMENTAL_APPEND_V2_MERGE
         sourceDefinedCursorColumn:
           type: string
-    DataPipelineMigrationProviderDTO:
+    JobDetailDTO:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        source:
-          type: string
-        type:
-          type: string
-          enum:
-          - DEFAULT
-          - THIRD_PARTY
-          - DEDUP
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    DestinationDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        workspaceId:
-          type: string
-        destinationName:
-          type: string
-        destinationId:
-          type: string
-        destinationDefinitionId:
-          type: string
-        connectionConfiguration:
-          type: object
-          additionalProperties:
-            type: object
-        connectionSpecification:
-          type: object
-          additionalProperties:
-            type: object
-    StreamStats:
-      type: object
-      properties:
-        streamName:
-          type: string
-        stats:
-          $ref: '#/components/schemas/Stats'
-    WhitelistedSourceDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        workSpaceId:
-          type: string
-        sourceDefinitionId:
-          type: string
-    Stats:
-      type: object
-      properties:
-        recordsEmitted:
-          type: integer
-          format: int64
-        bytesEmitted:
-          type: integer
-          format: int64
-        recordsCommitted:
-          type: integer
-          format: int64
-    CreateDestinationRequestDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-    Failure:
-      type: object
-      properties:
-        failureOrigin:
-          type: string
-        failureType:
-          type: string
-        externalMessage:
-          type: string
-        internalMessage:
-          type: string
-        stacktrace:
-          type: string
-        timestamp:
-          type: integer
-          format: int64
-    WorkSpaceDTO:
-      type: object
-      properties:
-        workspaceId:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
+        job:
+          $ref: '#/components/schemas/Detail'
+        attempts:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobAttempt'
     FailureSummary:
       type: object
       properties:
@@ -2029,31 +2054,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Failure'
-    ConnectionDTO:
-      type: object
-      properties:
-        node:
-          type: string
-        nextNodes:
-          type: array
-          items:
-            type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

@@ -5348,222 +5348,28 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TransformedQueryDTO:
+    IndexDTO:
       type: object
       properties:
-        sqlQuery:
-          type: string
-        dataSources:
-          type: array
-          items:
-            type: string
-    DataSourceSchemaWrapperDTO:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            $ref: '#/components/schemas/SchemaDTO'
-        catalogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogDTO'
-        tables:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableDTO'
-        foreignKeys:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyDTO'
-        indexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndexDTO'
-        columns:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnDTO'
-    EnumOptionValue:
-      type: object
-      properties:
-        value:
-          type: object
-        label:
-          type: string
-    JsonSourceDescriptionDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
         name:
+          type: string
+        nonUnique:
+          type: boolean
+        qualifier:
           type: string
         type:
           type: string
-        description:
+        ordinalPosition:
           type: string
-        meta:
-          type: object
-          additionalProperties:
-            type: object
-        items:
-          type: object
-          additionalProperties:
-            type: object
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonSourceDescriptionDTO'
-    QueryWrapperDTO:
-      type: object
-      properties:
-        sqlQuery:
+        columnName:
           type: string
-    DataPipelineNodeGroupConfig:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        numberOfExecutors:
-          type: integer
-          format: int32
-    TableLinkWrapperDTO:
-      type: object
-      properties:
-        table:
-          $ref: '#/components/schemas/DataSourceTableDTO'
-        linkedTable:
-          $ref: '#/components/schemas/DataSourceTableDTO'
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnLinkDTO'
-    RuleDTO:
-      type: object
-      properties:
-        field:
+        sortSequence:
           type: string
-        value:
-          type: object
-        operator:
+        cardinality:
           type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
+        pages:
           type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    SaasxlResponseDTOSchemaSyncCronResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/SchemaSyncCronResponse'
-    DataPipelineJobStreamDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        query:
-          type: string
-        status:
-          type: string
-        dataPipelineStreamId:
-          type: integer
-          format: int64
-    ScheduleData:
-      type: object
-      properties:
-        basicSchedule:
-          $ref: '#/components/schemas/BasicSchedule'
-        cronExpression:
-          type: string
-        cronExpressionValue:
-          type: string
-    FilterOptionDTO:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    DataSourceUniqueColumnDTO:
-      type: object
-      properties:
-        dataSourceId:
-          type: integer
-          format: int64
-        tableId:
-          type: integer
-          format: int64
-        columnIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-    DataSourceColumnDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        table:
-          $ref: '#/components/schemas/DataSourceTableDTO'
-        dataType:
-          type: string
-        qualifiedName:
-          type: string
-        description:
-          type: string
-        annotations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationDTO'
-        tableId:
-          type: integer
-          format: int64
-        datasourceId:
-          type: integer
-          format: int64
-        isPartitionCol:
-          type: boolean
-        partitionColSize:
-          type: integer
-          format: int32
-        isUniqueCol:
-          type: boolean
-        sourceDataType:
+        filterCondition:
           type: string
     PageResponseDTODataSourceTableDTO:
       type: object
@@ -5572,65 +5378,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DataSourceTableDTO'
-    KeyDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        columns:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyInfoDTO'
-    SortOptionDTO:
-      type: object
-      properties:
-        columnId:
-          type: string
-        direction:
-          type: string
-        columnName:
-          type: string
-        columnNameWithOutQuotes:
-          type: string
-        valueOrder:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-    PageResponseDTOElementAnnotationDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ElementAnnotationDTO'
-    AnnotationDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        type:
-          type: string
-          enum:
-          - CLASSIFICATION
-          - GLOSSARY
-          - GLOSSARY_TERM
-          - TERM
-        parentAnnotationId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
     UserDTO:
       type: object
       properties:
@@ -5690,154 +5437,85 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
-    ViewDTO:
+    SchemaSyncCronRequest:
+      required:
+      - cronExpression
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
+        cronExpression:
+          type: string
+    QueryWrapperDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+    QueryLogDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+        executedAt:
           type: string
           format: date-time
-        modiDate:
+        executionCount:
+          type: integer
+          format: int32
+        hash:
           type: string
-          format: date-time
-        id:
-          type: string
-        isMaster:
-          type: boolean
-        tableId:
-          type: string
-        position:
-          type: number
-          format: double
-        name:
-          type: string
-        type:
-          type: string
-        description:
-          type: string
-        filterOptions:
-          $ref: '#/components/schemas/FilterOptionDTO'
-        groupOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupOptionDTO'
-        sortOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortOptionDTO'
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        filterParams:
-          type: object
-          additionalProperties:
-            type: object
-        whereClause:
-          type: string
-        query:
-          type: string
-        tableName:
-          type: string
-    PageResponseDTOAnnotationDTO:
+    SchemaSyncCronResponse:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationDTO'
-    QueryViewDTO:
-      type: object
-      properties:
-        id:
+        dataSourceId:
           type: integer
           format: int64
-        name:
+        cronExpression:
           type: string
-        description:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        status:
-          type: string
-          enum:
-          - DRAFT
-          - PUBLISHED
-        query:
-          $ref: '#/components/schemas/QueryWrapperDTO'
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createdAt:
+        nextFireTime:
           type: string
           format: date-time
-        modifiedAt:
+        previousFireTime:
           type: string
           format: date-time
-        dataProvider:
-          type: string
-          enum:
-          - JDBC
-          - SPARK
-          - ATHENA
-          - SNOWFLAKE
-          - BIGQUERY
-          - MYSQL
-          - SQL_SERVER
-          - REDSHIFT
-          - CLOUD_BIGQUERY
-    DataSourceBulkTablesDTO:
+    AttachmentSettingsDTO:
       type: object
       properties:
-        dataSourceTableIds:
+        templateKey:
+          type: string
+        templateFileName:
+          type: string
+        outputFileName:
+          type: string
+    FilterOptionDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
           type: array
           items:
-            type: integer
-            format: int64
-    RequestStatusLogDTO:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    BasicSchedule:
       type: object
       properties:
-        id:
-          type: string
-        status:
+        timeUnit:
           type: string
           enum:
-          - INITIATED
-          - IN_PROGRESS
-          - DONE
-          - FAILED
-          - CANCELLED
-        eventName:
-          type: string
-        message:
-          type: string
-        companyId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        requestContext:
-          type: object
-          additionalProperties:
-            type: object
-        sessionId:
-          type: string
-    ThirdPartyFilterConfigDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        required:
-          type: boolean
-        defaultValue:
-          type: string
-        actualValue:
+          - SECOND
+          - MINUTE
+          - HOURS
+          - DAY
+          - MONTH
+        units:
           type: string
     TableDTO:
       type: object
@@ -6006,624 +5684,6 @@ components:
             $ref: '#/components/schemas/ViewDTO'
         latestVersion:
           $ref: '#/components/schemas/VersionDTO'
-    ColumnSettingsDTO:
-      type: object
-      properties:
-        enableUserAddNotifications:
-          type: boolean
-        aiSettings:
-          $ref: '#/components/schemas/AIGenerateSettingsDTO'
-        attachmentSettings:
-          $ref: '#/components/schemas/AttachmentSettingsDTO'
-    QueryResultDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        primaryKey:
-          $ref: '#/components/schemas/DataSourceColumnDTO'
-        columns:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSourceColumnDTO'
-        data:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
-        rows:
-          type: array
-          items:
-            type: array
-            items:
-              type: object
-        isExceededMaxRecords:
-          type: boolean
-        maxResultSize:
-          type: integer
-          format: int64
-        formatedQuery:
-          type: string
-        waitTime:
-          type: integer
-          format: int64
-        executionTime:
-          type: integer
-          format: int64
-        operationId:
-          type: string
-    SaasxlResponseDTOVoid:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    AttachmentSettingsDTO:
-      type: object
-      properties:
-        templateKey:
-          type: string
-        templateFileName:
-          type: string
-        outputFileName:
-          type: string
-    ColumnLinkWrapperDTO:
-      type: object
-      properties:
-        columns:
-          type: array
-          items:
-            $ref: '#/components/schemas/ViewColumnDTO'
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnLinkDTO'
-    ColumnLinkDTO:
-      type: object
-      properties:
-        columnName:
-          type: string
-        linkedColumnName:
-          type: string
-        column:
-          $ref: '#/components/schemas/ViewColumnDTO'
-        linkedColumn:
-          $ref: '#/components/schemas/ViewColumnDTO'
-    DataSourceFileIdsDTO:
-      type: object
-      properties:
-        ids:
-          type: array
-          items:
-            type: integer
-            format: int64
-    LineageNodeDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-          enum:
-          - DATA_SOURCE
-          - DATA_PIPELINE
-          - DATA_WAREHOUSE
-          - DATA_SOURCE_TABLE
-          - DATA_SOURCE_COLUMN
-          - DATA_SOURCE_FOREIGN_KEY
-          - MATERIALIZED_VIEW
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - WORKSPACE
-          - BI_DASHBOARD_PAGE
-          - BI_DASHBOARD_WIDGET
-        position:
-          type: string
-          enum:
-          - UPSTREAM
-          - DOWNSTREAM
-        metadata:
-          type: object
-        depth:
-          type: integer
-          format: int32
-        impacted:
-          type: boolean
-    DataPipelineJobDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        jobGroupId:
-          type: string
-        status:
-          type: string
-          enum:
-          - QUEUED
-          - STARTED
-          - FAILED
-          - CANCELLED
-          - COMPLETED
-          - PENDING
-          - RUNNING
-          - INCOMPLETE
-          - SUCCEEDED
-          - DELETED
-          - UNKNOWN
-          - PRE_VALIDATION_FAILED
-          - POST_VALIDATION_FAILED
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        startedBy:
-          $ref: '#/components/schemas/UserDTO'
-        cancelledBy:
-          $ref: '#/components/schemas/UserDTO'
-        parentId:
-          type: integer
-          format: int64
-        totalStats:
-          type: string
-        failureReason:
-          type: string
-        streams:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipelineJobStreamDTO'
-        processes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipelineJobProcessDTO'
-        sparkJobInfo:
-          type: array
-          items:
-            $ref: '#/components/schemas/SparkJobDataDTO'
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-        nodeGroupConfig:
-          type: object
-          additionalProperties:
-            type: string
-    SchemaSyncCronRequest:
-      required:
-      - cronExpression
-      type: object
-      properties:
-        cronExpression:
-          type: string
-    LineageEdgeDataDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-          enum:
-          - DATA_SOURCE
-          - DATA_PIPELINE
-          - DATA_WAREHOUSE
-          - DATA_SOURCE_TABLE
-          - DATA_SOURCE_COLUMN
-          - DATA_SOURCE_FOREIGN_KEY
-          - MATERIALIZED_VIEW
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - WORKSPACE
-          - BI_DASHBOARD_PAGE
-          - BI_DASHBOARD_WIDGET
-        fromNodeId:
-          type: string
-        toNodeId:
-          type: string
-        metadata:
-          type: object
-        relations:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/LineageEdgeRelationDTO'
-        impacted:
-          type: boolean
-    ColumnDTO:
-      required:
-      - name
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        name:
-          type: string
-        uiDataType:
-          type: string
-        idType:
-          type: string
-        required:
-          type: boolean
-        description:
-          type: string
-        formulaType:
-          type: string
-        formula:
-          type: string
-        backendDataType:
-          type: string
-        rawFormula:
-          type: string
-        status:
-          type: string
-        eventName:
-          type: string
-        errorMessage:
-          type: string
-        rowLevelFormula:
-          type: string
-        rowLevelFormulaWithParameter:
-          type: string
-        nestedFormula:
-          type: string
-        nestedFormulaWithParameter:
-          type: string
-        nestedRowLevelFormula:
-          type: string
-        nestedRowLevelFormulaWithParameter:
-          type: string
-        workspaceId:
-          type: string
-        isDataEditable:
-          type: boolean
-        isMetaDataEditable:
-          type: boolean
-        isEditable:
-          type: boolean
-        isDataTypeEditable:
-          type: boolean
-        isDeletable:
-          type: boolean
-        isColumnLevelFormula:
-          type: boolean
-        colOptions:
-          type: object
-          additionalProperties:
-            type: object
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        tableId:
-          type: string
-        requestId:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/WidgetParameterDTO'
-        parameterIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-        isBIFormula:
-          type: boolean
-        isAudit:
-          type: boolean
-        isEnriched:
-          type: boolean
-        isDynamicFormula:
-          type: boolean
-        isSystemGenerated:
-          type: boolean
-        settings:
-          $ref: '#/components/schemas/ColumnSettingsDTO'
-        sourceDatatype:
-          type: string
-    VersionDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        dagRunId:
-          type: integer
-          format: int64
-        description:
-          type: string
-        isDefaultVersion:
-          type: boolean
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-    ElementAnnotationDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        elementId:
-          type: integer
-          format: int64
-        elementType:
-          type: string
-          enum:
-          - TABLE
-          - COLUMN
-          - DATASOURCE
-          - VIEW
-        annotationId:
-          type: integer
-          format: int64
-    PageResponseDTODataSourceDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSourceDTO'
-    KeyInfoDTO:
-      type: object
-      properties:
-        primaryKeyName:
-          type: string
-        primaryKeyTableName:
-          type: string
-        primaryKeyColumnName:
-          type: string
-        foreignKeyName:
-          type: string
-        foreignKeyTableName:
-          type: string
-        foreignKeyColumnName:
-          type: string
-        keySequence:
-          type: string
-        updateRule:
-          type: string
-        deleteRule:
-          type: string
-    DraftWidgetsContainerDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        widgets:
-          type: array
-          items:
-            $ref: '#/components/schemas/WidgetDTO'
-    PageResponseDTOFunctionDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/FunctionDTO'
-    BaseWidgetDTO:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        subTitle:
-          type: string
-    DataSourceSchemaDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        dataSourceId:
-          type: integer
-          format: int64
-        data:
-          $ref: '#/components/schemas/DataSourceSchemaWrapperDTO'
-        hash:
-          type: string
-        lastSyncedAt:
-          type: string
-          format: date-time
-    DataPipelineStreamDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        query:
-          type: string
-        outputTableName:
-          type: string
-        syncMode:
-          type: string
-          enum:
-          - FULL_REFRESH
-          - INCREMENTAL_APPEND
-          - INCREMENTAL_APPEND_V2
-          - INCREMENTAL_APPEND_MERGE
-          - INCREMENTAL_APPEND_V2_MERGE
-        tableId:
-          type: integer
-          format: int64
-        cursor:
-          $ref: '#/components/schemas/DataPipelineStreamCursorDTO'
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - PAUSED
-        processes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipelineProcessDTO'
-        pipeline:
-          $ref: '#/components/schemas/DataPipelineLiteDTO'
-        modifiedAt:
-          type: string
-          format: date-time
-        columns:
-          type: array
-          items:
-            type: string
-        uniqueColumns:
-          type: array
-          items:
-            type: string
-        requiredParams:
-          type: array
-          items:
-            type: string
-        lastSyncedAt:
-          type: string
-          format: date-time
-        customQueryDefined:
-          type: boolean
-    DiffWrapperObject:
-      type: object
-      properties:
-        previousValue:
-          type: object
-        currentValue:
-          type: object
-        diffs:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Diff'
-    AIGenerateSettingsDTO:
-      type: object
-      properties:
-        prompt:
-          type: string
-        model:
-          type: string
-        webAccess:
-          type: boolean
-        enabled:
-          type: boolean
-        webAccessProvider:
-          type: string
-    QueryHistoryDTO:
-      type: object
-      properties:
-        dataSource:
-          $ref: '#/components/schemas/DataSourceDTO'
-        dataSourceId:
-          type: integer
-          format: int64
-        from:
-          type: string
-          format: date-time
-        to:
-          type: string
-          format: date-time
-        queries:
-          type: array
-          items:
-            $ref: '#/components/schemas/QueryLogDTO'
-    DataPipelineProcessDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        query:
-          type: string
-        type:
-          type: string
-          enum:
-          - PRE
-          - POST
-        rank:
-          type: integer
-          format: int32
-    SchemaSyncCronResponse:
-      type: object
-      properties:
-        dataSourceId:
-          type: integer
-          format: int64
-        cronExpression:
-          type: string
-        nextFireTime:
-          type: string
-          format: date-time
-        previousFireTime:
-          type: string
-          format: date-time
-    DataSourceSchemaChangeDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        dataSourceId:
-          type: integer
-          format: int64
-        fromSchemaId:
-          type: integer
-          format: int64
-        toSchemaId:
-          type: integer
-          format: int64
-        fromSchema:
-          $ref: '#/components/schemas/DataSourceSchemaDTO'
-        toSchema:
-          $ref: '#/components/schemas/DataSourceSchemaDTO'
-        changes:
-          type: array
-          items:
-            $ref: '#/components/schemas/SchemaChangeDTO'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        verified:
-          type: boolean
-        verifiedBy:
-          $ref: '#/components/schemas/UserDTO'
     WidgetParameterDTO:
       type: object
       properties:
@@ -6660,66 +5720,96 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ThirdPartyFilterConfigDTO'
-    CatalogDTO:
+    ThirdPartyFilterConfigDTO:
       type: object
       properties:
         name:
           type: string
-    QueryJobDTO:
+        required:
+          type: boolean
+        defaultValue:
+          type: string
+        actualValue:
+          type: string
+    DataPipelineJobStreamDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        viewId:
+        name:
+          type: string
+        query:
+          type: string
+        status:
+          type: string
+        dataPipelineStreamId:
           type: integer
           format: int64
-        sqlQuery:
-          type: string
-        storageType:
-          type: string
-          enum:
-          - PARQUET
-          - REDIS
-        storageParameters:
-          type: object
-          additionalProperties:
-            type: string
-        dataProvider:
-          type: string
-          enum:
-          - JDBC
-          - SPARK
-          - ATHENA
-          - SNOWFLAKE
-          - BIGQUERY
-          - MYSQL
-          - SQL_SERVER
-          - REDSHIFT
-          - CLOUD_BIGQUERY
-    DataPipelineLiteDTO:
+    DataSourceSchemaChangeDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        companyId:
+        dataSourceId:
           type: integer
           format: int64
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - CUSTOM
-          - STANDARD
-          - DEDUP
-        outputTableName:
-          type: string
-        jobs:
+        fromSchemaId:
+          type: integer
+          format: int64
+        toSchemaId:
+          type: integer
+          format: int64
+        fromSchema:
+          $ref: '#/components/schemas/DataSourceSchemaDTO'
+        toSchema:
+          $ref: '#/components/schemas/DataSourceSchemaDTO'
+        changes:
           type: array
           items:
-            $ref: '#/components/schemas/DataPipelineJobDTO'
+            $ref: '#/components/schemas/SchemaChangeDTO'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        verified:
+          type: boolean
+        verifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+    DataSourceGraphDTO:
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageNodeDTO'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageEdgeDataDTO'
+        metadata:
+          $ref: '#/components/schemas/LineageMetadataDTO'
+        impactedEdgesCount:
+          type: integer
+          format: int32
+        impactedNodesCount:
+          type: integer
+          format: int32
+        dataSourceId:
+          type: integer
+          format: int64
+        schemaId:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
     DataPipelineJobProcessDTO:
       type: object
       properties:
@@ -6743,225 +5833,38 @@ components:
           enum:
           - PRE
           - POST
-    DataSourceDTO:
+    ColumnSettingsDTO:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        properties:
-          type: object
-          additionalProperties:
-            type: string
-        username:
-          type: string
-        password:
-          type: string
-        driverName:
-          type: string
-        type:
-          type: string
-          enum:
-          - SQL
-          - REST
-          - NO_SQL
-          - WAREHOUSE
-        subType:
-          type: string
-          enum:
-          - FILE
-          - FOLDER
-        tables:
+        enableUserAddNotifications:
+          type: boolean
+        aiSettings:
+          $ref: '#/components/schemas/AIGenerateSettingsDTO'
+        attachmentSettings:
+          $ref: '#/components/schemas/AttachmentSettingsDTO'
+    PageResponseDTODataSourceGraphDTO:
+      type: object
+      properties:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableDTO'
-        wareHouseInfo:
-          $ref: '#/components/schemas/WareHouseInfo'
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        createdAt:
-          type: string
-          format: date-time
-        companyId:
-          type: integer
-          format: int64
-        isMvDataSource:
-          type: boolean
-        caseSensitive:
-          type: boolean
-        lastSyncedAt:
-          type: string
-          format: date-time
-        lastSyncStatus:
-          type: string
-        thirdPartyDataSourceId:
-          type: string
-        format:
-          type: string
-          enum:
-          - PARQUET
-          - ICEBERG
-        description:
-          type: string
-        schemaInfo:
-          $ref: '#/components/schemas/DataSourceSchemaDTO'
-        meta:
-          type: object
-          additionalProperties:
-            type: object
-        storageType:
-          type: string
-          enum:
-          - AWS
-          - AZURE
-          - GCS
-        schema:
-          type: string
-        warehouse:
-          type: boolean
-        connCatalog:
-          type: string
-        connSchema:
-          type: string
-    LineageEdgeRelationDTO:
+            $ref: '#/components/schemas/DataSourceGraphDTO'
+    ErrorMessage:
       type: object
       properties:
-        from:
-          type: string
-        fromType:
-          type: string
-          enum:
-          - DATA_SOURCE
-          - DATA_PIPELINE
-          - DATA_WAREHOUSE
-          - DATA_SOURCE_TABLE
-          - DATA_SOURCE_COLUMN
-          - DATA_SOURCE_FOREIGN_KEY
-          - MATERIALIZED_VIEW
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - WORKSPACE
-          - BI_DASHBOARD_PAGE
-          - BI_DASHBOARD_WIDGET
-        to:
-          type: string
-        toType:
-          type: string
-          enum:
-          - DATA_SOURCE
-          - DATA_PIPELINE
-          - DATA_WAREHOUSE
-          - DATA_SOURCE_TABLE
-          - DATA_SOURCE_COLUMN
-          - DATA_SOURCE_FOREIGN_KEY
-          - MATERIALIZED_VIEW
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - WORKSPACE
-          - BI_DASHBOARD_PAGE
-          - BI_DASHBOARD_WIDGET
-        type:
-          type: string
-          enum:
-          - DATA_SOURCE
-          - DATA_PIPELINE
-          - DATA_WAREHOUSE
-          - DATA_SOURCE_TABLE
-          - DATA_SOURCE_COLUMN
-          - DATA_SOURCE_FOREIGN_KEY
-          - MATERIALIZED_VIEW
-          - WORKBOOK
-          - WORKBOOK_COLUMN
-          - WORKSPACE
-          - BI_DASHBOARD_PAGE
-          - BI_DASHBOARD_WIDGET
-    JoinConditionDTO:
-      type: object
-      properties:
-        targetTableId:
-          type: string
-        joinConditionExpression:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        selectedColumnIds:
-          type: array
-          items:
-            type: string
-    GroupOptionDTO:
-      type: object
-      properties:
-        columnId:
-          type: string
-        direction:
-          type: string
-        columnName:
-          type: string
-    DataPipelineStreamCursorDTO:
-      type: object
-      properties:
-        cursorName:
-          type: string
-        cursorDataType:
-          type: string
-        cursorLastValue:
-          type: string
-    BIPageDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        config:
-          $ref: '#/components/schemas/JsonNode'
-        title:
-          type: string
-        description:
-          type: string
-        mode:
-          type: string
-          enum:
-          - DRAFT
-          - EDIT
-          - PUBLISHED
-        position:
+        statusCode:
           type: integer
           format: int32
-        workspaceId:
+        requestId:
           type: string
-        widgets:
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
           type: array
           items:
-            $ref: '#/components/schemas/WidgetDTO'
-    QueryDTO:
-      type: object
-      properties:
-        sqlQuery:
-          type: string
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        description:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
+            type: string
     EnumOptions:
       type: object
       properties:
@@ -6986,13 +5889,6 @@ components:
           type: boolean
         wrapValuesWithinSingleQuotes:
           type: boolean
-    PageResponseDTODataSourceSchemaChangeDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSourceSchemaChangeDTO'
     WidgetDTO:
       type: object
       properties:
@@ -7037,523 +5933,35 @@ components:
             $ref: '#/components/schemas/WidgetParameterDTO'
         indexStatus:
           type: string
-    SparkJobDataDTO:
+    AIGenerateSettingsDTO:
       type: object
       properties:
-        query:
+        prompt:
           type: string
-        submitTime:
-          type: integer
-          format: int64
-        startTime:
-          type: integer
-          format: int64
-        endTime:
-          type: integer
-          format: int64
-        waitTime:
-          type: integer
-          format: int64
-        stream:
+        model:
           type: string
-    JsonNode:
-      type: object
-    DataSourceTableDTO:
+        webAccess:
+          type: boolean
+        enabled:
+          type: boolean
+        webAccessProvider:
+          type: string
+    PageResponseDTOAnnotationDTO:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationDTO'
+    KeyDTO:
+      type: object
+      properties:
         name:
-          type: string
-        dataSourceId:
-          type: integer
-          format: int64
-        owner:
-          type: string
-        alias:
-          type: string
-        namespace:
-          type: string
-        dataSourceName:
-          type: string
-        qualifiedName:
-          type: string
-        description:
           type: string
         columns:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceColumnDTO'
-        annotations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationDTO'
-        owners:
-          type: array
-          items:
-            type: integer
-            format: int64
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSourceFileDTO'
-        workbookId:
-          type: string
-    DataSourceGraphDTO:
-      type: object
-      properties:
-        nodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineageNodeDTO'
-        edges:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineageEdgeDataDTO'
-        metadata:
-          $ref: '#/components/schemas/LineageMetadataDTO'
-        impactedEdgesCount:
-          type: integer
-          format: int32
-        impactedNodesCount:
-          type: integer
-          format: int32
-        dataSourceId:
-          type: integer
-          format: int64
-        schemaId:
-          type: integer
-          format: int64
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-    WareHouseInfo:
-      type: object
-      properties:
-        parentDataSourceId:
-          type: integer
-          format: int64
-        type:
-          type: string
-          enum:
-          - EXACT_REPLICA
-          - DERIVED
-    SchemaDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        catalogName:
-          type: string
-    SchemaChangeDTO:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            $ref: '#/components/schemas/SchemaDTO'
-        catalogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogDTO'
-        tables:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableDTO'
-        foreignKeys:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyDTO'
-        indexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndexDTO'
-        columns:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnDTO'
-        type:
-          type: string
-          enum:
-          - TABLE_CREATED
-          - TABLE_DELETED
-          - TABLE_MODIFIED
-          - COLUMN_CREATED
-          - COLUMN_DELETED
-          - COLUMN_MODIFIED
-          - FOREIGN_KEY_CREATED
-          - FOREIGN_KEY_DELETED
-          - FOREIGN_KEY_MODIFIED
-        modifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiffWrapperObject'
-    ConfigDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    IndexDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        nonUnique:
-          type: boolean
-        qualifier:
-          type: string
-        type:
-          type: string
-        ordinalPosition:
-          type: string
-        columnName:
-          type: string
-        sortSequence:
-          type: string
-        cardinality:
-          type: string
-        pages:
-          type: string
-        filterCondition:
-          type: string
-    Diff:
-      type: object
-      properties:
-        previous:
-          type: string
-        current:
-          type: string
-    PageResponseDTODataSourceGraphDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSourceGraphDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    WhereClause:
-      type: object
-      properties:
-        value:
-          type: string
-        streams:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        requiredParams:
-          type: array
-          items:
-            type: string
-    PageResponseDTOQueryViewDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/QueryViewDTO'
-    LineageMetadataDTO:
-      type: object
-      properties:
-        pipelines:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/DataPipelineResponseV2DTO'
-        dataSources:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/DataSourceDTO'
-        tables:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableDTO'
-        workbooks:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TableDTO'
-        pages:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/BIPageDTO'
-        workspaces:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/DraftWidgetsContainerDTO'
-    DataSourceFileDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        type:
-          type: string
-        tableId:
-          type: integer
-          format: int64
-        datasourceId:
-          type: integer
-          format: int64
-        byteSize:
-          type: integer
-          format: int64
-    FunctionDTO:
-      type: object
-      properties:
-        name:
-          type: string
-        displayTitle:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        example:
-          type: string
-        function:
-          type: string
-    JoinRequest:
-      type: object
-      properties:
-        workspaceId:
-          type: string
-        name:
-          type: string
-        primaryTableId:
-          type: string
-        joinConditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/JoinConditionDTO'
-    DataPipelineV2DTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        syncNow:
-          type: boolean
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - CUSTOM
-          - STANDARD
-          - DEDUP
-        scheduleType:
-          type: string
-          enum:
-          - CRON
-          - MANUAL
-          - SCHEDULED
-          - DATA_CHANGE
-        schedule:
-          $ref: '#/components/schemas/ScheduleData'
-        sources:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSourceDTO'
-        destination:
-          $ref: '#/components/schemas/DataSourceDTO'
-        clonedParentId:
-          type: integer
-          format: int64
-        where:
-          $ref: '#/components/schemas/WhereClause'
-        isMvPipeline:
-          type: boolean
-        isLastMilePipeline:
-          type: boolean
-        parentId:
-          type: integer
-          format: int64
-        processes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipelineProcessDTO'
-        workbookMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        parameters:
-          type: object
-          additionalProperties:
-            type: object
-        streams:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipelineStreamDTO'
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPipelineV2DTO'
-        description:
-          type: string
-        queryEngine:
-          type: string
-          enum:
-          - JDBC
-          - SPARK
-          - ATHENA
-          - SNOWFLAKE
-          - BIGQUERY
-          - MYSQL
-          - SQL_SERVER
-          - REDSHIFT
-          - CLOUD_BIGQUERY
-        dagRunId:
-          type: integer
-          format: int64
-        nodeGroupConfig:
-          $ref: '#/components/schemas/DataPipelineNodeGroupConfig'
-    BasicSchedule:
-      type: object
-      properties:
-        timeUnit:
-          type: string
-          enum:
-          - SECOND
-          - MINUTE
-          - HOURS
-          - DAY
-          - MONTH
-        units:
-          type: string
-    ViewColumnDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        table:
-          $ref: '#/components/schemas/DataSourceTableDTO'
-        dataType:
-          type: string
-        qualifiedName:
-          type: string
-        description:
-          type: string
-        annotations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationDTO'
-        tableId:
-          type: integer
-          format: int64
-        datasourceId:
-          type: integer
-          format: int64
-        isPartitionCol:
-          type: boolean
-        partitionColSize:
-          type: integer
-          format: int32
-        isUniqueCol:
-          type: boolean
-        sourceDataType:
-          type: string
-        aggregation:
-          type: string
-          enum:
-          - COUNT
-          - COUNT_DISTINCT
-          - SUM
-          - MIN
-          - MAX
-          - AVG
-        descending:
-          type: boolean
-    PageResponseDTOTableLinkWrapperDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableLinkWrapperDTO'
-    QueryLogDTO:
-      type: object
-      properties:
-        sqlQuery:
-          type: string
-        executedAt:
-          type: string
-          format: date-time
-        executionCount:
-          type: integer
-          format: int32
-        hash:
-          type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
-    PageResponseDTOQueryDTO:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/QueryDTO'
+            $ref: '#/components/schemas/KeyInfoDTO'
     DataPipelineResponseV2DTO:
       type: object
       properties:
@@ -7656,6 +6064,1598 @@ components:
           items:
             type: string
             format: date-time
+    DataSourceSchemaDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        dataSourceId:
+          type: integer
+          format: int64
+        data:
+          $ref: '#/components/schemas/DataSourceSchemaWrapperDTO'
+        hash:
+          type: string
+        lastSyncedAt:
+          type: string
+          format: date-time
+    DataSourceFileIdsDTO:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+    ElementAnnotationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        elementId:
+          type: integer
+          format: int64
+        elementType:
+          type: string
+          enum:
+          - TABLE
+          - COLUMN
+          - DATASOURCE
+          - VIEW
+        annotationId:
+          type: integer
+          format: int64
+    SaasxlResponseDTOVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    QueryJobDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        viewId:
+          type: integer
+          format: int64
+        sqlQuery:
+          type: string
+        storageType:
+          type: string
+          enum:
+          - PARQUET
+          - REDIS
+        storageParameters:
+          type: object
+          additionalProperties:
+            type: string
+        dataProvider:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+    PageResponseDTODataSourceSchemaChangeDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceSchemaChangeDTO'
+    BaseWidgetDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        subTitle:
+          type: string
+    AnnotationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - CLASSIFICATION
+          - GLOSSARY
+          - GLOSSARY_TERM
+          - TERM
+        parentAnnotationId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+    DataPipelineStreamCursorDTO:
+      type: object
+      properties:
+        cursorName:
+          type: string
+        cursorDataType:
+          type: string
+        cursorLastValue:
+          type: string
+    DataPipelineLiteDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTOM
+          - STANDARD
+          - DEDUP
+        outputTableName:
+          type: string
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobDTO'
+    ViewColumnDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        table:
+          $ref: '#/components/schemas/DataSourceTableDTO'
+        dataType:
+          type: string
+        qualifiedName:
+          type: string
+        description:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationDTO'
+        tableId:
+          type: integer
+          format: int64
+        datasourceId:
+          type: integer
+          format: int64
+        isPartitionCol:
+          type: boolean
+        partitionColSize:
+          type: integer
+          format: int32
+        isUniqueCol:
+          type: boolean
+        sourceDataType:
+          type: string
+        aggregation:
+          type: string
+          enum:
+          - COUNT
+          - COUNT_DISTINCT
+          - SUM
+          - MIN
+          - MAX
+          - AVG
+        descending:
+          type: boolean
+    PageResponseDTOQueryDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryDTO'
+    PageResponseDTOTableLinkWrapperDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableLinkWrapperDTO'
+    KeyInfoDTO:
+      type: object
+      properties:
+        primaryKeyName:
+          type: string
+        primaryKeyTableName:
+          type: string
+        primaryKeyColumnName:
+          type: string
+        foreignKeyName:
+          type: string
+        foreignKeyTableName:
+          type: string
+        foreignKeyColumnName:
+          type: string
+        keySequence:
+          type: string
+        updateRule:
+          type: string
+        deleteRule:
+          type: string
+    DataSourceSchemaWrapperDTO:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaDTO'
+        catalogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogDTO'
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableDTO'
+        foreignKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyDTO'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDTO'
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDTO'
+    LineageMetadataDTO:
+      type: object
+      properties:
+        pipelines:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DataPipelineResponseV2DTO'
+        dataSources:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DataSourceDTO'
+        tables:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DataSourceTableDTO'
+        workbooks:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TableDTO'
+        pages:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/BIPageDTO'
+        workspaces:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DraftWidgetsContainerDTO'
+    DiffWrapperObject:
+      type: object
+      properties:
+        previousValue:
+          type: object
+        currentValue:
+          type: object
+        diffs:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Diff'
+    VersionDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        dagRunId:
+          type: integer
+          format: int64
+        description:
+          type: string
+        isDefaultVersion:
+          type: boolean
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+    RequestStatusLogDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+          - INITIATED
+          - IN_PROGRESS
+          - DONE
+          - FAILED
+          - CANCELLED
+        eventName:
+          type: string
+        message:
+          type: string
+        companyId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        requestContext:
+          type: object
+          additionalProperties:
+            type: object
+        sessionId:
+          type: string
+    SortOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+        columnNameWithOutQuotes:
+          type: string
+        valueOrder:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    ColumnLinkDTO:
+      type: object
+      properties:
+        columnName:
+          type: string
+        linkedColumnName:
+          type: string
+        column:
+          $ref: '#/components/schemas/ViewColumnDTO'
+        linkedColumn:
+          $ref: '#/components/schemas/ViewColumnDTO'
+    QueryResultDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        primaryKey:
+          $ref: '#/components/schemas/DataSourceColumnDTO'
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceColumnDTO'
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+        rows:
+          type: array
+          items:
+            type: array
+            items:
+              type: object
+        isExceededMaxRecords:
+          type: boolean
+        maxResultSize:
+          type: integer
+          format: int64
+        formatedQuery:
+          type: string
+        waitTime:
+          type: integer
+          format: int64
+        executionTime:
+          type: integer
+          format: int64
+        operationId:
+          type: string
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    PageResponseDTOFunctionDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionDTO'
+    QueryDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+    ViewDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        isMaster:
+          type: boolean
+        tableId:
+          type: string
+        position:
+          type: number
+          format: double
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        filterOptions:
+          $ref: '#/components/schemas/FilterOptionDTO'
+        groupOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupOptionDTO'
+        sortOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortOptionDTO'
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        filterParams:
+          type: object
+          additionalProperties:
+            type: object
+        whereClause:
+          type: string
+        query:
+          type: string
+        tableName:
+          type: string
+    ConfigDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    JsonNode:
+      type: object
+    JoinConditionDTO:
+      type: object
+      properties:
+        targetTableId:
+          type: string
+        joinConditionExpression:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        selectedColumnIds:
+          type: array
+          items:
+            type: string
+    DataSourceTableDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        dataSourceId:
+          type: integer
+          format: int64
+        owner:
+          type: string
+        alias:
+          type: string
+        namespace:
+          type: string
+        dataSourceName:
+          type: string
+        qualifiedName:
+          type: string
+        description:
+          type: string
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceColumnDTO'
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationDTO'
+        owners:
+          type: array
+          items:
+            type: integer
+            format: int64
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceFileDTO'
+        workbookId:
+          type: string
+    GroupOptionDTO:
+      type: object
+      properties:
+        columnId:
+          type: string
+        direction:
+          type: string
+        columnName:
+          type: string
+    WhereClause:
+      type: object
+      properties:
+        value:
+          type: string
+        streams:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        requiredParams:
+          type: array
+          items:
+            type: string
+    Diff:
+      type: object
+      properties:
+        previous:
+          type: string
+        current:
+          type: string
+    CatalogDTO:
+      type: object
+      properties:
+        name:
+          type: string
+    LineageEdgeDataDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - DATA_SOURCE
+          - DATA_PIPELINE
+          - DATA_WAREHOUSE
+          - DATA_SOURCE_TABLE
+          - DATA_SOURCE_COLUMN
+          - DATA_SOURCE_FOREIGN_KEY
+          - MATERIALIZED_VIEW
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - WORKSPACE
+          - BI_DASHBOARD_PAGE
+          - BI_DASHBOARD_WIDGET
+        fromNodeId:
+          type: string
+        toNodeId:
+          type: string
+        metadata:
+          type: object
+        relations:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageEdgeRelationDTO'
+        impacted:
+          type: boolean
+    SchemaDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        catalogName:
+          type: string
+    DataSourceUniqueColumnDTO:
+      type: object
+      properties:
+        dataSourceId:
+          type: integer
+          format: int64
+        tableId:
+          type: integer
+          format: int64
+        columnIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+    QueryHistoryDTO:
+      type: object
+      properties:
+        dataSource:
+          $ref: '#/components/schemas/DataSourceDTO'
+        dataSourceId:
+          type: integer
+          format: int64
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        queries:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryLogDTO'
+    LineageEdgeRelationDTO:
+      type: object
+      properties:
+        from:
+          type: string
+        fromType:
+          type: string
+          enum:
+          - DATA_SOURCE
+          - DATA_PIPELINE
+          - DATA_WAREHOUSE
+          - DATA_SOURCE_TABLE
+          - DATA_SOURCE_COLUMN
+          - DATA_SOURCE_FOREIGN_KEY
+          - MATERIALIZED_VIEW
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - WORKSPACE
+          - BI_DASHBOARD_PAGE
+          - BI_DASHBOARD_WIDGET
+        to:
+          type: string
+        toType:
+          type: string
+          enum:
+          - DATA_SOURCE
+          - DATA_PIPELINE
+          - DATA_WAREHOUSE
+          - DATA_SOURCE_TABLE
+          - DATA_SOURCE_COLUMN
+          - DATA_SOURCE_FOREIGN_KEY
+          - MATERIALIZED_VIEW
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - WORKSPACE
+          - BI_DASHBOARD_PAGE
+          - BI_DASHBOARD_WIDGET
+        type:
+          type: string
+          enum:
+          - DATA_SOURCE
+          - DATA_PIPELINE
+          - DATA_WAREHOUSE
+          - DATA_SOURCE_TABLE
+          - DATA_SOURCE_COLUMN
+          - DATA_SOURCE_FOREIGN_KEY
+          - MATERIALIZED_VIEW
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - WORKSPACE
+          - BI_DASHBOARD_PAGE
+          - BI_DASHBOARD_WIDGET
+    SparkJobDataDTO:
+      type: object
+      properties:
+        query:
+          type: string
+        submitTime:
+          type: integer
+          format: int64
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        waitTime:
+          type: integer
+          format: int64
+        stream:
+          type: string
+    RuleDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    EnumOptionValue:
+      type: object
+      properties:
+        value:
+          type: object
+        label:
+          type: string
+    JoinRequest:
+      type: object
+      properties:
+        workspaceId:
+          type: string
+        name:
+          type: string
+        primaryTableId:
+          type: string
+        joinConditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/JoinConditionDTO'
+    DataSourceFileDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        tableId:
+          type: integer
+          format: int64
+        datasourceId:
+          type: integer
+          format: int64
+        byteSize:
+          type: integer
+          format: int64
+    TableLinkWrapperDTO:
+      type: object
+      properties:
+        table:
+          $ref: '#/components/schemas/DataSourceTableDTO'
+        linkedTable:
+          $ref: '#/components/schemas/DataSourceTableDTO'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnLinkDTO'
+    DataPipelineV2DTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        syncNow:
+          type: boolean
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CUSTOM
+          - STANDARD
+          - DEDUP
+        scheduleType:
+          type: string
+          enum:
+          - CRON
+          - MANUAL
+          - SCHEDULED
+          - DATA_CHANGE
+        schedule:
+          $ref: '#/components/schemas/ScheduleData'
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceDTO'
+        destination:
+          $ref: '#/components/schemas/DataSourceDTO'
+        clonedParentId:
+          type: integer
+          format: int64
+        where:
+          $ref: '#/components/schemas/WhereClause'
+        isMvPipeline:
+          type: boolean
+        isLastMilePipeline:
+          type: boolean
+        parentId:
+          type: integer
+          format: int64
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineProcessDTO'
+        workbookMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineStreamDTO'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineV2DTO'
+        description:
+          type: string
+        queryEngine:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+        dagRunId:
+          type: integer
+          format: int64
+        nodeGroupConfig:
+          $ref: '#/components/schemas/DataPipelineNodeGroupConfig'
+    SaasxlResponseDTOSchemaSyncCronResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/SchemaSyncCronResponse'
+    ColumnDTO:
+      required:
+      - name
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        name:
+          type: string
+        uiDataType:
+          type: string
+        idType:
+          type: string
+        required:
+          type: boolean
+        description:
+          type: string
+        formulaType:
+          type: string
+        formula:
+          type: string
+        backendDataType:
+          type: string
+        rawFormula:
+          type: string
+        status:
+          type: string
+        eventName:
+          type: string
+        errorMessage:
+          type: string
+        rowLevelFormula:
+          type: string
+        rowLevelFormulaWithParameter:
+          type: string
+        nestedFormula:
+          type: string
+        nestedFormulaWithParameter:
+          type: string
+        nestedRowLevelFormula:
+          type: string
+        nestedRowLevelFormulaWithParameter:
+          type: string
+        workspaceId:
+          type: string
+        isDataEditable:
+          type: boolean
+        isMetaDataEditable:
+          type: boolean
+        isEditable:
+          type: boolean
+        isDataTypeEditable:
+          type: boolean
+        isDeletable:
+          type: boolean
+        isColumnLevelFormula:
+          type: boolean
+        colOptions:
+          type: object
+          additionalProperties:
+            type: object
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        tableId:
+          type: string
+        requestId:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetParameterDTO'
+        parameterIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        isBIFormula:
+          type: boolean
+        isAudit:
+          type: boolean
+        isEnriched:
+          type: boolean
+        isDynamicFormula:
+          type: boolean
+        isSystemGenerated:
+          type: boolean
+        settings:
+          $ref: '#/components/schemas/ColumnSettingsDTO'
+        sourceDatatype:
+          type: string
+    DataSourceDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        username:
+          type: string
+        password:
+          type: string
+        driverName:
+          type: string
+        type:
+          type: string
+          enum:
+          - SQL
+          - REST
+          - NO_SQL
+          - WAREHOUSE
+        subType:
+          type: string
+          enum:
+          - FILE
+          - FOLDER
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceTableDTO'
+        wareHouseInfo:
+          $ref: '#/components/schemas/WareHouseInfo'
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        createdAt:
+          type: string
+          format: date-time
+        companyId:
+          type: integer
+          format: int64
+        isMvDataSource:
+          type: boolean
+        caseSensitive:
+          type: boolean
+        lastSyncedAt:
+          type: string
+          format: date-time
+        lastSyncStatus:
+          type: string
+        thirdPartyDataSourceId:
+          type: string
+        format:
+          type: string
+          enum:
+          - PARQUET
+          - ICEBERG
+        description:
+          type: string
+        schemaInfo:
+          $ref: '#/components/schemas/DataSourceSchemaDTO'
+        meta:
+          type: object
+          additionalProperties:
+            type: object
+        storageType:
+          type: string
+          enum:
+          - AWS
+          - AZURE
+          - GCS
+        schema:
+          type: string
+        warehouse:
+          type: boolean
+        connCatalog:
+          type: string
+        connSchema:
+          type: string
+    ScheduleData:
+      type: object
+      properties:
+        basicSchedule:
+          $ref: '#/components/schemas/BasicSchedule'
+        cronExpression:
+          type: string
+        cronExpressionValue:
+          type: string
+    PageResponseDTOQueryViewDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryViewDTO'
+    DataSourceColumnDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        table:
+          $ref: '#/components/schemas/DataSourceTableDTO'
+        dataType:
+          type: string
+        qualifiedName:
+          type: string
+        description:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationDTO'
+        tableId:
+          type: integer
+          format: int64
+        datasourceId:
+          type: integer
+          format: int64
+        isPartitionCol:
+          type: boolean
+        partitionColSize:
+          type: integer
+          format: int32
+        isUniqueCol:
+          type: boolean
+        sourceDataType:
+          type: string
+    PageResponseDTOElementAnnotationDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ElementAnnotationDTO'
+    DataSourceBulkTablesDTO:
+      type: object
+      properties:
+        dataSourceTableIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+    SchemaChangeDTO:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaDTO'
+        catalogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogDTO'
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableDTO'
+        foreignKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyDTO'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexDTO'
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDTO'
+        type:
+          type: string
+          enum:
+          - TABLE_CREATED
+          - TABLE_DELETED
+          - TABLE_MODIFIED
+          - COLUMN_CREATED
+          - COLUMN_DELETED
+          - COLUMN_MODIFIED
+          - FOREIGN_KEY_CREATED
+          - FOREIGN_KEY_DELETED
+          - FOREIGN_KEY_MODIFIED
+        modifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiffWrapperObject'
+    DataPipelineProcessDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        query:
+          type: string
+        type:
+          type: string
+          enum:
+          - PRE
+          - POST
+        rank:
+          type: integer
+          format: int32
+    WareHouseInfo:
+      type: object
+      properties:
+        parentDataSourceId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - EXACT_REPLICA
+          - DERIVED
+    QueryViewDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        uiMetadata:
+          type: object
+          additionalProperties:
+            type: object
+        status:
+          type: string
+          enum:
+          - DRAFT
+          - PUBLISHED
+        query:
+          $ref: '#/components/schemas/QueryWrapperDTO'
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        dataProvider:
+          type: string
+          enum:
+          - JDBC
+          - SPARK
+          - ATHENA
+          - SNOWFLAKE
+          - BIGQUERY
+          - MYSQL
+          - SQL_SERVER
+          - REDSHIFT
+          - CLOUD_BIGQUERY
+    BIPageDTO:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
+          type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        config:
+          $ref: '#/components/schemas/JsonNode'
+        title:
+          type: string
+        description:
+          type: string
+        mode:
+          type: string
+          enum:
+          - DRAFT
+          - EDIT
+          - PUBLISHED
+        position:
+          type: integer
+          format: int32
+        workspaceId:
+          type: string
+        widgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetDTO'
+    DraftWidgetsContainerDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        widgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/WidgetDTO'
+    FunctionDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        displayTitle:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        example:
+          type: string
+        function:
+          type: string
+    JsonSourceDescriptionDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        meta:
+          type: object
+          additionalProperties:
+            type: object
+        items:
+          type: object
+          additionalProperties:
+            type: object
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonSourceDescriptionDTO'
+    DataPipelineStreamDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        query:
+          type: string
+        outputTableName:
+          type: string
+        syncMode:
+          type: string
+          enum:
+          - FULL_REFRESH
+          - INCREMENTAL_APPEND
+          - INCREMENTAL_APPEND_V2
+          - INCREMENTAL_APPEND_MERGE
+          - INCREMENTAL_APPEND_V2_MERGE
+        tableId:
+          type: integer
+          format: int64
+        cursor:
+          $ref: '#/components/schemas/DataPipelineStreamCursorDTO'
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - PAUSED
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineProcessDTO'
+        pipeline:
+          $ref: '#/components/schemas/DataPipelineLiteDTO'
+        modifiedAt:
+          type: string
+          format: date-time
+        columns:
+          type: array
+          items:
+            type: string
+        uniqueColumns:
+          type: array
+          items:
+            type: string
+        requiredParams:
+          type: array
+          items:
+            type: string
+        lastSyncedAt:
+          type: string
+          format: date-time
+        customQueryDefined:
+          type: boolean
+    DataPipelineNodeGroupConfig:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        numberOfExecutors:
+          type: integer
+          format: int32
+    ColumnLinkWrapperDTO:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ViewColumnDTO'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnLinkDTO'
+    LineageNodeDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - DATA_SOURCE
+          - DATA_PIPELINE
+          - DATA_WAREHOUSE
+          - DATA_SOURCE_TABLE
+          - DATA_SOURCE_COLUMN
+          - DATA_SOURCE_FOREIGN_KEY
+          - MATERIALIZED_VIEW
+          - WORKBOOK
+          - WORKBOOK_COLUMN
+          - WORKSPACE
+          - BI_DASHBOARD_PAGE
+          - BI_DASHBOARD_WIDGET
+        position:
+          type: string
+          enum:
+          - UPSTREAM
+          - DOWNSTREAM
+        metadata:
+          type: object
+        depth:
+          type: integer
+          format: int32
+        impacted:
+          type: boolean
+    DataPipelineJobDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        jobGroupId:
+          type: string
+        status:
+          type: string
+          enum:
+          - QUEUED
+          - STARTED
+          - FAILED
+          - CANCELLED
+          - COMPLETED
+          - PENDING
+          - RUNNING
+          - INCOMPLETE
+          - SUCCEEDED
+          - DELETED
+          - UNKNOWN
+          - PRE_VALIDATION_FAILED
+          - POST_VALIDATION_FAILED
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        startedBy:
+          $ref: '#/components/schemas/UserDTO'
+        cancelledBy:
+          $ref: '#/components/schemas/UserDTO'
+        parentId:
+          type: integer
+          format: int64
+        totalStats:
+          type: string
+        failureReason:
+          type: string
+        streams:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobStreamDTO'
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPipelineJobProcessDTO'
+        sparkJobInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/SparkJobDataDTO'
+        parameters:
+          type: object
+          additionalProperties:
+            type: object
+        nodeGroupConfig:
+          type: object
+          additionalProperties:
+            type: string
+    PageResponseDTODataSourceDTO:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceDTO'
+    TransformedQueryDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+        dataSources:
+          type: array
+          items:
+            type: string
   securitySchemes:
     s_jwt:
       type: http

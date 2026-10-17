@@ -56,6 +56,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CompanyUnstructuredDataResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        tenantId:
+          type: string
+        apiKey:
+          type: string
+        modelInitialized:
+          type: boolean
     ErrorMessage:
       type: object
       properties:
@@ -86,21 +101,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    CompanyUnstructuredDataResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        tenantId:
-          type: string
-        apiKey:
-          type: string
-        modelInitialized:
-          type: boolean
   securitySchemes:
     s_jwt:
       type: http

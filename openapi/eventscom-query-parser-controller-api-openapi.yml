@@ -172,40 +172,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SQLParseColumnRequestDTO:
+    ErrorMessage:
       type: object
       properties:
-        sqlQuery:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        schema:
+        message:
           type: object
-          additionalProperties:
-            type: object
-            additionalProperties:
-              type: object
-              additionalProperties:
-                type: string
-    SQLParseColumnResponseDTO:
-      type: object
-      properties:
-        columns:
+        details:
+          type: object
+        errorCodes:
           type: array
           items:
-            $ref: '#/components/schemas/SQLParseColumnDTO'
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
+            type: string
     QueryResponseDTO:
       type: object
       properties:
@@ -229,6 +211,26 @@ components:
           type: string
         sqlQuery:
           type: string
+    SQLParseColumnResponseDTO:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLParseColumnDTO'
+    SQLParseColumnRequestDTO:
+      type: object
+      properties:
+        sqlQuery:
+          type: string
+        schema:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: object
+              additionalProperties:
+                type: string
     SQLParseColumnDTO:
       type: object
       properties:
@@ -244,22 +246,20 @@ components:
           type: array
           items:
             type: string
-    ErrorMessage:
+    SaasxlResponseDTOObject:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        success:
+          type: boolean
+        version:
           type: string
-        message:
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
           type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

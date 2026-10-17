@@ -67,6 +67,33 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    RunEnrichmentRequest:
+      properties:
+        enrichment_id:
+          type: integer
+          title: Enrichment Id
+        params:
+          additionalProperties: true
+          type: object
+          title: Params
+        databar_api_key:
+          type: string
+          title: Databar Api Key
+      type: object
+      required:
+      - enrichment_id
+      - params
+      - databar_api_key
+      title: RunEnrichmentRequest
     ValidationError:
       properties:
         loc:
@@ -93,25 +120,6 @@ components:
       - msg
       - type
       title: ValidationError
-    AIGenerateInternalRequest:
-      properties:
-        row:
-          additionalProperties: true
-          type: object
-          title: Row
-          description: Row data for AI Generation
-        ai_settings:
-          $ref: '#/components/schemas/AIGenerateInternalSettings'
-          description: AI settings for AI Generation
-        llm_config:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Llm Config
-          description: LLM configuration parameters
-      type: object
-      title: AIGenerateInternalRequest
     AIGenerateInternalSettings:
       properties:
         prompt:
@@ -144,30 +152,22 @@ components:
       - model
       - web_access
       title: AIGenerateInternalSettings
-    HTTPValidationError:
+    AIGenerateInternalRequest:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    RunEnrichmentRequest:
-      properties:
-        enrichment_id:
-          type: integer
-          title: Enrichment Id
-        params:
+        row:
           additionalProperties: true
           type: object
-          title: Params
-        databar_api_key:
-          type: string
-          title: Databar Api Key
+          title: Row
+          description: Row data for AI Generation
+        ai_settings:
+          $ref: '#/components/schemas/AIGenerateInternalSettings'
+          description: AI settings for AI Generation
+        llm_config:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Llm Config
+          description: LLM configuration parameters
       type: object
-      required:
-      - enrichment_id
-      - params
-      - databar_api_key
-      title: RunEnrichmentRequest
+      title: AIGenerateInternalRequest

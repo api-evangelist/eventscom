@@ -226,6 +226,29 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    SharedPermissionsDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        hash:
+          type: string
+        sharedItemId:
+          type: integer
+          format: int64
+        sharedEntityType:
+          type: string
+          enum:
+          - COMPANY
+          - DOMAIN
+          - WORKBOOK
+        entityValues:
+          type: array
+          items:
+            type: string
+        workbookColName:
+          type: string
     ErrorMessage:
       type: object
       properties:
@@ -256,29 +279,6 @@ components:
           $ref: '#/components/schemas/ErrorMessage'
         data:
           type: object
-    SharedPermissionsDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        hash:
-          type: string
-        sharedItemId:
-          type: integer
-          format: int64
-        sharedEntityType:
-          type: string
-          enum:
-          - COMPANY
-          - DOMAIN
-          - WORKBOOK
-        entityValues:
-          type: array
-          items:
-            type: string
-        workbookColName:
-          type: string
   securitySchemes:
     s_jwt:
       type: http

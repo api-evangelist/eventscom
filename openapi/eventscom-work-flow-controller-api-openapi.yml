@@ -584,177 +584,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOWorkFlowExecutionDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/WorkFlowExecutionDTO'
-    NodeDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        nodeType:
-          type: string
-        relationToPreviousNode:
-          type: string
-        rule:
-          $ref: '#/components/schemas/RuleDTO'
-        ifNodeContext:
-          $ref: '#/components/schemas/IFNodeContext'
-        triggerNodeContext:
-          $ref: '#/components/schemas/WorkFlowTriggerDTO'
-        waitNodeContext:
-          $ref: '#/components/schemas/WaitNodeContext'
-        connectorInfo:
-          $ref: '#/components/schemas/ConnectorInfoDTO'
-        status:
-          type: string
-        startTimeInMillis:
-          type: integer
-          format: int64
-        endTimeInMillis:
-          type: integer
-          format: int64
-        specificType:
-          type: string
-        uiMetadata:
-          type: object
-          additionalProperties:
-            type: object
-        dataContext:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
-    ConnectorInfoDTO:
-      type: object
-      properties:
-        baseUrl:
-          type: string
-        connectorType:
-          type: string
-        path:
-          type: string
-        method:
-          type: string
-        credential:
-          $ref: '#/components/schemas/CredentialDTO'
-        configJsFn:
-          type: string
-        contentType:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/ParametersDTO'
-    UserWorkFlowHistoryDTO:
-      type: object
-      properties:
-        userId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        workspaceId:
-          type: string
-        history:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkFlowHistory'
-    ParametersDTO:
-      type: object
-      properties:
-        type:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    RuleDTO:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleDTO'
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    IFNodeContext:
-      type: object
-      properties:
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-    WorkFlowTriggerDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        userWorkFlowId:
-          type: integer
-          format: int64
-        tableId:
-          type: string
-        tableName:
-          type: string
-        types:
-          type: array
-          items:
-            type: string
-        triggerName:
-          type: string
-        rule:
-          $ref: '#/components/schemas/RuleDTO'
-        columns:
-          type: array
-          items:
-            type: string
-    SaasxlResponseDTOObject:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
-    WorkFlowResponseDTO:
-      type: object
-      properties:
-        requestId:
-          type: string
     WorkFlowDTO:
       type: object
       properties:
@@ -799,16 +628,30 @@ components:
               type: object
         workspaceId:
           type: string
-    Config:
+    CredentialDTO:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
         type:
           type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    SaasxlResponseDTOUserWorkFlowHistoryDTO:
+          enum:
+          - QUERY_PARAM
+          - BASIC_AUTH
+          - AUTHORIZATION
+          - ACCESS_TOKEN
+          - BEARER
+          - API_KEY
+          - OAUTH2
+        config:
+          type: array
+          items:
+            $ref: '#/components/schemas/Config'
+    SaasxlResponseDTOObject:
       type: object
       properties:
         success:
@@ -821,7 +664,50 @@ components:
         error:
           $ref: '#/components/schemas/ErrorMessage'
         data:
-          $ref: '#/components/schemas/UserWorkFlowHistoryDTO'
+          type: object
+    RuleDTO:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleDTO'
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    WorkFlowHistory:
+      type: object
+      properties:
+        workFlowId:
+          type: integer
+          format: int64
+        workFlowTitle:
+          type: string
+        workFlowDesc:
+          type: string
+        createdBy:
+          type: string
+        workFlowStatus:
+          type: string
+        lastTimeExecutedAt:
+          type: integer
+          format: int64
+        workFlowExecutionStatus:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+        requestId:
+          type: string
     WorkFlowNodeExecutionDTO:
       type: object
       properties:
@@ -840,6 +726,106 @@ components:
         endTimeInMillis:
           type: integer
           format: int64
+    TriggerDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        tableId:
+          type: string
+        tableName:
+          type: string
+        data:
+          type: object
+        subscribeURL:
+          type: string
+    SaasxlResponseDTOWorkFlowDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkFlowDTO'
+    SaasxlResponseDTOUserWorkFlowHistoryDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/UserWorkFlowHistoryDTO'
+    ParametersDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    Rule:
+      type: object
+      properties:
+        field:
+          type: string
+        value:
+          type: object
+        operator:
+          type: string
+        combinator:
+          type: string
+        not:
+          type: boolean
+        valueSource:
+          type: string
+    IFNodeContext:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+    SaasxlResponseDTOWorkFlowExecutionDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkFlowExecutionDTO'
+    SaasxlResponseDTOWorkFlowResponseDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          $ref: '#/components/schemas/WorkFlowResponseDTO'
     WorkFlowExecutionDTO:
       type: object
       properties:
@@ -867,124 +853,74 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkFlowNodeExecutionDTO'
-    SaasxlResponseDTOWorkFlowDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/WorkFlowDTO'
-    CredentialDTO:
+    NodeDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        companyId:
-          type: integer
-          format: int64
-        type:
-          type: string
-          enum:
-          - QUERY_PARAM
-          - BASIC_AUTH
-          - AUTHORIZATION
-          - ACCESS_TOKEN
-          - BEARER
-          - API_KEY
-          - OAUTH2
-        config:
-          type: array
-          items:
-            $ref: '#/components/schemas/Config'
-    WaitNodeContext:
-      type: object
-      properties:
-        waitTimeInSeconds:
-          type: integer
-          format: int64
-    SaasxlResponseDTOWorkFlowResponseDTO:
-      type: object
-      properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          $ref: '#/components/schemas/WorkFlowResponseDTO'
-    TriggerDTO:
-      type: object
-      properties:
         name:
           type: string
-        tableId:
+        nodeType:
           type: string
-        tableName:
+        relationToPreviousNode:
           type: string
-        data:
+        rule:
+          $ref: '#/components/schemas/RuleDTO'
+        ifNodeContext:
+          $ref: '#/components/schemas/IFNodeContext'
+        triggerNodeContext:
+          $ref: '#/components/schemas/WorkFlowTriggerDTO'
+        waitNodeContext:
+          $ref: '#/components/schemas/WaitNodeContext'
+        connectorInfo:
+          $ref: '#/components/schemas/ConnectorInfoDTO'
+        status:
+          type: string
+        startTimeInMillis:
+          type: integer
+          format: int64
+        endTimeInMillis:
+          type: integer
+          format: int64
+        specificType:
+          type: string
+        uiMetadata:
           type: object
-        subscribeURL:
-          type: string
-    WorkFlowHistory:
-      type: object
-      properties:
-        workFlowId:
-          type: integer
-          format: int64
-        workFlowTitle:
-          type: string
-        workFlowDesc:
-          type: string
-        createdBy:
-          type: string
-        workFlowStatus:
-          type: string
-        lastTimeExecutedAt:
-          type: integer
-          format: int64
-        workFlowExecutionStatus:
-          type: string
-        createdAt:
-          type: integer
-          format: int64
-        requestId:
-          type: string
-    Rule:
-      type: object
-      properties:
-        field:
-          type: string
-        value:
-          type: object
-        operator:
-          type: string
-        combinator:
-          type: string
-        not:
-          type: boolean
-        valueSource:
-          type: string
-    ConnectionDTO:
-      type: object
-      properties:
-        node:
-          type: string
-        nextNodes:
+          additionalProperties:
+            type: object
+        dataContext:
           type: array
           items:
-            type: string
+            type: object
+            additionalProperties:
+              type: object
+    WorkFlowResponseDTO:
+      type: object
+      properties:
+        requestId:
+          type: string
+    ConnectorInfoDTO:
+      type: object
+      properties:
+        baseUrl:
+          type: string
+        connectorType:
+          type: string
+        path:
+          type: string
+        method:
+          type: string
+        credential:
+          $ref: '#/components/schemas/CredentialDTO'
+        configJsFn:
+          type: string
+        contentType:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParametersDTO'
     ErrorMessage:
       type: object
       properties:
@@ -998,6 +934,70 @@ components:
         details:
           type: object
         errorCodes:
+          type: array
+          items:
+            type: string
+    UserWorkFlowHistoryDTO:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        workspaceId:
+          type: string
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkFlowHistory'
+    Config:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    WaitNodeContext:
+      type: object
+      properties:
+        waitTimeInSeconds:
+          type: integer
+          format: int64
+    ConnectionDTO:
+      type: object
+      properties:
+        node:
+          type: string
+        nextNodes:
+          type: array
+          items:
+            type: string
+    WorkFlowTriggerDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userWorkFlowId:
+          type: integer
+          format: int64
+        tableId:
+          type: string
+        tableName:
+          type: string
+        types:
+          type: array
+          items:
+            type: string
+        triggerName:
+          type: string
+        rule:
+          $ref: '#/components/schemas/RuleDTO'
+        columns:
           type: array
           items:
             type: string

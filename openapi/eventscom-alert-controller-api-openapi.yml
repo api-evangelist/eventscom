@@ -444,80 +444,66 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AlertElementLink:
+    ErrorMessage:
       type: object
       properties:
-        alertId:
-          type: string
-        elementId:
-          type: string
-        elementType:
-          type: string
-    AlertExecutionMetadata:
-      type: object
-      properties:
-        thresholdOperand:
-          type: string
-          enum:
-          - EQUALS
-          - NOT_EQUALS
-          - GREATER_THAN
-          - GREATER_THAN_EQUALS
-          - LESS_THAN
-          - LESS_THAN_EQUALS
-          - BETWEEN
-          - PERCENTAGE_CHANGE
-          - ABSOLUTE_CHANGE
-          - PERCENTAGE_INCREASE_BY
-          - PERCENTAGE_DECREASE_BY
-          - IN
-          - NOT_IN
-          - CONTAINS
-          - DOES_NOT_CONTAINS
-          - NOT_BETWEEN
-          - STARTS_WITH
-        thresholdValue:
-          type: number
-          format: double
-        executionStatus:
-          type: string
-        errorMessage:
-          type: string
-        triggerMessage:
-          type: string
-        executionTimeMs:
+        statusCode:
           type: integer
-          format: int64
-        dataSource:
+          format: int32
+        requestId:
           type: string
-        tableName:
-          type: string
-        columnName:
-          type: string
-        aggregationType:
-          type: string
-        filters:
-          type: string
-        cronExpression:
-          type: string
-        jobKey:
-          type: string
-        jobGroup:
-          type: string
-    SaasxlResponseDTOObject:
+        message:
+          type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    AlertHistoryDTO:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
-          type: string
-        date:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
           format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
-          type: object
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        alertId:
+          type: string
+        alertName:
+          type: string
+        executedAt:
+          type: string
+          format: date-time
+        value:
+          type: number
+          format: double
+        comparisonValue:
+          type: number
+          format: double
+        query:
+          type: string
+        executionMetadata:
+          $ref: '#/components/schemas/AlertExecutionMetadata'
+        thresholdMet:
+          type: boolean
+        notificationSent:
+          type: boolean
+        alertDescription:
+          type: string
+        alertStatus:
+          type: string
+        alertSourceType:
+          type: string
+        alertSourceId:
+          type: string
     UserDTO:
       type: object
       properties:
@@ -577,6 +563,71 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
+    AlertExecutionMetadata:
+      type: object
+      properties:
+        thresholdOperand:
+          type: string
+          enum:
+          - EQUALS
+          - NOT_EQUALS
+          - GREATER_THAN
+          - GREATER_THAN_EQUALS
+          - LESS_THAN
+          - LESS_THAN_EQUALS
+          - BETWEEN
+          - PERCENTAGE_CHANGE
+          - ABSOLUTE_CHANGE
+          - PERCENTAGE_INCREASE_BY
+          - PERCENTAGE_DECREASE_BY
+          - IN
+          - NOT_IN
+          - CONTAINS
+          - DOES_NOT_CONTAINS
+          - NOT_BETWEEN
+          - STARTS_WITH
+        thresholdValue:
+          type: number
+          format: double
+        executionStatus:
+          type: string
+        errorMessage:
+          type: string
+        triggerMessage:
+          type: string
+        executionTimeMs:
+          type: integer
+          format: int64
+        dataSource:
+          type: string
+        tableName:
+          type: string
+        columnName:
+          type: string
+        aggregationType:
+          type: string
+        filters:
+          type: string
+        cronExpression:
+          type: string
+        jobKey:
+          type: string
+        jobGroup:
+          type: string
     AlertDTO:
       type: object
       properties:
@@ -636,66 +687,15 @@ components:
             $ref: '#/components/schemas/AlertElementLink'
         lastExecutedHistory:
           $ref: '#/components/schemas/AlertHistoryDTO'
-    AlertHistoryDTO:
+    AlertElementLink:
       type: object
       properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
         alertId:
           type: string
-        alertName:
+        elementId:
           type: string
-        executedAt:
+        elementType:
           type: string
-          format: date-time
-        value:
-          type: number
-          format: double
-        comparisonValue:
-          type: number
-          format: double
-        query:
-          type: string
-        executionMetadata:
-          $ref: '#/components/schemas/AlertExecutionMetadata'
-        thresholdMet:
-          type: boolean
-        notificationSent:
-          type: boolean
-        alertDescription:
-          type: string
-        alertStatus:
-          type: string
-        alertSourceType:
-          type: string
-        alertSourceId:
-          type: string
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
   securitySchemes:
     s_jwt:
       type: http

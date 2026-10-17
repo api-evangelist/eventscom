@@ -384,45 +384,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
-    CommentDTO:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/UserDTO'
-        modifiedBy:
-          $ref: '#/components/schemas/UserDTO'
-        createDate:
-          type: string
-          format: date-time
-        modiDate:
-          type: string
-          format: date-time
-        id:
-          type: string
-        comment:
-          type: string
-        primaryElementType:
-          type: string
-        primaryElementId:
-          type: string
-        secondaryElementType:
-          type: string
-        secondaryElementId:
-          type: string
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
     UserDTO:
       type: object
       properties:
@@ -482,6 +459,20 @@ components:
           type: string
         thirdPartyUser:
           type: boolean
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
     CommentCountDTO:
       type: object
       properties:
@@ -496,22 +487,31 @@ components:
             additionalProperties:
               type: integer
               format: int64
-    ErrorMessage:
+    CommentDTO:
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
+        createdBy:
+          $ref: '#/components/schemas/UserDTO'
+        modifiedBy:
+          $ref: '#/components/schemas/UserDTO'
+        createDate:
           type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
+          format: date-time
+        modiDate:
+          type: string
+          format: date-time
+        id:
+          type: string
+        comment:
+          type: string
+        primaryElementType:
+          type: string
+        primaryElementId:
+          type: string
+        secondaryElementType:
+          type: string
+        secondaryElementId:
+          type: string
   securitySchemes:
     s_jwt:
       type: http

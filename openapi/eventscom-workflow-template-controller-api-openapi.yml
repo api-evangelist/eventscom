@@ -501,20 +501,40 @@ paths:
                 $ref: '#/components/schemas/RunWorkflowTemplateResponse'
 components:
   schemas:
-    SaasxlResponseDTOObject:
+    ErrorMessage:
       type: object
       properties:
-        success:
-          type: boolean
-        version:
+        statusCode:
+          type: integer
+          format: int32
+        requestId:
           type: string
-        date:
-          type: string
-          format: date-time
-        error:
-          $ref: '#/components/schemas/ErrorMessage'
-        data:
+        message:
           type: object
+        details:
+          type: object
+        errorCodes:
+          type: array
+          items:
+            type: string
+    RunWorkflowTemplateRequest:
+      type: object
+      properties:
+        inputJson:
+          type: object
+          additionalProperties:
+            type: object
+    RunWorkflowTemplateResponse:
+      type: object
+      properties:
+        workflowId:
+          type: string
+        workflowName:
+          type: string
+        resolvedDefinition:
+          type: object
+          additionalProperties:
+            type: object
     WorkflowTemplateResponse:
       type: object
       properties:
@@ -535,40 +555,6 @@ components:
         modiDate:
           type: string
           format: date-time
-    RunWorkflowTemplateRequest:
-      type: object
-      properties:
-        inputJson:
-          type: object
-          additionalProperties:
-            type: object
-    RunWorkflowTemplateResponse:
-      type: object
-      properties:
-        workflowId:
-          type: string
-        workflowName:
-          type: string
-        resolvedDefinition:
-          type: object
-          additionalProperties:
-            type: object
-    ErrorMessage:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        requestId:
-          type: string
-        message:
-          type: object
-        details:
-          type: object
-        errorCodes:
-          type: array
-          items:
-            type: string
     WorkflowTemplateRequest:
       type: object
       properties:
@@ -580,6 +566,20 @@ components:
           type: object
           additionalProperties:
             type: object
+    SaasxlResponseDTOObject:
+      type: object
+      properties:
+        success:
+          type: boolean
+        version:
+          type: string
+        date:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        data:
+          type: object
   securitySchemes:
     s_jwt:
       type: http
